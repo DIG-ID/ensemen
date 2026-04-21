@@ -18,7 +18,10 @@ module.exports = {
         // wider: '.06em',
       },
       colors: {
-        'brand-blue': '#1a3c5e',
+        'brown': '#B39E87',
+        'off-white': '#F1F2ED',
+        'wine': '#874644',
+        'sand': '#E8D4B3',
       },
       transitionTimingFunction: {
         'out-expo': 'cubic-bezier(0.16, 1, 0.3, 1)',
