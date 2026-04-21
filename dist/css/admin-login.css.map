@@ -1,0 +1,1 @@
+{"version":3,"file":"css/admin-login.css","mappings":"AAEQ;EACI;EACA;AADZ,C","sources":["webpack://starter-theme/./assets/sass/admin-login.sass"],"sourcesContent":[".login\r\n    h1.wp-login-logo\r\n        a\r\n            height: 100px\r\n            width: 100px"],"names":[],"sourceRoot":""}
