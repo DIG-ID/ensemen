@@ -2,7 +2,7 @@
 /**
  * The Section for the Footer Default Template.
  *
- * @package digid
+ * @package ensemen
  * @subpackage Section
  * @since 1.0.0
  */

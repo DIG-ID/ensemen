@@ -31,7 +31,7 @@ mix
 
   .browserSync({
     proxy: {
-      target: "https://http://ensemen.digid/",
+      target: "http://ensemen.digid/",
       ws: true,
     },
     https: true,

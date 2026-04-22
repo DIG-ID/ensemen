@@ -3,7 +3,7 @@
  *
  * Template Name: Home Template
  *
- * @package digid
+ * @package ensemen
  * @subpackage Template
  * @since 1.0.0
  */

@@ -6,7 +6,7 @@
 /**
  * Removes default dashboard widgets to keep the admin clean.
  */
-function digid_disable_default_dashboard_widgets() {
+function ensemen_disable_default_dashboard_widgets() {
 	global $wp_meta_boxes;
 	unset( $wp_meta_boxes['dashboard']['normal']['core']['dashboard_activity'] );
 	unset( $wp_meta_boxes['dashboard']['normal']['core']['dashboard_right_now'] );
@@ -19,44 +19,44 @@ function digid_disable_default_dashboard_widgets() {
 	unset( $wp_meta_boxes['dashboard']['side']['core']['dashboard_recent_drafts'] );
 }
 
-add_action( 'wp_dashboard_setup', 'digid_disable_default_dashboard_widgets', 999 );
+add_action( 'wp_dashboard_setup', 'ensemen_disable_default_dashboard_widgets', 999 );
 
 /**
  * Enqueues the custom login page stylesheet.
  */
-function digid_login_css() {
+function ensemen_login_css() {
 	$theme_version = wp_get_theme()->get( 'Version' );
 	wp_enqueue_style( 'admin-login-css', get_theme_file_uri( '/dist/css/admin-login.css' ), array(), $theme_version );
 }
 
-add_action( 'login_enqueue_scripts', 'digid_login_css', 10 );
+add_action( 'login_enqueue_scripts', 'ensemen_login_css', 10 );
 
 /**
  * Changes the login logo link to point to the site homepage.
  *
  * @return string
  */
-function digid_login_url() {
+function ensemen_login_url() {
 	return home_url();
 }
 
-add_filter( 'login_headerurl', 'digid_login_url' );
+add_filter( 'login_headerurl', 'ensemen_login_url' );
 
 /**
  * Changes the login logo alt text to the site name.
  *
  * @return string
  */
-function digid_login_title() {
+function ensemen_login_title() {
 	return get_option( 'blogname' );
 }
 
-add_filter( 'login_headertext', 'digid_login_title' );
+add_filter( 'login_headertext', 'ensemen_login_title' );
 
 /**
  * Outputs the custom logo image on the login page via inline CSS.
  */
-function digid_login_logo() {
+function ensemen_login_logo() {
 	echo '<style type="text/css">
 	h1 a {
 		background-image: url(' . esc_url( get_template_directory_uri() ) . '/assets/svg/logo.svg) !important;
@@ -64,27 +64,27 @@ function digid_login_logo() {
 	</style>';
 }
 
-add_action( 'login_head', 'digid_login_logo' );
+add_action( 'login_head', 'ensemen_login_logo' );
 
 /**
  * Replaces the admin footer text with the agency credit.
  */
-function digid_custom_admin_footer() {
-	_e( '<span id="footer-thankyou">Developed by <a href="https://dig.id" target="_blank">dig.id</a></span>.', 'digid' );
+function ensemen_custom_admin_footer() {
+	_e( '<span id="footer-thankyou">Developed by <a href="https://dig.id" target="_blank">dig.id</a></span>.', 'ensemen' );
 }
 
-add_filter( 'admin_footer_text', 'digid_custom_admin_footer' );
+add_filter( 'admin_footer_text', 'ensemen_custom_admin_footer' );
 
 /**
  * Removes the WordPress logo from the admin toolbar.
  *
  * @param WP_Admin_Bar $wp_admin_bar Admin bar instance.
  */
-function digid_remove_wp_logo( $wp_admin_bar ) {
+function ensemen_remove_wp_logo( $wp_admin_bar ) {
 	$wp_admin_bar->remove_node( 'wp-logo' );
 }
 
-add_action( 'admin_bar_menu', 'digid_remove_wp_logo', 999 );
+add_action( 'admin_bar_menu', 'ensemen_remove_wp_logo', 999 );
 
 /**
  * Allows SVG uploads for administrator and editor users.

@@ -2,7 +2,7 @@
 /**
  * Hero Section in the Home Page Template.
  *
- * @package digid
+ * @package ensemen
  * @subpackage Section
  * @since 1.0.0
  */

@@ -2,17 +2,17 @@
 /**
  * Theme functions and definitions.
  *
- * @package digid
+ * @package ensemen
  */
 
 // Font provider configuration — set per project.
 // Options: 'google' | 'adobe' | 'none'
-define( 'DIGID_FONT_PROVIDER', 'none' );
-define( 'DIGID_GOOGLE_FONTS_URL', 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap' );
-define( 'DIGID_ADOBE_FONTS_ID', '' ); // Typekit kit ID, e.g. 'abc1234'
+define( 'ensemen_FONT_PROVIDER', 'none' );
+define( 'ensemen_GOOGLE_FONTS_URL', 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap' );
+define( 'ensemen_ADOBE_FONTS_ID', '' ); // Typekit kit ID, e.g. 'abc1234'
 
 // Google Maps API key — set per project. Leave empty to disable.
-define( 'DIGID_GOOGLE_MAPS_API_KEY', '' );
+define( 'ensemen_GOOGLE_MAPS_API_KEY', '' );
 
 // Theme setup: supports, nav menus, sidebars, plugin filters.
 require get_template_directory() . '/inc/theme-setup.php';

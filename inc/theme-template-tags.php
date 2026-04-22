@@ -6,52 +6,52 @@
 /**
  * Opens the main content wrapper.
  */
-function digid_before_main_content() {
+function ensemen_before_main_content() {
 	?>
 	<main id="main-content" class="main-content">
 	<?php
 }
 
-add_action( 'before_main_content', 'digid_before_main_content' );
+add_action( 'before_main_content', 'ensemen_before_main_content' );
 
 /**
  * Closes the main content wrapper.
  */
-function digid_after_main_content() {
+function ensemen_after_main_content() {
 	?>
 	</main><!-- #main-content -->
 	<?php
 }
 
-add_action( 'after_main_content', 'digid_after_main_content' );
+add_action( 'after_main_content', 'ensemen_after_main_content' );
 
 /**
  * Opens the post article wrapper.
  */
-function digid_before_post_content() {
+function ensemen_before_post_content() {
 	?>
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<?php
 }
 
-add_action( 'before_post_content', 'digid_before_post_content' );
+add_action( 'before_post_content', 'ensemen_before_post_content' );
 
 /**
  * Closes the post article wrapper.
  */
-function digid_after_post_content() {
+function ensemen_after_post_content() {
 	?>
 	</article><!-- #article -->
 	<?php
 }
 
-add_action( 'after_post_content', 'digid_after_post_content' );
+add_action( 'after_post_content', 'ensemen_after_post_content' );
 
 /**
  * Outputs the site logo.
  * Uses the WP custom logo if set; falls back to the site name as a link.
  */
-function digid_logo() {
+function ensemen_logo() {
 	if ( has_custom_logo() ) {
 		the_custom_logo();
 	} else {
@@ -63,24 +63,24 @@ function digid_logo() {
 	}
 }
 
-add_action( 'theme_logo', 'digid_logo' );
+add_action( 'theme_logo', 'ensemen_logo' );
 
 /**
  * Outputs the Yoast breadcrumbs.
  */
-function digid_breadcrumbs() {
+function ensemen_breadcrumbs() {
 	if ( function_exists( 'yoast_breadcrumb' ) ) {
 		yoast_breadcrumb( '<p id="breadcrumbs">', '</p>' );
 	}
 }
 
-add_action( 'breadcrumbs', 'digid_breadcrumbs' );
+add_action( 'breadcrumbs', 'ensemen_breadcrumbs' );
 
 /**
  * Outputs social media links from ACF Options page.
  * URLs are managed in the WP admin under Options > Socials.
  */
-function digid_socials() {
+function ensemen_socials() {
 
 	$socials = array(
 		'facebook'  => array(
@@ -120,4 +120,4 @@ function digid_socials() {
 	echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 }
 
-add_action( 'socials', 'digid_socials' );
+add_action( 'socials', 'ensemen_socials' );
