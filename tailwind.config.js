@@ -8,8 +8,8 @@ module.exports = {
   ],
   theme: {
     fontFamily: {
-      primary: ['Inter', 'sans-serif'],   // replace per project
-      secondary: ['Inter', 'sans-serif'], // replace per project
+      primary: ['Open Sans', 'sans-serif'],
+      secondary: ['Bodoni Moda', 'serif'],
     },
 
     extend: {
