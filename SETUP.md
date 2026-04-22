@@ -28,7 +28,7 @@ Run these replacements in order (VS Code: `Ctrl+Shift+H`, check "Match Case"):
 
 ```css
 Theme Name:  Project Name
-Theme URI:   https://project-name.com
+Theme URI:   #
 Author:      dig.id
 Author URI:  https://dig.id
 Description: Custom WordPress theme for Project Name
