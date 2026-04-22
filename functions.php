@@ -28,3 +28,6 @@ require get_template_directory() . '/inc/theme-template-tags.php';
 
 // Helper/utility functions.
 require get_template_directory() . '/inc/helpers.php';
+
+// Performance optimizations.
+require get_template_directory() . '/inc/performance.php';

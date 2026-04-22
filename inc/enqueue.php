@@ -117,12 +117,6 @@ add_action( 'wp_enqueue_scripts', 'ensemen_enqueue_google_maps' );
  */
 function ensemen_enqueue_assets() {
 
-	// Remove Gutenberg block styles if not using the block editor on the frontend.
-	wp_dequeue_style( 'wp-block-library' );
-	wp_dequeue_style( 'wp-block-library-theme' );
-	wp_dequeue_style( 'wc-blocks-style' );
-	wp_dequeue_style( 'global-styles' );
-
 	// Get the theme data.
 	$the_theme     = wp_get_theme();
 	$theme_version = $the_theme->get( 'Version' );
