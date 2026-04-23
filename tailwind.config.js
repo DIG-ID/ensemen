@@ -8,8 +8,8 @@ module.exports = {
   ],
   theme: {
     fontFamily: {
-      primary: ['Open Sans', 'sans-serif'],
-      secondary: ['Bodoni Moda', 'serif'],
+      bodoni: ['bodoni-moda', 'serif'],
+      'open-sans': ['open-sans', 'sans-serif'],
     },
 
     extend: {

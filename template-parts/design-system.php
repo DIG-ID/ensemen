@@ -1,4 +1,4 @@
-<section class="design-system pb-16">
+<section class="design-system pb-16 bg-white">
 	<div class="theme-container">
 		<h1 class="font-secondary text-[58px] mb-12">Design System</h1>
 		<div class="theme-grid">
@@ -55,33 +55,26 @@
 						<a>Menu default</a>
 					</div>
 				</div>
-				<div class="flex flex-col gap-4 items-start">
+				<div class="flex flex-col gap-4 items-start bg-sand">
 					<a class="btn btn-primary">Primary Button</a>
-					<a class="btn btn-secondary">Secondary Button</a>
-					<a class="btn btn-big-button">Big Button</a>
+					<a class="btn btn-reservation">Reservation Button</a>
+					<a class="btn btn-footer">Footer Button</a>
 				</div>
 			</div>
 
 			<!-- Icons -->
-			<div class="col-span-2 md:col-span-3 xl:col-span-3 mt-12 border-l border-wine px-8">
+			<div class="col-span-2 md:col-span-3 xl:col-span-3 mt-12 border-l bg-wine border-wine px-8">
 				<h2 class="text-wine mb-6 font-primary">Icons</h2>
 				<div class="flex flex-wrap gap-4">
-					<img class="inline-block" src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/assets/svgs/calendar.svg" alt="Calendar" title="Calendar" />
-					<img class="inline-block" src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/assets/svgs/cart.svg" alt="Cart" title="Cart" />
-					<img class="inline-block" src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/assets/svgs/clock.svg" alt="Clock" title="Clock" />
-					<img class="inline-block" src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/assets/svgs/email.svg" alt="Email" title="Email" />
-					<img class="inline-block" src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/assets/svgs/instagram.svg" alt="Instagram" title="Instagram" />
-					<img class="inline-block" src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/assets/svgs/location.svg" alt="Location" title="Location" />
-					<img class="inline-block" src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/assets/svgs/user.svg" alt="User" title="User" />
-					<img class="inline-block" src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/assets/svgs/menu-burger.svg" alt="Menu" title="Menu burger" />
-					<img class="inline-block" src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/assets/svgs/phone.svg" alt="Phone" title="Phone" />
-					<img class="inline-block" src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/assets/svgs/icon1.svg" alt="Icon 1" title="Icon 1" />
-					<img class="inline-block" src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/assets/svgs/icon2.svg" alt="Icon 2" title="Icon 2" />
-					<img class="inline-block" src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/assets/svgs/icon3.svg" alt="Icon 3" title="Icon 3" />
-					<img class="inline-block" src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/assets/svgs/sun-and-birds.svg" alt="Sun and birds" title="Sun and birds" />
+					<img class="inline-block" src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/assets/svg/chair.svg" alt="Chair" title="Chair" />
+					<img class="inline-block" src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/assets/svg/multimedia.svg" alt="Multimedia" title="Multimedia" />
+					<img class="inline-block" src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/assets/svg/people.svg" alt="People" title="People" />
+					<img class="inline-block" src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/assets/svg/arrow.svg" alt="Arrow" title="Arrow" />
+					<img class="inline-block bg-off-white" src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/assets/svg/instagram.svg" alt="Instagram" title="Instagram" />
+					<img class="inline-block bg-off-white" src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/assets/svg/facebook.svg" alt="Facebook" title="Facebook" />
 				</div>
 			</div>
-
+<?php /* ?>
 			<!-- Logo -->
 			<div class="col-span-2 md:col-span-3 xl:col-span-6 mt-12 border-l border-wine px-8">
 				<h2 class="text-wine mb-6 font-primary">Logo</h2>
@@ -96,7 +89,7 @@
 				endif;
 				?>
 			</div>
-
+<?php */ ?>
 		</div>
 	</div>
 </section>

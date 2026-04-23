@@ -15,12 +15,18 @@ import './gsap.js';
 import { debounce, isTouchDevice } from './utils/helpers.js';
 
 // =============================================================================
+// Components
+// =============================================================================
+import { initPrimaryButtons, initHeaderButtons, initReservationButtons, initFooterButtons } from './buttons.js';
+
+// =============================================================================
 // DOM ready
 // =============================================================================
 document.addEventListener('DOMContentLoaded', () => {
 
-  // ---------------------------------------------------
-  // Project-specific initialisation goes here
-  // ---------------------------------------------------
+  initPrimaryButtons();
+  initHeaderButtons();
+  initReservationButtons();
+  initFooterButtons();
 
 });

@@ -66,6 +66,34 @@ function ensemen_logo() {
 add_action( 'theme_logo', 'ensemen_logo' );
 
 /**
+ * Outputs the white site logo from the ACF `theme_logo_white` options field.
+ */
+function ensemen_logo_white() {
+	$general = get_field( 'general', 'option' );
+	$logo_id = $general['theme_logo_white'] ?? null;
+	if ( ! $logo_id ) {
+		return;
+	}
+	?>
+	<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="site-logo site-logo--white" rel="home">
+		<?php
+		echo wp_get_attachment_image(
+			$logo_id,
+			'full',
+			false,
+			array(
+				'class'   => 'w-full h-auto',
+				'loading' => 'eager',
+			)
+		);
+		?>
+	</a>
+	<?php
+}
+
+add_action( 'theme_logo_white', 'ensemen_logo_white' );
+
+/**
  * Outputs the Yoast breadcrumbs.
  */
 function ensemen_breadcrumbs() {

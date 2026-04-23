@@ -13,7 +13,12 @@ if ( have_posts() ) :
 	while ( have_posts() ) :
 		the_post();
 		do_action( 'before_main_content' );
-			get_template_part( 'template-parts/pages/home/hero' );			
+			get_template_part( 'template-parts/pages/home/hero' );
+			get_template_part( 'template-parts/pages/home/presentation' );		
+			get_template_part( 'template-parts/pages/home/meals' );				
+			get_template_part( 'template-parts/pages/home/weekly' );			
+			get_template_part( 'template-parts/pages/home/celebrate' );		
+			get_template_part( 'template-parts/pages/home/ustria-ensemen' );			
 		do_action( 'after_main_content' );
 	endwhile;
 endif;

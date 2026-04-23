@@ -182,6 +182,21 @@ add_action(
 	}
 );
 
+// Register ACF Options pages for theme-wide settings (logo, header, socials, etc.).
+if ( function_exists( 'acf_add_options_page' ) ) {
+	acf_add_options_page(
+		array(
+			'page_title' => __( 'Theme Settings', 'ensemen' ),
+			'menu_title' => __( 'Theme Settings', 'ensemen' ),
+			'menu_slug'  => 'theme-settings',
+			'capability' => 'edit_posts',
+			'redirect'   => false,
+			'icon_url'   => 'dashicons-admin-generic',
+			'position'   => 2,
+		)
+	);
+}
+
 // Redirect attachment pages to the parent post or homepage.
 add_action(
 	'template_redirect',

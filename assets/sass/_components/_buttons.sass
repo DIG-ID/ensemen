@@ -1,0 +1,31 @@
+.btn
+  @apply inline-flex items-center justify-center relative text-[13px] font-semibold tracking-[0.12em] uppercase no-underline cursor-pointer
+  font-family: var(--font-primary)
+  transition: background-color var(--transition-base), color var(--transition-base)
+
+.btn-primary
+  @apply px-9 py-2.5 bg-transparent text-off-white border-none rounded text-[13px] font-bold
+  transition: background-color 2.5s cubic-bezier(0.16, 1, 0.3, 1), color 2.5s cubic-bezier(0.16, 1, 0.3, 1)
+  &:hover
+    @apply bg-wine text-off-white
+  &:active
+    @apply bg-off-white text-wine
+    transition: background-color 1.5s cubic-bezier(0.16, 1, 0.3, 1), color 1.5s cubic-bezier(0.16, 1, 0.3, 1)
+
+.btn-header
+  @apply px-9 py-1 bg-transparent text-off-white border-none rounded text-[13px] font-bold
+  transition: background-color 2.5s cubic-bezier(0.16, 1, 0.3, 1), color 2.5s cubic-bezier(0.16, 1, 0.3, 1)
+  &:hover
+    @apply bg-wine text-off-white
+  &:active
+    @apply bg-off-white text-wine
+    transition: background-color 1.5s cubic-bezier(0.16, 1, 0.3, 1), color 1.5s cubic-bezier(0.16, 1, 0.3, 1)
+
+.btn-reservation
+  @apply px-[67px] py-5 bg-transparent text-wine border-none rounded text-[15px] leading-8 font-bold
+  transition: background-color 2.5s cubic-bezier(0.16, 1, 0.3, 1), color 2.5s cubic-bezier(0.16, 1, 0.3, 1)
+  &:hover
+    @apply bg-off-white text-wine
+
+.btn-footer
+  @apply relative inline-block px-[26px] py-2 bg-transparent text-wine border-none rounded font-open-sans text-[20px] font-bold leading-8 tracking-[0.5px] text-center normal-case no-underline whitespace-nowrap

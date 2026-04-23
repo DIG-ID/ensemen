@@ -1,1 +1,41 @@
 // Footer styles
+
+// Mailchimp newsletter form (rendered by MC4WP with class .mc4wp-form)
+.mc4wp-form
+  .mc4wp-form-fields
+    @apply flex flex-col gap-12
+
+  .form-field
+    @apply relative m-0
+
+    input[type="text"],
+    input[type="email"]
+      @apply block w-full py-2 px-3 bg-transparent border-0 border-b-[3px] border-wine rounded-none text-wine font-open-sans text-base leading-8 outline-none
+      @apply transition-[background-color,color] duration-[600ms] ease-out-expo
+
+      &::placeholder
+        @apply text-wine opacity-100
+
+      &:focus
+        @apply bg-wine text-off-white caret-off-white
+
+        &::placeholder
+          @apply text-off-white opacity-70
+
+  .form-submit
+    @apply m-0 pt-16 text-right
+
+    button[type="submit"]
+      @apply relative overflow-hidden inline-block py-2.5 px-9 bg-transparent border-2 border-wine rounded text-wine font-open-sans text-[15px] font-bold leading-8 tracking-[0.5px] uppercase no-underline cursor-pointer
+      @apply transition-colors duration-[600ms] ease-out-expo
+
+      // Sweep-fill bg from left to right on hover
+      &::before
+        content: ''
+        @apply absolute inset-0 bg-wine scale-x-0 origin-left transition-transform duration-[600ms] ease-out-expo
+
+      &:hover
+        @apply text-off-white
+
+        &::before
+          @apply scale-x-100
