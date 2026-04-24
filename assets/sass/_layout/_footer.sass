@@ -25,6 +25,13 @@
   .form-submit
     @apply m-0 pt-16 text-right
 
+    // Mobile: button spans the full width of its column
+    @media (max-width: 767px)
+      @apply text-center
+
+      button[type="submit"]
+        @apply w-full
+
     button[type="submit"]
       @apply relative overflow-hidden inline-block py-2.5 px-9 bg-transparent border-2 border-wine rounded text-wine font-open-sans text-[15px] font-bold leading-8 tracking-[0.5px] uppercase no-underline cursor-pointer
       @apply transition-colors duration-[600ms] ease-out-expo

@@ -9,11 +9,11 @@
  
 
 ?>
-<section id="section-presentation" class="section-presentation bg-brown xl:pt-80 xl:pb-72">
+<section id="section-presentation" class="section-presentation bg-brown pb-20 md:pt-[100px] md:pb-[100px] xl:pt-80 xl:pb-72">
 	<div class="section-presentation__border xl:px-2 ">
-		<div class="py-56 text-center">
-				<h2 class="title-secondary text-off-white"><?php the_field( 'presentation_title' ); ?></h2>
-				<p class="text-off-white pt-10 max-w-[1053px] mx-auto"><?php the_field( 'presentation_description' ); ?></p>
+		<div class="py-[147px] md:py-[214px] text-center">
+				<h2 class="title-secondary text-off-white max-w-[295px] md:max-w-[587px] mx-auto"><?php the_field( 'presentation_title' ); ?></h2>
+				<p class="text-off-white font-open-sans text-[18px] leading-[30px] tracking-[0.5px] pt-[10px] md:pt-[30px] max-w-[292px] md:max-w-[460px] xl:max-w-[1053px] mx-auto"><?php the_field( 'presentation_description' ); ?></p>
 		</div>
 	</div>
 </section>
