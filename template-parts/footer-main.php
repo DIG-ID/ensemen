@@ -36,11 +36,11 @@ $copyright_positions = array(
 ?>
 
 <footer class="footer-main">
-	<div class="footer-main__content bg-sand pt-[32px] pb-[50px] md:pt-[51px] md:pb-[115px] xl:pt-0 xl:pb-[143px]">
+	<div class="footer-main__content bg-sand pt-8 pb-12 md:pt-12 md:pb-28 xl:pt-0 xl:pb-32">
 		<div class="theme-container">
 
 			<?php if ( $logo_id ) : ?>
-				<div class="footer-main__logo flex justify-center pb-[80px] md:pb-[139px] xl:pt-[60px] xl:pb-36">
+				<div class="footer-main__logo flex justify-center pb-[80px] md:pb-[139px] xl:pt-[60px] xl:pb-28">
 					<?php
 					echo wp_get_attachment_image(
 						$logo_id,
@@ -59,10 +59,10 @@ $copyright_positions = array(
 
 				<!-- Mobile + Tablet -->
 				<div class="footer-main__kontakt col-span-2 text-center md:text-left md:col-start-1 md:col-span-3 xl:hidden">
-					<h3 class="footer-title pb-12"><?php esc_html_e( 'Kontakt', 'ensemen' ); ?></h3>
+					<h3 class="footer-title pb-10"><?php esc_html_e( 'Kontakt', 'ensemen' ); ?></h3>
 
 					<?php if ( $phone ) : ?>
-						<p class="footer-content pb-12">
+						<p class="footer-content pb-8">
 							<a href="tel:<?php echo esc_attr( preg_replace( '/[^0-9+]/', '', $phone ) ); ?>"><?php echo esc_html( $phone ); ?></a>
 						</p>
 					<?php endif; ?>
@@ -75,7 +75,7 @@ $copyright_positions = array(
 				</div>
 
 				<div class="footer-main__adresse col-span-2 pt-[50px] text-center md:text-left md:pt-0 md:col-start-5 md:col-span-2 xl:hidden">
-					<h3 class="footer-title pb-12"><?php esc_html_e( 'Adresse', 'ensemen' ); ?></h3>
+					<h3 class="footer-title pb-10"><?php esc_html_e( 'Adresse', 'ensemen' ); ?></h3>
 
 					<?php if ( $address ) : ?>
 						<div class="footer-content"><?php echo wp_kses_post( wpautop( $address ) ); ?></div>
@@ -84,7 +84,7 @@ $copyright_positions = array(
 
 				<?php if ( $opening_hours ) : ?>
 					<div class="footer-main__hours col-span-2 pt-[50px] text-center md:text-left md:pt-[60px] md:col-start-1 md:col-span-4 xl:hidden">
-						<h3 class="footer-title pb-12"><?php esc_html_e( 'Öffnungszeiten', 'ensemen' ); ?></h3>
+						<h3 class="footer-title pb-10"><?php esc_html_e( 'Öffnungszeiten', 'ensemen' ); ?></h3>
 						<div class="footer-content"><?php echo wp_kses_post( wpautop( $opening_hours ) ); ?></div>
 					</div>
 				<?php endif; ?>
@@ -92,14 +92,14 @@ $copyright_positions = array(
 				<?php if ( ! empty( $menu_items ) ) : ?>
 					<nav class="footer-main__nav col-span-2 pt-[50px] md:pt-[60px] grid grid-cols-2 gap-y-[22px] md:col-span-6 md:flex md:flex-row md:justify-between md:gap-4 xl:hidden" aria-label="<?php esc_attr_e( 'Footer menu', 'ensemen' ); ?>">
 						<?php foreach ( $menu_items as $item ) : ?>
-							<a href="<?php echo esc_url( $item->url ); ?>" class="btn-footer"><?php echo esc_html( $item->title ); ?></a>
+							<a href="<?php echo esc_url( $item->url ); ?>" class="btn-footer last:hidden"><?php echo esc_html( $item->title ); ?></a>
 						<?php endforeach; ?>
 					</nav>
 				<?php endif; ?>
 
 				<div class="footer-main__newsletter col-span-2 pt-[50px] md:pt-[60px] md:col-span-6 xl:hidden">
 					<?php if ( ! empty( $newsletter['title'] ) ) : ?>
-						<h3 class="footer-title pb-12"><?php echo esc_html( $newsletter['title'] ); ?></h3>
+						<h3 class="footer-title pb-10"><?php echo esc_html( $newsletter['title'] ); ?></h3>
 					<?php endif; ?>
 
 					<?php if ( ! empty( $newsletter['newletter_shortcode'] ) ) : ?>
@@ -109,10 +109,10 @@ $copyright_positions = array(
 
 				<!-- Desktop -->
 				<div class="footer-main__kontakt hidden xl:block xl:col-start-2 xl:col-span-2">
-					<h3 class="footer-title pb-12"><?php esc_html_e( 'Kontakt', 'ensemen' ); ?></h3>
+					<h3 class="footer-title pb-10"><?php esc_html_e( 'Kontakt', 'ensemen' ); ?></h3>
 
 					<?php if ( $phone ) : ?>
-						<p class="footer-content pb-12">
+						<p class="footer-content pb-8">
 							<a href="tel:<?php echo esc_attr( preg_replace( '/[^0-9+]/', '', $phone ) ); ?>"><?php echo esc_html( $phone ); ?></a>
 						</p>
 					<?php endif; ?>
@@ -124,15 +124,15 @@ $copyright_positions = array(
 					<?php endif; ?>
 
 					<?php if ( $opening_hours ) : ?>
-						<div class="footer-main__hours xl:pt-44 xl:w-[calc(150%+10px)]">
-							<h3 class="footer-title pb-12"><?php esc_html_e( 'Öffnungszeiten', 'ensemen' ); ?></h3>
+						<div class="footer-main__hours xl:pt-28 xl:w-[calc(150%+10px)]">
+							<h3 class="footer-title pb-10"><?php esc_html_e( 'Öffnungszeiten', 'ensemen' ); ?></h3>
 							<div class="footer-content"><?php echo wp_kses_post( wpautop( $opening_hours ) ); ?></div>
 						</div>
 					<?php endif; ?>
 				</div>
 
-				<div class="footer-main__adresse hidden xl:block xl:col-start-4 xl:col-span-2 xl:pl-[105px]">
-					<h3 class="footer-title pb-12"><?php esc_html_e( 'Adresse', 'ensemen' ); ?></h3>
+				<div class="footer-main__adresse hidden xl:block xl:col-start-4 xl:col-span-3 xl:pl-24">
+					<h3 class="footer-title pb-10"><?php esc_html_e( 'Adresse', 'ensemen' ); ?></h3>
 
 					<?php if ( $address ) : ?>
 						<div class="footer-content"><?php echo wp_kses_post( wpautop( $address ) ); ?></div>
@@ -140,16 +140,16 @@ $copyright_positions = array(
 				</div>
 
 				<?php if ( ! empty( $menu_items ) ) : ?>
-					<nav class="footer-main__nav hidden xl:flex xl:col-start-7 xl:col-span-1 xl:flex-col xl:items-center xl:gap-[132px]" aria-label="<?php esc_attr_e( 'Footer menu', 'ensemen' ); ?>">
+					<nav class="footer-main__nav hidden xl:flex xl:col-start-7 xl:col-span-1 xl:flex-col xl:items-center xl:gap-32" aria-label="<?php esc_attr_e( 'Footer menu', 'ensemen' ); ?>">
 						<?php foreach ( $menu_items as $item ) : ?>
-							<a href="<?php echo esc_url( $item->url ); ?>" class="btn-footer"><?php echo esc_html( $item->title ); ?></a>
+							<a href="<?php echo esc_url( $item->url ); ?>" class="btn-footer last:hidden"><?php echo esc_html( $item->title ); ?></a>
 						<?php endforeach; ?>
 					</nav>
 				<?php endif; ?>
 
 				<div class="footer-main__newsletter hidden xl:block xl:col-start-9 xl:col-span-4">
 					<?php if ( ! empty( $newsletter['title'] ) ) : ?>
-						<h3 class="footer-title pb-12"><?php echo esc_html( $newsletter['title'] ); ?></h3>
+						<h3 class="footer-title pb-10"><?php echo esc_html( $newsletter['title'] ); ?></h3>
 					<?php endif; ?>
 
 					<?php if ( ! empty( $newsletter['newletter_shortcode'] ) ) : ?>

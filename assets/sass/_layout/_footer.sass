@@ -3,10 +3,10 @@
 // Mailchimp newsletter form (rendered by MC4WP with class .mc4wp-form)
 .mc4wp-form
   .mc4wp-form-fields
-    @apply flex flex-col gap-12
+    @apply flex flex-col gap-12 relative
 
   .form-field
-    @apply relative m-0
+    @apply relative m-0 w-1/2 xl:w-full
 
     input[type="text"],
     input[type="email"]
@@ -23,7 +23,7 @@
           @apply text-off-white opacity-70
 
   .form-submit
-    @apply m-0 pt-16 text-right
+    @apply m-0 pt-8 text-right
 
     // Mobile: button spans the full width of its column
     @media (max-width: 767px)
