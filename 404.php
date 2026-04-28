@@ -2,21 +2,39 @@
 get_header();
 do_action( 'before_main_content' );
 ?>
-<section class="page-header">
-	<div class="theme-container">
-		<h1><?php esc_html_e( '404', 'ensemen' ); ?></h1>
-		<h2><?php esc_html_e( 'Seite nicht gefunden.', 'ensemen' ); ?></h2>
+
+<section class="section-404 mt-16 mb-20 bg-sand">
+
+	<div class="theme-container flex flex-col justify-center items-center">
+
+		<div class="outer-box theme-grid w-full bg-sand border-[3px] border-wine relative rounded-[5px] pt-14 pb-16 mb-16 before:content-[''] before:absolute before:-top-[3px] before:left-[175px] before:h-[3px] before:w-[160px] xl:before:w-[160px] before:bg-sand">
+
+				<div class="col-span-2 md:col-span-5 xl:col-span-4 xl:col-start-3 flex justify-center">
+					<div class="text-wine font-bodoni italic text-[18.75rem] leading-[12.5rem] tracking-[0.0625rem] flex justify-start items-start">
+						<span class="block translate-y-0">4</span>
+						<span class="block translate-y-24">0</span>
+						<span class="block translate-y-16">4</span>
+					</div>
+				</div>
+
+				<div class="col-span-2 md:col-span-3 md:col-start-3 xl:col-span-4">
+					<h2 class="text-wine ont-bodoni text-[4.625rem] xl:text-[9.375rem] leading-[4.375rem] xl:leading-[7.8125rem] tracking-[0.0313rem]"><?php esc_html_e( 'Seite nicht gefunden.', 'ensemen' ); ?></h2>
+				</div>
+
+				<div class="col-span-2 md:col-span-3 md:col-start-3 xl:col-span-4 xl:col-start-8">
+					<p class="font-openSans text-[0.9375rem] md:text-lg xl:text-xl text-wine leading-[1.5625rem] md:leading-[1.875rem] xl:leading-[2rem] tracking-[0.0313rem] mt-12"><?php esc_html_e( 'Die von Ihnen aufgerufene Seite konnte leider nicht gefunden werden. Möglicherweise wurde sie entfernt, umbenannt oder ist vorübergehend nicht verfügbar. Bitte nutzen Sie die Navigation, um zur gewünschten Seite zu gelangen, oder kehren Sie zur Startseite zurück.', 'ensemen' ); ?></p>
+				</div>
+
+		</div>
+
+		<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="btn btn-primary">
+			<?php esc_html_e( 'zur startseite', 'ensemen' ); ?>
+		</a>
+	
 	</div>
+
 </section>
 
-<section class="section-404">
-	<div class="theme-container">
-		<p><?php esc_html_e( 'Die von Ihnen gesuchte Seite existiert nicht oder wurde verschoben.', 'ensemen' ); ?></p>
-		<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="btn">
-			<?php esc_html_e( 'Zurück zur Startseite', 'ensemen' ); ?>
-		</a>
-	</div>
-</section>
 <?php
 do_action( 'after_main_content' );
 get_footer();
