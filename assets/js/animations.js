@@ -460,10 +460,29 @@ function initMealsReveal() {
  *   [data-reveal-title]      — title
  *   [data-reveal-desc]       — description
  *
- * Path is generated dynamically and excludes the top gap segment, so the
- * drawing visibly traces from one edge of the gap, around the rectangle,
- * and ends at the other edge of the gap.
+ * Per-breakpoint pin tuning lives in PRESENTATION_PIN_CONFIG below.
  */
+const PRESENTATION_PIN_CONFIG = {
+  // Desktop ≥ 1280px
+  desktop: {
+    start: 'top top-=150',
+    end: '+=2000',
+    drawDuration: 4.5,
+  },
+  // Tablet 768–1279px
+  tablet: {
+    start: 'top top+=-35',
+    end: '+=2000',
+    drawDuration: 3.5,
+  },
+  // Mobile < 768px
+  mobile: {
+    start: 'top top+=80',
+    end: '+=1200',
+    drawDuration: 3,
+  },
+};
+
 function initPresentationDraw() {
   const section = document.querySelector('[data-presentation-draw]');
   if (!section) return;
@@ -523,63 +542,72 @@ function initPresentationDraw() {
   let pathLength = updatePath();
   gsap.set(path, { strokeDasharray: pathLength, strokeDashoffset: pathLength });
 
-  // Initial states for text
+  // Initial states for text — applied once, regardless of breakpoint
   if (title) gsap.set(title, { autoAlpha: 0, y: 30, filter: 'blur(8px)' });
   if (desc) gsap.set(desc, { autoAlpha: 0, y: 30, filter: 'blur(8px)' });
 
-  // Pinned scrubbed timeline
-  const tl = gsap.timeline({
-    scrollTrigger: {
-      trigger: section,
-      start: 'top top-=150',
-      end: '+=2000',
-      scrub: 1.2,
-      pin: true,
-      anticipatePin: 1,
-      pinType: 'transform',
-      invalidateOnRefresh: true,
-      onRefresh: () => {
-        // Recompute on resize/refresh so path stays accurate
-        pathLength = updatePath();
-        gsap.set(path, { strokeDasharray: pathLength });
+  // Build a pinned timeline using the breakpoint-specific config
+  const buildTimeline = (cfg) => {
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: section,
+        start: cfg.start,
+        end: cfg.end,
+        scrub: 1.2,
+        pin: true,
+        anticipatePin: 1,
+        pinType: 'transform',
+        invalidateOnRefresh: true,
+        onRefresh: () => {
+          // Recompute on resize/refresh so path stays accurate
+          pathLength = updatePath();
+          gsap.set(path, { strokeDasharray: pathLength });
+        },
       },
-    },
-  });
+    });
 
-  // Buffer at start — softens the pin engage
-  tl.to({}, { duration: 0.15 });
+    // Buffer at start
+    tl.to({}, { duration: 0.15 });
 
-  // 1. Draw the border line — slow, deliberate trace
-  tl.to(path, {
-    strokeDashoffset: 0,
-    duration: 4.5,
-    ease: 'power2.out',
-  });
+    // 1. Draw the border line — slow, deliberate trace
+    tl.to(path, {
+      strokeDashoffset: 0,
+      duration: cfg.drawDuration,
+      ease: 'power2.out',
+    });
 
-  // 2. Title reveals after the line finishes drawing
-  if (title) {
-    tl.to(title, {
-      autoAlpha: 1,
-      y: 0,
-      filter: 'blur(0px)',
-      duration: 1.2,
-      ease: 'power3.out',
-    }, '+=0.15');
-  }
+    // 2. Title
+    if (title) {
+      tl.to(title, {
+        autoAlpha: 1,
+        y: 0,
+        filter: 'blur(0px)',
+        duration: 1.2,
+        ease: 'power3.out',
+      }, '+=0.15');
+    }
 
-  // 3. Description reveals slightly after title
-  if (desc) {
-    tl.to(desc, {
-      autoAlpha: 1,
-      y: 0,
-      filter: 'blur(0px)',
-      duration: 1.2,
-      ease: 'power3.out',
-    }, '-=0.7');
-  }
+    // 3. Description
+    if (desc) {
+      tl.to(desc, {
+        autoAlpha: 1,
+        y: 0,
+        filter: 'blur(0px)',
+        duration: 1.2,
+        ease: 'power3.out',
+      }, '-=0.7');
+    }
 
-  // Buffer at end — text sits visible briefly before pin releases
-  tl.to({}, { duration: 0.2 });
+    // Buffer at end
+    tl.to({}, { duration: 0.2 });
+  };
+
+  // Per-breakpoint timeline — gsap.matchMedia automatically creates/kills
+  // the right ScrollTrigger when the viewport crosses a breakpoint
+  const mm = gsap.matchMedia();
+  mm.add('(min-width: 1280px)', () => buildTimeline(PRESENTATION_PIN_CONFIG.desktop));
+  mm.add('(min-width: 768px) and (max-width: 1279px)', () => buildTimeline(PRESENTATION_PIN_CONFIG.tablet));
+  mm.add('(max-width: 767px)', () => buildTimeline(PRESENTATION_PIN_CONFIG.mobile));
 }
 
 /**
@@ -592,7 +620,30 @@ function initPresentationDraw() {
  *   [data-reveal-border]   — bordered box
  *   [data-reveal-title]    — title
  *   [data-reveal-desc]     — description
+ *
+ * Per-breakpoint pin tuning lives in the WEEKLY_PIN_CONFIG below.
  */
+const WEEKLY_PIN_CONFIG = {
+  // Desktop ≥ 1280px
+  desktop: {
+    start: 'top top-=-100', // negative offset = pin engages BEFORE section top hits viewport top
+    end: '+=2000',
+    borderDuration: 2,
+  },
+  // Tablet 768–1279px
+  tablet: {
+    start: 'top top',
+    end: '+=1500',
+    borderDuration: 2,
+  },
+  // Mobile < 768px
+  mobile: {
+    start: 'top top+=-20',
+    end: '+=1200',
+    borderDuration: 1.6,
+  },
+};
+
 function initWeeklyReveal() {
   const section = document.querySelector('[data-weekly-reveal]');
   if (!section) return;
@@ -601,62 +652,71 @@ function initWeeklyReveal() {
   const title = section.querySelector('[data-reveal-title]');
   const desc = section.querySelector('[data-reveal-desc]');
 
-  // Initial states for border and text
+  // Initial states for border and text — applied once, regardless of breakpoint
   if (border) gsap.set(border, { autoAlpha: 0, scale: 0.94, transformOrigin: '50% 50%' });
   if (title) gsap.set(title, { autoAlpha: 0, y: 30, filter: 'blur(8px)' });
   if (desc) gsap.set(desc, { autoAlpha: 0, y: 30, filter: 'blur(8px)' });
 
-  // Pinned scrubbed timeline — same config as the presentation
-  const tl = gsap.timeline({
-    scrollTrigger: {
-      trigger: section,
-      start: 'top top-=-100',
-      end: '+=2000',
-      scrub: 1.2,
-      pin: true,
-      anticipatePin: 1,
-      pinType: 'transform',
-      invalidateOnRefresh: true,
-    },
-  });
-
-  // Buffer at start — softens the pin engage
-  tl.to({}, { duration: 0.15 });
-
-  // 1. Border fade + scale-in (replaces the SVG line drawing of the presentation)
-  if (border) {
-    tl.to(border, {
-      autoAlpha: 1,
-      scale: 1,
-      duration: 2,
-      ease: 'power2.out',
+  // Build a pinned timeline using the breakpoint-specific config
+  const buildTimeline = (cfg) => {
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: section,
+        start: cfg.start,
+        end: cfg.end,
+        scrub: 1.2,
+        pin: true,
+        anticipatePin: 1,
+        pinType: 'transform',
+        invalidateOnRefresh: true,
+      },
     });
-  }
 
-  // 2. Title reveals after the border has settled
-  if (title) {
-    tl.to(title, {
-      autoAlpha: 1,
-      y: 0,
-      filter: 'blur(0px)',
-      duration: 1.2,
-      ease: 'power3.out',
-    }, '+=0.15');
-  }
+    // Buffer at start
+    tl.to({}, { duration: 0.15 });
 
-  // 3. Description reveals slightly after title
-  if (desc) {
-    tl.to(desc, {
-      autoAlpha: 1,
-      y: 0,
-      filter: 'blur(0px)',
-      duration: 1.2,
-      ease: 'power3.out',
-    }, '-=0.7');
-  }
+    // 1. Border fade + scale-in
+    if (border) {
+      tl.to(border, {
+        autoAlpha: 1,
+        scale: 1,
+        duration: cfg.borderDuration,
+        ease: 'power2.out',
+      });
+    }
 
-  // Buffer at end — text sits visible briefly before pin releases
-  tl.to({}, { duration: 0.2 });
+    // 2. Title
+    if (title) {
+      tl.to(title, {
+        autoAlpha: 1,
+        y: 0,
+        filter: 'blur(0px)',
+        duration: 1.2,
+        ease: 'power3.out',
+      }, '+=0.15');
+    }
+
+    // 3. Description
+    if (desc) {
+      tl.to(desc, {
+        autoAlpha: 1,
+        y: 0,
+        filter: 'blur(0px)',
+        duration: 1.2,
+        ease: 'power3.out',
+      }, '-=0.7');
+    }
+
+    // Buffer at end
+    tl.to({}, { duration: 0.2 });
+  };
+
+  // Per-breakpoint timeline — gsap.matchMedia automatically creates/kills
+  // the right ScrollTrigger when the viewport crosses a breakpoint
+  const mm = gsap.matchMedia();
+  mm.add('(min-width: 1280px)', () => buildTimeline(WEEKLY_PIN_CONFIG.desktop));
+  mm.add('(min-width: 768px) and (max-width: 1279px)', () => buildTimeline(WEEKLY_PIN_CONFIG.tablet));
+  mm.add('(max-width: 767px)', () => buildTimeline(WEEKLY_PIN_CONFIG.mobile));
 }
 
 export { initAnimations, initParallax, initBannerIntro, initPinnedReveal, initMealsReveal, initPresentationDraw, initWeeklyReveal };
