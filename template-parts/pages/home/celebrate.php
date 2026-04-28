@@ -8,7 +8,7 @@
  */
 
 ?>
-<section id="section-celebrate" class="section-celebrate bg-brown pt-[50px] pb-[50px] md:pt-[100px] md:pb-[100px] xl:pt-72 xl:pb-[427px]">
+<section id="section-celebrate" class="section-celebrate bg-brown pt-[50px] pb-[50px] md:pt-[100px] md:pb-[100px] xl:pt-52 xl:pb-52">
 	<div class="theme-container">
 		<div class="theme-grid gap-y-[50px] md:gap-y-0 items-start">
 

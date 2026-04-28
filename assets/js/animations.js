@@ -420,7 +420,7 @@ function initMealsReveal() {
 
     const tl = gsap.timeline({
       // Cumulative cascade delay per card so they reveal in source order
-      delay: index * 0.4,
+      delay: index * 0.3,
       scrollTrigger: {
         trigger: card,
         start: 'top 70%',
@@ -433,7 +433,7 @@ function initMealsReveal() {
     // 1. Slide image down into the bordered container
     tl.to(img, {
       yPercent: 0,
-      duration: 2.5,
+      duration: 1.8,
       ease: 'power3.out',
     });
 
@@ -447,39 +447,35 @@ function initMealsReveal() {
 }
 
 /**
- * Presentation section — pinned scroll reveal with SVG border line drawing.
+ * Presentation section — SVG border line drawing reveal (no pin).
  * Sequence:
- *   1. Section pins when reaching viewport top.
+ *   1. Section enters viewport at the configured start position.
  *   2. SVG path traces the bordered rectangle (line drawing effect, like the buttons).
  *   3. Title and description fade in once the line is drawn.
- *   4. Pin releases.
  *
  * Markup contract on presentation.php:
- *   [data-presentation-draw] — section wrapper (gets pinned)
+ *   [data-presentation-draw] — section wrapper (trigger)
  *   [data-reveal-border]     — bordered box (CSS border hidden, SVG drawn here)
  *   [data-reveal-title]      — title
  *   [data-reveal-desc]       — description
  *
- * Per-breakpoint pin tuning lives in PRESENTATION_PIN_CONFIG below.
+ * Per-breakpoint trigger tuning lives in PRESENTATION_CONFIG below.
  */
-const PRESENTATION_PIN_CONFIG = {
+const PRESENTATION_CONFIG = {
   // Desktop ≥ 1280px
   desktop: {
-    start: 'top top-=150',
-    end: '+=2000',
-    drawDuration: 4.5,
+    start: 'top 60%',
+    drawDuration: 2.5,
   },
   // Tablet 768–1279px
   tablet: {
-    start: 'top top+=-35',
-    end: '+=2000',
-    drawDuration: 3.5,
+    start: 'top 65%',
+    drawDuration: 2,
   },
   // Mobile < 768px
   mobile: {
-    start: 'top top+=80',
-    end: '+=1200',
-    drawDuration: 3,
+    start: 'top 70%',
+    drawDuration: 1.8,
   },
 };
 
@@ -546,17 +542,14 @@ function initPresentationDraw() {
   if (title) gsap.set(title, { autoAlpha: 0, y: 30, filter: 'blur(8px)' });
   if (desc) gsap.set(desc, { autoAlpha: 0, y: 30, filter: 'blur(8px)' });
 
-  // Build a pinned timeline using the breakpoint-specific config
+  // Build a play-once timeline using the breakpoint-specific config
   const buildTimeline = (cfg) => {
     const tl = gsap.timeline({
+      paused: true,
       scrollTrigger: {
         trigger: section,
         start: cfg.start,
-        end: cfg.end,
-        scrub: 1.2,
-        pin: true,
-        anticipatePin: 1,
-        pinType: 'transform',
+        toggleActions: 'play none none none',
         invalidateOnRefresh: true,
         onRefresh: () => {
           // Recompute on resize/refresh so path stays accurate
@@ -566,10 +559,7 @@ function initPresentationDraw() {
       },
     });
 
-    // Buffer at start
-    tl.to({}, { duration: 0.15 });
-
-    // 1. Draw the border line — slow, deliberate trace
+    // 1. Draw the border line
     tl.to(path, {
       strokeDashoffset: 0,
       duration: cfg.drawDuration,
@@ -584,7 +574,7 @@ function initPresentationDraw() {
         filter: 'blur(0px)',
         duration: 1.2,
         ease: 'power3.out',
-      }, '+=0.15');
+      }, '-=0.6');
     }
 
     // 3. Description
@@ -595,53 +585,33 @@ function initPresentationDraw() {
         filter: 'blur(0px)',
         duration: 1.2,
         ease: 'power3.out',
-      }, '-=0.7');
+      }, '-=0.9');
     }
-
-    // Buffer at end
-    tl.to({}, { duration: 0.2 });
   };
 
   // Per-breakpoint timeline — gsap.matchMedia automatically creates/kills
   // the right ScrollTrigger when the viewport crosses a breakpoint
   const mm = gsap.matchMedia();
-  mm.add('(min-width: 1280px)', () => buildTimeline(PRESENTATION_PIN_CONFIG.desktop));
-  mm.add('(min-width: 768px) and (max-width: 1279px)', () => buildTimeline(PRESENTATION_PIN_CONFIG.tablet));
-  mm.add('(max-width: 767px)', () => buildTimeline(PRESENTATION_PIN_CONFIG.mobile));
+  mm.add('(min-width: 1280px)', () => buildTimeline(PRESENTATION_CONFIG.desktop));
+  mm.add('(min-width: 768px) and (max-width: 1279px)', () => buildTimeline(PRESENTATION_CONFIG.tablet));
+  mm.add('(max-width: 767px)', () => buildTimeline(PRESENTATION_CONFIG.mobile));
 }
 
 /**
- * Weekly section — direct clone of initPresentationDraw without the SVG line
- * drawing. Pin engages, border fades + scales in, then title and description
- * reveal in sequence. Pin releases.
+ * Weekly section — play-once reveal triggered when the section enters the
+ * viewport. Border fades + scales in, then title and description reveal in
+ * sequence. No pin, no scrub.
  *
  * Markup contract on weekly.php:
- *   [data-weekly-reveal]   — section wrapper (gets pinned)
+ *   [data-weekly-reveal]   — section wrapper (trigger)
  *   [data-reveal-border]   — bordered box
  *   [data-reveal-title]    — title
  *   [data-reveal-desc]     — description
- *
- * Per-breakpoint pin tuning lives in the WEEKLY_PIN_CONFIG below.
  */
-const WEEKLY_PIN_CONFIG = {
-  // Desktop ≥ 1280px
-  desktop: {
-    start: 'top top-=-100', // negative offset = pin engages BEFORE section top hits viewport top
-    end: '+=2000',
-    borderDuration: 2,
-  },
-  // Tablet 768–1279px
-  tablet: {
-    start: 'top top',
-    end: '+=1500',
-    borderDuration: 2,
-  },
-  // Mobile < 768px
-  mobile: {
-    start: 'top top+=-20',
-    end: '+=1200',
-    borderDuration: 1.6,
-  },
+const WEEKLY_CONFIG = {
+  desktop: { start: 'top 80%', borderDuration: 1.2 },
+  tablet:  { start: 'top 85%', borderDuration: 1.0 },
+  mobile:  { start: 'top 90%', borderDuration: 0.9 },
 };
 
 function initWeeklyReveal() {
@@ -652,28 +622,22 @@ function initWeeklyReveal() {
   const title = section.querySelector('[data-reveal-title]');
   const desc = section.querySelector('[data-reveal-desc]');
 
-  // Initial states for border and text — applied once, regardless of breakpoint
+  // Initial states — applied once, regardless of breakpoint
   if (border) gsap.set(border, { autoAlpha: 0, scale: 0.94, transformOrigin: '50% 50%' });
   if (title) gsap.set(title, { autoAlpha: 0, y: 30, filter: 'blur(8px)' });
   if (desc) gsap.set(desc, { autoAlpha: 0, y: 30, filter: 'blur(8px)' });
 
-  // Build a pinned timeline using the breakpoint-specific config
+  // Build a play-once timeline using the breakpoint-specific config
   const buildTimeline = (cfg) => {
     const tl = gsap.timeline({
+      paused: true,
       scrollTrigger: {
         trigger: section,
         start: cfg.start,
-        end: cfg.end,
-        scrub: 1.2,
-        pin: true,
-        anticipatePin: 1,
-        pinType: 'transform',
+        toggleActions: 'play none none none',
         invalidateOnRefresh: true,
       },
     });
-
-    // Buffer at start
-    tl.to({}, { duration: 0.15 });
 
     // 1. Border fade + scale-in
     if (border) {
@@ -693,7 +657,7 @@ function initWeeklyReveal() {
         filter: 'blur(0px)',
         duration: 1.2,
         ease: 'power3.out',
-      }, '+=0.15');
+      }, '-=0.6');
     }
 
     // 3. Description
@@ -704,19 +668,14 @@ function initWeeklyReveal() {
         filter: 'blur(0px)',
         duration: 1.2,
         ease: 'power3.out',
-      }, '-=0.7');
+      }, '-=0.9');
     }
-
-    // Buffer at end
-    tl.to({}, { duration: 0.2 });
   };
 
-  // Per-breakpoint timeline — gsap.matchMedia automatically creates/kills
-  // the right ScrollTrigger when the viewport crosses a breakpoint
   const mm = gsap.matchMedia();
-  mm.add('(min-width: 1280px)', () => buildTimeline(WEEKLY_PIN_CONFIG.desktop));
-  mm.add('(min-width: 768px) and (max-width: 1279px)', () => buildTimeline(WEEKLY_PIN_CONFIG.tablet));
-  mm.add('(max-width: 767px)', () => buildTimeline(WEEKLY_PIN_CONFIG.mobile));
+  mm.add('(min-width: 1280px)', () => buildTimeline(WEEKLY_CONFIG.desktop));
+  mm.add('(min-width: 768px) and (max-width: 1279px)', () => buildTimeline(WEEKLY_CONFIG.tablet));
+  mm.add('(max-width: 767px)', () => buildTimeline(WEEKLY_CONFIG.mobile));
 }
 
 export { initAnimations, initParallax, initBannerIntro, initPinnedReveal, initMealsReveal, initPresentationDraw, initWeeklyReveal };

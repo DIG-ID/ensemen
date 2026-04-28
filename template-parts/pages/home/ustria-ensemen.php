@@ -11,7 +11,7 @@ $ue_image_title       = get_field( 'ustria_ensemen_image_title' );
 $ue_image_description = get_field( 'ustria_ensemen_image_description' );
 $ue_photo             = get_field( 'ustria_ensemen_photo' );
 ?>
-<section id="section-ustria-ensemen" class="section-ustria-ensemen pt-[50px] pb-[50px] md:pt-[100px] md:pb-[100px] xl:pt-0 xl:pb-96">
+<section id="section-ustria-ensemen" class="section-ustria-ensemen pt-[50px] pb-[50px] md:pt-[100px] md:pb-[100px] xl:pt-0 xl:pb-52">
 	<div class="theme-container">
 
 		<div class="theme-grid gap-y-[30px] md:gap-y-0 items-start">

@@ -4,32 +4,20 @@
   transition: background-color var(--transition-base), color var(--transition-base)
 
 .btn-primary
-  @apply px-9 py-1 bg-transparent text-off-white rounded text-[13px] font-bold
+  // Border is rendered by the SVG path injected via JS (initPrimaryButtons).
+  // Default state: line drawn. Hover: line un-draws (reverse). Leave: redraws.
+  @apply px-9 py-1 bg-transparent text-off-white border-none rounded text-[13px] font-bold
   transition: background-color 2.5s cubic-bezier(0.16, 1, 0.3, 1), color 2.5s cubic-bezier(0.16, 1, 0.3, 1)
-
-  // Off-white border with a gap on the bottom edge, mirroring the SVG line-drawing
-  // path geometry: shows from 0 → 50% on bottom, gap from 50% → (right - 24px),
-  // shows again from (right - 24px) → right corner.
-  &::before
-    content: ''
-    position: absolute
-    inset: 0
-    border: 2px solid #F1F2ED
-    border-radius: 4px
-    pointer-events: none
-    transition: border-color 2.5s cubic-bezier(0.16, 1, 0.3, 1)
-    -webkit-mask: linear-gradient(#000 0 0) 0 0 / 100% calc(100% - 2px) no-repeat, linear-gradient(#000 0 0) 0 100% / 50% 2px no-repeat, linear-gradient(#000 0 0) 100% 100% / 24px 2px no-repeat
-    mask: linear-gradient(#000 0 0) 0 0 / 100% calc(100% - 2px) no-repeat, linear-gradient(#000 0 0) 0 100% / 50% 2px no-repeat, linear-gradient(#000 0 0) 100% 100% / 24px 2px no-repeat
-
   &:hover
     @apply bg-wine text-off-white
-
   &:active
     @apply bg-off-white text-wine
     transition: background-color 1.5s cubic-bezier(0.16, 1, 0.3, 1), color 1.5s cubic-bezier(0.16, 1, 0.3, 1)
-    &::before
-      border-color: #874644
-      transition: border-color 1.5s cubic-bezier(0.16, 1, 0.3, 1)
+
+  // Tighter padding inside the header nav so menu items fit their grid column
+  .header-main__nav &
+    padding: 10px 8px
+    white-space: nowrap
 
 .btn-header
   @apply px-4 py-0.5 bg-transparent text-off-white border-none rounded text-[13px] font-bold whitespace-nowrap
@@ -41,10 +29,21 @@
     transition: background-color 1.5s cubic-bezier(0.16, 1, 0.3, 1), color 1.5s cubic-bezier(0.16, 1, 0.3, 1)
 
 .btn-reservation
-  @apply px-[67px] py-2 bg-off-white text-wine border-none rounded text-[15px] leading-4 font-bold
+  @apply px-[67px] py-1 bg-off-white text-wine border-none rounded text-[15px]  font-bold
   transition: background-color 2.5s cubic-bezier(0.16, 1, 0.3, 1), color 2.5s cubic-bezier(0.16, 1, 0.3, 1)
   &:hover
     @apply bg-wine text-off-white
+
+  // Tighter padding so the reservation button fits the header's 2-col slot
+  .header-main__reservation &
+    padding: 10px 16px
+    white-space: nowrap
+
+    // Mobile: much smaller button (146x30 in Figma)
+    @media (max-width: 767px)
+      padding: 7px 12px
+      font-size: 11px
+      line-height: 1
 
 .btn-footer
   @apply relative inline-block px-[26px] py-2 bg-transparent text-wine border-none rounded font-openSans text-[20px] font-bold leading-8 tracking-[0.5px] text-center normal-case no-underline whitespace-nowrap

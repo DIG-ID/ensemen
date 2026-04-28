@@ -23,7 +23,18 @@ function buildBorderPath( w, h, r ) {
 	].join( ' ' );
 }
 
-function initAnimatedButton( selector, strokeColor, pressedStrokeColor = null ) {
+/**
+ * Animated button border.
+ *
+ * @param {string}  selector            CSS selector for the button(s).
+ * @param {string}  strokeColor         Stroke colour for the SVG path.
+ * @param {?string} pressedStrokeColor  Optional stroke colour while mousedown.
+ * @param {boolean} reverse             When true, the line is drawn by default
+ *                                      and animates AWAY on hover (un-draws),
+ *                                      then redraws on leave. When false, line
+ *                                      is hidden and draws on hover (default).
+ */
+function initAnimatedButton( selector, strokeColor, pressedStrokeColor = null, reverse = false ) {
 	document.querySelectorAll( selector ).forEach( ( btn ) => {
 		const svg = document.createElementNS( SVG_NS, 'svg' );
 		svg.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;overflow:visible;';
@@ -38,6 +49,26 @@ function initAnimatedButton( selector, strokeColor, pressedStrokeColor = null ) 
 
 		let anim = null;
 
+		// Build / measure the path based on the button's current dimensions
+		const setupPath = () => {
+			const w = btn.offsetWidth;
+			const h = btn.offsetHeight;
+			svg.setAttribute( 'viewBox', `0 0 ${ w } ${ h }` );
+			path.setAttribute( 'd', buildBorderPath( w, h, BORDER_RADIUS ) );
+			return path.getTotalLength();
+		};
+
+		if ( reverse ) {
+			// Reverse mode — draw the line immediately so it's visible by default.
+			// Re-measure after layout settles (fonts, images) to keep the path accurate.
+			const apply = () => {
+				const length = setupPath();
+				gsap.set( path, { strokeDasharray: length, strokeDashoffset: 0 } );
+			};
+			apply();
+			window.addEventListener( 'load', apply );
+		}
+
 		if ( pressedStrokeColor ) {
 			btn.addEventListener( 'mousedown', () => path.setAttribute( 'stroke', pressedStrokeColor ) );
 			btn.addEventListener( 'mouseup', () => path.setAttribute( 'stroke', strokeColor ) );
@@ -45,36 +76,50 @@ function initAnimatedButton( selector, strokeColor, pressedStrokeColor = null ) 
 		}
 
 		btn.addEventListener( 'mouseenter', () => {
-			const w = btn.offsetWidth;
-			const h = btn.offsetHeight;
-
-			svg.setAttribute( 'viewBox', `0 0 ${ w } ${ h }` );
-			path.setAttribute( 'd', buildBorderPath( w, h, BORDER_RADIUS ) );
-
-			const length = path.getTotalLength();
-			gsap.set( path, { strokeDasharray: length, strokeDashoffset: length } );
+			const length = setupPath();
 
 			if ( anim ) anim.kill();
-			anim = gsap.to( path, {
-				strokeDashoffset: 0,
-				duration: 2.5,
-				ease: 'power2.out',
-			} );
+
+			if ( reverse ) {
+				// Un-draw — line wipes off in reverse direction
+				anim = gsap.to( path, {
+					strokeDashoffset: length,
+					duration: 1,
+					ease: 'none',
+				} );
+			} else {
+				gsap.set( path, { strokeDasharray: length, strokeDashoffset: length } );
+				anim = gsap.to( path, {
+					strokeDashoffset: 0,
+					duration: 1,
+					ease: 'none',
+				} );
+			}
 		} );
 
 		btn.addEventListener( 'mouseleave', () => {
 			if ( anim ) anim.kill();
-			anim = gsap.to( path, {
-				strokeDashoffset: path.getTotalLength(),
-				duration: 1.2,
-				ease: 'power2.in',
-			} );
+
+			if ( reverse ) {
+				// Redraw — line traces back in
+				anim = gsap.to( path, {
+					strokeDashoffset: 0,
+					duration: 0.8,
+					ease: 'none',
+				} );
+			} else {
+				anim = gsap.to( path, {
+					strokeDashoffset: path.getTotalLength(),
+					duration: 0.8,
+					ease: 'none',
+				} );
+			}
 		} );
 	} );
 }
 
 function initPrimaryButtons() {
-	initAnimatedButton( '.btn-primary', '#F1F2ED', '#874644' );
+	initAnimatedButton( '.btn-primary', '#F1F2ED', '#874644', true );
 }
 
 function initHeaderButtons() {
