@@ -1,6 +1,6 @@
 import { gsap } from './gsap.js';
 
-const SVG_NS = 'https://www.w3.org/2000/svg';
+const SVG_NS = 'http://www.w3.org/2000/svg';
 const BORDER_RADIUS = 4;
 
 /**
