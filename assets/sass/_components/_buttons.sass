@@ -4,13 +4,32 @@
   transition: background-color var(--transition-base), color var(--transition-base)
 
 .btn-primary
-  @apply px-9 py-2.5 bg-transparent text-off-white border-none rounded text-[13px] font-bold
+  @apply px-9 py-1 bg-transparent text-off-white rounded text-[13px] font-bold
   transition: background-color 2.5s cubic-bezier(0.16, 1, 0.3, 1), color 2.5s cubic-bezier(0.16, 1, 0.3, 1)
+
+  // Off-white border with a gap on the bottom edge, mirroring the SVG line-drawing
+  // path geometry: shows from 0 → 50% on bottom, gap from 50% → (right - 24px),
+  // shows again from (right - 24px) → right corner.
+  &::before
+    content: ''
+    position: absolute
+    inset: 0
+    border: 2px solid #F1F2ED
+    border-radius: 4px
+    pointer-events: none
+    transition: border-color 2.5s cubic-bezier(0.16, 1, 0.3, 1)
+    -webkit-mask: linear-gradient(#000 0 0) 0 0 / 100% calc(100% - 2px) no-repeat, linear-gradient(#000 0 0) 0 100% / 50% 2px no-repeat, linear-gradient(#000 0 0) 100% 100% / 24px 2px no-repeat
+    mask: linear-gradient(#000 0 0) 0 0 / 100% calc(100% - 2px) no-repeat, linear-gradient(#000 0 0) 0 100% / 50% 2px no-repeat, linear-gradient(#000 0 0) 100% 100% / 24px 2px no-repeat
+
   &:hover
     @apply bg-wine text-off-white
+
   &:active
     @apply bg-off-white text-wine
     transition: background-color 1.5s cubic-bezier(0.16, 1, 0.3, 1), color 1.5s cubic-bezier(0.16, 1, 0.3, 1)
+    &::before
+      border-color: #874644
+      transition: border-color 1.5s cubic-bezier(0.16, 1, 0.3, 1)
 
 .btn-header
   @apply px-4 py-0.5 bg-transparent text-off-white border-none rounded text-[13px] font-bold whitespace-nowrap
@@ -22,7 +41,7 @@
     transition: background-color 1.5s cubic-bezier(0.16, 1, 0.3, 1), color 1.5s cubic-bezier(0.16, 1, 0.3, 1)
 
 .btn-reservation
-  @apply px-[67px] py-5 bg-off-white text-wine border-none rounded text-[15px] leading-8 font-bold
+  @apply px-[67px] py-2 bg-off-white text-wine border-none rounded text-[15px] leading-4 font-bold
   transition: background-color 2.5s cubic-bezier(0.16, 1, 0.3, 1), color 2.5s cubic-bezier(0.16, 1, 0.3, 1)
   &:hover
     @apply bg-wine text-off-white
