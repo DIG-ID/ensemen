@@ -96,7 +96,7 @@
 					</ul>
 				<?php endif; ?>
 				
-				<div class="celebrate-wrapper__bottom hidden md:block">
+				<div class="celebrate-wrapper__bottom hidden xl:block">
 					<p class="text-off-white font-openSans text-[18px] leading-[30px] tracking-[0.5px] xl:max-w-[594px] mt-1 xl:mt-10 mb-11 xl:mb-16"><?php the_field( 'celebrate_description' ); ?></p>
 
 					<?php
@@ -113,7 +113,7 @@
 					</div>
 			</div>
 
-			<div class="col-span-2 block md:hidden">
+			<div class="col-span-2 md:col-span-6 block xl:hidden">
 				<p class="text-off-white font-openSans text-[18px] leading-[30px] tracking-[0.5px] xl:max-w-[594px] mt-1 xl:mt-10 mb-11 xl:mb-16"><?php the_field( 'celebrate_description' ); ?></p>
 				<?php
 				$btn_primary = get_field( 'celebrate_button' );

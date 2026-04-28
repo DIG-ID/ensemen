@@ -28,7 +28,7 @@ $ue_photo             = get_field( 'ustria_ensemen_photo' );
 						'full',
 						false,
 						array(
-							'class'         => 'section-ustria-ensemen__bg w-full h-auto max-w-[160px] md:max-w-none',
+							'class' => 'section-ustria-ensemen__bg w-full h-auto max-w-[160px] md:max-w-none',
 						)
 					); ?>
 				<?php endif; ?>
@@ -45,27 +45,27 @@ $ue_photo             = get_field( 'ustria_ensemen_photo' );
 						'full',
 						false,
 						array(
-							'class'         => 'section-ustria-ensemen__bg w-full h-auto max-w-[203px] md:max-w-none',
+							'class' => 'section-ustria-ensemen__bg w-full h-auto max-w-[203px] md:max-w-none',
 						)
 					); ?>
 				<?php endif; ?>
+				<p class="text-off-white font-openSans text-[18px] leading-[30px] tracking-[0.5px] md:mt-14 hidden md:block"><?php the_field( 'ustria_ensemen_description' ); ?></p>
 			</div>
 
-			<div class="col-span-2 md:col-start-4 md:col-span-3 md:pt-10 xl:hidden">
+			<div class="col-span-2 md:col-start-4 md:col-span-3 md:pt-40 xl:hidden">
 				<?php if ( $ue_photo ) : ?>
 					<?php echo wp_get_attachment_image(
 						$ue_photo,
 						'full',
 						false,
 						array(
-							'class'   => 'section-ustria-ensemen__photo w-full h-auto max-w-[279px] ml-auto md:max-w-none md:ml-0',
-							'loading' => 'lazy',
+							'class' => 'section-ustria-ensemen__photo w-full h-auto max-w-[279px] ml-auto md:max-w-none md:ml-0',
 						)
 					); ?>
 				<?php endif; ?>
 			</div>
 
-			<div class="col-span-2 md:col-start-1 md:col-span-3 md:pt-[30px] xl:hidden">
+			<div class="col-span-2 md:col-start-1 md:col-span-3 md:pt-[30px] md:hidden">
 				<p class="text-off-white font-openSans text-[18px] leading-[30px] tracking-[0.5px] max-w-[572px]"><?php the_field( 'ustria_ensemen_description' ); ?></p>
 			</div>
 
@@ -77,7 +77,7 @@ $ue_photo             = get_field( 'ustria_ensemen_photo' );
 						'full',
 						false,
 						array(
-							'class'         => 'section-ustria-ensemen__bg',
+							'class' => 'section-ustria-ensemen__bg',
 						)
 					); ?>
 				<?php endif; ?>
@@ -95,7 +95,7 @@ $ue_photo             = get_field( 'ustria_ensemen_photo' );
 						'full',
 						false,
 						array(
-							'class'         => 'section-ustria-ensemen__bg',
+							'class' => 'section-ustria-ensemen__bg',
 						)
 					); ?>
 				<?php endif; ?>
@@ -103,14 +103,14 @@ $ue_photo             = get_field( 'ustria_ensemen_photo' );
 				<p class="body-small text-off-white pt-5 max-w-[572px]"><?php the_field( 'ustria_ensemen_description' ); ?></p>
 			</div>
 
-			<div class="hidden xl:block xl:col-start-6 xl:col-span-6 xl:pt-64">
+			<div class="hidden xl:block xl:col-start-7 xl:col-span-6 xl:pt-40">
 				<?php if ( $ue_photo ) : ?>
 					<?php echo wp_get_attachment_image(
 						$ue_photo,
 						'full',
 						false,
 						array(
-							'class'   => 'section-ustria-ensemen__photo h-auto',
+							'class' => 'section-ustria-ensemen__photo h-auto',
 						)
 					); ?>
 				<?php endif; ?>
