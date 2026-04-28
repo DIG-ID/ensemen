@@ -406,42 +406,54 @@ function initPinnedReveal() {
  *   .card-meal__img img    — the image to slide
  */
 function initMealsReveal() {
-  const cards = document.querySelectorAll('[data-meals-card]');
-  if (!cards.length) return;
+  // Each grid wrapper has its own cumulative delay so the mobile/desktop and
+  // tablet layouts (rendered as separate DOMs and toggled via responsive
+  // visibility) animate from index 0 inside their own container.
+  const grids = document.querySelectorAll('[data-meals-grid]');
+  if (!grids.length) return;
 
-  cards.forEach((card, index) => {
-    const imgContainer = card.querySelector('.card-meal__img');
-    const img = imgContainer ? imgContainer.querySelector('img') : null;
-    if (!img || !imgContainer) return;
+  grids.forEach((grid) => {
+    const cards = grid.querySelectorAll('[data-meals-card]');
+    // Per-grid stagger override via data-meals-stagger (defaults to 0.3s)
+    const stagger = parseFloat(grid.getAttribute('data-meals-stagger')) || 0.3;
 
-    // Initial states — image hidden above the container, gradient overlay invisible
-    gsap.set(img, { yPercent: -100 });
-    gsap.set(imgContainer, { '--overlay-opacity': 0 });
+    cards.forEach((card, index) => {
+      const imgContainer = card.querySelector('.card-meal__img');
+      const img = imgContainer ? imgContainer.querySelector('img') : null;
+      if (!img || !imgContainer) return;
 
-    const tl = gsap.timeline({
-      // Cumulative cascade delay per card so they reveal in source order
-      delay: index * 0.3,
-      scrollTrigger: {
-        trigger: card,
-        start: 'top 70%',
-        toggleActions: 'play none none none',
-      },
-      // Clear inline transform so CSS hover (scale 1.04) keeps working after reveal
-      onComplete: () => gsap.set(img, { clearProps: 'transform' }),
-    });
+      // Initial states — image hidden above the container, gradient overlay invisible
+      gsap.set(img, { yPercent: -100 });
+      gsap.set(imgContainer, { '--overlay-opacity': 0 });
 
-    // 1. Slide image down into the bordered container
-    tl.to(img, {
-      yPercent: 0,
-      duration: 1.8,
-      ease: 'power3.out',
-    });
+      // Per-card delay override via data-meals-delay; otherwise cumulative cascade
+      const delayAttr = card.getAttribute('data-meals-delay');
+      const delay = delayAttr !== null ? parseFloat(delayAttr) : index * stagger;
 
-    // 2. After the image has settled, fade in the bottom gradient overlay
-    tl.to(imgContainer, {
-      '--overlay-opacity': 1,
-      duration: 1.4,
-      ease: 'power2.out',
+      const tl = gsap.timeline({
+        delay: delay,
+        scrollTrigger: {
+          trigger: card,
+          start: 'top 70%',
+          toggleActions: 'play none none none',
+        },
+        // Clear inline transform so CSS hover (scale 1.04) keeps working after reveal
+        onComplete: () => gsap.set(img, { clearProps: 'transform' }),
+      });
+
+      // 1. Slide image down into the bordered container
+      tl.to(img, {
+        yPercent: 0,
+        duration: 1.8,
+        ease: 'power3.out',
+      });
+
+      // 2. After the image has settled, fade in the bottom gradient overlay
+      tl.to(imgContainer, {
+        '--overlay-opacity': 1,
+        duration: 1.4,
+        ease: 'power2.out',
+      });
     });
   });
 }

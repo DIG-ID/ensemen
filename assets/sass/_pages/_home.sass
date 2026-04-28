@@ -69,6 +69,23 @@
   @media (min-width: 768px) and (max-width: 1279px)
     margin: 0 67px
 
+  // Mobile + tablet: top-border gap overlay (same approach as presentation)
+  @media (max-width: 1279px)
+    &::before
+      content: ''
+      position: absolute
+      top: -3px
+      height: 3px
+      background-color: var(--color-bg-alt)
+      // Mobile: 30px from left, 30px wide
+      left: 30px
+      width: 30px
+
+      // Tablet: 67px from left, 63px wide
+      @media (min-width: 768px)
+        left: 67px
+        width: 63px
+
   // Desktop only: remove solid border, draw via ::before with a masked gap at the top edge
   @media (min-width: 1280px)
     margin: 0 50px

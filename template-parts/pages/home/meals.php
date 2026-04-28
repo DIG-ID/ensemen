@@ -25,7 +25,8 @@
 
         <?php if ( have_rows( 'meals_cards' ) ) : ?>
             <?php
-            // Collect all cards first so we can render them grouped by tablet column.
+            // Collect all cards once and render them in two separate layouts
+            // (mobile/desktop, tablet) toggled via responsive hidden/block wrappers.
             $meals_cards = array();
             while ( have_rows( 'meals_cards' ) ) :
                 the_row();
@@ -35,21 +36,7 @@
                 );
             endwhile;
 
-            // Per-card class strings.
-            // Mobile: row-start-N forces visual order 1 → 2 → 3 (card 4 hidden) even
-            // though the DOM is reordered (1, 3, 2, 4) by the wrapper grouping.
-            // Tablet: wrappers act as block columns (cols 1-3 / cols 4-6); cards stack
-            // inside with the original pt offsets so the staircase looks identical.
-            // Desktop: wrappers use display: contents so cards become direct grid
-            // children and resume the original col-start placements.
-            $card_classes = array(
-                0 => 'col-span-2 row-start-1 md:row-auto xl:col-start-2 xl:col-span-3 xl:row-auto',
-                1 => 'col-span-2 row-start-2 md:row-auto md:pt-[216px] xl:col-start-5 xl:col-span-4 xl:pl-[75px] xl:pr-[75px] xl:pt-[390px] xl:row-auto',
-                2 => 'col-span-2 row-start-3 md:row-auto md:pt-[216px] xl:col-start-9 xl:col-span-3 xl:pt-[162px] xl:row-auto',
-                3 => 'hidden md:block md:pt-[404px] xl:hidden',
-            );
-
-            $render_card = function ( $index ) use ( $meals_cards, $card_classes ) {
+            $render_card = function ( $index, $position_classes, $delay_override = null ) use ( $meals_cards ) {
                 if ( empty( $meals_cards[ $index ] ) || empty( $meals_cards[ $index ]['button'] ) ) {
                     return;
                 }
@@ -58,9 +45,11 @@
                 $link_url    = $card_button['url'];
                 $link_title  = $card_button['title'];
                 $link_target = $card_button['target'] ?: '_self';
-                $position    = $card_classes[ $index ] ?? 'col-span-2 md:col-span-3';
+                $delay_attr  = ( null !== $delay_override )
+                    ? ' data-meals-delay="' . esc_attr( $delay_override ) . '"'
+                    : '';
                 ?>
-                <div class="<?php echo esc_attr( $position ); ?>" data-meals-card>
+                <div class="<?php echo esc_attr( $position_classes ); ?>" data-meals-card<?php echo $delay_attr; ?>>
                     <a href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>" class="card-meal group">
                         <div class="card-meal__img">
                             <?php
@@ -85,16 +74,28 @@
                 <?php
             };
             ?>
-            <div class="theme-grid gap-y-[50px] md:gap-y-0 pt-[50px] md:pt-[50px] xl:pt-40 items-start">
-                <!-- Left column on tablet (cols 1-3): cards 1 + 3 -->
-                <div class="contents md:block md:col-start-1 md:col-span-3 xl:contents">
-                    <?php $render_card( 0 ); ?>
-                    <?php $render_card( 2 ); ?>
+
+            <!-- Mobile + Desktop layout: 3 cards in the staggered staircase -->
+            <div class="md:hidden xl:block">
+                <div class="theme-grid gap-y-[50px] pt-[50px] xl:pt-40 items-start" data-meals-grid>
+                    <?php $render_card( 0, 'col-span-2 xl:col-start-2 xl:col-span-3' ); ?>
+                    <?php $render_card( 1, 'col-span-2 xl:col-start-5 xl:col-span-4 xl:pl-[75px] xl:pr-[75px] xl:pt-[390px]' ); ?>
+                    <?php $render_card( 2, 'col-span-2 xl:col-start-9 xl:col-span-3 xl:pt-[162px]' ); ?>
                 </div>
-                <!-- Right column on tablet (cols 4-6): cards 2 + 4 -->
-                <div class="contents md:block md:col-start-4 md:col-span-3 xl:contents">
-                    <?php $render_card( 1 ); ?>
-                    <?php $render_card( 3 ); ?>
+            </div>
+
+            <!-- Tablet-only layout: left column = cards 1 + 3, right column = card 2 -->
+            <div class="hidden md:block xl:hidden">
+                <div class="theme-grid pt-[50px] items-start" data-meals-grid data-meals-stagger="0.15">
+                    <!-- Left column: cards 1 + 3 stacked -->
+                    <div class="md:col-start-1 md:col-span-3">
+                        <?php $render_card( 0, '' ); ?>
+                        <?php $render_card( 2, 'md:pt-[50px]', 0 ); ?>
+                    </div>
+                    <!-- Right column: card 2 alone -->
+                    <div class="md:col-start-4 md:col-span-3">
+                        <?php $render_card( 1, 'md:pt-[300px]' ); ?>
+                    </div>
                 </div>
             </div>
         <?php endif; ?>
