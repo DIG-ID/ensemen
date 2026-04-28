@@ -406,12 +406,6 @@ function initPinnedReveal() {
  *   .card-meal__img img    — the image to slide
  */
 function initMealsReveal() {
-  // ─── Toggle ────────────────────────────────────────────────────────────────
-  // true  → slide down on scroll down + slide up on scroll up (reversible)
-  // false → slide down once on first scroll down, never reverses (original)
-  const MEALS_REVERSE_ON_SCROLL_UP = true;
-  // ───────────────────────────────────────────────────────────────────────────
-
   // Each grid wrapper has its own cumulative delay so the mobile/desktop and
   // tablet layouts (rendered as separate DOMs and toggled via responsive
   // visibility) animate from index 0 inside their own container.
@@ -441,14 +435,9 @@ function initMealsReveal() {
         scrollTrigger: {
           trigger: card,
           start: 'top 70%',
-          toggleActions: MEALS_REVERSE_ON_SCROLL_UP
-            ? 'play none none reverse'
-            : 'play none none none',
+          // Slide down on scroll down, slide back up on scroll up
+          toggleActions: 'play none none reverse',
         },
-        // When not reversing, clear the inline transform so CSS hover keeps working.
-        onComplete: MEALS_REVERSE_ON_SCROLL_UP
-          ? null
-          : () => gsap.set(img, { clearProps: 'transform' }),
       });
 
       // 1. Slide image down into the bordered container

@@ -167,9 +167,7 @@
       width: 100%
       height: 100%
       object-fit: cover
-      // Use the individual `scale` property for hover so it doesn't conflict
-      // with GSAP's `transform` (used for the slide-down/up reveal).
-      transition: scale var(--transition-slow)
+      transition: transform var(--transition-slow)
 
     // Dark gradient fading upward on the bottom of the image (Figma: 242px tall)
     &::after
