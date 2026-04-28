@@ -39,3 +39,21 @@ function initLenis() {
 const lenis = initLenis();
 
 export { gsap, ScrollTrigger, TextPlugin, lenis };
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+
+  anchor.addEventListener('click', function (e) {
+
+    e.preventDefault();
+
+    const target = document.querySelector(this.getAttribute('href'));
+
+    if (target) {
+
+      lenis.scrollTo(target);
+
+    }
+
+  });
+
+});

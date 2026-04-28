@@ -35,7 +35,7 @@ $copyright_positions = array(
 );
 ?>
 
-<footer class="footer-main">
+<footer id="footer-main" class="footer-main">
 	<div class="footer-main__content bg-sand pt-8 pb-12 md:pt-12 md:pb-28 xl:pt-0 xl:pb-32">
 		<div class="theme-container">
 
