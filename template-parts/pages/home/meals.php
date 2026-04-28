@@ -54,7 +54,7 @@
                     $link_target = $card_button['target'] ?: '_self';
                     $position    = $card_positions[ $card_index ] ?? 'col-span-2 md:col-span-3';
                     ?>
-                    <div class="<?php echo esc_attr( $position ); ?>">
+                    <div class="<?php echo esc_attr( $position ); ?>" data-meals-card>
                         <a href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>" class="card-meal group">
                             <div class="card-meal__img">
                                 <?php
@@ -65,7 +65,6 @@
                                         false,
                                         array(
                                             'class'   => 'w-full h-full object-cover',
-                                            'loading' => 'lazy',
                                         )
                                     );
                                 endif;

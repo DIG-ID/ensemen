@@ -39,6 +39,20 @@
       left: 172px
       width: 162px
 
+  // When JS line-drawing is active, hide the static border + the gap overlay
+  // so the SVG path becomes the only visible outline.
+  &.is-svg-drawn
+    border-color: transparent
+    &::before
+      display: none
+
+  // SVG line-drawing layer (injected by JS)
+  svg
+    stroke: var(--color-border)
+    fill: none
+    stroke-width: 3
+    pointer-events: none
+
 // --- Weekly section ---------------------------------------------------------
 
 .section-weekly
@@ -124,6 +138,8 @@
     position: relative
     overflow: hidden
     border-radius: var(--radius-md) var(--radius-md) 0 0
+    // Driven by GSAP — overlay fades in after the image slide completes
+    --overlay-opacity: 1
     // Mobile: landscape image (wider than tall); tablet+: portrait
     aspect-ratio: 344 / 216
 
@@ -145,6 +161,7 @@
       bottom: 0
       height: 35%
       background: linear-gradient(to top, rgba(26, 29, 34, 0.8) 0%, rgba(26, 29, 34, 0) 100%)
+      opacity: var(--overlay-opacity)
       pointer-events: none
 
   &__footer

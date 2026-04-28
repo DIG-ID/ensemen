@@ -29,8 +29,6 @@ $ue_photo             = get_field( 'ustria_ensemen_photo' );
 						false,
 						array(
 							'class'         => 'section-ustria-ensemen__bg w-full h-auto max-w-[160px] md:max-w-none',
-							'loading'       => 'lazy',
-							'fetchpriority' => 'high',
 						)
 					); ?>
 				<?php endif; ?>
@@ -48,8 +46,6 @@ $ue_photo             = get_field( 'ustria_ensemen_photo' );
 						false,
 						array(
 							'class'         => 'section-ustria-ensemen__bg w-full h-auto max-w-[203px] md:max-w-none',
-							'loading'       => 'lazy',
-							'fetchpriority' => 'high',
 						)
 					); ?>
 				<?php endif; ?>
@@ -82,8 +78,6 @@ $ue_photo             = get_field( 'ustria_ensemen_photo' );
 						false,
 						array(
 							'class'         => 'section-ustria-ensemen__bg',
-							'loading'       => 'lazy',
-							'fetchpriority' => 'high',
 						)
 					); ?>
 				<?php endif; ?>
@@ -102,8 +96,6 @@ $ue_photo             = get_field( 'ustria_ensemen_photo' );
 						false,
 						array(
 							'class'         => 'section-ustria-ensemen__bg',
-							'loading'       => 'lazy',
-							'fetchpriority' => 'high',
 						)
 					); ?>
 				<?php endif; ?>
@@ -119,7 +111,6 @@ $ue_photo             = get_field( 'ustria_ensemen_photo' );
 						false,
 						array(
 							'class'   => 'section-ustria-ensemen__photo h-auto',
-							'loading' => 'lazy',
 						)
 					); ?>
 				<?php endif; ?>

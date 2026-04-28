@@ -1,8 +1,9 @@
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { TextPlugin } from 'gsap/TextPlugin';
 import Lenis from 'lenis';
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, TextPlugin);
 
 // Expo-out easing for a cinematic, filmic stop
 const easeExpoOut = (t) => (t === 1 ? 1 : 1 - Math.pow(2, -10 * t));
@@ -37,4 +38,4 @@ function initLenis() {
 
 const lenis = initLenis();
 
-export { gsap, ScrollTrigger, lenis };
+export { gsap, ScrollTrigger, TextPlugin, lenis };

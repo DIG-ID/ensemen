@@ -24,8 +24,6 @@
 						false,
 						array(
 							'class'         => 'celebrate_image_right w-full h-auto',
-							'loading'       => 'lazy',
-							'fetchpriority' => 'high',
 						)
 					); ?>
 				<?php endif; ?>
@@ -39,8 +37,6 @@
 						false,
 						array(
 							'class'         => 'celebrate_image_left w-full h-min-[471px] md:h-min-[471px] xl:h-min-none xl:h-auto',
-							'loading'       => 'lazy',
-							'fetchpriority' => 'high',
 						)
 					); ?>
 				<?php endif; ?>
