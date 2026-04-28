@@ -19,7 +19,7 @@
                 <h2 class="title-main italic md:italic xl:not-italic text-off-white"><?php the_field( 'meals_title_part_2' ); ?></h2>
             </div>
             <div class="col-span-2 pt-[30px] md:col-start-4 md:col-span-3 md:pt-[30px] xl:col-start-7 xl:col-span-4 xl:pt-7">
-                <p class="text-off-white font-open-sans text-[18px] leading-[30px] tracking-[0.5px]"><?php the_field( 'meals_description' ); ?></p>
+                <p class="text-off-white font-openSans text-[18px] leading-[30px] tracking-[0.5px]"><?php the_field( 'meals_description' ); ?></p>
             </div>
         </div>
 

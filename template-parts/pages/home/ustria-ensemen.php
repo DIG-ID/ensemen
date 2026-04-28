@@ -66,7 +66,7 @@ $ue_photo             = get_field( 'ustria_ensemen_photo' );
 			</div>
 
 			<div class="col-span-2 md:col-start-1 md:col-span-3 md:pt-[30px] xl:hidden">
-				<p class="text-off-white font-open-sans text-[18px] leading-[30px] tracking-[0.5px] max-w-[572px]"><?php the_field( 'ustria_ensemen_description' ); ?></p>
+				<p class="text-off-white font-openSans text-[18px] leading-[30px] tracking-[0.5px] max-w-[572px]"><?php the_field( 'ustria_ensemen_description' ); ?></p>
 			</div>
 
 			<!-- Desktop -->

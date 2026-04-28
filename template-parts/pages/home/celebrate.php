@@ -65,7 +65,7 @@
 									?>
 								<?php endif; ?>
 								<?php if ( $item_text ) : ?>
-									<div class="celebrate-items__text text-off-white font-open-sans text-[11px] leading-[15px] tracking-[0.5px] md:text-[18px] md:leading-[30px]"><?php echo $item_text; ?></div>
+									<div class="celebrate-items__text text-off-white font-openSans text-[11px] leading-[15px] tracking-[0.5px] md:text-[18px] md:leading-[30px]"><?php echo $item_text; ?></div>
 								<?php endif; ?>
 							</li>
 						<?php endwhile; ?>
@@ -74,7 +74,7 @@
 			</div>
 
 			<div class="col-span-2 md:col-start-4 md:col-span-3 md:pt-10 xl:col-start-7 xl:col-span-4 xl:pt-16">
-				<p class="text-off-white font-open-sans text-[18px] leading-[30px] tracking-[0.5px] max-w-[594px]"><?php the_field( 'celebrate_description' ); ?></p>
+				<p class="text-off-white font-openSans text-[18px] leading-[30px] tracking-[0.5px] max-w-[594px]"><?php the_field( 'celebrate_description' ); ?></p>
 			</div>
 
 			<div class="col-span-2 md:col-start-4 md:col-span-3 md:pt-10 xl:col-start-7 xl:col-span-2 pt-16">

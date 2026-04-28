@@ -18,7 +18,7 @@ import { debounce, isTouchDevice } from './utils/helpers.js';
 // Components
 // =============================================================================
 import { initPrimaryButtons, initHeaderButtons, initReservationButtons, initFooterButtons } from './buttons.js';
-import { initAnimations, initParallax, initBannerIntro, initPinnedReveal, initMealsReveal, initPresentationDraw } from './animations.js';
+import { initAnimations, initParallax, initBannerIntro, initPinnedReveal, initMealsReveal, initPresentationDraw, initWeeklyReveal } from './animations.js';
 
 // =============================================================================
 // DOM ready
@@ -35,6 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initBannerIntro();
   initPinnedReveal();
   initPresentationDraw();
+  initWeeklyReveal();
   initMealsReveal();
 
 });

@@ -334,7 +334,7 @@ function initPinnedReveal() {
     const title = section.querySelector('[data-reveal-title]');
     const desc = section.querySelector('[data-reveal-desc]');
 
-    // Initial states (matches initPresentationDraw)
+    // Initial states (same as initPresentationDraw)
     if (border) gsap.set(border, { autoAlpha: 0, scale: 0.94, transformOrigin: '50% 50%' });
     if (title) gsap.set(title, { autoAlpha: 0, y: 30, filter: 'blur(8px)' });
     if (desc) gsap.set(desc, { autoAlpha: 0, y: 30, filter: 'blur(8px)' });
@@ -366,7 +366,7 @@ function initPinnedReveal() {
       });
     }
 
-    // 2. Title reveals after the border has settled
+    // 2. Title — exactly the same config as the presentation
     if (title) {
       tl.to(title, {
         autoAlpha: 1,
@@ -377,7 +377,7 @@ function initPinnedReveal() {
       }, '+=0.15');
     }
 
-    // 3. Description follows, overlapping slightly with title
+    // 3. Description — exactly the same config as the presentation
     if (desc) {
       tl.to(desc, {
         autoAlpha: 1,
@@ -433,7 +433,7 @@ function initMealsReveal() {
     // 1. Slide image down into the bordered container
     tl.to(img, {
       yPercent: 0,
-      duration: 3,
+      duration: 2.5,
       ease: 'power3.out',
     });
 
@@ -582,4 +582,81 @@ function initPresentationDraw() {
   tl.to({}, { duration: 0.2 });
 }
 
-export { initAnimations, initParallax, initBannerIntro, initPinnedReveal, initMealsReveal, initPresentationDraw };
+/**
+ * Weekly section — direct clone of initPresentationDraw without the SVG line
+ * drawing. Pin engages, border fades + scales in, then title and description
+ * reveal in sequence. Pin releases.
+ *
+ * Markup contract on weekly.php:
+ *   [data-weekly-reveal]   — section wrapper (gets pinned)
+ *   [data-reveal-border]   — bordered box
+ *   [data-reveal-title]    — title
+ *   [data-reveal-desc]     — description
+ */
+function initWeeklyReveal() {
+  const section = document.querySelector('[data-weekly-reveal]');
+  if (!section) return;
+
+  const border = section.querySelector('[data-reveal-border]');
+  const title = section.querySelector('[data-reveal-title]');
+  const desc = section.querySelector('[data-reveal-desc]');
+
+  // Initial states for border and text
+  if (border) gsap.set(border, { autoAlpha: 0, scale: 0.94, transformOrigin: '50% 50%' });
+  if (title) gsap.set(title, { autoAlpha: 0, y: 30, filter: 'blur(8px)' });
+  if (desc) gsap.set(desc, { autoAlpha: 0, y: 30, filter: 'blur(8px)' });
+
+  // Pinned scrubbed timeline — same config as the presentation
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: section,
+      start: 'top top-=-100',
+      end: '+=2000',
+      scrub: 1.2,
+      pin: true,
+      anticipatePin: 1,
+      pinType: 'transform',
+      invalidateOnRefresh: true,
+    },
+  });
+
+  // Buffer at start — softens the pin engage
+  tl.to({}, { duration: 0.15 });
+
+  // 1. Border fade + scale-in (replaces the SVG line drawing of the presentation)
+  if (border) {
+    tl.to(border, {
+      autoAlpha: 1,
+      scale: 1,
+      duration: 2,
+      ease: 'power2.out',
+    });
+  }
+
+  // 2. Title reveals after the border has settled
+  if (title) {
+    tl.to(title, {
+      autoAlpha: 1,
+      y: 0,
+      filter: 'blur(0px)',
+      duration: 1.2,
+      ease: 'power3.out',
+    }, '+=0.15');
+  }
+
+  // 3. Description reveals slightly after title
+  if (desc) {
+    tl.to(desc, {
+      autoAlpha: 1,
+      y: 0,
+      filter: 'blur(0px)',
+      duration: 1.2,
+      ease: 'power3.out',
+    }, '-=0.7');
+  }
+
+  // Buffer at end — text sits visible briefly before pin releases
+  tl.to({}, { duration: 0.2 });
+}
+
+export { initAnimations, initParallax, initBannerIntro, initPinnedReveal, initMealsReveal, initPresentationDraw, initWeeklyReveal };

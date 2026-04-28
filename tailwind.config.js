@@ -9,7 +9,7 @@ module.exports = {
   theme: {
     fontFamily: {
       bodoni: ['bodoni-moda', 'serif'],
-      'open-sans': ['open-sans', 'sans-serif'],
+      openSans: ['openSans', 'sans-serif'],
     },
 
     extend: {
