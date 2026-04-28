@@ -82,7 +82,7 @@ function initHeaderButtons() {
 }
 
 function initReservationButtons() {
-	initAnimatedButton( '.btn-reservation', '#874644' );
+	initAnimatedButton( '.btn-reservation', '#F1F2ED' );
 }
 
 function initFooterButtons() {
