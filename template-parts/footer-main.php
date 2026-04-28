@@ -48,7 +48,6 @@ $copyright_positions = array(
 						false,
 						array(
 							'class'   => 'max-w-full h-auto',
-							'loading' => 'lazy',
 						)
 					);
 					?>

@@ -36,11 +36,6 @@
       @apply relative overflow-hidden inline-block py-2.5 px-9 bg-transparent border-2 border-wine rounded text-wine font-openSans text-[15px] font-bold leading-8 tracking-[0.5px] uppercase no-underline cursor-pointer
       @apply transition-colors duration-[600ms] ease-out-expo
 
-      // Sweep-fill bg from left to right on hover
-      &::before
-        content: ''
-        @apply absolute inset-0 bg-wine scale-x-0 origin-left transition-transform duration-[600ms] ease-out-expo
-
       &:hover
         @apply text-off-white
 

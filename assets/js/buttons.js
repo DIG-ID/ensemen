@@ -1,6 +1,6 @@
 import { gsap } from './gsap.js';
 
-const SVG_NS = 'http://www.w3.org/2000/svg';
+const SVG_NS = 'https://www.w3.org/2000/svg';
 const BORDER_RADIUS = 4;
 
 /**
@@ -122,6 +122,10 @@ function initPrimaryButtons() {
 	initAnimatedButton( '.btn-primary', '#F1F2ED', '#874644', true );
 }
 
+function initFormButtons() {
+	initAnimatedButton( '.btn-form', '#F1F2ED', '#874644', true );
+}
+
 function initHeaderButtons() {
 	initAnimatedButton( '.btn-header', '#F1F2ED', '#874644' );
 }
@@ -134,4 +138,4 @@ function initFooterButtons() {
 	initAnimatedButton( '.btn-footer', '#874644' );
 }
 
-export { initPrimaryButtons, initHeaderButtons, initReservationButtons, initFooterButtons };
+export { initPrimaryButtons, initFormButtons, initHeaderButtons, initReservationButtons, initFooterButtons };
