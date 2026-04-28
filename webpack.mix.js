@@ -30,11 +30,15 @@ mix
   })
 
   .browserSync({
-    proxy: {
-      target: "http://ensemen.digid/",
-      ws: true,
+    proxy: "https://ensemen.digid/",
+    host: "ensemen.digid",
+    open: "external",
+    port: 3000,
+    ws: true,
+    https: {
+      key: path.join(certPath, 'ensemen.digid.key'),
+      cert: path.join(certPath, 'ensemen.digid.crt'),
     },
-    https: true,
     files: ["./**/*.php", "./dist/js/*.js", "./dist/css/*.css"]
   })
   .disableNotifications();
