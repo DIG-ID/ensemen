@@ -1,2 +1,12071 @@
-/*! For license information please see main.js.LICENSE.txt */
-(()=>{"use strict";var t,e={485(){function t(t){if(void 0===t)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return t}function e(t,e){t.prototype=Object.create(e.prototype),t.prototype.constructor=t,t.__proto__=e}var r,n,i,s,o,a,u,l,c,h,f,p,d,D,m,g,v,_={autoSleep:120,force3D:"auto",nullTargetWarn:1,units:{lineHeight:""}},y={duration:.5,overwrite:!1,delay:0},C=1e8,E=1e-8,w=2*Math.PI,F=w/4,b=0,x=Math.sqrt,T=Math.cos,A=Math.sin,S=function(t){return"string"==typeof t},k=function(t){return"function"==typeof t},M=function(t){return"number"==typeof t},O=function(t){return void 0===t},B=function(t){return"object"==typeof t},P=function(t){return!1!==t},R=function(){return"undefined"!=typeof window},z=function(t){return k(t)||S(t)},L="function"==typeof ArrayBuffer&&ArrayBuffer.isView||function(){},N=Array.isArray,I=/(?:-?\.?\d|\.)+/gi,Y=/[-+=.]*\d+[.e\-+]*\d*[e\-+]*\d*/g,X=/[-+=.]*\d+[.e-]*\d*[a-z%]*/g,q=/[-+=.]*\d+\.?\d*(?:e-|e\+)?\d*/gi,W=/[+-]=-?[.\d]+/,H=/[^,'"\[\]\s]+/gi,j=/^[+\-=e\s\d]*\d+[.\d]*([a-z]*|%)\s*$/i,U={},V={},G=function(t){return(V=wt(t,U))&&Fr},Q=function(t,e){return console.warn("Invalid property",t,"set to",e,"Missing plugin? gsap.registerPlugin()")},$=function(t,e){return!e&&console.warn(t)},Z=function(t,e){return t&&(U[t]=e)&&V&&(V[t]=e)||U},K=function(){return 0},J={suppressEvents:!0,isStart:!0,kill:!1},tt={suppressEvents:!0,kill:!1},et={suppressEvents:!0},rt={},nt=[],it={},st={},ot={},at=30,ut=[],lt="",ct=function(t){var e,r,n=t[0];if(B(n)||k(n)||(t=[t]),!(e=(n._gsap||{}).harness)){for(r=ut.length;r--&&!ut[r].targetTest(n););e=ut[r]}for(r=t.length;r--;)t[r]&&(t[r]._gsap||(t[r]._gsap=new Ne(t[r],e)))||t.splice(r,1);return t},ht=function(t){return t._gsap||ct(ee(t))[0]._gsap},ft=function(t,e,r){return(r=t[e])&&k(r)?t[e]():O(r)&&t.getAttribute&&t.getAttribute(e)||r},pt=function(t,e){return(t=t.split(",")).forEach(e)||t},dt=function(t){return Math.round(1e5*t)/1e5||0},Dt=function(t){return Math.round(1e7*t)/1e7||0},mt=function(t,e){var r=e.charAt(0),n=parseFloat(e.substr(2));return t=parseFloat(t),"+"===r?t+n:"-"===r?t-n:"*"===r?t*n:t/n},gt=function(t,e){for(var r=e.length,n=0;t.indexOf(e[n])<0&&++n<r;);return n<r},vt=function(){var t,e,r=nt.length,n=nt.slice(0);for(it={},nt.length=0,t=0;t<r;t++)(e=n[t])&&e._lazy&&(e.render(e._lazy[0],e._lazy[1],!0)._lazy=0)},_t=function(t,e,r,i){nt.length&&!n&&vt(),t.render(e,r,i||n&&e<0&&(t._initted||t._startAt)),nt.length&&!n&&vt()},yt=function(t){var e=parseFloat(t);return(e||0===e)&&(t+"").match(H).length<2?e:S(t)?t.trim():t},Ct=function(t){return t},Et=function(t,e){for(var r in e)r in t||(t[r]=e[r]);return t},wt=function(t,e){for(var r in e)t[r]=e[r];return t},Ft=function t(e,r){for(var n in r)"__proto__"!==n&&"constructor"!==n&&"prototype"!==n&&(e[n]=B(r[n])?t(e[n]||(e[n]={}),r[n]):r[n]);return e},bt=function(t,e){var r,n={};for(r in t)r in e||(n[r]=t[r]);return n},xt=function(t){var e,r=t.parent||s,n=t.keyframes?(e=N(t.keyframes),function(t,r){for(var n in r)n in t||"duration"===n&&e||"ease"===n||(t[n]=r[n])}):Et;if(P(t.inherit))for(;r;)n(t,r.vars.defaults),r=r.parent||r._dp;return t},Tt=function(t,e,r,n,i){void 0===r&&(r="_first"),void 0===n&&(n="_last");var s,o=t[n];if(i)for(s=e[i];o&&o[i]>s;)o=o._prev;return o?(e._next=o._next,o._next=e):(e._next=t[r],t[r]=e),e._next?e._next._prev=e:t[n]=e,e._prev=o,e.parent=e._dp=t,e},At=function(t,e,r,n){void 0===r&&(r="_first"),void 0===n&&(n="_last");var i=e._prev,s=e._next;i?i._next=s:t[r]===e&&(t[r]=s),s?s._prev=i:t[n]===e&&(t[n]=i),e._next=e._prev=e.parent=null},St=function(t,e){t.parent&&(!e||t.parent.autoRemoveChildren)&&t.parent.remove&&t.parent.remove(t),t._act=0},kt=function(t,e){if(t&&(!e||e._end>t._dur||e._start<0))for(var r=t;r;)r._dirty=1,r=r.parent;return t},Mt=function(t,e,r,i){return t._startAt&&(n?t._startAt.revert(tt):t.vars.immediateRender&&!t.vars.autoRevert||t._startAt.render(e,!0,i))},Ot=function t(e){return!e||e._ts&&t(e.parent)},Bt=function(t){return t._repeat?Pt(t._tTime,t=t.duration()+t._rDelay)*t:0},Pt=function(t,e){var r=Math.floor(t/=e);return t&&r===t?r-1:r},Rt=function(t,e){return(t-e._start)*e._ts+(e._ts>=0?0:e._dirty?e.totalDuration():e._tDur)},zt=function(t){return t._end=Dt(t._start+(t._tDur/Math.abs(t._ts||t._rts||E)||0))},Lt=function(t,e){var r=t._dp;return r&&r.smoothChildTiming&&t._ts&&(t._start=Dt(r._time-(t._ts>0?e/t._ts:((t._dirty?t.totalDuration():t._tDur)-e)/-t._ts)),zt(t),r._dirty||kt(r,t)),t},Nt=function(t,e){var r;if((e._time||!e._dur&&e._initted||e._start<t._time&&(e._dur||!e.add))&&(r=Rt(t.rawTime(),e),(!e._dur||$t(0,e.totalDuration(),r)-e._tTime>E)&&e.render(r,!0)),kt(t,e)._dp&&t._initted&&t._time>=t._dur&&t._ts){if(t._dur<t.duration())for(r=t;r._dp;)r.rawTime()>=0&&r.totalTime(r._tTime),r=r._dp;t._zTime=-1e-8}},It=function(t,e,r,n){return e.parent&&St(e),e._start=Dt((M(r)?r:r||t!==s?Vt(t,r,e):t._time)+e._delay),e._end=Dt(e._start+(e.totalDuration()/Math.abs(e.timeScale())||0)),Tt(t,e,"_first","_last",t._sort?"_start":0),Wt(e)||(t._recent=e),n||Nt(t,e),t._ts<0&&Lt(t,t._tTime),t},Yt=function(t,e){return(U.ScrollTrigger||Q("scrollTrigger",e))&&U.ScrollTrigger.create(e,t)},Xt=function(t,e,r,i,s){return Ue(t,e,s),t._initted?!r&&t._pt&&!n&&(t._dur&&!1!==t.vars.lazy||!t._dur&&t.vars.lazy)&&c!==be.frame?(nt.push(t),t._lazy=[s,i],1):void 0:1},qt=function t(e){var r=e.parent;return r&&r._ts&&r._initted&&!r._lock&&(r.rawTime()<0||t(r))},Wt=function(t){var e=t.data;return"isFromStart"===e||"isStart"===e},Ht=function(t,e,r,n){var i=t._repeat,s=Dt(e)||0,o=t._tTime/t._tDur;return o&&!n&&(t._time*=s/t._dur),t._dur=s,t._tDur=i?i<0?1e10:Dt(s*(i+1)+t._rDelay*i):s,o>0&&!n&&Lt(t,t._tTime=t._tDur*o),t.parent&&zt(t),r||kt(t.parent,t),t},jt=function(t){return t instanceof Ye?kt(t):Ht(t,t._dur)},Ut={_start:0,endTime:K,totalDuration:K},Vt=function t(e,r,n){var i,s,o,a=e.labels,u=e._recent||Ut,l=e.duration()>=C?u.endTime(!1):e._dur;return S(r)&&(isNaN(r)||r in a)?(s=r.charAt(0),o="%"===r.substr(-1),i=r.indexOf("="),"<"===s||">"===s?(i>=0&&(r=r.replace(/=/,"")),("<"===s?u._start:u.endTime(u._repeat>=0))+(parseFloat(r.substr(1))||0)*(o?(i<0?u:n).totalDuration()/100:1)):i<0?(r in a||(a[r]=l),a[r]):(s=parseFloat(r.charAt(i-1)+r.substr(i+1)),o&&n&&(s=s/100*(N(n)?n[0]:n).totalDuration()),i>1?t(e,r.substr(0,i-1),n)+s:l+s)):null==r?l:+r},Gt=function(t,e,r){var n,i,s=M(e[1]),o=(s?2:1)+(t<2?0:1),a=e[o];if(s&&(a.duration=e[1]),a.parent=r,t){for(n=a,i=r;i&&!("immediateRender"in n);)n=i.vars.defaults||{},i=P(i.vars.inherit)&&i.parent;a.immediateRender=P(n.immediateRender),t<2?a.runBackwards=1:a.startAt=e[o-1]}return new Ze(e[0],a,e[o+1])},Qt=function(t,e){return t||0===t?e(t):e},$t=function(t,e,r){return r<t?t:r>e?e:r},Zt=function(t,e){return S(t)&&(e=j.exec(t))?e[1]:""},Kt=[].slice,Jt=function(t,e){return t&&B(t)&&"length"in t&&(!e&&!t.length||t.length-1 in t&&B(t[0]))&&!t.nodeType&&t!==o},te=function(t,e,r){return void 0===r&&(r=[]),t.forEach((function(t){var n;return S(t)&&!e||Jt(t,1)?(n=r).push.apply(n,ee(t)):r.push(t)}))||r},ee=function(t,e,r){return i&&!e&&i.selector?i.selector(t):!S(t)||r||!a&&xe()?N(t)?te(t,r):Jt(t)?Kt.call(t,0):t?[t]:[]:Kt.call((e||u).querySelectorAll(t),0)},re=function(t){return t=ee(t)[0]||$("Invalid scope")||{},function(e){var r=t.current||t.nativeElement||t;return ee(e,r.querySelectorAll?r:r===t?$("Invalid scope")||u.createElement("div"):t)}},ne=function(t){return t.sort((function(){return.5-Math.random()}))},ie=function(t){if(k(t))return t;var e=B(t)?t:{each:t},r=Be(e.ease),n=e.from||0,i=parseFloat(e.base)||0,s={},o=n>0&&n<1,a=isNaN(n)||o,u=e.axis,l=n,c=n;return S(n)?l=c={center:.5,edges:.5,end:1}[n]||0:!o&&a&&(l=n[0],c=n[1]),function(t,o,h){var f,p,d,D,m,g,v,_,y,E=(h||e).length,w=s[E];if(!w){if(!(y="auto"===e.grid?0:(e.grid||[1,C])[1])){for(v=-C;v<(v=h[y++].getBoundingClientRect().left)&&y<E;);y<E&&y--}for(w=s[E]=[],f=a?Math.min(y,E)*l-.5:n%y,p=y===C?0:a?E*c/y-.5:n/y|0,v=0,_=C,g=0;g<E;g++)d=g%y-f,D=p-(g/y|0),w[g]=m=u?Math.abs("y"===u?D:d):x(d*d+D*D),m>v&&(v=m),m<_&&(_=m);"random"===n&&ne(w),w.max=v-_,w.min=_,w.v=E=(parseFloat(e.amount)||parseFloat(e.each)*(y>E?E-1:u?"y"===u?E/y:y:Math.max(y,E/y))||0)*("edges"===n?-1:1),w.b=E<0?i-E:i,w.u=Zt(e.amount||e.each)||0,r=r&&E<0?Me(r):r}return E=(w[t]-w.min)/w.max||0,Dt(w.b+(r?r(E):E)*w.v)+w.u}},se=function(t){var e=Math.pow(10,((t+"").split(".")[1]||"").length);return function(r){var n=Dt(Math.round(parseFloat(r)/t)*t*e);return(n-n%1)/e+(M(r)?0:Zt(r))}},oe=function(t,e){var r,n,i=N(t);return!i&&B(t)&&(r=i=t.radius||C,t.values?(t=ee(t.values),(n=!M(t[0]))&&(r*=r)):t=se(t.increment)),Qt(e,i?k(t)?function(e){return n=t(e),Math.abs(n-e)<=r?n:e}:function(e){for(var i,s,o=parseFloat(n?e.x:e),a=parseFloat(n?e.y:0),u=C,l=0,c=t.length;c--;)(i=n?(i=t[c].x-o)*i+(s=t[c].y-a)*s:Math.abs(t[c]-o))<u&&(u=i,l=c);return l=!r||u<=r?t[l]:e,n||l===e||M(e)?l:l+Zt(e)}:se(t))},ae=function(t,e,r,n){return Qt(N(t)?!e:!0===r?!!(r=0):!n,(function(){return N(t)?t[~~(Math.random()*t.length)]:(r=r||1e-5)&&(n=r<1?Math.pow(10,(r+"").length-2):1)&&Math.floor(Math.round((t-r/2+Math.random()*(e-t+.99*r))/r)*r*n)/n}))},ue=function(t,e,r){return Qt(r,(function(r){return t[~~e(r)]}))},le=function(t){for(var e,r,n,i,s=0,o="";~(e=t.indexOf("random(",s));)n=t.indexOf(")",e),i="["===t.charAt(e+7),r=t.substr(e+7,n-e-7).match(i?H:I),o+=t.substr(s,e-s)+ae(i?r:+r[0],i?0:+r[1],+r[2]||1e-5),s=n+1;return o+t.substr(s,t.length-s)},ce=function(t,e,r,n,i){var s=e-t,o=n-r;return Qt(i,(function(e){return r+((e-t)/s*o||0)}))},he=function(t,e,r){var n,i,s,o=t.labels,a=C;for(n in o)(i=o[n]-e)<0==!!r&&i&&a>(i=Math.abs(i))&&(s=n,a=i);return s},fe=function(t,e,r){var n,s,o,a=t.vars,u=a[e],l=i,c=t._ctx;if(u)return n=a[e+"Params"],s=a.callbackScope||t,r&&nt.length&&vt(),c&&(i=c),o=n?u.apply(s,n):u.call(s),i=l,o},pe=function(t){return St(t),t.scrollTrigger&&t.scrollTrigger.kill(!!n),t.progress()<1&&fe(t,"onInterrupt"),t},de=[],De=function(t){if(t)if(t=!t.name&&t.default||t,R()||t.headless){var e=t.name,r=k(t),n=e&&!r&&t.init?function(){this._props=[]}:t,i={init:K,render:or,add:He,kill:ur,modifier:ar,rawVars:0},s={targetTest:0,get:0,getSetter:rr,aliases:{},register:0};if(xe(),t!==n){if(st[e])return;Et(n,Et(bt(t,i),s)),wt(n.prototype,wt(i,bt(t,s))),st[n.prop=e]=n,t.targetTest&&(ut.push(n),rt[e]=1),e=("css"===e?"CSS":e.charAt(0).toUpperCase()+e.substr(1))+"Plugin"}Z(e,n),t.register&&t.register(Fr,n,hr)}else de.push(t)},me=255,ge={aqua:[0,me,me],lime:[0,me,0],silver:[192,192,192],black:[0,0,0],maroon:[128,0,0],teal:[0,128,128],blue:[0,0,me],navy:[0,0,128],white:[me,me,me],olive:[128,128,0],yellow:[me,me,0],orange:[me,165,0],gray:[128,128,128],purple:[128,0,128],green:[0,128,0],red:[me,0,0],pink:[me,192,203],cyan:[0,me,me],transparent:[me,me,me,0]},ve=function(t,e,r){return(6*(t+=t<0?1:t>1?-1:0)<1?e+(r-e)*t*6:t<.5?r:3*t<2?e+(r-e)*(2/3-t)*6:e)*me+.5|0},_e=function(t,e,r){var n,i,s,o,a,u,l,c,h,f,p=t?M(t)?[t>>16,t>>8&me,t&me]:0:ge.black;if(!p){if(","===t.substr(-1)&&(t=t.substr(0,t.length-1)),ge[t])p=ge[t];else if("#"===t.charAt(0)){if(t.length<6&&(n=t.charAt(1),i=t.charAt(2),s=t.charAt(3),t="#"+n+n+i+i+s+s+(5===t.length?t.charAt(4)+t.charAt(4):"")),9===t.length)return[(p=parseInt(t.substr(1,6),16))>>16,p>>8&me,p&me,parseInt(t.substr(7),16)/255];p=[(t=parseInt(t.substr(1),16))>>16,t>>8&me,t&me]}else if("hsl"===t.substr(0,3))if(p=f=t.match(I),e){if(~t.indexOf("="))return p=t.match(Y),r&&p.length<4&&(p[3]=1),p}else o=+p[0]%360/360,a=+p[1]/100,n=2*(u=+p[2]/100)-(i=u<=.5?u*(a+1):u+a-u*a),p.length>3&&(p[3]*=1),p[0]=ve(o+1/3,n,i),p[1]=ve(o,n,i),p[2]=ve(o-1/3,n,i);else p=t.match(I)||ge.transparent;p=p.map(Number)}return e&&!f&&(n=p[0]/me,i=p[1]/me,s=p[2]/me,u=((l=Math.max(n,i,s))+(c=Math.min(n,i,s)))/2,l===c?o=a=0:(h=l-c,a=u>.5?h/(2-l-c):h/(l+c),o=l===n?(i-s)/h+(i<s?6:0):l===i?(s-n)/h+2:(n-i)/h+4,o*=60),p[0]=~~(o+.5),p[1]=~~(100*a+.5),p[2]=~~(100*u+.5)),r&&p.length<4&&(p[3]=1),p},ye=function(t){var e=[],r=[],n=-1;return t.split(Ee).forEach((function(t){var i=t.match(X)||[];e.push.apply(e,i),r.push(n+=i.length+1)})),e.c=r,e},Ce=function(t,e,r){var n,i,s,o,a="",u=(t+a).match(Ee),l=e?"hsla(":"rgba(",c=0;if(!u)return t;if(u=u.map((function(t){return(t=_e(t,e,1))&&l+(e?t[0]+","+t[1]+"%,"+t[2]+"%,"+t[3]:t.join(","))+")"})),r&&(s=ye(t),(n=r.c).join(a)!==s.c.join(a)))for(o=(i=t.replace(Ee,"1").split(X)).length-1;c<o;c++)a+=i[c]+(~n.indexOf(c)?u.shift()||l+"0,0,0,0)":(s.length?s:u.length?u:r).shift());if(!i)for(o=(i=t.split(Ee)).length-1;c<o;c++)a+=i[c]+u[c];return a+i[o]},Ee=function(){var t,e="(?:\\b(?:(?:rgb|rgba|hsl|hsla)\\(.+?\\))|\\B#(?:[0-9a-f]{3,4}){1,2}\\b";for(t in ge)e+="|"+t+"\\b";return new RegExp(e+")","gi")}(),we=/hsl[a]?\(/,Fe=function(t){var e,r=t.join(" ");if(Ee.lastIndex=0,Ee.test(r))return e=we.test(r),t[1]=Ce(t[1],e),t[0]=Ce(t[0],e,ye(t[1])),!0},be=function(){var t,e,r,n,i,s,c=Date.now,h=500,p=33,d=c(),D=d,m=1e3/240,g=m,v=[],_=function r(o){var a,u,l,f,_=c()-D,y=!0===o;if((_>h||_<0)&&(d+=_-p),((a=(l=(D+=_)-d)-g)>0||y)&&(f=++n.frame,i=l-1e3*n.time,n.time=l/=1e3,g+=a+(a>=m?4:m-a),u=1),y||(t=e(r)),u)for(s=0;s<v.length;s++)v[s](l,i,f,o)};return n={time:0,frame:0,tick:function(){_(!0)},deltaRatio:function(t){return i/(1e3/(t||60))},wake:function(){l&&(!a&&R()&&(o=a=window,u=o.document||{},U.gsap=Fr,(o.gsapVersions||(o.gsapVersions=[])).push(Fr.version),G(V||o.GreenSockGlobals||!o.gsap&&o||{}),de.forEach(De)),r="undefined"!=typeof requestAnimationFrame&&requestAnimationFrame,t&&n.sleep(),e=r||function(t){return setTimeout(t,g-1e3*n.time+1|0)},f=1,_(2))},sleep:function(){(r?cancelAnimationFrame:clearTimeout)(t),f=0,e=K},lagSmoothing:function(t,e){h=t||1/0,p=Math.min(e||33,h)},fps:function(t){m=1e3/(t||240),g=1e3*n.time+m},add:function(t,e,r){var i=e?function(e,r,s,o){t(e,r,s,o),n.remove(i)}:t;return n.remove(t),v[r?"unshift":"push"](i),xe(),i},remove:function(t,e){~(e=v.indexOf(t))&&v.splice(e,1)&&s>=e&&s--},_listeners:v}}(),xe=function(){return!f&&be.wake()},Te={},Ae=/^[\d.\-M][\d.\-,\s]/,Se=/["']/g,ke=function(t){for(var e,r,n,i={},s=t.substr(1,t.length-3).split(":"),o=s[0],a=1,u=s.length;a<u;a++)r=s[a],e=a!==u-1?r.lastIndexOf(","):r.length,n=r.substr(0,e),i[o]=isNaN(n)?n.replace(Se,"").trim():+n,o=r.substr(e+1).trim();return i},Me=function(t){return function(e){return 1-t(1-e)}},Oe=function t(e,r){for(var n,i=e._first;i;)i instanceof Ye?t(i,r):!i.vars.yoyoEase||i._yoyo&&i._repeat||i._yoyo===r||(i.timeline?t(i.timeline,r):(n=i._ease,i._ease=i._yEase,i._yEase=n,i._yoyo=r)),i=i._next},Be=function(t,e){return t&&(k(t)?t:Te[t]||function(t){var e,r,n,i,s=(t+"").split("("),o=Te[s[0]];return o&&s.length>1&&o.config?o.config.apply(null,~t.indexOf("{")?[ke(s[1])]:(e=t,r=e.indexOf("(")+1,n=e.indexOf(")"),i=e.indexOf("(",r),e.substring(r,~i&&i<n?e.indexOf(")",n+1):n)).split(",").map(yt)):Te._CE&&Ae.test(t)?Te._CE("",t):o}(t))||e},Pe=function(t,e,r,n){void 0===r&&(r=function(t){return 1-e(1-t)}),void 0===n&&(n=function(t){return t<.5?e(2*t)/2:1-e(2*(1-t))/2});var i,s={easeIn:e,easeOut:r,easeInOut:n};return pt(t,(function(t){for(var e in Te[t]=U[t]=s,Te[i=t.toLowerCase()]=r,s)Te[i+("easeIn"===e?".in":"easeOut"===e?".out":".inOut")]=Te[t+"."+e]=s[e]})),s},Re=function(t){return function(e){return e<.5?(1-t(1-2*e))/2:.5+t(2*(e-.5))/2}},ze=function t(e,r,n){var i=r>=1?r:1,s=(n||(e?.3:.45))/(r<1?r:1),o=s/w*(Math.asin(1/i)||0),a=function(t){return 1===t?1:i*Math.pow(2,-10*t)*A((t-o)*s)+1},u="out"===e?a:"in"===e?function(t){return 1-a(1-t)}:Re(a);return s=w/s,u.config=function(r,n){return t(e,r,n)},u},Le=function t(e,r){void 0===r&&(r=1.70158);var n=function(t){return t?--t*t*((r+1)*t+r)+1:0},i="out"===e?n:"in"===e?function(t){return 1-n(1-t)}:Re(n);return i.config=function(r){return t(e,r)},i};pt("Linear,Quad,Cubic,Quart,Quint,Strong",(function(t,e){var r=e<5?e+1:e;Pe(t+",Power"+(r-1),e?function(t){return Math.pow(t,r)}:function(t){return t},(function(t){return 1-Math.pow(1-t,r)}),(function(t){return t<.5?Math.pow(2*t,r)/2:1-Math.pow(2*(1-t),r)/2}))})),Te.Linear.easeNone=Te.none=Te.Linear.easeIn,Pe("Elastic",ze("in"),ze("out"),ze()),p=7.5625,m=2*(D=1/(d=2.75)),g=2.5*D,Pe("Bounce",(function(t){return 1-v(1-t)}),v=function(t){return t<D?p*t*t:t<m?p*Math.pow(t-1.5/d,2)+.75:t<g?p*(t-=2.25/d)*t+.9375:p*Math.pow(t-2.625/d,2)+.984375}),Pe("Expo",(function(t){return t?Math.pow(2,10*(t-1)):0})),Pe("Circ",(function(t){return-(x(1-t*t)-1)})),Pe("Sine",(function(t){return 1===t?1:1-T(t*F)})),Pe("Back",Le("in"),Le("out"),Le()),Te.SteppedEase=Te.steps=U.SteppedEase={config:function(t,e){void 0===t&&(t=1);var r=1/t,n=t+(e?0:1),i=e?1:0;return function(t){return((n*$t(0,.99999999,t)|0)+i)*r}}},y.ease=Te["quad.out"],pt("onComplete,onUpdate,onStart,onRepeat,onReverseComplete,onInterrupt",(function(t){return lt+=t+","+t+"Params,"}));var Ne=function(t,e){this.id=b++,t._gsap=this,this.target=t,this.harness=e,this.get=e?e.get:ft,this.set=e?e.getSetter:rr},Ie=function(){function t(t){this.vars=t,this._delay=+t.delay||0,(this._repeat=t.repeat===1/0?-2:t.repeat||0)&&(this._rDelay=t.repeatDelay||0,this._yoyo=!!t.yoyo||!!t.yoyoEase),this._ts=1,Ht(this,+t.duration,1,1),this.data=t.data,i&&(this._ctx=i,i.data.push(this)),f||be.wake()}var e=t.prototype;return e.delay=function(t){return t||0===t?(this.parent&&this.parent.smoothChildTiming&&this.startTime(this._start+t-this._delay),this._delay=t,this):this._delay},e.duration=function(t){return arguments.length?this.totalDuration(this._repeat>0?t+(t+this._rDelay)*this._repeat:t):this.totalDuration()&&this._dur},e.totalDuration=function(t){return arguments.length?(this._dirty=0,Ht(this,this._repeat<0?t:(t-this._repeat*this._rDelay)/(this._repeat+1))):this._tDur},e.totalTime=function(t,e){if(xe(),!arguments.length)return this._tTime;var r=this._dp;if(r&&r.smoothChildTiming&&this._ts){for(Lt(this,t),!r._dp||r.parent||Nt(r,this);r&&r.parent;)r.parent._time!==r._start+(r._ts>=0?r._tTime/r._ts:(r.totalDuration()-r._tTime)/-r._ts)&&r.totalTime(r._tTime,!0),r=r.parent;!this.parent&&this._dp.autoRemoveChildren&&(this._ts>0&&t<this._tDur||this._ts<0&&t>0||!this._tDur&&!t)&&It(this._dp,this,this._start-this._delay)}return(this._tTime!==t||!this._dur&&!e||this._initted&&Math.abs(this._zTime)===E||!t&&!this._initted&&(this.add||this._ptLookup))&&(this._ts||(this._pTime=t),_t(this,t,e)),this},e.time=function(t,e){return arguments.length?this.totalTime(Math.min(this.totalDuration(),t+Bt(this))%(this._dur+this._rDelay)||(t?this._dur:0),e):this._time},e.totalProgress=function(t,e){return arguments.length?this.totalTime(this.totalDuration()*t,e):this.totalDuration()?Math.min(1,this._tTime/this._tDur):this.rawTime()>0?1:0},e.progress=function(t,e){return arguments.length?this.totalTime(this.duration()*(!this._yoyo||1&this.iteration()?t:1-t)+Bt(this),e):this.duration()?Math.min(1,this._time/this._dur):this.rawTime()>0?1:0},e.iteration=function(t,e){var r=this.duration()+this._rDelay;return arguments.length?this.totalTime(this._time+(t-1)*r,e):this._repeat?Pt(this._tTime,r)+1:1},e.timeScale=function(t,e){if(!arguments.length)return-1e-8===this._rts?0:this._rts;if(this._rts===t)return this;var r=this.parent&&this._ts?Rt(this.parent._time,this):this._tTime;return this._rts=+t||0,this._ts=this._ps||-1e-8===t?0:this._rts,this.totalTime($t(-Math.abs(this._delay),this._tDur,r),!1!==e),zt(this),function(t){for(var e=t.parent;e&&e.parent;)e._dirty=1,e.totalDuration(),e=e.parent;return t}(this)},e.paused=function(t){return arguments.length?(this._ps!==t&&(this._ps=t,t?(this._pTime=this._tTime||Math.max(-this._delay,this.rawTime()),this._ts=this._act=0):(xe(),this._ts=this._rts,this.totalTime(this.parent&&!this.parent.smoothChildTiming?this.rawTime():this._tTime||this._pTime,1===this.progress()&&Math.abs(this._zTime)!==E&&(this._tTime-=E)))),this):this._ps},e.startTime=function(t){if(arguments.length){this._start=t;var e=this.parent||this._dp;return e&&(e._sort||!this.parent)&&It(e,this,t-this._delay),this}return this._start},e.endTime=function(t){return this._start+(P(t)?this.totalDuration():this.duration())/Math.abs(this._ts||1)},e.rawTime=function(t){var e=this.parent||this._dp;return e?t&&(!this._ts||this._repeat&&this._time&&this.totalProgress()<1)?this._tTime%(this._dur+this._rDelay):this._ts?Rt(e.rawTime(t),this):this._tTime:this._tTime},e.revert=function(t){void 0===t&&(t=et);var e=n;return n=t,(this._initted||this._startAt)&&(this.timeline&&this.timeline.revert(t),this.totalTime(-.01,t.suppressEvents)),"nested"!==this.data&&!1!==t.kill&&this.kill(),n=e,this},e.globalTime=function(t){for(var e=this,r=arguments.length?t:e.rawTime();e;)r=e._start+r/(Math.abs(e._ts)||1),e=e._dp;return!this.parent&&this._sat?this._sat.globalTime(t):r},e.repeat=function(t){return arguments.length?(this._repeat=t===1/0?-2:t,jt(this)):-2===this._repeat?1/0:this._repeat},e.repeatDelay=function(t){if(arguments.length){var e=this._time;return this._rDelay=t,jt(this),e?this.time(e):this}return this._rDelay},e.yoyo=function(t){return arguments.length?(this._yoyo=t,this):this._yoyo},e.seek=function(t,e){return this.totalTime(Vt(this,t),P(e))},e.restart=function(t,e){return this.play().totalTime(t?-this._delay:0,P(e))},e.play=function(t,e){return null!=t&&this.seek(t,e),this.reversed(!1).paused(!1)},e.reverse=function(t,e){return null!=t&&this.seek(t||this.totalDuration(),e),this.reversed(!0).paused(!1)},e.pause=function(t,e){return null!=t&&this.seek(t,e),this.paused(!0)},e.resume=function(){return this.paused(!1)},e.reversed=function(t){return arguments.length?(!!t!==this.reversed()&&this.timeScale(-this._rts||(t?-1e-8:0)),this):this._rts<0},e.invalidate=function(){return this._initted=this._act=0,this._zTime=-1e-8,this},e.isActive=function(){var t,e=this.parent||this._dp,r=this._start;return!(e&&!(this._ts&&this._initted&&e.isActive()&&(t=e.rawTime(!0))>=r&&t<this.endTime(!0)-E))},e.eventCallback=function(t,e,r){var n=this.vars;return arguments.length>1?(e?(n[t]=e,r&&(n[t+"Params"]=r),"onUpdate"===t&&(this._onUpdate=e)):delete n[t],this):n[t]},e.then=function(t){var e=this;return new Promise((function(r){var n=k(t)?t:Ct,i=function(){var t=e.then;e.then=null,k(n)&&(n=n(e))&&(n.then||n===e)&&(e.then=t),r(n),e.then=t};e._initted&&1===e.totalProgress()&&e._ts>=0||!e._tTime&&e._ts<0?i():e._prom=i}))},e.kill=function(){pe(this)},t}();Et(Ie.prototype,{_time:0,_start:0,_end:0,_tTime:0,_tDur:0,_dirty:0,_repeat:0,_yoyo:!1,parent:null,_initted:!1,_rDelay:0,_ts:1,_dp:0,ratio:0,_zTime:-1e-8,_prom:0,_ps:!1,_rts:1});var Ye=function(r){function i(e,n){var i;return void 0===e&&(e={}),(i=r.call(this,e)||this).labels={},i.smoothChildTiming=!!e.smoothChildTiming,i.autoRemoveChildren=!!e.autoRemoveChildren,i._sort=P(e.sortChildren),s&&It(e.parent||s,t(i),n),e.reversed&&i.reverse(),e.paused&&i.paused(!0),e.scrollTrigger&&Yt(t(i),e.scrollTrigger),i}e(i,r);var o=i.prototype;return o.to=function(t,e,r){return Gt(0,arguments,this),this},o.from=function(t,e,r){return Gt(1,arguments,this),this},o.fromTo=function(t,e,r,n){return Gt(2,arguments,this),this},o.set=function(t,e,r){return e.duration=0,e.parent=this,xt(e).repeatDelay||(e.repeat=0),e.immediateRender=!!e.immediateRender,new Ze(t,e,Vt(this,r),1),this},o.call=function(t,e,r){return It(this,Ze.delayedCall(0,t,e),r)},o.staggerTo=function(t,e,r,n,i,s,o){return r.duration=e,r.stagger=r.stagger||n,r.onComplete=s,r.onCompleteParams=o,r.parent=this,new Ze(t,r,Vt(this,i)),this},o.staggerFrom=function(t,e,r,n,i,s,o){return r.runBackwards=1,xt(r).immediateRender=P(r.immediateRender),this.staggerTo(t,e,r,n,i,s,o)},o.staggerFromTo=function(t,e,r,n,i,s,o,a){return n.startAt=r,xt(n).immediateRender=P(n.immediateRender),this.staggerTo(t,e,n,i,s,o,a)},o.render=function(t,e,r){var i,o,a,u,l,c,h,f,p,d,D,m,g=this._time,v=this._dirty?this.totalDuration():this._tDur,_=this._dur,y=t<=0?0:Dt(t),C=this._zTime<0!=t<0&&(this._initted||!_);if(this!==s&&y>v&&t>=0&&(y=v),y!==this._tTime||r||C){if(g!==this._time&&_&&(y+=this._time-g,t+=this._time-g),i=y,p=this._start,c=!(f=this._ts),C&&(_||(g=this._zTime),(t||!e)&&(this._zTime=t)),this._repeat){if(D=this._yoyo,l=_+this._rDelay,this._repeat<-1&&t<0)return this.totalTime(100*l+t,e,r);if(i=Dt(y%l),y===v?(u=this._repeat,i=_):((u=~~(y/l))&&u===y/l&&(i=_,u--),i>_&&(i=_)),d=Pt(this._tTime,l),!g&&this._tTime&&d!==u&&this._tTime-d*l-this._dur<=0&&(d=u),D&&1&u&&(i=_-i,m=1),u!==d&&!this._lock){var w=D&&1&d,F=w===(D&&1&u);if(u<d&&(w=!w),g=w?0:y%_?_:y,this._lock=1,this.render(g||(m?0:Dt(u*l)),e,!_)._lock=0,this._tTime=y,!e&&this.parent&&fe(this,"onRepeat"),this.vars.repeatRefresh&&!m&&(this.invalidate()._lock=1),g&&g!==this._time||c!==!this._ts||this.vars.onRepeat&&!this.parent&&!this._act)return this;if(_=this._dur,v=this._tDur,F&&(this._lock=2,g=w?_:-1e-4,this.render(g,!0),this.vars.repeatRefresh&&!m&&this.invalidate()),this._lock=0,!this._ts&&!c)return this;Oe(this,m)}}if(this._hasPause&&!this._forcing&&this._lock<2&&(h=function(t,e,r){var n;if(r>e)for(n=t._first;n&&n._start<=r;){if("isPause"===n.data&&n._start>e)return n;n=n._next}else for(n=t._last;n&&n._start>=r;){if("isPause"===n.data&&n._start<e)return n;n=n._prev}}(this,Dt(g),Dt(i)),h&&(y-=i-(i=h._start))),this._tTime=y,this._time=i,this._act=!f,this._initted||(this._onUpdate=this.vars.onUpdate,this._initted=1,this._zTime=t,g=0),!g&&i&&!e&&!u&&(fe(this,"onStart"),this._tTime!==y))return this;if(i>=g&&t>=0)for(o=this._first;o;){if(a=o._next,(o._act||i>=o._start)&&o._ts&&h!==o){if(o.parent!==this)return this.render(t,e,r);if(o.render(o._ts>0?(i-o._start)*o._ts:(o._dirty?o.totalDuration():o._tDur)+(i-o._start)*o._ts,e,r),i!==this._time||!this._ts&&!c){h=0,a&&(y+=this._zTime=-1e-8);break}}o=a}else{o=this._last;for(var b=t<0?t:i;o;){if(a=o._prev,(o._act||b<=o._end)&&o._ts&&h!==o){if(o.parent!==this)return this.render(t,e,r);if(o.render(o._ts>0?(b-o._start)*o._ts:(o._dirty?o.totalDuration():o._tDur)+(b-o._start)*o._ts,e,r||n&&(o._initted||o._startAt)),i!==this._time||!this._ts&&!c){h=0,a&&(y+=this._zTime=b?-1e-8:E);break}}o=a}}if(h&&!e&&(this.pause(),h.render(i>=g?0:-1e-8)._zTime=i>=g?1:-1,this._ts))return this._start=p,zt(this),this.render(t,e,r);this._onUpdate&&!e&&fe(this,"onUpdate",!0),(y===v&&this._tTime>=this.totalDuration()||!y&&g)&&(p!==this._start&&Math.abs(f)===Math.abs(this._ts)||this._lock||((t||!_)&&(y===v&&this._ts>0||!y&&this._ts<0)&&St(this,1),e||t<0&&!g||!y&&!g&&v||(fe(this,y===v&&t>=0?"onComplete":"onReverseComplete",!0),this._prom&&!(y<v&&this.timeScale()>0)&&this._prom())))}return this},o.add=function(t,e){var r=this;if(M(e)||(e=Vt(this,e,t)),!(t instanceof Ie)){if(N(t))return t.forEach((function(t){return r.add(t,e)})),this;if(S(t))return this.addLabel(t,e);if(!k(t))return this;t=Ze.delayedCall(0,t)}return this!==t?It(this,t,e):this},o.getChildren=function(t,e,r,n){void 0===t&&(t=!0),void 0===e&&(e=!0),void 0===r&&(r=!0),void 0===n&&(n=-C);for(var i=[],s=this._first;s;)s._start>=n&&(s instanceof Ze?e&&i.push(s):(r&&i.push(s),t&&i.push.apply(i,s.getChildren(!0,e,r)))),s=s._next;return i},o.getById=function(t){for(var e=this.getChildren(1,1,1),r=e.length;r--;)if(e[r].vars.id===t)return e[r]},o.remove=function(t){return S(t)?this.removeLabel(t):k(t)?this.killTweensOf(t):(At(this,t),t===this._recent&&(this._recent=this._last),kt(this))},o.totalTime=function(t,e){return arguments.length?(this._forcing=1,!this._dp&&this._ts&&(this._start=Dt(be.time-(this._ts>0?t/this._ts:(this.totalDuration()-t)/-this._ts))),r.prototype.totalTime.call(this,t,e),this._forcing=0,this):this._tTime},o.addLabel=function(t,e){return this.labels[t]=Vt(this,e),this},o.removeLabel=function(t){return delete this.labels[t],this},o.addPause=function(t,e,r){var n=Ze.delayedCall(0,e||K,r);return n.data="isPause",this._hasPause=1,It(this,n,Vt(this,t))},o.removePause=function(t){var e=this._first;for(t=Vt(this,t);e;)e._start===t&&"isPause"===e.data&&St(e),e=e._next},o.killTweensOf=function(t,e,r){for(var n=this.getTweensOf(t,r),i=n.length;i--;)Xe!==n[i]&&n[i].kill(t,e);return this},o.getTweensOf=function(t,e){for(var r,n=[],i=ee(t),s=this._first,o=M(e);s;)s instanceof Ze?gt(s._targets,i)&&(o?(!Xe||s._initted&&s._ts)&&s.globalTime(0)<=e&&s.globalTime(s.totalDuration())>e:!e||s.isActive())&&n.push(s):(r=s.getTweensOf(i,e)).length&&n.push.apply(n,r),s=s._next;return n},o.tweenTo=function(t,e){e=e||{};var r,n=this,i=Vt(n,t),s=e,o=s.startAt,a=s.onStart,u=s.onStartParams,l=s.immediateRender,c=Ze.to(n,Et({ease:e.ease||"none",lazy:!1,immediateRender:!1,time:i,overwrite:"auto",duration:e.duration||Math.abs((i-(o&&"time"in o?o.time:n._time))/n.timeScale())||E,onStart:function(){if(n.pause(),!r){var t=e.duration||Math.abs((i-(o&&"time"in o?o.time:n._time))/n.timeScale());c._dur!==t&&Ht(c,t,0,1).render(c._time,!0,!0),r=1}a&&a.apply(c,u||[])}},e));return l?c.render(0):c},o.tweenFromTo=function(t,e,r){return this.tweenTo(e,Et({startAt:{time:Vt(this,t)}},r))},o.recent=function(){return this._recent},o.nextLabel=function(t){return void 0===t&&(t=this._time),he(this,Vt(this,t))},o.previousLabel=function(t){return void 0===t&&(t=this._time),he(this,Vt(this,t),1)},o.currentLabel=function(t){return arguments.length?this.seek(t,!0):this.previousLabel(this._time+E)},o.shiftChildren=function(t,e,r){void 0===r&&(r=0);for(var n,i=this._first,s=this.labels;i;)i._start>=r&&(i._start+=t,i._end+=t),i=i._next;if(e)for(n in s)s[n]>=r&&(s[n]+=t);return kt(this)},o.invalidate=function(t){var e=this._first;for(this._lock=0;e;)e.invalidate(t),e=e._next;return r.prototype.invalidate.call(this,t)},o.clear=function(t){void 0===t&&(t=!0);for(var e,r=this._first;r;)e=r._next,this.remove(r),r=e;return this._dp&&(this._time=this._tTime=this._pTime=0),t&&(this.labels={}),kt(this)},o.totalDuration=function(t){var e,r,n,i=0,o=this,a=o._last,u=C;if(arguments.length)return o.timeScale((o._repeat<0?o.duration():o.totalDuration())/(o.reversed()?-t:t));if(o._dirty){for(n=o.parent;a;)e=a._prev,a._dirty&&a.totalDuration(),(r=a._start)>u&&o._sort&&a._ts&&!o._lock?(o._lock=1,It(o,a,r-a._delay,1)._lock=0):u=r,r<0&&a._ts&&(i-=r,(!n&&!o._dp||n&&n.smoothChildTiming)&&(o._start+=r/o._ts,o._time-=r,o._tTime-=r),o.shiftChildren(-r,!1,-Infinity),u=0),a._end>i&&a._ts&&(i=a._end),a=e;Ht(o,o===s&&o._time>i?o._time:i,1,1),o._dirty=0}return o._tDur},i.updateRoot=function(t){if(s._ts&&(_t(s,Rt(t,s)),c=be.frame),be.frame>=at){at+=_.autoSleep||120;var e=s._first;if((!e||!e._ts)&&_.autoSleep&&be._listeners.length<2){for(;e&&!e._ts;)e=e._next;e||be.sleep()}}},i}(Ie);Et(Ye.prototype,{_lock:0,_hasPause:0,_forcing:0});var Xe,qe,We=function(t,e,r,n,i,s,o){var a,u,l,c,h,f,p,d,D=new hr(this._pt,t,e,0,1,sr,null,i),m=0,g=0;for(D.b=r,D.e=n,r+="",(p=~(n+="").indexOf("random("))&&(n=le(n)),s&&(s(d=[r,n],t,e),r=d[0],n=d[1]),u=r.match(q)||[];a=q.exec(n);)c=a[0],h=n.substring(m,a.index),l?l=(l+1)%5:"rgba("===h.substr(-5)&&(l=1),c!==u[g++]&&(f=parseFloat(u[g-1])||0,D._pt={_next:D._pt,p:h||1===g?h:",",s:f,c:"="===c.charAt(1)?mt(f,c)-f:parseFloat(c)-f,m:l&&l<4?Math.round:0},m=q.lastIndex);return D.c=m<n.length?n.substring(m,n.length):"",D.fp=o,(W.test(n)||p)&&(D.e=0),this._pt=D,D},He=function(t,e,r,n,i,s,o,a,u,l){k(n)&&(n=n(i||0,t,s));var c,h=t[e],f="get"!==r?r:k(h)?u?t[e.indexOf("set")||!k(t["get"+e.substr(3)])?e:"get"+e.substr(3)](u):t[e]():h,p=k(h)?u?tr:Je:Ke;if(S(n)&&(~n.indexOf("random(")&&(n=le(n)),"="===n.charAt(1)&&((c=mt(f,n)+(Zt(f)||0))||0===c)&&(n=c)),!l||f!==n||qe)return isNaN(f*n)||""===n?(!h&&!(e in t)&&Q(e,n),We.call(this,t,e,f,n,p,a||_.stringFilter,u)):(c=new hr(this._pt,t,e,+f||0,n-(f||0),"boolean"==typeof h?ir:nr,0,p),u&&(c.fp=u),o&&c.modifier(o,this,t),this._pt=c)},je=function(t,e,r,n,i,s){var o,a,u,l;if(st[t]&&!1!==(o=new st[t]).init(i,o.rawVars?e[t]:function(t,e,r,n,i){if(k(t)&&(t=Ge(t,i,e,r,n)),!B(t)||t.style&&t.nodeType||N(t)||L(t))return S(t)?Ge(t,i,e,r,n):t;var s,o={};for(s in t)o[s]=Ge(t[s],i,e,r,n);return o}(e[t],n,i,s,r),r,n,s)&&(r._pt=a=new hr(r._pt,i,t,0,1,o.render,o,0,o.priority),r!==h))for(u=r._ptLookup[r._targets.indexOf(i)],l=o._props.length;l--;)u[o._props[l]]=a;return o},Ue=function t(e,i,o){var a,u,l,c,h,f,p,d,D,m,g,v,_,w=e.vars,F=w.ease,b=w.startAt,x=w.immediateRender,T=w.lazy,A=w.onUpdate,S=w.runBackwards,k=w.yoyoEase,M=w.keyframes,O=w.autoRevert,B=e._dur,R=e._startAt,z=e._targets,L=e.parent,N=L&&"nested"===L.data?L.vars.targets:z,I="auto"===e._overwrite&&!r,Y=e.timeline;if(Y&&(!M||!F)&&(F="none"),e._ease=Be(F,y.ease),e._yEase=k?Me(Be(!0===k?F:k,y.ease)):0,k&&e._yoyo&&!e._repeat&&(k=e._yEase,e._yEase=e._ease,e._ease=k),e._from=!Y&&!!w.runBackwards,!Y||M&&!w.stagger){if(v=(d=z[0]?ht(z[0]).harness:0)&&w[d.prop],a=bt(w,rt),R&&(R._zTime<0&&R.progress(1),i<0&&S&&x&&!O?R.render(-1,!0):R.revert(S&&B?tt:J),R._lazy=0),b){if(St(e._startAt=Ze.set(z,Et({data:"isStart",overwrite:!1,parent:L,immediateRender:!0,lazy:!R&&P(T),startAt:null,delay:0,onUpdate:A&&function(){return fe(e,"onUpdate")},stagger:0},b))),e._startAt._dp=0,e._startAt._sat=e,i<0&&(n||!x&&!O)&&e._startAt.revert(tt),x&&B&&i<=0&&o<=0)return void(i&&(e._zTime=i))}else if(S&&B&&!R)if(i&&(x=!1),l=Et({overwrite:!1,data:"isFromStart",lazy:x&&!R&&P(T),immediateRender:x,stagger:0,parent:L},a),v&&(l[d.prop]=v),St(e._startAt=Ze.set(z,l)),e._startAt._dp=0,e._startAt._sat=e,i<0&&(n?e._startAt.revert(tt):e._startAt.render(-1,!0)),e._zTime=i,x){if(!i)return}else t(e._startAt,E,E);for(e._pt=e._ptCache=0,T=B&&P(T)||T&&!B,u=0;u<z.length;u++){if(p=(h=z[u])._gsap||ct(z)[u]._gsap,e._ptLookup[u]=m={},it[p.id]&&nt.length&&vt(),g=N===z?u:N.indexOf(h),d&&!1!==(D=new d).init(h,v||a,e,g,N)&&(e._pt=c=new hr(e._pt,h,D.name,0,1,D.render,D,0,D.priority),D._props.forEach((function(t){m[t]=c})),D.priority&&(f=1)),!d||v)for(l in a)st[l]&&(D=je(l,a,e,g,h,N))?D.priority&&(f=1):m[l]=c=He.call(e,h,l,"get",a[l],g,N,0,w.stringFilter);e._op&&e._op[u]&&e.kill(h,e._op[u]),I&&e._pt&&(Xe=e,s.killTweensOf(h,m,e.globalTime(i)),_=!e.parent,Xe=0),e._pt&&T&&(it[p.id]=1)}f&&cr(e),e._onInit&&e._onInit(e)}e._onUpdate=A,e._initted=(!e._op||e._pt)&&!_,M&&i<=0&&Y.render(C,!0,!0)},Ve=function(t,e,r,n){var i,s,o=e.ease||n||"power1.inOut";if(N(e))s=r[t]||(r[t]=[]),e.forEach((function(t,r){return s.push({t:r/(e.length-1)*100,v:t,e:o})}));else for(i in e)s=r[i]||(r[i]=[]),"ease"===i||s.push({t:parseFloat(t),v:e[i],e:o})},Ge=function(t,e,r,n,i){return k(t)?t.call(e,r,n,i):S(t)&&~t.indexOf("random(")?le(t):t},Qe=lt+"repeat,repeatDelay,yoyo,repeatRefresh,yoyoEase,autoRevert",$e={};pt(Qe+",id,stagger,delay,duration,paused,scrollTrigger",(function(t){return $e[t]=1}));var Ze=function(i){function o(e,n,o,a){var u;"number"==typeof n&&(o.duration=n,n=o,o=null);var l,c,h,f,p,d,D,m,g=(u=i.call(this,a?n:xt(n))||this).vars,v=g.duration,y=g.delay,C=g.immediateRender,E=g.stagger,w=g.overwrite,F=g.keyframes,b=g.defaults,x=g.scrollTrigger,T=g.yoyoEase,A=n.parent||s,S=(N(e)||L(e)?M(e[0]):"length"in n)?[e]:ee(e);if(u._targets=S.length?ct(S):$("GSAP target "+e+" not found. https://gsap.com",!_.nullTargetWarn)||[],u._ptLookup=[],u._overwrite=w,F||E||z(v)||z(y)){if(n=u.vars,(l=u.timeline=new Ye({data:"nested",defaults:b||{},targets:A&&"nested"===A.data?A.vars.targets:S})).kill(),l.parent=l._dp=t(u),l._start=0,E||z(v)||z(y)){if(f=S.length,D=E&&ie(E),B(E))for(p in E)~Qe.indexOf(p)&&(m||(m={}),m[p]=E[p]);for(c=0;c<f;c++)(h=bt(n,$e)).stagger=0,T&&(h.yoyoEase=T),m&&wt(h,m),d=S[c],h.duration=+Ge(v,t(u),c,d,S),h.delay=(+Ge(y,t(u),c,d,S)||0)-u._delay,!E&&1===f&&h.delay&&(u._delay=y=h.delay,u._start+=y,h.delay=0),l.to(d,h,D?D(c,d,S):0),l._ease=Te.none;l.duration()?v=y=0:u.timeline=0}else if(F){xt(Et(l.vars.defaults,{ease:"none"})),l._ease=Be(F.ease||n.ease||"none");var k,O,R,I=0;if(N(F))F.forEach((function(t){return l.to(S,t,">")})),l.duration();else{for(p in h={},F)"ease"===p||"easeEach"===p||Ve(p,F[p],h,F.easeEach);for(p in h)for(k=h[p].sort((function(t,e){return t.t-e.t})),I=0,c=0;c<k.length;c++)(R={ease:(O=k[c]).e,duration:(O.t-(c?k[c-1].t:0))/100*v})[p]=O.v,l.to(S,R,I),I+=R.duration;l.duration()<v&&l.to({},{duration:v-l.duration()})}}v||u.duration(v=l.duration())}else u.timeline=0;return!0!==w||r||(Xe=t(u),s.killTweensOf(S),Xe=0),It(A,t(u),o),n.reversed&&u.reverse(),n.paused&&u.paused(!0),(C||!v&&!F&&u._start===Dt(A._time)&&P(C)&&Ot(t(u))&&"nested"!==A.data)&&(u._tTime=-1e-8,u.render(Math.max(0,-y)||0)),x&&Yt(t(u),x),u}e(o,i);var a=o.prototype;return a.render=function(t,e,r){var i,s,o,a,u,l,c,h,f,p=this._time,d=this._tDur,D=this._dur,m=t<0,g=t>d-E&&!m?d:t<E?0:t;if(D){if(g!==this._tTime||!t||r||!this._initted&&this._tTime||this._startAt&&this._zTime<0!==m){if(i=g,h=this.timeline,this._repeat){if(a=D+this._rDelay,this._repeat<-1&&m)return this.totalTime(100*a+t,e,r);if(i=Dt(g%a),g===d?(o=this._repeat,i=D):((o=~~(g/a))&&o===Dt(g/a)&&(i=D,o--),i>D&&(i=D)),(l=this._yoyo&&1&o)&&(f=this._yEase,i=D-i),u=Pt(this._tTime,a),i===p&&!r&&this._initted&&o===u)return this._tTime=g,this;o!==u&&(h&&this._yEase&&Oe(h,l),this.vars.repeatRefresh&&!l&&!this._lock&&this._time!==a&&this._initted&&(this._lock=r=1,this.render(Dt(a*o),!0).invalidate()._lock=0))}if(!this._initted){if(Xt(this,m?t:i,r,e,g))return this._tTime=0,this;if(!(p===this._time||r&&this.vars.repeatRefresh&&o!==u))return this;if(D!==this._dur)return this.render(t,e,r)}if(this._tTime=g,this._time=i,!this._act&&this._ts&&(this._act=1,this._lazy=0),this.ratio=c=(f||this._ease)(i/D),this._from&&(this.ratio=c=1-c),i&&!p&&!e&&!o&&(fe(this,"onStart"),this._tTime!==g))return this;for(s=this._pt;s;)s.r(c,s.d),s=s._next;h&&h.render(t<0?t:h._dur*h._ease(i/this._dur),e,r)||this._startAt&&(this._zTime=t),this._onUpdate&&!e&&(m&&Mt(this,t,0,r),fe(this,"onUpdate")),this._repeat&&o!==u&&this.vars.onRepeat&&!e&&this.parent&&fe(this,"onRepeat"),g!==this._tDur&&g||this._tTime!==g||(m&&!this._onUpdate&&Mt(this,t,0,!0),(t||!D)&&(g===this._tDur&&this._ts>0||!g&&this._ts<0)&&St(this,1),e||m&&!p||!(g||p||l)||(fe(this,g===d?"onComplete":"onReverseComplete",!0),this._prom&&!(g<d&&this.timeScale()>0)&&this._prom()))}}else!function(t,e,r,i){var s,o,a,u=t.ratio,l=e<0||!e&&(!t._start&&qt(t)&&(t._initted||!Wt(t))||(t._ts<0||t._dp._ts<0)&&!Wt(t))?0:1,c=t._rDelay,h=0;if(c&&t._repeat&&(h=$t(0,t._tDur,e),o=Pt(h,c),t._yoyo&&1&o&&(l=1-l),o!==Pt(t._tTime,c)&&(u=1-l,t.vars.repeatRefresh&&t._initted&&t.invalidate())),l!==u||n||i||t._zTime===E||!e&&t._zTime){if(!t._initted&&Xt(t,e,i,r,h))return;for(a=t._zTime,t._zTime=e||(r?E:0),r||(r=e&&!a),t.ratio=l,t._from&&(l=1-l),t._time=0,t._tTime=h,s=t._pt;s;)s.r(l,s.d),s=s._next;e<0&&Mt(t,e,0,!0),t._onUpdate&&!r&&fe(t,"onUpdate"),h&&t._repeat&&!r&&t.parent&&fe(t,"onRepeat"),(e>=t._tDur||e<0)&&t.ratio===l&&(l&&St(t,1),r||n||(fe(t,l?"onComplete":"onReverseComplete",!0),t._prom&&t._prom()))}else t._zTime||(t._zTime=e)}(this,t,e,r);return this},a.targets=function(){return this._targets},a.invalidate=function(t){return(!t||!this.vars.runBackwards)&&(this._startAt=0),this._pt=this._op=this._onUpdate=this._lazy=this.ratio=0,this._ptLookup=[],this.timeline&&this.timeline.invalidate(t),i.prototype.invalidate.call(this,t)},a.resetTo=function(t,e,r,n,i){f||be.wake(),this._ts||this.play();var s=Math.min(this._dur,(this._dp._time-this._start)*this._ts);return this._initted||Ue(this,s),function(t,e,r,n,i,s,o,a){var u,l,c,h,f=(t._pt&&t._ptCache||(t._ptCache={}))[e];if(!f)for(f=t._ptCache[e]=[],c=t._ptLookup,h=t._targets.length;h--;){if((u=c[h][e])&&u.d&&u.d._pt)for(u=u.d._pt;u&&u.p!==e&&u.fp!==e;)u=u._next;if(!u)return qe=1,t.vars[e]="+=0",Ue(t,o),qe=0,a?$(e+" not eligible for reset"):1;f.push(u)}for(h=f.length;h--;)(u=(l=f[h])._pt||l).s=!n&&0!==n||i?u.s+(n||0)+s*u.c:n,u.c=r-u.s,l.e&&(l.e=dt(r)+Zt(l.e)),l.b&&(l.b=u.s+Zt(l.b))}(this,t,e,r,n,this._ease(s/this._dur),s,i)?this.resetTo(t,e,r,n,1):(Lt(this,0),this.parent||Tt(this._dp,this,"_first","_last",this._dp._sort?"_start":0),this.render(0))},a.kill=function(t,e){if(void 0===e&&(e="all"),!(t||e&&"all"!==e))return this._lazy=this._pt=0,this.parent?pe(this):this;if(this.timeline){var r=this.timeline.totalDuration();return this.timeline.killTweensOf(t,e,Xe&&!0!==Xe.vars.overwrite)._first||pe(this),this.parent&&r!==this.timeline.totalDuration()&&Ht(this,this._dur*this.timeline._tDur/r,0,1),this}var n,i,s,o,a,u,l,c=this._targets,h=t?ee(t):c,f=this._ptLookup,p=this._pt;if((!e||"all"===e)&&function(t,e){for(var r=t.length,n=r===e.length;n&&r--&&t[r]===e[r];);return r<0}(c,h))return"all"===e&&(this._pt=0),pe(this);for(n=this._op=this._op||[],"all"!==e&&(S(e)&&(a={},pt(e,(function(t){return a[t]=1})),e=a),e=function(t,e){var r,n,i,s,o=t[0]?ht(t[0]).harness:0,a=o&&o.aliases;if(!a)return e;for(n in r=wt({},e),a)if(n in r)for(i=(s=a[n].split(",")).length;i--;)r[s[i]]=r[n];return r}(c,e)),l=c.length;l--;)if(~h.indexOf(c[l]))for(a in i=f[l],"all"===e?(n[l]=e,o=i,s={}):(s=n[l]=n[l]||{},o=e),o)(u=i&&i[a])&&("kill"in u.d&&!0!==u.d.kill(a)||At(this,u,"_pt"),delete i[a]),"all"!==s&&(s[a]=1);return this._initted&&!this._pt&&p&&pe(this),this},o.to=function(t,e){return new o(t,e,arguments[2])},o.from=function(t,e){return Gt(1,arguments)},o.delayedCall=function(t,e,r,n){return new o(e,0,{immediateRender:!1,lazy:!1,overwrite:!1,delay:t,onComplete:e,onReverseComplete:e,onCompleteParams:r,onReverseCompleteParams:r,callbackScope:n})},o.fromTo=function(t,e,r){return Gt(2,arguments)},o.set=function(t,e){return e.duration=0,e.repeatDelay||(e.repeat=0),new o(t,e)},o.killTweensOf=function(t,e,r){return s.killTweensOf(t,e,r)},o}(Ie);Et(Ze.prototype,{_targets:[],_lazy:0,_startAt:0,_op:0,_onInit:0}),pt("staggerTo,staggerFrom,staggerFromTo",(function(t){Ze[t]=function(){var e=new Ye,r=Kt.call(arguments,0);return r.splice("staggerFromTo"===t?5:4,0,0),e[t].apply(e,r)}}));var Ke=function(t,e,r){return t[e]=r},Je=function(t,e,r){return t[e](r)},tr=function(t,e,r,n){return t[e](n.fp,r)},er=function(t,e,r){return t.setAttribute(e,r)},rr=function(t,e){return k(t[e])?Je:O(t[e])&&t.setAttribute?er:Ke},nr=function(t,e){return e.set(e.t,e.p,Math.round(1e6*(e.s+e.c*t))/1e6,e)},ir=function(t,e){return e.set(e.t,e.p,!!(e.s+e.c*t),e)},sr=function(t,e){var r=e._pt,n="";if(!t&&e.b)n=e.b;else if(1===t&&e.e)n=e.e;else{for(;r;)n=r.p+(r.m?r.m(r.s+r.c*t):Math.round(1e4*(r.s+r.c*t))/1e4)+n,r=r._next;n+=e.c}e.set(e.t,e.p,n,e)},or=function(t,e){for(var r=e._pt;r;)r.r(t,r.d),r=r._next},ar=function(t,e,r,n){for(var i,s=this._pt;s;)i=s._next,s.p===n&&s.modifier(t,e,r),s=i},ur=function(t){for(var e,r,n=this._pt;n;)r=n._next,n.p===t&&!n.op||n.op===t?At(this,n,"_pt"):n.dep||(e=1),n=r;return!e},lr=function(t,e,r,n){n.mSet(t,e,n.m.call(n.tween,r,n.mt),n)},cr=function(t){for(var e,r,n,i,s=t._pt;s;){for(e=s._next,r=n;r&&r.pr>s.pr;)r=r._next;(s._prev=r?r._prev:i)?s._prev._next=s:n=s,(s._next=r)?r._prev=s:i=s,s=e}t._pt=n},hr=function(){function t(t,e,r,n,i,s,o,a,u){this.t=e,this.s=n,this.c=i,this.p=r,this.r=s||nr,this.d=o||this,this.set=a||Ke,this.pr=u||0,this._next=t,t&&(t._prev=this)}return t.prototype.modifier=function(t,e,r){this.mSet=this.mSet||this.set,this.set=lr,this.m=t,this.mt=r,this.tween=e},t}();pt(lt+"parent,duration,ease,delay,overwrite,runBackwards,startAt,yoyo,immediateRender,repeat,repeatDelay,data,paused,reversed,lazy,callbackScope,stringFilter,id,yoyoEase,stagger,inherit,repeatRefresh,keyframes,autoRevert,scrollTrigger",(function(t){return rt[t]=1})),U.TweenMax=U.TweenLite=Ze,U.TimelineLite=U.TimelineMax=Ye,s=new Ye({sortChildren:!1,defaults:y,autoRemoveChildren:!0,id:"root",smoothChildTiming:!0}),_.stringFilter=Fe;var fr=[],pr={},dr=[],Dr=0,mr=0,gr=function(t){return(pr[t]||dr).map((function(t){return t()}))},vr=function(){var t=Date.now(),e=[];t-Dr>2&&(gr("matchMediaInit"),fr.forEach((function(t){var r,n,i,s,a=t.queries,u=t.conditions;for(n in a)(r=o.matchMedia(a[n]).matches)&&(i=1),r!==u[n]&&(u[n]=r,s=1);s&&(t.revert(),i&&e.push(t))})),gr("matchMediaRevert"),e.forEach((function(t){return t.onMatch(t,(function(e){return t.add(null,e)}))})),Dr=t,gr("matchMedia"))},_r=function(){function t(t,e){this.selector=e&&re(e),this.data=[],this._r=[],this.isReverted=!1,this.id=mr++,t&&this.add(t)}var e=t.prototype;return e.add=function(t,e,r){k(t)&&(r=e,e=t,t=k);var n=this,s=function(){var t,s=i,o=n.selector;return s&&s!==n&&s.data.push(n),r&&(n.selector=re(r)),i=n,t=e.apply(n,arguments),k(t)&&n._r.push(t),i=s,n.selector=o,n.isReverted=!1,t};return n.last=s,t===k?s(n,(function(t){return n.add(null,t)})):t?n[t]=s:s},e.ignore=function(t){var e=i;i=null,t(this),i=e},e.getTweens=function(){var e=[];return this.data.forEach((function(r){return r instanceof t?e.push.apply(e,r.getTweens()):r instanceof Ze&&!(r.parent&&"nested"===r.parent.data)&&e.push(r)})),e},e.clear=function(){this._r.length=this.data.length=0},e.kill=function(t,e){var r=this;if(t?function(){for(var e,n=r.getTweens(),i=r.data.length;i--;)"isFlip"===(e=r.data[i]).data&&(e.revert(),e.getChildren(!0,!0,!1).forEach((function(t){return n.splice(n.indexOf(t),1)})));for(n.map((function(t){return{g:t._dur||t._delay||t._sat&&!t._sat.vars.immediateRender?t.globalTime(0):-1/0,t}})).sort((function(t,e){return e.g-t.g||-1/0})).forEach((function(e){return e.t.revert(t)})),i=r.data.length;i--;)(e=r.data[i])instanceof Ye?"nested"!==e.data&&(e.scrollTrigger&&e.scrollTrigger.revert(),e.kill()):!(e instanceof Ze)&&e.revert&&e.revert(t);r._r.forEach((function(e){return e(t,r)})),r.isReverted=!0}():this.data.forEach((function(t){return t.kill&&t.kill()})),this.clear(),e)for(var n=fr.length;n--;)fr[n].id===this.id&&fr.splice(n,1)},e.revert=function(t){this.kill(t||{})},t}(),yr=function(){function t(t){this.contexts=[],this.scope=t,i&&i.data.push(this)}var e=t.prototype;return e.add=function(t,e,r){B(t)||(t={matches:t});var n,s,a,u=new _r(0,r||this.scope),l=u.conditions={};for(s in i&&!u.selector&&(u.selector=i.selector),this.contexts.push(u),e=u.add("onMatch",e),u.queries=t,t)"all"===s?a=1:(n=o.matchMedia(t[s]))&&(fr.indexOf(u)<0&&fr.push(u),(l[s]=n.matches)&&(a=1),n.addListener?n.addListener(vr):n.addEventListener("change",vr));return a&&e(u,(function(t){return u.add(null,t)})),this},e.revert=function(t){this.kill(t||{})},e.kill=function(t){this.contexts.forEach((function(e){return e.kill(t,!0)}))},t}(),Cr={registerPlugin:function(){for(var t=arguments.length,e=new Array(t),r=0;r<t;r++)e[r]=arguments[r];e.forEach((function(t){return De(t)}))},timeline:function(t){return new Ye(t)},getTweensOf:function(t,e){return s.getTweensOf(t,e)},getProperty:function(t,e,r,n){S(t)&&(t=ee(t)[0]);var i=ht(t||{}).get,s=r?Ct:yt;return"native"===r&&(r=""),t?e?s((st[e]&&st[e].get||i)(t,e,r,n)):function(e,r,n){return s((st[e]&&st[e].get||i)(t,e,r,n))}:t},quickSetter:function(t,e,r){if((t=ee(t)).length>1){var n=t.map((function(t){return Fr.quickSetter(t,e,r)})),i=n.length;return function(t){for(var e=i;e--;)n[e](t)}}t=t[0]||{};var s=st[e],o=ht(t),a=o.harness&&(o.harness.aliases||{})[e]||e,u=s?function(e){var n=new s;h._pt=0,n.init(t,r?e+r:e,h,0,[t]),n.render(1,n),h._pt&&or(1,h)}:o.set(t,a);return s?u:function(e){return u(t,a,r?e+r:e,o,1)}},quickTo:function(t,e,r){var n,i=Fr.to(t,wt(((n={})[e]="+=0.1",n.paused=!0,n),r||{})),s=function(t,r,n){return i.resetTo(e,t,r,n)};return s.tween=i,s},isTweening:function(t){return s.getTweensOf(t,!0).length>0},defaults:function(t){return t&&t.ease&&(t.ease=Be(t.ease,y.ease)),Ft(y,t||{})},config:function(t){return Ft(_,t||{})},registerEffect:function(t){var e=t.name,r=t.effect,n=t.plugins,i=t.defaults,s=t.extendTimeline;(n||"").split(",").forEach((function(t){return t&&!st[t]&&!U[t]&&$(e+" effect requires "+t+" plugin.")})),ot[e]=function(t,e,n){return r(ee(t),Et(e||{},i),n)},s&&(Ye.prototype[e]=function(t,r,n){return this.add(ot[e](t,B(r)?r:(n=r)&&{},this),n)})},registerEase:function(t,e){Te[t]=Be(e)},parseEase:function(t,e){return arguments.length?Be(t,e):Te},getById:function(t){return s.getById(t)},exportRoot:function(t,e){void 0===t&&(t={});var r,n,i=new Ye(t);for(i.smoothChildTiming=P(t.smoothChildTiming),s.remove(i),i._dp=0,i._time=i._tTime=s._time,r=s._first;r;)n=r._next,!e&&!r._dur&&r instanceof Ze&&r.vars.onComplete===r._targets[0]||It(i,r,r._start-r._delay),r=n;return It(s,i,0),i},context:function(t,e){return t?new _r(t,e):i},matchMedia:function(t){return new yr(t)},matchMediaRefresh:function(){return fr.forEach((function(t){var e,r,n=t.conditions;for(r in n)n[r]&&(n[r]=!1,e=1);e&&t.revert()}))||vr()},addEventListener:function(t,e){var r=pr[t]||(pr[t]=[]);~r.indexOf(e)||r.push(e)},removeEventListener:function(t,e){var r=pr[t],n=r&&r.indexOf(e);n>=0&&r.splice(n,1)},utils:{wrap:function t(e,r,n){var i=r-e;return N(e)?ue(e,t(0,e.length),r):Qt(n,(function(t){return(i+(t-e)%i)%i+e}))},wrapYoyo:function t(e,r,n){var i=r-e,s=2*i;return N(e)?ue(e,t(0,e.length-1),r):Qt(n,(function(t){return e+((t=(s+(t-e)%s)%s||0)>i?s-t:t)}))},distribute:ie,random:ae,snap:oe,normalize:function(t,e,r){return ce(t,e,0,1,r)},getUnit:Zt,clamp:function(t,e,r){return Qt(r,(function(r){return $t(t,e,r)}))},splitColor:_e,toArray:ee,selector:re,mapRange:ce,pipe:function(){for(var t=arguments.length,e=new Array(t),r=0;r<t;r++)e[r]=arguments[r];return function(t){return e.reduce((function(t,e){return e(t)}),t)}},unitize:function(t,e){return function(r){return t(parseFloat(r))+(e||Zt(r))}},interpolate:function t(e,r,n,i){var s=isNaN(e+r)?0:function(t){return(1-t)*e+t*r};if(!s){var o,a,u,l,c,h=S(e),f={};if(!0===n&&(i=1)&&(n=null),h)e={p:e},r={p:r};else if(N(e)&&!N(r)){for(u=[],l=e.length,c=l-2,a=1;a<l;a++)u.push(t(e[a-1],e[a]));l--,s=function(t){t*=l;var e=Math.min(c,~~t);return u[e](t-e)},n=r}else i||(e=wt(N(e)?[]:{},e));if(!u){for(o in r)He.call(f,e,o,"get",r[o]);s=function(t){return or(t,f)||(h?e.p:e)}}}return Qt(n,s)},shuffle:ne},install:G,effects:ot,ticker:be,updateRoot:Ye.updateRoot,plugins:st,globalTimeline:s,core:{PropTween:hr,globals:Z,Tween:Ze,Timeline:Ye,Animation:Ie,getCache:ht,_removeLinkedListItem:At,reverting:function(){return n},context:function(t){return t&&i&&(i.data.push(t),t._ctx=i),i},suppressOverwrites:function(t){return r=t}}};pt("to,from,fromTo,delayedCall,set,killTweensOf",(function(t){return Cr[t]=Ze[t]})),be.add(Ye.updateRoot),h=Cr.to({},{duration:0});var Er=function(t,e){for(var r=t._pt;r&&r.p!==e&&r.op!==e&&r.fp!==e;)r=r._next;return r},wr=function(t,e){return{name:t,rawVars:1,init:function(t,r,n){n._onInit=function(t){var n,i;if(S(r)&&(n={},pt(r,(function(t){return n[t]=1})),r=n),e){for(i in n={},r)n[i]=e(r[i]);r=n}!function(t,e){var r,n,i,s=t._targets;for(r in e)for(n=s.length;n--;)(i=t._ptLookup[n][r])&&(i=i.d)&&(i._pt&&(i=Er(i,r)),i&&i.modifier&&i.modifier(e[r],t,s[n],r))}(t,r)}}}},Fr=Cr.registerPlugin({name:"attr",init:function(t,e,r,n,i){var s,o,a;for(s in this.tween=r,e)a=t.getAttribute(s)||"",(o=this.add(t,"setAttribute",(a||0)+"",e[s],n,i,0,0,s)).op=s,o.b=a,this._props.push(s)},render:function(t,e){for(var r=e._pt;r;)n?r.set(r.t,r.p,r.b,r):r.r(t,r.d),r=r._next}},{name:"endArray",init:function(t,e){for(var r=e.length;r--;)this.add(t,r,t[r]||0,e[r],0,0,0,0,0,1)}},wr("roundProps",se),wr("modifiers"),wr("snap",oe))||Cr;Ze.version=Ye.version=Fr.version="3.12.5",l=1,R()&&xe();Te.Power0,Te.Power1,Te.Power2,Te.Power3,Te.Power4,Te.Linear,Te.Quad,Te.Cubic,Te.Quart,Te.Quint,Te.Strong,Te.Elastic,Te.Back,Te.SteppedEase,Te.Bounce,Te.Sine,Te.Expo,Te.Circ;var br,xr,Tr,Ar,Sr,kr,Mr,Or,Br={},Pr=180/Math.PI,Rr=Math.PI/180,zr=Math.atan2,Lr=/([A-Z])/g,Nr=/(left|right|width|margin|padding|x)/i,Ir=/[\s,\(]\S/,Yr={autoAlpha:"opacity,visibility",scale:"scaleX,scaleY",alpha:"opacity"},Xr=function(t,e){return e.set(e.t,e.p,Math.round(1e4*(e.s+e.c*t))/1e4+e.u,e)},qr=function(t,e){return e.set(e.t,e.p,1===t?e.e:Math.round(1e4*(e.s+e.c*t))/1e4+e.u,e)},Wr=function(t,e){return e.set(e.t,e.p,t?Math.round(1e4*(e.s+e.c*t))/1e4+e.u:e.b,e)},Hr=function(t,e){var r=e.s+e.c*t;e.set(e.t,e.p,~~(r+(r<0?-.5:.5))+e.u,e)},jr=function(t,e){return e.set(e.t,e.p,t?e.e:e.b,e)},Ur=function(t,e){return e.set(e.t,e.p,1!==t?e.b:e.e,e)},Vr=function(t,e,r){return t.style[e]=r},Gr=function(t,e,r){return t.style.setProperty(e,r)},Qr=function(t,e,r){return t._gsap[e]=r},$r=function(t,e,r){return t._gsap.scaleX=t._gsap.scaleY=r},Zr=function(t,e,r,n,i){var s=t._gsap;s.scaleX=s.scaleY=r,s.renderTransform(i,s)},Kr=function(t,e,r,n,i){var s=t._gsap;s[e]=r,s.renderTransform(i,s)},Jr="transform",tn=Jr+"Origin",en=function t(e,r){var n=this,i=this.target,s=i.style,o=i._gsap;if(e in Br&&s){if(this.tfm=this.tfm||{},"transform"===e)return Yr.transform.split(",").forEach((function(e){return t.call(n,e,r)}));if(~(e=Yr[e]||e).indexOf(",")?e.split(",").forEach((function(t){return n.tfm[t]=yn(i,t)})):this.tfm[e]=o.x?o[e]:yn(i,e),e===tn&&(this.tfm.zOrigin=o.zOrigin),this.props.indexOf(Jr)>=0)return;o.svg&&(this.svgo=i.getAttribute("data-svg-origin"),this.props.push(tn,r,"")),e=Jr}(s||r)&&this.props.push(e,r,s[e])},rn=function(t){t.translate&&(t.removeProperty("translate"),t.removeProperty("scale"),t.removeProperty("rotate"))},nn=function(){var t,e,r=this.props,n=this.target,i=n.style,s=n._gsap;for(t=0;t<r.length;t+=3)r[t+1]?n[r[t]]=r[t+2]:r[t+2]?i[r[t]]=r[t+2]:i.removeProperty("--"===r[t].substr(0,2)?r[t]:r[t].replace(Lr,"-$1").toLowerCase());if(this.tfm){for(e in this.tfm)s[e]=this.tfm[e];s.svg&&(s.renderTransform(),n.setAttribute("data-svg-origin",this.svgo||"")),(t=Mr())&&t.isStart||i[Jr]||(rn(i),s.zOrigin&&i[tn]&&(i[tn]+=" "+s.zOrigin+"px",s.zOrigin=0,s.renderTransform()),s.uncache=1)}},sn=function(t,e){var r={target:t,props:[],revert:nn,save:en};return t._gsap||Fr.core.getCache(t),e&&e.split(",").forEach((function(t){return r.save(t)})),r},on=function(t,e){var r=xr.createElementNS?xr.createElementNS((e||"http://www.w3.org/1999/xhtml").replace(/^https/,"http"),t):xr.createElement(t);return r&&r.style?r:xr.createElement(t)},an=function t(e,r,n){var i=getComputedStyle(e);return i[r]||i.getPropertyValue(r.replace(Lr,"-$1").toLowerCase())||i.getPropertyValue(r)||!n&&t(e,ln(r)||r,1)||""},un="O,Moz,ms,Ms,Webkit".split(","),ln=function(t,e,r){var n=(e||Sr).style,i=5;if(t in n&&!r)return t;for(t=t.charAt(0).toUpperCase()+t.substr(1);i--&&!(un[i]+t in n););return i<0?null:(3===i?"ms":i>=0?un[i]:"")+t},cn=function(){"undefined"!=typeof window&&window.document&&(br=window,xr=br.document,Tr=xr.documentElement,Sr=on("div")||{style:{}},on("div"),Jr=ln(Jr),tn=Jr+"Origin",Sr.style.cssText="border-width:0;line-height:0;position:absolute;padding:0",Or=!!ln("perspective"),Mr=Fr.core.reverting,Ar=1)},hn=function t(e){var r,n=on("svg",this.ownerSVGElement&&this.ownerSVGElement.getAttribute("xmlns")||"http://www.w3.org/2000/svg"),i=this.parentNode,s=this.nextSibling,o=this.style.cssText;if(Tr.appendChild(n),n.appendChild(this),this.style.display="block",e)try{r=this.getBBox(),this._gsapBBox=this.getBBox,this.getBBox=t}catch(t){}else this._gsapBBox&&(r=this._gsapBBox());return i&&(s?i.insertBefore(this,s):i.appendChild(this)),Tr.removeChild(n),this.style.cssText=o,r},fn=function(t,e){for(var r=e.length;r--;)if(t.hasAttribute(e[r]))return t.getAttribute(e[r])},pn=function(t){var e;try{e=t.getBBox()}catch(r){e=hn.call(t,!0)}return e&&(e.width||e.height)||t.getBBox===hn||(e=hn.call(t,!0)),!e||e.width||e.x||e.y?e:{x:+fn(t,["x","cx","x1"])||0,y:+fn(t,["y","cy","y1"])||0,width:0,height:0}},dn=function(t){return!(!t.getCTM||t.parentNode&&!t.ownerSVGElement||!pn(t))},Dn=function(t,e){if(e){var r,n=t.style;e in Br&&e!==tn&&(e=Jr),n.removeProperty?("ms"!==(r=e.substr(0,2))&&"webkit"!==e.substr(0,6)||(e="-"+e),n.removeProperty("--"===r?e:e.replace(Lr,"-$1").toLowerCase())):n.removeAttribute(e)}},mn=function(t,e,r,n,i,s){var o=new hr(t._pt,e,r,0,1,s?Ur:jr);return t._pt=o,o.b=n,o.e=i,t._props.push(r),o},gn={deg:1,rad:1,turn:1},vn={grid:1,flex:1},_n=function t(e,r,n,i){var s,o,a,u,l=parseFloat(n)||0,c=(n+"").trim().substr((l+"").length)||"px",h=Sr.style,f=Nr.test(r),p="svg"===e.tagName.toLowerCase(),d=(p?"client":"offset")+(f?"Width":"Height"),D=100,m="px"===i,g="%"===i;if(i===c||!l||gn[i]||gn[c])return l;if("px"!==c&&!m&&(l=t(e,r,n,"px")),u=e.getCTM&&dn(e),(g||"%"===c)&&(Br[r]||~r.indexOf("adius")))return s=u?e.getBBox()[f?"width":"height"]:e[d],dt(g?l/s*D:l/100*s);if(h[f?"width":"height"]=D+(m?c:i),o=~r.indexOf("adius")||"em"===i&&e.appendChild&&!p?e:e.parentNode,u&&(o=(e.ownerSVGElement||{}).parentNode),o&&o!==xr&&o.appendChild||(o=xr.body),(a=o._gsap)&&g&&a.width&&f&&a.time===be.time&&!a.uncache)return dt(l/a.width*D);if(!g||"height"!==r&&"width"!==r)(g||"%"===c)&&!vn[an(o,"display")]&&(h.position=an(e,"position")),o===e&&(h.position="static"),o.appendChild(Sr),s=Sr[d],o.removeChild(Sr),h.position="absolute";else{var v=e.style[r];e.style[r]=D+i,s=e[d],v?e.style[r]=v:Dn(e,r)}return f&&g&&((a=ht(o)).time=be.time,a.width=o[d]),dt(m?s*l/D:s&&l?D/s*l:0)},yn=function(t,e,r,n){var i;return Ar||cn(),e in Yr&&"transform"!==e&&~(e=Yr[e]).indexOf(",")&&(e=e.split(",")[0]),Br[e]&&"transform"!==e?(i=Mn(t,n),i="transformOrigin"!==e?i[e]:i.svg?i.origin:On(an(t,tn))+" "+i.zOrigin+"px"):(!(i=t.style[e])||"auto"===i||n||~(i+"").indexOf("calc("))&&(i=Fn[e]&&Fn[e](t,e,r)||an(t,e)||ft(t,e)||("opacity"===e?1:0)),r&&!~(i+"").trim().indexOf(" ")?_n(t,e,i,r)+r:i},Cn=function(t,e,r,n){if(!r||"none"===r){var i=ln(e,t,1),s=i&&an(t,i,1);s&&s!==r?(e=i,r=s):"borderColor"===e&&(r=an(t,"borderTopColor"))}var o,a,u,l,c,h,f,p,d,D,m,g=new hr(this._pt,t.style,e,0,1,sr),v=0,y=0;if(g.b=r,g.e=n,r+="","auto"===(n+="")&&(h=t.style[e],t.style[e]=n,n=an(t,e)||n,h?t.style[e]=h:Dn(t,e)),Fe(o=[r,n]),n=o[1],u=(r=o[0]).match(X)||[],(n.match(X)||[]).length){for(;a=X.exec(n);)f=a[0],d=n.substring(v,a.index),c?c=(c+1)%5:"rgba("!==d.substr(-5)&&"hsla("!==d.substr(-5)||(c=1),f!==(h=u[y++]||"")&&(l=parseFloat(h)||0,m=h.substr((l+"").length),"="===f.charAt(1)&&(f=mt(l,f)+m),p=parseFloat(f),D=f.substr((p+"").length),v=X.lastIndex-D.length,D||(D=D||_.units[e]||m,v===n.length&&(n+=D,g.e+=D)),m!==D&&(l=_n(t,e,h,D)||0),g._pt={_next:g._pt,p:d||1===y?d:",",s:l,c:p-l,m:c&&c<4||"zIndex"===e?Math.round:0});g.c=v<n.length?n.substring(v,n.length):""}else g.r="display"===e&&"none"===n?Ur:jr;return W.test(n)&&(g.e=0),this._pt=g,g},En={top:"0%",bottom:"100%",left:"0%",right:"100%",center:"50%"},wn=function(t,e){if(e.tween&&e.tween._time===e.tween._dur){var r,n,i,s=e.t,o=s.style,a=e.u,u=s._gsap;if("all"===a||!0===a)o.cssText="",n=1;else for(i=(a=a.split(",")).length;--i>-1;)r=a[i],Br[r]&&(n=1,r="transformOrigin"===r?tn:Jr),Dn(s,r);n&&(Dn(s,Jr),u&&(u.svg&&s.removeAttribute("transform"),Mn(s,1),u.uncache=1,rn(o)))}},Fn={clearProps:function(t,e,r,n,i){if("isFromStart"!==i.data){var s=t._pt=new hr(t._pt,e,r,0,0,wn);return s.u=n,s.pr=-10,s.tween=i,t._props.push(r),1}}},bn=[1,0,0,1,0,0],xn={},Tn=function(t){return"matrix(1, 0, 0, 1, 0, 0)"===t||"none"===t||!t},An=function(t){var e=an(t,Jr);return Tn(e)?bn:e.substr(7).match(Y).map(dt)},Sn=function(t,e){var r,n,i,s,o=t._gsap||ht(t),a=t.style,u=An(t);return o.svg&&t.getAttribute("transform")?"1,0,0,1,0,0"===(u=[(i=t.transform.baseVal.consolidate().matrix).a,i.b,i.c,i.d,i.e,i.f]).join(",")?bn:u:(u!==bn||t.offsetParent||t===Tr||o.svg||(i=a.display,a.display="block",(r=t.parentNode)&&t.offsetParent||(s=1,n=t.nextElementSibling,Tr.appendChild(t)),u=An(t),i?a.display=i:Dn(t,"display"),s&&(n?r.insertBefore(t,n):r?r.appendChild(t):Tr.removeChild(t))),e&&u.length>6?[u[0],u[1],u[4],u[5],u[12],u[13]]:u)},kn=function(t,e,r,n,i,s){var o,a,u,l=t._gsap,c=i||Sn(t,!0),h=l.xOrigin||0,f=l.yOrigin||0,p=l.xOffset||0,d=l.yOffset||0,D=c[0],m=c[1],g=c[2],v=c[3],_=c[4],y=c[5],C=e.split(" "),E=parseFloat(C[0])||0,w=parseFloat(C[1])||0;r?c!==bn&&(a=D*v-m*g)&&(u=E*(-m/a)+w*(D/a)-(D*y-m*_)/a,E=E*(v/a)+w*(-g/a)+(g*y-v*_)/a,w=u):(E=(o=pn(t)).x+(~C[0].indexOf("%")?E/100*o.width:E),w=o.y+(~(C[1]||C[0]).indexOf("%")?w/100*o.height:w)),n||!1!==n&&l.smooth?(_=E-h,y=w-f,l.xOffset=p+(_*D+y*g)-_,l.yOffset=d+(_*m+y*v)-y):l.xOffset=l.yOffset=0,l.xOrigin=E,l.yOrigin=w,l.smooth=!!n,l.origin=e,l.originIsAbsolute=!!r,t.style[tn]="0px 0px",s&&(mn(s,l,"xOrigin",h,E),mn(s,l,"yOrigin",f,w),mn(s,l,"xOffset",p,l.xOffset),mn(s,l,"yOffset",d,l.yOffset)),t.setAttribute("data-svg-origin",E+" "+w)},Mn=function(t,e){var r=t._gsap||new Ne(t);if("x"in r&&!e&&!r.uncache)return r;var n,i,s,o,a,u,l,c,h,f,p,d,D,m,g,v,y,C,E,w,F,b,x,T,A,S,k,M,O,B,P,R,z=t.style,L=r.scaleX<0,N="px",I="deg",Y=getComputedStyle(t),X=an(t,tn)||"0";return n=i=s=u=l=c=h=f=p=0,o=a=1,r.svg=!(!t.getCTM||!dn(t)),Y.translate&&("none"===Y.translate&&"none"===Y.scale&&"none"===Y.rotate||(z[Jr]=("none"!==Y.translate?"translate3d("+(Y.translate+" 0 0").split(" ").slice(0,3).join(", ")+") ":"")+("none"!==Y.rotate?"rotate("+Y.rotate+") ":"")+("none"!==Y.scale?"scale("+Y.scale.split(" ").join(",")+") ":"")+("none"!==Y[Jr]?Y[Jr]:"")),z.scale=z.rotate=z.translate="none"),m=Sn(t,r.svg),r.svg&&(r.uncache?(A=t.getBBox(),X=r.xOrigin-A.x+"px "+(r.yOrigin-A.y)+"px",T=""):T=!e&&t.getAttribute("data-svg-origin"),kn(t,T||X,!!T||r.originIsAbsolute,!1!==r.smooth,m)),d=r.xOrigin||0,D=r.yOrigin||0,m!==bn&&(C=m[0],E=m[1],w=m[2],F=m[3],n=b=m[4],i=x=m[5],6===m.length?(o=Math.sqrt(C*C+E*E),a=Math.sqrt(F*F+w*w),u=C||E?zr(E,C)*Pr:0,(h=w||F?zr(w,F)*Pr+u:0)&&(a*=Math.abs(Math.cos(h*Rr))),r.svg&&(n-=d-(d*C+D*w),i-=D-(d*E+D*F))):(R=m[6],B=m[7],k=m[8],M=m[9],O=m[10],P=m[11],n=m[12],i=m[13],s=m[14],l=(g=zr(R,O))*Pr,g&&(T=b*(v=Math.cos(-g))+k*(y=Math.sin(-g)),A=x*v+M*y,S=R*v+O*y,k=b*-y+k*v,M=x*-y+M*v,O=R*-y+O*v,P=B*-y+P*v,b=T,x=A,R=S),c=(g=zr(-w,O))*Pr,g&&(v=Math.cos(-g),P=F*(y=Math.sin(-g))+P*v,C=T=C*v-k*y,E=A=E*v-M*y,w=S=w*v-O*y),u=(g=zr(E,C))*Pr,g&&(T=C*(v=Math.cos(g))+E*(y=Math.sin(g)),A=b*v+x*y,E=E*v-C*y,x=x*v-b*y,C=T,b=A),l&&Math.abs(l)+Math.abs(u)>359.9&&(l=u=0,c=180-c),o=dt(Math.sqrt(C*C+E*E+w*w)),a=dt(Math.sqrt(x*x+R*R)),g=zr(b,x),h=Math.abs(g)>2e-4?g*Pr:0,p=P?1/(P<0?-P:P):0),r.svg&&(T=t.getAttribute("transform"),r.forceCSS=t.setAttribute("transform","")||!Tn(an(t,Jr)),T&&t.setAttribute("transform",T))),Math.abs(h)>90&&Math.abs(h)<270&&(L?(o*=-1,h+=u<=0?180:-180,u+=u<=0?180:-180):(a*=-1,h+=h<=0?180:-180)),e=e||r.uncache,r.x=n-((r.xPercent=n&&(!e&&r.xPercent||(Math.round(t.offsetWidth/2)===Math.round(-n)?-50:0)))?t.offsetWidth*r.xPercent/100:0)+N,r.y=i-((r.yPercent=i&&(!e&&r.yPercent||(Math.round(t.offsetHeight/2)===Math.round(-i)?-50:0)))?t.offsetHeight*r.yPercent/100:0)+N,r.z=s+N,r.scaleX=dt(o),r.scaleY=dt(a),r.rotation=dt(u)+I,r.rotationX=dt(l)+I,r.rotationY=dt(c)+I,r.skewX=h+I,r.skewY=f+I,r.transformPerspective=p+N,(r.zOrigin=parseFloat(X.split(" ")[2])||!e&&r.zOrigin||0)&&(z[tn]=On(X)),r.xOffset=r.yOffset=0,r.force3D=_.force3D,r.renderTransform=r.svg?In:Or?Nn:Pn,r.uncache=0,r},On=function(t){return(t=t.split(" "))[0]+" "+t[1]},Bn=function(t,e,r){var n=Zt(e);return dt(parseFloat(e)+parseFloat(_n(t,"x",r+"px",n)))+n},Pn=function(t,e){e.z="0px",e.rotationY=e.rotationX="0deg",e.force3D=0,Nn(t,e)},Rn="0deg",zn="0px",Ln=") ",Nn=function(t,e){var r=e||this,n=r.xPercent,i=r.yPercent,s=r.x,o=r.y,a=r.z,u=r.rotation,l=r.rotationY,c=r.rotationX,h=r.skewX,f=r.skewY,p=r.scaleX,d=r.scaleY,D=r.transformPerspective,m=r.force3D,g=r.target,v=r.zOrigin,_="",y="auto"===m&&t&&1!==t||!0===m;if(v&&(c!==Rn||l!==Rn)){var C,E=parseFloat(l)*Rr,w=Math.sin(E),F=Math.cos(E);E=parseFloat(c)*Rr,C=Math.cos(E),s=Bn(g,s,w*C*-v),o=Bn(g,o,-Math.sin(E)*-v),a=Bn(g,a,F*C*-v+v)}D!==zn&&(_+="perspective("+D+Ln),(n||i)&&(_+="translate("+n+"%, "+i+"%) "),(y||s!==zn||o!==zn||a!==zn)&&(_+=a!==zn||y?"translate3d("+s+", "+o+", "+a+") ":"translate("+s+", "+o+Ln),u!==Rn&&(_+="rotate("+u+Ln),l!==Rn&&(_+="rotateY("+l+Ln),c!==Rn&&(_+="rotateX("+c+Ln),h===Rn&&f===Rn||(_+="skew("+h+", "+f+Ln),1===p&&1===d||(_+="scale("+p+", "+d+Ln),g.style[Jr]=_||"translate(0, 0)"},In=function(t,e){var r,n,i,s,o,a=e||this,u=a.xPercent,l=a.yPercent,c=a.x,h=a.y,f=a.rotation,p=a.skewX,d=a.skewY,D=a.scaleX,m=a.scaleY,g=a.target,v=a.xOrigin,_=a.yOrigin,y=a.xOffset,C=a.yOffset,E=a.forceCSS,w=parseFloat(c),F=parseFloat(h);f=parseFloat(f),p=parseFloat(p),(d=parseFloat(d))&&(p+=d=parseFloat(d),f+=d),f||p?(f*=Rr,p*=Rr,r=Math.cos(f)*D,n=Math.sin(f)*D,i=Math.sin(f-p)*-m,s=Math.cos(f-p)*m,p&&(d*=Rr,o=Math.tan(p-d),i*=o=Math.sqrt(1+o*o),s*=o,d&&(o=Math.tan(d),r*=o=Math.sqrt(1+o*o),n*=o)),r=dt(r),n=dt(n),i=dt(i),s=dt(s)):(r=D,s=m,n=i=0),(w&&!~(c+"").indexOf("px")||F&&!~(h+"").indexOf("px"))&&(w=_n(g,"x",c,"px"),F=_n(g,"y",h,"px")),(v||_||y||C)&&(w=dt(w+v-(v*r+_*i)+y),F=dt(F+_-(v*n+_*s)+C)),(u||l)&&(o=g.getBBox(),w=dt(w+u/100*o.width),F=dt(F+l/100*o.height)),o="matrix("+r+","+n+","+i+","+s+","+w+","+F+")",g.setAttribute("transform",o),E&&(g.style[Jr]=o)},Yn=function(t,e,r,n,i){var s,o,a=360,u=S(i),l=parseFloat(i)*(u&&~i.indexOf("rad")?Pr:1)-n,c=n+l+"deg";return u&&("short"===(s=i.split("_")[1])&&(l%=a)!==l%180&&(l+=l<0?a:-360),"cw"===s&&l<0?l=(l+36e9)%a-~~(l/a)*a:"ccw"===s&&l>0&&(l=(l-36e9)%a-~~(l/a)*a)),t._pt=o=new hr(t._pt,e,r,n,l,qr),o.e=c,o.u="deg",t._props.push(r),o},Xn=function(t,e){for(var r in e)t[r]=e[r];return t},qn=function(t,e,r){var n,i,s,o,a,u,l,c=Xn({},r._gsap),h=r.style;for(i in c.svg?(s=r.getAttribute("transform"),r.setAttribute("transform",""),h[Jr]=e,n=Mn(r,1),Dn(r,Jr),r.setAttribute("transform",s)):(s=getComputedStyle(r)[Jr],h[Jr]=e,n=Mn(r,1),h[Jr]=s),Br)(s=c[i])!==(o=n[i])&&"perspective,force3D,transformOrigin,svgOrigin".indexOf(i)<0&&(a=Zt(s)!==(l=Zt(o))?_n(r,i,s,l):parseFloat(s),u=parseFloat(o),t._pt=new hr(t._pt,n,i,a,u-a,Xr),t._pt.u=l||0,t._props.push(i));Xn(n,c)};pt("padding,margin,Width,Radius",(function(t,e){var r="Top",n="Right",i="Bottom",s="Left",o=(e<3?[r,n,i,s]:[r+s,r+n,i+n,i+s]).map((function(r){return e<2?t+r:"border"+r+t}));Fn[e>1?"border"+t:t]=function(t,e,r,n,i){var s,a;if(arguments.length<4)return s=o.map((function(e){return yn(t,e,r)})),5===(a=s.join(" ")).split(s[0]).length?s[0]:a;s=(n+"").split(" "),a={},o.forEach((function(t,e){return a[t]=s[e]=s[e]||s[(e-1)/2|0]})),t.init(e,a,i)}}));var Wn,Hn,jn,Un={name:"css",register:cn,targetTest:function(t){return t.style&&t.nodeType},init:function(t,e,r,n,i){var s,o,a,u,l,c,h,f,p,d,D,m,g,v,y,C,E,w,F,b,x=this._props,T=t.style,A=r.vars.startAt;for(h in Ar||cn(),this.styles=this.styles||sn(t),C=this.styles.props,this.tween=r,e)if("autoRound"!==h&&(o=e[h],!st[h]||!je(h,e,r,n,t,i)))if(l=typeof o,c=Fn[h],"function"===l&&(l=typeof(o=o.call(r,n,t,i))),"string"===l&&~o.indexOf("random(")&&(o=le(o)),c)c(this,t,h,o,r)&&(y=1);else if("--"===h.substr(0,2))s=(getComputedStyle(t).getPropertyValue(h)+"").trim(),o+="",Ee.lastIndex=0,Ee.test(s)||(f=Zt(s),p=Zt(o)),p?f!==p&&(s=_n(t,h,s,p)+p):f&&(o+=f),this.add(T,"setProperty",s,o,n,i,0,0,h),x.push(h),C.push(h,0,T[h]);else if("undefined"!==l){if(A&&h in A?(s="function"==typeof A[h]?A[h].call(r,n,t,i):A[h],S(s)&&~s.indexOf("random(")&&(s=le(s)),Zt(s+"")||"auto"===s||(s+=_.units[h]||Zt(yn(t,h))||""),"="===(s+"").charAt(1)&&(s=yn(t,h))):s=yn(t,h),u=parseFloat(s),(d="string"===l&&"="===o.charAt(1)&&o.substr(0,2))&&(o=o.substr(2)),a=parseFloat(o),h in Yr&&("autoAlpha"===h&&(1===u&&"hidden"===yn(t,"visibility")&&a&&(u=0),C.push("visibility",0,T.visibility),mn(this,T,"visibility",u?"inherit":"hidden",a?"inherit":"hidden",!a)),"scale"!==h&&"transform"!==h&&~(h=Yr[h]).indexOf(",")&&(h=h.split(",")[0])),D=h in Br)if(this.styles.save(h),m||((g=t._gsap).renderTransform&&!e.parseTransform||Mn(t,e.parseTransform),v=!1!==e.smoothOrigin&&g.smooth,(m=this._pt=new hr(this._pt,T,Jr,0,1,g.renderTransform,g,0,-1)).dep=1),"scale"===h)this._pt=new hr(this._pt,g,"scaleY",g.scaleY,(d?mt(g.scaleY,d+a):a)-g.scaleY||0,Xr),this._pt.u=0,x.push("scaleY",h),h+="X";else{if("transformOrigin"===h){C.push(tn,0,T[tn]),w=void 0,F=void 0,b=void 0,w=(E=o).split(" "),F=w[0],b=w[1]||"50%","top"!==F&&"bottom"!==F&&"left"!==b&&"right"!==b||(E=F,F=b,b=E),w[0]=En[F]||F,w[1]=En[b]||b,o=w.join(" "),g.svg?kn(t,o,0,v,0,this):((p=parseFloat(o.split(" ")[2])||0)!==g.zOrigin&&mn(this,g,"zOrigin",g.zOrigin,p),mn(this,T,h,On(s),On(o)));continue}if("svgOrigin"===h){kn(t,o,1,v,0,this);continue}if(h in xn){Yn(this,g,h,u,d?mt(u,d+o):o);continue}if("smoothOrigin"===h){mn(this,g,"smooth",g.smooth,o);continue}if("force3D"===h){g[h]=o;continue}if("transform"===h){qn(this,o,t);continue}}else h in T||(h=ln(h)||h);if(D||(a||0===a)&&(u||0===u)&&!Ir.test(o)&&h in T)a||(a=0),(f=(s+"").substr((u+"").length))!==(p=Zt(o)||(h in _.units?_.units[h]:f))&&(u=_n(t,h,s,p)),this._pt=new hr(this._pt,D?g:T,h,u,(d?mt(u,d+a):a)-u,D||"px"!==p&&"zIndex"!==h||!1===e.autoRound?Xr:Hr),this._pt.u=p||0,f!==p&&"%"!==p&&(this._pt.b=s,this._pt.r=Wr);else if(h in T)Cn.call(this,t,h,s,d?d+o:o);else if(h in t)this.add(t,h,s||t[h],d?d+o:o,n,i);else if("parseTransform"!==h){Q(h,o);continue}D||(h in T?C.push(h,0,T[h]):C.push(h,1,s||t[h])),x.push(h)}y&&cr(this)},render:function(t,e){if(e.tween._time||!Mr())for(var r=e._pt;r;)r.r(t,r.d),r=r._next;else e.styles.revert()},get:yn,aliases:Yr,getSetter:function(t,e,r){var n=Yr[e];return n&&n.indexOf(",")<0&&(e=n),e in Br&&e!==tn&&(t._gsap.x||yn(t,"x"))?r&&kr===r?"scale"===e?$r:Qr:(kr=r||{})&&("scale"===e?Zr:Kr):t.style&&!O(t.style[e])?Vr:~e.indexOf("-")?Gr:rr(t,e)},core:{_removeProperty:Dn,_getMatrix:Sn}};Fr.utils.checkPrefix=ln,Fr.core.getStyleSaver=sn,jn=pt((Wn="x,y,z,scale,scaleX,scaleY,xPercent,yPercent")+","+(Hn="rotation,rotationX,rotationY,skewX,skewY")+",transform,transformOrigin,svgOrigin,force3D,smoothOrigin,transformPerspective",(function(t){Br[t]=1})),pt(Hn,(function(t){_.units[t]="deg",xn[t]=1})),Yr[jn[13]]=Wn+","+Hn,pt("0:translateX,1:translateY,2:translateZ,8:rotate,8:rotationZ,8:rotateZ,9:rotateX,10:rotateY",(function(t){var e=t.split(":");Yr[e[1]]=jn[e[0]]})),pt("x,y,z,top,right,bottom,left,width,height,fontSize,padding,margin,perspective",(function(t){_.units[t]="px"})),Fr.registerPlugin(Un);var Vn=Fr.registerPlugin(Un)||Fr;Vn.core.Tween;function Gn(t,e){for(var r=0;r<e.length;r++){var n=e[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(t,n.key,n)}}var Qn,$n,Zn,Kn,Jn,ti,ei,ri,ni,ii,si,oi,ai,ui=function(){return Qn||"undefined"!=typeof window&&(Qn=window.gsap)&&Qn.registerPlugin&&Qn},li=1,ci=[],hi=[],fi=[],pi=Date.now,di=function(t,e){return e},Di=function(t,e){return~fi.indexOf(t)&&fi[fi.indexOf(t)+1][e]},mi=function(t){return!!~ii.indexOf(t)},gi=function(t,e,r,n,i){return t.addEventListener(e,r,{passive:!1!==n,capture:!!i})},vi=function(t,e,r,n){return t.removeEventListener(e,r,!!n)},_i="scrollLeft",yi="scrollTop",Ci=function(){return si&&si.isPressed||hi.cache++},Ei=function(t,e){var r=function r(n){if(n||0===n){li&&(Zn.history.scrollRestoration="manual");var i=si&&si.isPressed;n=r.v=Math.round(n)||(si&&si.iOS?1:0),t(n),r.cacheID=hi.cache,i&&di("ss",n)}else(e||hi.cache!==r.cacheID||di("ref"))&&(r.cacheID=hi.cache,r.v=t());return r.v+r.offset};return r.offset=0,t&&r},wi={s:_i,p:"left",p2:"Left",os:"right",os2:"Right",d:"width",d2:"Width",a:"x",sc:Ei((function(t){return arguments.length?Zn.scrollTo(t,Fi.sc()):Zn.pageXOffset||Kn[_i]||Jn[_i]||ti[_i]||0}))},Fi={s:yi,p:"top",p2:"Top",os:"bottom",os2:"Bottom",d:"height",d2:"Height",a:"y",op:wi,sc:Ei((function(t){return arguments.length?Zn.scrollTo(wi.sc(),t):Zn.pageYOffset||Kn[yi]||Jn[yi]||ti[yi]||0}))},bi=function(t,e){return(e&&e._ctx&&e._ctx.selector||Qn.utils.toArray)(t)[0]||("string"==typeof t&&!1!==Qn.config().nullTargetWarn?console.warn("Element not found:",t):null)},xi=function(t,e){var r=e.s,n=e.sc;mi(t)&&(t=Kn.scrollingElement||Jn);var i=hi.indexOf(t),s=n===Fi.sc?1:2;!~i&&(i=hi.push(t)-1),hi[i+s]||gi(t,"scroll",Ci);var o=hi[i+s],a=o||(hi[i+s]=Ei(Di(t,r),!0)||(mi(t)?n:Ei((function(e){return arguments.length?t[r]=e:t[r]}))));return a.target=t,o||(a.smooth="smooth"===Qn.getProperty(t,"scrollBehavior")),a},Ti=function(t,e,r){var n=t,i=t,s=pi(),o=s,a=e||50,u=Math.max(500,3*a),l=function(t,e){var u=pi();e||u-s>a?(i=n,n=t,o=s,s=u):r?n+=t:n=i+(t-i)/(u-o)*(s-o)};return{update:l,reset:function(){i=n=r?0:n,o=s=0},getVelocity:function(t){var e=o,a=i,c=pi();return(t||0===t)&&t!==n&&l(t),s===o||c-o>u?0:(n+(r?a:-a))/((r?c:s)-e)*1e3}}},Ai=function(t,e){return e&&!t._gsapAllow&&t.preventDefault(),t.changedTouches?t.changedTouches[0]:t},Si=function(t){var e=Math.max.apply(Math,t),r=Math.min.apply(Math,t);return Math.abs(e)>=Math.abs(r)?e:r},ki=function(){var t,e,r,n;(ni=Qn.core.globals().ScrollTrigger)&&ni.core&&(t=ni.core,e=t.bridge||{},r=t._scrollers,n=t._proxies,r.push.apply(r,hi),n.push.apply(n,fi),hi=r,fi=n,di=function(t,r){return e[t](r)})},Mi=function(t){return Qn=t||ui(),!$n&&Qn&&"undefined"!=typeof document&&document.body&&(Zn=window,Kn=document,Jn=Kn.documentElement,ti=Kn.body,ii=[Zn,Kn,Jn,ti],Qn.utils.clamp,ai=Qn.core.context||function(){},ri="onpointerenter"in ti?"pointer":"mouse",ei=Oi.isTouch=Zn.matchMedia&&Zn.matchMedia("(hover: none), (pointer: coarse)").matches?1:"ontouchstart"in Zn||navigator.maxTouchPoints>0||navigator.msMaxTouchPoints>0?2:0,oi=Oi.eventTypes=("ontouchstart"in Jn?"touchstart,touchmove,touchcancel,touchend":"onpointerdown"in Jn?"pointerdown,pointermove,pointercancel,pointerup":"mousedown,mousemove,mouseup,mouseup").split(","),setTimeout((function(){return li=0}),500),ki(),$n=1),$n};wi.op=Fi,hi.cache=0;var Oi=function(){function t(t){this.init(t)}var e,r,n;return t.prototype.init=function(t){$n||Mi(Qn)||console.warn("Please gsap.registerPlugin(Observer)"),ni||ki();var e=t.tolerance,r=t.dragMinimum,n=t.type,i=t.target,s=t.lineHeight,o=t.debounce,a=t.preventDefault,u=t.onStop,l=t.onStopDelay,c=t.ignore,h=t.wheelSpeed,f=t.event,p=t.onDragStart,d=t.onDragEnd,D=t.onDrag,m=t.onPress,g=t.onRelease,v=t.onRight,_=t.onLeft,y=t.onUp,C=t.onDown,E=t.onChangeX,w=t.onChangeY,F=t.onChange,b=t.onToggleX,x=t.onToggleY,T=t.onHover,A=t.onHoverEnd,S=t.onMove,k=t.ignoreCheck,M=t.isNormalizer,O=t.onGestureStart,B=t.onGestureEnd,P=t.onWheel,R=t.onEnable,z=t.onDisable,L=t.onClick,N=t.scrollSpeed,I=t.capture,Y=t.allowClicks,X=t.lockAxis,q=t.onLockAxis;this.target=i=bi(i)||Jn,this.vars=t,c&&(c=Qn.utils.toArray(c)),e=e||1e-9,r=r||0,h=h||1,N=N||1,n=n||"wheel,touch,pointer",o=!1!==o,s||(s=parseFloat(Zn.getComputedStyle(ti).lineHeight)||22);var W,H,j,U,V,G,Q,$=this,Z=0,K=0,J=t.passive||!a,tt=xi(i,wi),et=xi(i,Fi),rt=tt(),nt=et(),it=~n.indexOf("touch")&&!~n.indexOf("pointer")&&"pointerdown"===oi[0],st=mi(i),ot=i.ownerDocument||Kn,at=[0,0,0],ut=[0,0,0],lt=0,ct=function(){return lt=pi()},ht=function(t,e){return($.event=t)&&c&&~c.indexOf(t.target)||e&&it&&"touch"!==t.pointerType||k&&k(t,e)},ft=function(){var t=$.deltaX=Si(at),r=$.deltaY=Si(ut),n=Math.abs(t)>=e,i=Math.abs(r)>=e;F&&(n||i)&&F($,t,r,at,ut),n&&(v&&$.deltaX>0&&v($),_&&$.deltaX<0&&_($),E&&E($),b&&$.deltaX<0!=Z<0&&b($),Z=$.deltaX,at[0]=at[1]=at[2]=0),i&&(C&&$.deltaY>0&&C($),y&&$.deltaY<0&&y($),w&&w($),x&&$.deltaY<0!=K<0&&x($),K=$.deltaY,ut[0]=ut[1]=ut[2]=0),(U||j)&&(S&&S($),j&&(D($),j=!1),U=!1),G&&!(G=!1)&&q&&q($),V&&(P($),V=!1),W=0},pt=function(t,e,r){at[r]+=t,ut[r]+=e,$._vx.update(t),$._vy.update(e),o?W||(W=requestAnimationFrame(ft)):ft()},dt=function(t,e){X&&!Q&&($.axis=Q=Math.abs(t)>Math.abs(e)?"x":"y",G=!0),"y"!==Q&&(at[2]+=t,$._vx.update(t,!0)),"x"!==Q&&(ut[2]+=e,$._vy.update(e,!0)),o?W||(W=requestAnimationFrame(ft)):ft()},Dt=function(t){if(!ht(t,1)){var e=(t=Ai(t,a)).clientX,n=t.clientY,i=e-$.x,s=n-$.y,o=$.isDragging;$.x=e,$.y=n,(o||Math.abs($.startX-e)>=r||Math.abs($.startY-n)>=r)&&(D&&(j=!0),o||($.isDragging=!0),dt(i,s),o||p&&p($))}},mt=$.onPress=function(t){ht(t,1)||t&&t.button||($.axis=Q=null,H.pause(),$.isPressed=!0,t=Ai(t),Z=K=0,$.startX=$.x=t.clientX,$.startY=$.y=t.clientY,$._vx.reset(),$._vy.reset(),gi(M?i:ot,oi[1],Dt,J,!0),$.deltaX=$.deltaY=0,m&&m($))},gt=$.onRelease=function(t){if(!ht(t,1)){vi(M?i:ot,oi[1],Dt,!0);var e=!isNaN($.y-$.startY),r=$.isDragging,n=r&&(Math.abs($.x-$.startX)>3||Math.abs($.y-$.startY)>3),s=Ai(t);!n&&e&&($._vx.reset(),$._vy.reset(),a&&Y&&Qn.delayedCall(.08,(function(){if(pi()-lt>300&&!t.defaultPrevented)if(t.target.click)t.target.click();else if(ot.createEvent){var e=ot.createEvent("MouseEvents");e.initMouseEvent("click",!0,!0,Zn,1,s.screenX,s.screenY,s.clientX,s.clientY,!1,!1,!1,!1,0,null),t.target.dispatchEvent(e)}}))),$.isDragging=$.isGesturing=$.isPressed=!1,u&&r&&!M&&H.restart(!0),d&&r&&d($),g&&g($,n)}},vt=function(t){return t.touches&&t.touches.length>1&&($.isGesturing=!0)&&O(t,$.isDragging)},_t=function(){return($.isGesturing=!1)||B($)},yt=function(t){if(!ht(t)){var e=tt(),r=et();pt((e-rt)*N,(r-nt)*N,1),rt=e,nt=r,u&&H.restart(!0)}},Ct=function(t){if(!ht(t)){t=Ai(t,a),P&&(V=!0);var e=(1===t.deltaMode?s:2===t.deltaMode?Zn.innerHeight:1)*h;pt(t.deltaX*e,t.deltaY*e,0),u&&!M&&H.restart(!0)}},Et=function(t){if(!ht(t)){var e=t.clientX,r=t.clientY,n=e-$.x,i=r-$.y;$.x=e,$.y=r,U=!0,u&&H.restart(!0),(n||i)&&dt(n,i)}},wt=function(t){$.event=t,T($)},Ft=function(t){$.event=t,A($)},bt=function(t){return ht(t)||Ai(t,a)&&L($)};H=$._dc=Qn.delayedCall(l||.25,(function(){$._vx.reset(),$._vy.reset(),H.pause(),u&&u($)})).pause(),$.deltaX=$.deltaY=0,$._vx=Ti(0,50,!0),$._vy=Ti(0,50,!0),$.scrollX=tt,$.scrollY=et,$.isDragging=$.isGesturing=$.isPressed=!1,ai(this),$.enable=function(t){return $.isEnabled||(gi(st?ot:i,"scroll",Ci),n.indexOf("scroll")>=0&&gi(st?ot:i,"scroll",yt,J,I),n.indexOf("wheel")>=0&&gi(i,"wheel",Ct,J,I),(n.indexOf("touch")>=0&&ei||n.indexOf("pointer")>=0)&&(gi(i,oi[0],mt,J,I),gi(ot,oi[2],gt),gi(ot,oi[3],gt),Y&&gi(i,"click",ct,!0,!0),L&&gi(i,"click",bt),O&&gi(ot,"gesturestart",vt),B&&gi(ot,"gestureend",_t),T&&gi(i,ri+"enter",wt),A&&gi(i,ri+"leave",Ft),S&&gi(i,ri+"move",Et)),$.isEnabled=!0,t&&t.type&&mt(t),R&&R($)),$},$.disable=function(){$.isEnabled&&(ci.filter((function(t){return t!==$&&mi(t.target)})).length||vi(st?ot:i,"scroll",Ci),$.isPressed&&($._vx.reset(),$._vy.reset(),vi(M?i:ot,oi[1],Dt,!0)),vi(st?ot:i,"scroll",yt,I),vi(i,"wheel",Ct,I),vi(i,oi[0],mt,I),vi(ot,oi[2],gt),vi(ot,oi[3],gt),vi(i,"click",ct,!0),vi(i,"click",bt),vi(ot,"gesturestart",vt),vi(ot,"gestureend",_t),vi(i,ri+"enter",wt),vi(i,ri+"leave",Ft),vi(i,ri+"move",Et),$.isEnabled=$.isPressed=$.isDragging=!1,z&&z($))},$.kill=$.revert=function(){$.disable();var t=ci.indexOf($);t>=0&&ci.splice(t,1),si===$&&(si=0)},ci.push($),M&&mi(i)&&(si=$),$.enable(f)},e=t,(r=[{key:"velocityX",get:function(){return this._vx.getVelocity()}},{key:"velocityY",get:function(){return this._vy.getVelocity()}}])&&Gn(e.prototype,r),n&&Gn(e,n),t}();Oi.version="3.12.5",Oi.create=function(t){return new Oi(t)},Oi.register=Mi,Oi.getAll=function(){return ci.slice()},Oi.getById=function(t){return ci.filter((function(e){return e.vars.id===t}))[0]},ui()&&Qn.registerPlugin(Oi);var Bi,Pi,Ri,zi,Li,Ni,Ii,Yi,Xi,qi,Wi,Hi,ji,Ui,Vi,Gi,Qi,$i,Zi,Ki,Ji,ts,es,rs,ns,is,ss,os,as,us,ls,cs,hs,fs,ps,ds,Ds,ms,gs=1,vs=Date.now,_s=vs(),ys=0,Cs=0,Es=function(t,e,r){var n=zs(t)&&("clamp("===t.substr(0,6)||t.indexOf("max")>-1);return r["_"+e+"Clamp"]=n,n?t.substr(6,t.length-7):t},ws=function(t,e){return!e||zs(t)&&"clamp("===t.substr(0,6)?t:"clamp("+t+")"},Fs=function t(){return Cs&&requestAnimationFrame(t)},bs=function(){return Ui=1},xs=function(){return Ui=0},Ts=function(t){return t},As=function(t){return Math.round(1e5*t)/1e5||0},Ss=function(){return"undefined"!=typeof window},ks=function(){return Bi||Ss()&&(Bi=window.gsap)&&Bi.registerPlugin&&Bi},Ms=function(t){return!!~Ii.indexOf(t)},Os=function(t){return("Height"===t?ls:Ri["inner"+t])||Li["client"+t]||Ni["client"+t]},Bs=function(t){return Di(t,"getBoundingClientRect")||(Ms(t)?function(){return Vo.width=Ri.innerWidth,Vo.height=ls,Vo}:function(){return so(t)})},Ps=function(t,e){var r=e.s,n=e.d2,i=e.d,s=e.a;return Math.max(0,(r="scroll"+n)&&(s=Di(t,r))?s()-Bs(t)()[i]:Ms(t)?(Li[r]||Ni[r])-Os(n):t[r]-t["offset"+n])},Rs=function(t,e){for(var r=0;r<Zi.length;r+=3)(!e||~e.indexOf(Zi[r+1]))&&t(Zi[r],Zi[r+1],Zi[r+2])},zs=function(t){return"string"==typeof t},Ls=function(t){return"function"==typeof t},Ns=function(t){return"number"==typeof t},Is=function(t){return"object"==typeof t},Ys=function(t,e,r){return t&&t.progress(e?0:1)&&r&&t.pause()},Xs=function(t,e){if(t.enabled){var r=t._ctx?t._ctx.add((function(){return e(t)})):e(t);r&&r.totalTime&&(t.callbackAnimation=r)}},qs=Math.abs,Ws="left",Hs="right",js="bottom",Us="width",Vs="height",Gs="Right",Qs="Left",$s="Top",Zs="Bottom",Ks="padding",Js="margin",to="Width",eo="Height",ro="px",no=function(t){return Ri.getComputedStyle(t)},io=function(t,e){for(var r in e)r in t||(t[r]=e[r]);return t},so=function(t,e){var r=e&&"matrix(1, 0, 0, 1, 0, 0)"!==no(t)[Vi]&&Bi.to(t,{x:0,y:0,xPercent:0,yPercent:0,rotation:0,rotationX:0,rotationY:0,scale:1,skewX:0,skewY:0}).progress(1),n=t.getBoundingClientRect();return r&&r.progress(0).kill(),n},oo=function(t,e){var r=e.d2;return t["offset"+r]||t["client"+r]||0},ao=function(t){var e,r=[],n=t.labels,i=t.duration();for(e in n)r.push(n[e]/i);return r},uo=function(t){var e=Bi.utils.snap(t),r=Array.isArray(t)&&t.slice(0).sort((function(t,e){return t-e}));return r?function(t,n,i){var s;if(void 0===i&&(i=.001),!n)return e(t);if(n>0){for(t-=i,s=0;s<r.length;s++)if(r[s]>=t)return r[s];return r[s-1]}for(s=r.length,t+=i;s--;)if(r[s]<=t)return r[s];return r[0]}:function(r,n,i){void 0===i&&(i=.001);var s=e(r);return!n||Math.abs(s-r)<i||s-r<0==n<0?s:e(n<0?r-t:r+t)}},lo=function(t,e,r,n){return r.split(",").forEach((function(r){return t(e,r,n)}))},co=function(t,e,r,n,i){return t.addEventListener(e,r,{passive:!n,capture:!!i})},ho=function(t,e,r,n){return t.removeEventListener(e,r,!!n)},fo=function(t,e,r){(r=r&&r.wheelHandler)&&(t(e,"wheel",r),t(e,"touchmove",r))},po={startColor:"green",endColor:"red",indent:0,fontSize:"16px",fontWeight:"normal"},Do={toggleActions:"play",anticipatePin:0},mo={top:0,left:0,center:.5,bottom:1,right:1},go=function(t,e){if(zs(t)){var r=t.indexOf("="),n=~r?+(t.charAt(r-1)+1)*parseFloat(t.substr(r+1)):0;~r&&(t.indexOf("%")>r&&(n*=e/100),t=t.substr(0,r-1)),t=n+(t in mo?mo[t]*e:~t.indexOf("%")?parseFloat(t)*e/100:parseFloat(t)||0)}return t},vo=function(t,e,r,n,i,s,o,a){var u=i.startColor,l=i.endColor,c=i.fontSize,h=i.indent,f=i.fontWeight,p=zi.createElement("div"),d=Ms(r)||"fixed"===Di(r,"pinType"),D=-1!==t.indexOf("scroller"),m=d?Ni:r,g=-1!==t.indexOf("start"),v=g?u:l,_="border-color:"+v+";font-size:"+c+";color:"+v+";font-weight:"+f+";pointer-events:none;white-space:nowrap;font-family:sans-serif,Arial;z-index:1000;padding:4px 8px;border-width:0;border-style:solid;";return _+="position:"+((D||a)&&d?"fixed;":"absolute;"),(D||a||!d)&&(_+=(n===Fi?Hs:js)+":"+(s+parseFloat(h))+"px;"),o&&(_+="box-sizing:border-box;text-align:left;width:"+o.offsetWidth+"px;"),p._isStart=g,p.setAttribute("class","gsap-marker-"+t+(e?" marker-"+e:"")),p.style.cssText=_,p.innerText=e||0===e?t+"-"+e:t,m.children[0]?m.insertBefore(p,m.children[0]):m.appendChild(p),p._offset=p["offset"+n.op.d2],_o(p,0,n,g),p},_o=function(t,e,r,n){var i={display:"block"},s=r[n?"os2":"p2"],o=r[n?"p2":"os2"];t._isFlipped=n,i[r.a+"Percent"]=n?-100:0,i[r.a]=n?"1px":0,i["border"+s+to]=1,i["border"+o+to]=0,i[r.p]=e+"px",Bi.set(t,i)},yo=[],Co={},Eo=function(){return vs()-ys>34&&(ps||(ps=requestAnimationFrame(Yo)))},wo=function(){(!es||!es.isPressed||es.startX>Ni.clientWidth)&&(hi.cache++,es?ps||(ps=requestAnimationFrame(Yo)):Yo(),ys||So("scrollStart"),ys=vs())},Fo=function(){is=Ri.innerWidth,ns=Ri.innerHeight},bo=function(){hi.cache++,!ji&&!ts&&!zi.fullscreenElement&&!zi.webkitFullscreenElement&&(!rs||is!==Ri.innerWidth||Math.abs(Ri.innerHeight-ns)>.25*Ri.innerHeight)&&Yi.restart(!0)},xo={},To=[],Ao=function t(){return ho(ta,"scrollEnd",t)||Lo(!0)},So=function(t){return xo[t]&&xo[t].map((function(t){return t()}))||To},ko=[],Mo=function(t){for(var e=0;e<ko.length;e+=5)(!t||ko[e+4]&&ko[e+4].query===t)&&(ko[e].style.cssText=ko[e+1],ko[e].getBBox&&ko[e].setAttribute("transform",ko[e+2]||""),ko[e+3].uncache=1)},Oo=function(t,e){var r;for(Gi=0;Gi<yo.length;Gi++)!(r=yo[Gi])||e&&r._ctx!==e||(t?r.kill(1):r.revert(!0,!0));cs=!0,e&&Mo(e),e||So("revert")},Bo=function(t,e){hi.cache++,(e||!ds)&&hi.forEach((function(t){return Ls(t)&&t.cacheID++&&(t.rec=0)})),zs(t)&&(Ri.history.scrollRestoration=as=t)},Po=0,Ro=function(){Ni.appendChild(us),ls=!es&&us.offsetHeight||Ri.innerHeight,Ni.removeChild(us)},zo=function(t){return Xi(".gsap-marker-start, .gsap-marker-end, .gsap-marker-scroller-start, .gsap-marker-scroller-end").forEach((function(e){return e.style.display=t?"none":"block"}))},Lo=function(t,e){if(!ys||t||cs){Ro(),ds=ta.isRefreshing=!0,hi.forEach((function(t){return Ls(t)&&++t.cacheID&&(t.rec=t())}));var r=So("refreshInit");Ki&&ta.sort(),e||Oo(),hi.forEach((function(t){Ls(t)&&(t.smooth&&(t.target.style.scrollBehavior="auto"),t(0))})),yo.slice(0).forEach((function(t){return t.refresh()})),cs=!1,yo.forEach((function(t){if(t._subPinOffset&&t.pin){var e=t.vars.horizontal?"offsetWidth":"offsetHeight",r=t.pin[e];t.revert(!0,1),t.adjustPinSpacing(t.pin[e]-r),t.refresh()}})),hs=1,zo(!0),yo.forEach((function(t){var e=Ps(t.scroller,t._dir),r="max"===t.vars.end||t._endClamp&&t.end>e,n=t._startClamp&&t.start>=e;(r||n)&&t.setPositions(n?e-1:t.start,r?Math.max(n?e:t.start+1,e):t.end,!0)})),zo(!1),hs=0,r.forEach((function(t){return t&&t.render&&t.render(-1)})),hi.forEach((function(t){Ls(t)&&(t.smooth&&requestAnimationFrame((function(){return t.target.style.scrollBehavior="smooth"})),t.rec&&t(t.rec))})),Bo(as,1),Yi.pause(),Po++,ds=2,Yo(2),yo.forEach((function(t){return Ls(t.vars.onRefresh)&&t.vars.onRefresh(t)})),ds=ta.isRefreshing=!1,So("refresh")}else co(ta,"scrollEnd",Ao)},No=0,Io=1,Yo=function(t){if(2===t||!ds&&!cs){ta.isUpdating=!0,ms&&ms.update(0);var e=yo.length,r=vs(),n=r-_s>=50,i=e&&yo[0].scroll();if(Io=No>i?-1:1,ds||(No=i),n&&(ys&&!Ui&&r-ys>200&&(ys=0,So("scrollEnd")),Wi=_s,_s=r),Io<0){for(Gi=e;Gi-- >0;)yo[Gi]&&yo[Gi].update(0,n);Io=1}else for(Gi=0;Gi<e;Gi++)yo[Gi]&&yo[Gi].update(0,n);ta.isUpdating=!1}ps=0},Xo=[Ws,"top",js,Hs,Js+Zs,Js+Gs,Js+$s,Js+Qs,"display","flexShrink","float","zIndex","gridColumnStart","gridColumnEnd","gridRowStart","gridRowEnd","gridArea","justifySelf","alignSelf","placeSelf","order"],qo=Xo.concat([Us,Vs,"boxSizing","max"+to,"max"+eo,"position",Js,Ks,Ks+$s,Ks+Gs,Ks+Zs,Ks+Qs]),Wo=function(t,e,r,n){if(!t._gsap.swappedIn){for(var i,s=Xo.length,o=e.style,a=t.style;s--;)o[i=Xo[s]]=r[i];o.position="absolute"===r.position?"absolute":"relative","inline"===r.display&&(o.display="inline-block"),a[js]=a[Hs]="auto",o.flexBasis=r.flexBasis||"auto",o.overflow="visible",o.boxSizing="border-box",o[Us]=oo(t,wi)+ro,o[Vs]=oo(t,Fi)+ro,o[Ks]=a[Js]=a.top=a[Ws]="0",jo(n),a[Us]=a["max"+to]=r[Us],a[Vs]=a["max"+eo]=r[Vs],a[Ks]=r[Ks],t.parentNode!==e&&(t.parentNode.insertBefore(e,t),e.appendChild(t)),t._gsap.swappedIn=!0}},Ho=/([A-Z])/g,jo=function(t){if(t){var e,r,n=t.t.style,i=t.length,s=0;for((t.t._gsap||Bi.core.getCache(t.t)).uncache=1;s<i;s+=2)r=t[s+1],e=t[s],r?n[e]=r:n[e]&&n.removeProperty(e.replace(Ho,"-$1").toLowerCase())}},Uo=function(t){for(var e=qo.length,r=t.style,n=[],i=0;i<e;i++)n.push(qo[i],r[qo[i]]);return n.t=t,n},Vo={left:0,top:0},Go=function(t,e,r,n,i,s,o,a,u,l,c,h,f,p){Ls(t)&&(t=t(a)),zs(t)&&"max"===t.substr(0,3)&&(t=h+("="===t.charAt(4)?go("0"+t.substr(3),r):0));var d,D,m,g=f?f.time():0;if(f&&f.seek(0),isNaN(t)||(t=+t),Ns(t))f&&(t=Bi.utils.mapRange(f.scrollTrigger.start,f.scrollTrigger.end,0,h,t)),o&&_o(o,r,n,!0);else{Ls(e)&&(e=e(a));var v,_,y,C,E=(t||"0").split(" ");m=bi(e,a)||Ni,(v=so(m)||{})&&(v.left||v.top)||"none"!==no(m).display||(C=m.style.display,m.style.display="block",v=so(m),C?m.style.display=C:m.style.removeProperty("display")),_=go(E[0],v[n.d]),y=go(E[1]||"0",r),t=v[n.p]-u[n.p]-l+_+i-y,o&&_o(o,y,n,r-y<20||o._isStart&&y>20),r-=r-y}if(p&&(a[p]=t||-.001,t<0&&(t=0)),s){var w=t+r,F=s._isStart;d="scroll"+n.d2,_o(s,w,n,F&&w>20||!F&&(c?Math.max(Ni[d],Li[d]):s.parentNode[d])<=w+1),c&&(u=so(o),c&&(s.style[n.op.p]=u[n.op.p]-n.op.m-s._offset+ro))}return f&&m&&(d=so(m),f.seek(h),D=so(m),f._caScrollDist=d[n.p]-D[n.p],t=t/f._caScrollDist*h),f&&f.seek(g),f?t:Math.round(t)},Qo=/(webkit|moz|length|cssText|inset)/i,$o=function(t,e,r,n){if(t.parentNode!==e){var i,s,o=t.style;if(e===Ni){for(i in t._stOrig=o.cssText,s=no(t))+i||Qo.test(i)||!s[i]||"string"!=typeof o[i]||"0"===i||(o[i]=s[i]);o.top=r,o.left=n}else o.cssText=t._stOrig;Bi.core.getCache(t).uncache=1,e.appendChild(t)}},Zo=function(t,e,r){var n=e,i=n;return function(e){var s=Math.round(t());return s!==n&&s!==i&&Math.abs(s-n)>3&&Math.abs(s-i)>3&&(e=s,r&&r()),i=n,n=e,e}},Ko=function(t,e,r){var n={};n[e.p]="+="+r,Bi.set(t,n)},Jo=function(t,e){var r=xi(t,e),n="_scroll"+e.p2,i=function e(i,s,o,a,u){var l=e.tween,c=s.onComplete,h={};o=o||r();var f=Zo(r,o,(function(){l.kill(),e.tween=0}));return u=a&&u||0,a=a||i-o,l&&l.kill(),s[n]=i,s.inherit=!1,s.modifiers=h,h[n]=function(){return f(o+a*l.ratio+u*l.ratio*l.ratio)},s.onUpdate=function(){hi.cache++,e.tween&&Yo()},s.onComplete=function(){e.tween=0,c&&c.call(l)},l=e.tween=Bi.to(t,s)};return t[n]=r,r.wheelHandler=function(){return i.tween&&i.tween.kill()&&(i.tween=0)},co(t,"wheel",r.wheelHandler),ta.isTouch&&co(t,"touchmove",r.wheelHandler),i},ta=function(){function t(e,r){Pi||t.register(Bi)||console.warn("Please gsap.registerPlugin(ScrollTrigger)"),os(this),this.init(e,r)}return t.prototype.init=function(e,r){if(this.progress=this.start=0,this.vars&&this.kill(!0,!0),Cs){var n,i,s,o,a,u,l,c,h,f,p,d,D,m,g,v,_,y,C,E,w,F,b,x,T,A,S,k,M,O,B,P,R,z,L,N,I,Y,X,q,W,H,j=e=io(zs(e)||Ns(e)||e.nodeType?{trigger:e}:e,Do),U=j.onUpdate,V=j.toggleClass,G=j.id,Q=j.onToggle,$=j.onRefresh,Z=j.scrub,K=j.trigger,J=j.pin,tt=j.pinSpacing,et=j.invalidateOnRefresh,rt=j.anticipatePin,nt=j.onScrubComplete,it=j.onSnapComplete,st=j.once,ot=j.snap,at=j.pinReparent,ut=j.pinSpacer,lt=j.containerAnimation,ct=j.fastScrollEnd,ht=j.preventOverlaps,ft=e.horizontal||e.containerAnimation&&!1!==e.horizontal?wi:Fi,pt=!Z&&0!==Z,dt=bi(e.scroller||Ri),Dt=Bi.core.getCache(dt),mt=Ms(dt),gt="fixed"===("pinType"in e?e.pinType:Di(dt,"pinType")||mt&&"fixed"),vt=[e.onEnter,e.onLeave,e.onEnterBack,e.onLeaveBack],_t=pt&&e.toggleActions.split(" "),yt="markers"in e?e.markers:Do.markers,Ct=mt?0:parseFloat(no(dt)["border"+ft.p2+to])||0,Et=this,wt=e.onRefreshInit&&function(){return e.onRefreshInit(Et)},Ft=function(t,e,r){var n=r.d,i=r.d2,s=r.a;return(s=Di(t,"getBoundingClientRect"))?function(){return s()[n]}:function(){return(e?Os(i):t["client"+i])||0}}(dt,mt,ft),bt=function(t,e){return!e||~fi.indexOf(t)?Bs(t):function(){return Vo}}(dt,mt),xt=0,Tt=0,At=0,St=xi(dt,ft);if(Et._startClamp=Et._endClamp=!1,Et._dir=ft,rt*=45,Et.scroller=dt,Et.scroll=lt?lt.time.bind(lt):St,o=St(),Et.vars=e,r=r||e.animation,"refreshPriority"in e&&(Ki=1,-9999===e.refreshPriority&&(ms=Et)),Dt.tweenScroll=Dt.tweenScroll||{top:Jo(dt,Fi),left:Jo(dt,wi)},Et.tweenTo=n=Dt.tweenScroll[ft.p],Et.scrubDuration=function(t){(R=Ns(t)&&t)?P?P.duration(t):P=Bi.to(r,{ease:"expo",totalProgress:"+=0",inherit:!1,duration:R,paused:!0,onComplete:function(){return nt&&nt(Et)}}):(P&&P.progress(1).kill(),P=0)},r&&(r.vars.lazy=!1,r._initted&&!Et.isReverted||!1!==r.vars.immediateRender&&!1!==e.immediateRender&&r.duration()&&r.render(0,!0,!0),Et.animation=r.pause(),r.scrollTrigger=Et,Et.scrubDuration(Z),O=0,G||(G=r.vars.id)),ot&&(Is(ot)&&!ot.push||(ot={snapTo:ot}),"scrollBehavior"in Ni.style&&Bi.set(mt?[Ni,Li]:dt,{scrollBehavior:"auto"}),hi.forEach((function(t){return Ls(t)&&t.target===(mt?zi.scrollingElement||Li:dt)&&(t.smooth=!1)})),s=Ls(ot.snapTo)?ot.snapTo:"labels"===ot.snapTo?function(t){return function(e){return Bi.utils.snap(ao(t),e)}}(r):"labelsDirectional"===ot.snapTo?(q=r,function(t,e){return uo(ao(q))(t,e.direction)}):!1!==ot.directional?function(t,e){return uo(ot.snapTo)(t,vs()-Tt<500?0:e.direction)}:Bi.utils.snap(ot.snapTo),z=ot.duration||{min:.1,max:2},z=Is(z)?qi(z.min,z.max):qi(z,z),L=Bi.delayedCall(ot.delay||R/2||.1,(function(){var t=St(),e=vs()-Tt<500,i=n.tween;if(!(e||Math.abs(Et.getVelocity())<10)||i||Ui||xt===t)Et.isActive&&xt!==t&&L.restart(!0);else{var o,a,c=(t-u)/m,h=r&&!pt?r.totalProgress():c,f=e?0:(h-B)/(vs()-Wi)*1e3||0,p=Bi.utils.clamp(-c,1-c,qs(f/2)*f/.185),d=c+(!1===ot.inertia?0:p),D=ot,g=D.onStart,v=D.onInterrupt,_=D.onComplete;if(o=s(d,Et),Ns(o)||(o=d),a=Math.round(u+o*m),t<=l&&t>=u&&a!==t){if(i&&!i._initted&&i.data<=qs(a-t))return;!1===ot.inertia&&(p=o-c),n(a,{duration:z(qs(.185*Math.max(qs(d-h),qs(o-h))/f/.05||0)),ease:ot.ease||"power3",data:qs(a-t),onInterrupt:function(){return L.restart(!0)&&v&&v(Et)},onComplete:function(){Et.update(),xt=St(),r&&(P?P.resetTo("totalProgress",o,r._tTime/r._tDur):r.progress(o)),O=B=r&&!pt?r.totalProgress():Et.progress,it&&it(Et),_&&_(Et)}},t,p*m,a-t-p*m),g&&g(Et,n.tween)}}})).pause()),G&&(Co[G]=Et),(X=(K=Et.trigger=bi(K||!0!==J&&J))&&K._gsap&&K._gsap.stRevert)&&(X=X(Et)),J=!0===J?K:bi(J),zs(V)&&(V={targets:K,className:V}),J&&(!1===tt||tt===Js||(tt=!(!tt&&J.parentNode&&J.parentNode.style&&"flex"===no(J.parentNode).display)&&Ks),Et.pin=J,(i=Bi.core.getCache(J)).spacer?g=i.pinState:(ut&&((ut=bi(ut))&&!ut.nodeType&&(ut=ut.current||ut.nativeElement),i.spacerIsNative=!!ut,ut&&(i.spacerState=Uo(ut))),i.spacer=y=ut||zi.createElement("div"),y.classList.add("pin-spacer"),G&&y.classList.add("pin-spacer-"+G),i.pinState=g=Uo(J)),!1!==e.force3D&&Bi.set(J,{force3D:!0}),Et.spacer=y=i.spacer,M=no(J),x=M[tt+ft.os2],E=Bi.getProperty(J),w=Bi.quickSetter(J,ft.a,ro),Wo(J,y,M),_=Uo(J)),yt){d=Is(yt)?io(yt,po):po,f=vo("scroller-start",G,dt,ft,d,0),p=vo("scroller-end",G,dt,ft,d,0,f),C=f["offset"+ft.op.d2];var kt=bi(Di(dt,"content")||dt);c=this.markerStart=vo("start",G,kt,ft,d,C,0,lt),h=this.markerEnd=vo("end",G,kt,ft,d,C,0,lt),lt&&(Y=Bi.quickSetter([c,h],ft.a,ro)),gt||fi.length&&!0===Di(dt,"fixedMarkers")||(H=no(W=mt?Ni:dt).position,W.style.position="absolute"===H||"fixed"===H?H:"relative",Bi.set([f,p],{force3D:!0}),A=Bi.quickSetter(f,ft.a,ro),k=Bi.quickSetter(p,ft.a,ro))}if(lt){var Mt=lt.vars.onUpdate,Ot=lt.vars.onUpdateParams;lt.eventCallback("onUpdate",(function(){Et.update(0,0,1),Mt&&Mt.apply(lt,Ot||[])}))}if(Et.previous=function(){return yo[yo.indexOf(Et)-1]},Et.next=function(){return yo[yo.indexOf(Et)+1]},Et.revert=function(t,e){if(!e)return Et.kill(!0);var n=!1!==t||!Et.enabled,i=ji;n!==Et.isReverted&&(n&&(N=Math.max(St(),Et.scroll.rec||0),At=Et.progress,I=r&&r.progress()),c&&[c,h,f,p].forEach((function(t){return t.style.display=n?"none":"block"})),n&&(ji=Et,Et.update(n)),!J||at&&Et.isActive||(n?function(t,e,r){jo(r);var n=t._gsap;if(n.spacerIsNative)jo(n.spacerState);else if(t._gsap.swappedIn){var i=e.parentNode;i&&(i.insertBefore(t,e),i.removeChild(e))}t._gsap.swappedIn=!1}(J,y,g):Wo(J,y,no(J),T)),n||Et.update(n),ji=i,Et.isReverted=n)},Et.refresh=function(i,s,d,C){if(!ji&&Et.enabled||s)if(J&&i&&ys)co(t,"scrollEnd",Ao);else{!ds&&wt&&wt(Et),ji=Et,n.tween&&!d&&(n.tween.kill(),n.tween=0),P&&P.pause(),et&&r&&r.revert({kill:!1}).invalidate(),Et.isReverted||Et.revert(!0,!0),Et._subPinOffset=!1;var w,x,A,k,M,O,B,R,z,Y,X,q,W,H=Ft(),j=bt(),U=lt?lt.duration():Ps(dt,ft),V=m<=.01,G=0,Q=C||0,Z=Is(d)?d.end:e.end,rt=e.endTrigger||K,nt=Is(d)?d.start:e.start||(0!==e.start&&K?J?"0 0":"0 100%":0),it=Et.pinnedContainer=e.pinnedContainer&&bi(e.pinnedContainer,Et),st=K&&Math.max(0,yo.indexOf(Et))||0,ot=st;for(yt&&Is(d)&&(q=Bi.getProperty(f,ft.p),W=Bi.getProperty(p,ft.p));ot--;)(O=yo[ot]).end||O.refresh(0,1)||(ji=Et),!(B=O.pin)||B!==K&&B!==J&&B!==it||O.isReverted||(Y||(Y=[]),Y.unshift(O),O.revert(!0,!0)),O!==yo[ot]&&(st--,ot--);for(Ls(nt)&&(nt=nt(Et)),nt=Es(nt,"start",Et),u=Go(nt,K,H,ft,St(),c,f,Et,j,Ct,gt,U,lt,Et._startClamp&&"_startClamp")||(J?-.001:0),Ls(Z)&&(Z=Z(Et)),zs(Z)&&!Z.indexOf("+=")&&(~Z.indexOf(" ")?Z=(zs(nt)?nt.split(" ")[0]:"")+Z:(G=go(Z.substr(2),H),Z=zs(nt)?nt:(lt?Bi.utils.mapRange(0,lt.duration(),lt.scrollTrigger.start,lt.scrollTrigger.end,u):u)+G,rt=K)),Z=Es(Z,"end",Et),l=Math.max(u,Go(Z||(rt?"100% 0":U),rt,H,ft,St()+G,h,p,Et,j,Ct,gt,U,lt,Et._endClamp&&"_endClamp"))||-.001,G=0,ot=st;ot--;)(B=(O=yo[ot]).pin)&&O.start-O._pinPush<=u&&!lt&&O.end>0&&(w=O.end-(Et._startClamp?Math.max(0,O.start):O.start),(B===K&&O.start-O._pinPush<u||B===it)&&isNaN(nt)&&(G+=w*(1-O.progress)),B===J&&(Q+=w));if(u+=G,l+=G,Et._startClamp&&(Et._startClamp+=G),Et._endClamp&&!ds&&(Et._endClamp=l||-.001,l=Math.min(l,Ps(dt,ft))),m=l-u||(u-=.01)&&.001,V&&(At=Bi.utils.clamp(0,1,Bi.utils.normalize(u,l,N))),Et._pinPush=Q,c&&G&&((w={})[ft.a]="+="+G,it&&(w[ft.p]="-="+St()),Bi.set([c,h],w)),!J||hs&&Et.end>=Ps(dt,ft)){if(K&&St()&&!lt)for(x=K.parentNode;x&&x!==Ni;)x._pinOffset&&(u-=x._pinOffset,l-=x._pinOffset),x=x.parentNode}else w=no(J),k=ft===Fi,A=St(),F=parseFloat(E(ft.a))+Q,!U&&l>1&&(X={style:X=(mt?zi.scrollingElement||Li:dt).style,value:X["overflow"+ft.a.toUpperCase()]},mt&&"scroll"!==no(Ni)["overflow"+ft.a.toUpperCase()]&&(X.style["overflow"+ft.a.toUpperCase()]="scroll")),Wo(J,y,w),_=Uo(J),x=so(J,!0),R=gt&&xi(dt,k?wi:Fi)(),tt?((T=[tt+ft.os2,m+Q+ro]).t=y,(ot=tt===Ks?oo(J,ft)+m+Q:0)&&(T.push(ft.d,ot+ro),"auto"!==y.style.flexBasis&&(y.style.flexBasis=ot+ro)),jo(T),it&&yo.forEach((function(t){t.pin===it&&!1!==t.vars.pinSpacing&&(t._subPinOffset=!0)})),gt&&St(N)):(ot=oo(J,ft))&&"auto"!==y.style.flexBasis&&(y.style.flexBasis=ot+ro),gt&&((M={top:x.top+(k?A-u:R)+ro,left:x.left+(k?R:A-u)+ro,boxSizing:"border-box",position:"fixed"})[Us]=M["max"+to]=Math.ceil(x.width)+ro,M[Vs]=M["max"+eo]=Math.ceil(x.height)+ro,M[Js]=M[Js+$s]=M[Js+Gs]=M[Js+Zs]=M[Js+Qs]="0",M[Ks]=w[Ks],M[Ks+$s]=w[Ks+$s],M[Ks+Gs]=w[Ks+Gs],M[Ks+Zs]=w[Ks+Zs],M[Ks+Qs]=w[Ks+Qs],v=function(t,e,r){for(var n,i=[],s=t.length,o=r?8:0;o<s;o+=2)n=t[o],i.push(n,n in e?e[n]:t[o+1]);return i.t=t.t,i}(g,M,at),ds&&St(0)),r?(z=r._initted,Ji(1),r.render(r.duration(),!0,!0),b=E(ft.a)-F+m+Q,S=Math.abs(m-b)>1,gt&&S&&v.splice(v.length-2,2),r.render(0,!0,!0),z||r.invalidate(!0),r.parent||r.totalTime(r.totalTime()),Ji(0)):b=m,X&&(X.value?X.style["overflow"+ft.a.toUpperCase()]=X.value:X.style.removeProperty("overflow-"+ft.a));Y&&Y.forEach((function(t){return t.revert(!1,!0)})),Et.start=u,Et.end=l,o=a=ds?N:St(),lt||ds||(o<N&&St(N),Et.scroll.rec=0),Et.revert(!1,!0),Tt=vs(),L&&(xt=-1,L.restart(!0)),ji=0,r&&pt&&(r._initted||I)&&r.progress()!==I&&r.progress(I||0,!0).render(r.time(),!0,!0),(V||At!==Et.progress||lt||et)&&(r&&!pt&&r.totalProgress(lt&&u<-.001&&!At?Bi.utils.normalize(u,l,0):At,!0),Et.progress=V||(o-u)/m===At?0:At),J&&tt&&(y._pinOffset=Math.round(Et.progress*b)),P&&P.invalidate(),isNaN(q)||(q-=Bi.getProperty(f,ft.p),W-=Bi.getProperty(p,ft.p),Ko(f,ft,q),Ko(c,ft,q-(C||0)),Ko(p,ft,W),Ko(h,ft,W-(C||0))),V&&!ds&&Et.update(),!$||ds||D||(D=!0,$(Et),D=!1)}},Et.getVelocity=function(){return(St()-a)/(vs()-Wi)*1e3||0},Et.endAnimation=function(){Ys(Et.callbackAnimation),r&&(P?P.progress(1):r.paused()?pt||Ys(r,Et.direction<0,1):Ys(r,r.reversed()))},Et.labelToScroll=function(t){return r&&r.labels&&(u||Et.refresh()||u)+r.labels[t]/r.duration()*m||0},Et.getTrailing=function(t){var e=yo.indexOf(Et),r=Et.direction>0?yo.slice(0,e).reverse():yo.slice(e+1);return(zs(t)?r.filter((function(e){return e.vars.preventOverlaps===t})):r).filter((function(t){return Et.direction>0?t.end<=u:t.start>=l}))},Et.update=function(t,e,i){if(!lt||i||t){var s,c,h,p,d,D,g,C=!0===ds?N:Et.scroll(),E=t?0:(C-u)/m,T=E<0?0:E>1?1:E||0,M=Et.progress;if(e&&(a=o,o=lt?St():C,ot&&(B=O,O=r&&!pt?r.totalProgress():T)),rt&&J&&!ji&&!gs&&ys&&(!T&&u<C+(C-a)/(vs()-Wi)*rt?T=1e-4:1===T&&l>C+(C-a)/(vs()-Wi)*rt&&(T=.9999)),T!==M&&Et.enabled){if(p=(d=(s=Et.isActive=!!T&&T<1)!==(!!M&&M<1))||!!T!=!!M,Et.direction=T>M?1:-1,Et.progress=T,p&&!ji&&(c=T&&!M?0:1===T?1:1===M?2:3,pt&&(h=!d&&"none"!==_t[c+1]&&_t[c+1]||_t[c],g=r&&("complete"===h||"reset"===h||h in r))),ht&&(d||g)&&(g||Z||!r)&&(Ls(ht)?ht(Et):Et.getTrailing(ht).forEach((function(t){return t.endAnimation()}))),pt||(!P||ji||gs?r&&r.totalProgress(T,!(!ji||!Tt&&!t)):(P._dp._time-P._start!==P._time&&P.render(P._dp._time-P._start),P.resetTo?P.resetTo("totalProgress",T,r._tTime/r._tDur):(P.vars.totalProgress=T,P.invalidate().restart()))),J)if(t&&tt&&(y.style[tt+ft.os2]=x),gt){if(p){if(D=!t&&T>M&&l+1>C&&C+1>=Ps(dt,ft),at)if(t||!s&&!D)$o(J,y);else{var R=so(J,!0),z=C-u;$o(J,Ni,R.top+(ft===Fi?z:0)+ro,R.left+(ft===Fi?0:z)+ro)}jo(s||D?v:_),S&&T<1&&s||w(F+(1!==T||D?0:b))}}else w(As(F+b*T));ot&&!n.tween&&!ji&&!gs&&L.restart(!0),V&&(d||st&&T&&(T<1||!fs))&&Xi(V.targets).forEach((function(t){return t.classList[s||st?"add":"remove"](V.className)})),U&&!pt&&!t&&U(Et),p&&!ji?(pt&&(g&&("complete"===h?r.pause().totalProgress(1):"reset"===h?r.restart(!0).pause():"restart"===h?r.restart(!0):r[h]()),U&&U(Et)),!d&&fs||(Q&&d&&Xs(Et,Q),vt[c]&&Xs(Et,vt[c]),st&&(1===T?Et.kill(!1,1):vt[c]=0),d||vt[c=1===T?1:3]&&Xs(Et,vt[c])),ct&&!s&&Math.abs(Et.getVelocity())>(Ns(ct)?ct:2500)&&(Ys(Et.callbackAnimation),P?P.progress(1):Ys(r,"reverse"===h?1:!T,1))):pt&&U&&!ji&&U(Et)}if(k){var I=lt?C/lt.duration()*(lt._caScrollDist||0):C;A(I+(f._isFlipped?1:0)),k(I)}Y&&Y(-C/lt.duration()*(lt._caScrollDist||0))}},Et.enable=function(e,r){Et.enabled||(Et.enabled=!0,co(dt,"resize",bo),mt||co(dt,"scroll",wo),wt&&co(t,"refreshInit",wt),!1!==e&&(Et.progress=At=0,o=a=xt=St()),!1!==r&&Et.refresh())},Et.getTween=function(t){return t&&n?n.tween:P},Et.setPositions=function(t,e,r,n){if(lt){var i=lt.scrollTrigger,s=lt.duration(),o=i.end-i.start;t=i.start+o*t/s,e=i.start+o*e/s}Et.refresh(!1,!1,{start:ws(t,r&&!!Et._startClamp),end:ws(e,r&&!!Et._endClamp)},n),Et.update()},Et.adjustPinSpacing=function(t){if(T&&t){var e=T.indexOf(ft.d)+1;T[e]=parseFloat(T[e])+t+ro,T[1]=parseFloat(T[1])+t+ro,jo(T)}},Et.disable=function(e,r){if(Et.enabled&&(!1!==e&&Et.revert(!0,!0),Et.enabled=Et.isActive=!1,r||P&&P.pause(),N=0,i&&(i.uncache=1),wt&&ho(t,"refreshInit",wt),L&&(L.pause(),n.tween&&n.tween.kill()&&(n.tween=0)),!mt)){for(var s=yo.length;s--;)if(yo[s].scroller===dt&&yo[s]!==Et)return;ho(dt,"resize",bo),mt||ho(dt,"scroll",wo)}},Et.kill=function(t,n){Et.disable(t,n),P&&!n&&P.kill(),G&&delete Co[G];var s=yo.indexOf(Et);s>=0&&yo.splice(s,1),s===Gi&&Io>0&&Gi--,s=0,yo.forEach((function(t){return t.scroller===Et.scroller&&(s=1)})),s||ds||(Et.scroll.rec=0),r&&(r.scrollTrigger=null,t&&r.revert({kill:!1}),n||r.kill()),c&&[c,h,f,p].forEach((function(t){return t.parentNode&&t.parentNode.removeChild(t)})),ms===Et&&(ms=0),J&&(i&&(i.uncache=1),s=0,yo.forEach((function(t){return t.pin===J&&s++})),s||(i.spacer=0)),e.onKill&&e.onKill(Et)},yo.push(Et),Et.enable(!1,!1),X&&X(Et),r&&r.add&&!m){var Bt=Et.update;Et.update=function(){Et.update=Bt,u||l||Et.refresh()},Bi.delayedCall(.01,Et.update),m=.01,u=l=0}else Et.refresh();J&&function(){if(Ds!==Po){var t=Ds=Po;requestAnimationFrame((function(){return t===Po&&Lo(!0)}))}}()}else this.update=this.refresh=this.kill=Ts},t.register=function(e){return Pi||(Bi=e||ks(),Ss()&&window.document&&t.enable(),Pi=Cs),Pi},t.defaults=function(t){if(t)for(var e in t)Do[e]=t[e];return Do},t.disable=function(t,e){Cs=0,yo.forEach((function(r){return r[e?"kill":"disable"](t)})),ho(Ri,"wheel",wo),ho(zi,"scroll",wo),clearInterval(Hi),ho(zi,"touchcancel",Ts),ho(Ni,"touchstart",Ts),lo(ho,zi,"pointerdown,touchstart,mousedown",bs),lo(ho,zi,"pointerup,touchend,mouseup",xs),Yi.kill(),Rs(ho);for(var r=0;r<hi.length;r+=3)fo(ho,hi[r],hi[r+1]),fo(ho,hi[r],hi[r+2])},t.enable=function(){if(Ri=window,zi=document,Li=zi.documentElement,Ni=zi.body,Bi&&(Xi=Bi.utils.toArray,qi=Bi.utils.clamp,os=Bi.core.context||Ts,Ji=Bi.core.suppressOverwrites||Ts,as=Ri.history.scrollRestoration||"auto",No=Ri.pageYOffset,Bi.core.globals("ScrollTrigger",t),Ni)){Cs=1,(us=document.createElement("div")).style.height="100vh",us.style.position="absolute",Ro(),Fs(),Oi.register(Bi),t.isTouch=Oi.isTouch,ss=Oi.isTouch&&/(iPad|iPhone|iPod|Mac)/g.test(navigator.userAgent),rs=1===Oi.isTouch,co(Ri,"wheel",wo),Ii=[Ri,zi,Li,Ni],Bi.matchMedia?(t.matchMedia=function(t){var e,r=Bi.matchMedia();for(e in t)r.add(e,t[e]);return r},Bi.addEventListener("matchMediaInit",(function(){return Oo()})),Bi.addEventListener("matchMediaRevert",(function(){return Mo()})),Bi.addEventListener("matchMedia",(function(){Lo(0,1),So("matchMedia")})),Bi.matchMedia("(orientation: portrait)",(function(){return Fo(),Fo}))):console.warn("Requires GSAP 3.11.0 or later"),Fo(),co(zi,"scroll",wo);var e,r,n=Ni.style,i=n.borderTopStyle,s=Bi.core.Animation.prototype;for(s.revert||Object.defineProperty(s,"revert",{value:function(){return this.time(-.01,!0)}}),n.borderTopStyle="solid",e=so(Ni),Fi.m=Math.round(e.top+Fi.sc())||0,wi.m=Math.round(e.left+wi.sc())||0,i?n.borderTopStyle=i:n.removeProperty("border-top-style"),Hi=setInterval(Eo,250),Bi.delayedCall(.5,(function(){return gs=0})),co(zi,"touchcancel",Ts),co(Ni,"touchstart",Ts),lo(co,zi,"pointerdown,touchstart,mousedown",bs),lo(co,zi,"pointerup,touchend,mouseup",xs),Vi=Bi.utils.checkPrefix("transform"),qo.push(Vi),Pi=vs(),Yi=Bi.delayedCall(.2,Lo).pause(),Zi=[zi,"visibilitychange",function(){var t=Ri.innerWidth,e=Ri.innerHeight;zi.hidden?(Qi=t,$i=e):Qi===t&&$i===e||bo()},zi,"DOMContentLoaded",Lo,Ri,"load",Lo,Ri,"resize",bo],Rs(co),yo.forEach((function(t){return t.enable(0,1)})),r=0;r<hi.length;r+=3)fo(ho,hi[r],hi[r+1]),fo(ho,hi[r],hi[r+2])}},t.config=function(e){"limitCallbacks"in e&&(fs=!!e.limitCallbacks);var r=e.syncInterval;r&&clearInterval(Hi)||(Hi=r)&&setInterval(Eo,r),"ignoreMobileResize"in e&&(rs=1===t.isTouch&&e.ignoreMobileResize),"autoRefreshEvents"in e&&(Rs(ho)||Rs(co,e.autoRefreshEvents||"none"),ts=-1===(e.autoRefreshEvents+"").indexOf("resize"))},t.scrollerProxy=function(t,e){var r=bi(t),n=hi.indexOf(r),i=Ms(r);~n&&hi.splice(n,i?6:2),e&&(i?fi.unshift(Ri,e,Ni,e,Li,e):fi.unshift(r,e))},t.clearMatchMedia=function(t){yo.forEach((function(e){return e._ctx&&e._ctx.query===t&&e._ctx.kill(!0,!0)}))},t.isInViewport=function(t,e,r){var n=(zs(t)?bi(t):t).getBoundingClientRect(),i=n[r?Us:Vs]*e||0;return r?n.right-i>0&&n.left+i<Ri.innerWidth:n.bottom-i>0&&n.top+i<Ri.innerHeight},t.positionInViewport=function(t,e,r){zs(t)&&(t=bi(t));var n=t.getBoundingClientRect(),i=n[r?Us:Vs],s=null==e?i/2:e in mo?mo[e]*i:~e.indexOf("%")?parseFloat(e)*i/100:parseFloat(e)||0;return r?(n.left+s)/Ri.innerWidth:(n.top+s)/Ri.innerHeight},t.killAll=function(t){if(yo.slice(0).forEach((function(t){return"ScrollSmoother"!==t.vars.id&&t.kill()})),!0!==t){var e=xo.killAll||[];xo={},e.forEach((function(t){return t()}))}},t}();ta.version="3.12.5",ta.saveStyles=function(t){return t?Xi(t).forEach((function(t){if(t&&t.style){var e=ko.indexOf(t);e>=0&&ko.splice(e,5),ko.push(t,t.style.cssText,t.getBBox&&t.getAttribute("transform"),Bi.core.getCache(t),os())}})):ko},ta.revert=function(t,e){return Oo(!t,e)},ta.create=function(t,e){return new ta(t,e)},ta.refresh=function(t){return t?bo():(Pi||ta.register())&&Lo(!0)},ta.update=function(t){return++hi.cache&&Yo(!0===t?2:0)},ta.clearScrollMemory=Bo,ta.maxScroll=function(t,e){return Ps(t,e?wi:Fi)},ta.getScrollFunc=function(t,e){return xi(bi(t),e?wi:Fi)},ta.getById=function(t){return Co[t]},ta.getAll=function(){return yo.filter((function(t){return"ScrollSmoother"!==t.vars.id}))},ta.isScrolling=function(){return!!ys},ta.snapDirectional=uo,ta.addEventListener=function(t,e){var r=xo[t]||(xo[t]=[]);~r.indexOf(e)||r.push(e)},ta.removeEventListener=function(t,e){var r=xo[t],n=r&&r.indexOf(e);n>=0&&r.splice(n,1)},ta.batch=function(t,e){var r,n=[],i={},s=e.interval||.016,o=e.batchMax||1e9,a=function(t,e){var r=[],n=[],i=Bi.delayedCall(s,(function(){e(r,n),r=[],n=[]})).pause();return function(t){r.length||i.restart(!0),r.push(t.trigger),n.push(t),o<=r.length&&i.progress(1)}};for(r in e)i[r]="on"===r.substr(0,2)&&Ls(e[r])&&"onRefreshInit"!==r?a(0,e[r]):e[r];return Ls(o)&&(o=o(),co(ta,"refresh",(function(){return o=e.batchMax()}))),Xi(t).forEach((function(t){var e={};for(r in i)e[r]=i[r];e.trigger=t,n.push(ta.create(e))})),n};var ea,ra=function(t,e,r,n){return e>n?t(n):e<0&&t(0),r>n?(n-e)/(r-e):r<0?e/(e-r):1},na=function t(e,r){!0===r?e.style.removeProperty("touch-action"):e.style.touchAction=!0===r?"auto":r?"pan-"+r+(Oi.isTouch?" pinch-zoom":""):"none",e===Li&&t(Ni,r)},ia={auto:1,scroll:1},sa=function(t){var e,r=t.event,n=t.target,i=t.axis,s=(r.changedTouches?r.changedTouches[0]:r).target,o=s._gsap||Bi.core.getCache(s),a=vs();if(!o._isScrollT||a-o._isScrollT>2e3){for(;s&&s!==Ni&&(s.scrollHeight<=s.clientHeight&&s.scrollWidth<=s.clientWidth||!ia[(e=no(s)).overflowY]&&!ia[e.overflowX]);)s=s.parentNode;o._isScroll=s&&s!==n&&!Ms(s)&&(ia[(e=no(s)).overflowY]||ia[e.overflowX]),o._isScrollT=a}(o._isScroll||"x"===i)&&(r.stopPropagation(),r._gsapAllow=!0)},oa=function(t,e,r,n){return Oi.create({target:t,capture:!0,debounce:!1,lockAxis:!0,type:e,onWheel:n=n&&sa,onPress:n,onDrag:n,onScroll:n,onEnable:function(){return r&&co(zi,Oi.eventTypes[0],ua,!1,!0)},onDisable:function(){return ho(zi,Oi.eventTypes[0],ua,!0)}})},aa=/(input|label|select|textarea)/i,ua=function(t){var e=aa.test(t.target.tagName);(e||ea)&&(t._gsapAllow=!0,ea=e)},la=function(t){Is(t)||(t={}),t.preventDefault=t.isNormalizer=t.allowClicks=!0,t.type||(t.type="wheel,touch"),t.debounce=!!t.debounce,t.id=t.id||"normalizer";var e,r,n,i,s,o,a,u,l=t,c=l.normalizeScrollX,h=l.momentum,f=l.allowNestedScroll,p=l.onRelease,d=bi(t.target)||Li,D=Bi.core.globals().ScrollSmoother,m=D&&D.get(),g=ss&&(t.content&&bi(t.content)||m&&!1!==t.content&&!m.smooth()&&m.content()),v=xi(d,Fi),_=xi(d,wi),y=1,C=(Oi.isTouch&&Ri.visualViewport?Ri.visualViewport.scale*Ri.visualViewport.width:Ri.outerWidth)/Ri.innerWidth,E=0,w=Ls(h)?function(){return h(e)}:function(){return h||2.8},F=oa(d,t.type,!0,f),b=function(){return i=!1},x=Ts,T=Ts,A=function(){r=Ps(d,Fi),T=qi(ss?1:0,r),c&&(x=qi(0,Ps(d,wi))),n=Po},S=function(){g._gsap.y=As(parseFloat(g._gsap.y)+v.offset)+"px",g.style.transform="matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, "+parseFloat(g._gsap.y)+", 0, 1)",v.offset=v.cacheID=0},k=function(){A(),s.isActive()&&s.vars.scrollY>r&&(v()>r?s.progress(1)&&v(r):s.resetTo("scrollY",r))};return g&&Bi.set(g,{y:"+=0"}),t.ignoreCheck=function(t){return ss&&"touchmove"===t.type&&function(){if(i){requestAnimationFrame(b);var t=As(e.deltaY/2),r=T(v.v-t);if(g&&r!==v.v+v.offset){v.offset=r-v.v;var n=As((parseFloat(g&&g._gsap.y)||0)-v.offset);g.style.transform="matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, "+n+", 0, 1)",g._gsap.y=n+"px",v.cacheID=hi.cache,Yo()}return!0}v.offset&&S(),i=!0}()||y>1.05&&"touchstart"!==t.type||e.isGesturing||t.touches&&t.touches.length>1},t.onPress=function(){i=!1;var t=y;y=As((Ri.visualViewport&&Ri.visualViewport.scale||1)/C),s.pause(),t!==y&&na(d,y>1.01||!c&&"x"),o=_(),a=v(),A(),n=Po},t.onRelease=t.onGestureStart=function(t,e){if(v.offset&&S(),e){hi.cache++;var n,i,o=w();c&&(i=(n=_())+.05*o*-t.velocityX/.227,o*=ra(_,n,i,Ps(d,wi)),s.vars.scrollX=x(i)),i=(n=v())+.05*o*-t.velocityY/.227,o*=ra(v,n,i,Ps(d,Fi)),s.vars.scrollY=T(i),s.invalidate().duration(o).play(.01),(ss&&s.vars.scrollY>=r||n>=r-1)&&Bi.to({},{onUpdate:k,duration:o})}else u.restart(!0);p&&p(t)},t.onWheel=function(){s._ts&&s.pause(),vs()-E>1e3&&(n=0,E=vs())},t.onChange=function(t,e,r,i,s){if(Po!==n&&A(),e&&c&&_(x(i[2]===e?o+(t.startX-t.x):_()+e-i[1])),r){v.offset&&S();var u=s[2]===r,l=u?a+t.startY-t.y:v()+r-s[1],h=T(l);u&&l!==h&&(a+=h-l),v(h)}(r||e)&&Yo()},t.onEnable=function(){na(d,!c&&"x"),ta.addEventListener("refresh",k),co(Ri,"resize",k),v.smooth&&(v.target.style.scrollBehavior="auto",v.smooth=_.smooth=!1),F.enable()},t.onDisable=function(){na(d,!0),ho(Ri,"resize",k),ta.removeEventListener("refresh",k),F.kill()},t.lockAxis=!1!==t.lockAxis,(e=new Oi(t)).iOS=ss,ss&&!v()&&v(1),ss&&Bi.ticker.add(Ts),u=e._dc,s=Bi.to(e,{ease:"power4",paused:!0,inherit:!1,scrollX:c?"+=0.1":"+=0",scrollY:"+=0.1",modifiers:{scrollY:Zo(v,v(),(function(){return s.pause()}))},onUpdate:Yo,onComplete:u.vars.onComplete}),e};ta.sort=function(t){return yo.sort(t||function(t,e){return-1e6*(t.vars.refreshPriority||0)+t.start-(e.start+-1e6*(e.vars.refreshPriority||0))})},ta.observe=function(t){return new Oi(t)},ta.normalizeScroll=function(t){if(void 0===t)return es;if(!0===t&&es)return es.enable();if(!1===t)return es&&es.kill(),void(es=t);var e=t instanceof Oi?t:la(t);return es&&es.target===e.target&&es.kill(),Ms(e.target)&&(es=e),e},ta.core={_getVelocityProp:Ti,_inputObserver:oa,_scrollers:hi,_proxies:fi,bridge:{ss:function(){ys||So("scrollStart"),ys=vs()},ref:function(){return ji}}},ks()&&Bi.registerPlugin(ta);var ca=/(?:^\s+|\s+$)/g,ha=/([\uD800-\uDBFF][\uDC00-\uDFFF](?:[\u200D\uFE0F][\uD800-\uDBFF][\uDC00-\uDFFF]){2,}|\uD83D\uDC69(?:\u200D(?:(?:\uD83D\uDC69\u200D)?\uD83D\uDC67|(?:\uD83D\uDC69\u200D)?\uD83D\uDC66)|\uD83C[\uDFFB-\uDFFF])|\uD83D\uDC69\u200D(?:\uD83D\uDC69\u200D)?\uD83D\uDC66\u200D\uD83D\uDC66|\uD83D\uDC69\u200D(?:\uD83D\uDC69\u200D)?\uD83D\uDC67\u200D(?:\uD83D[\uDC66\uDC67])|\uD83C\uDFF3\uFE0F\u200D\uD83C\uDF08|(?:\uD83C[\uDFC3\uDFC4\uDFCA]|\uD83D[\uDC6E\uDC71\uDC73\uDC77\uDC81\uDC82\uDC86\uDC87\uDE45-\uDE47\uDE4B\uDE4D\uDE4E\uDEA3\uDEB4-\uDEB6]|\uD83E[\uDD26\uDD37-\uDD39\uDD3D\uDD3E\uDDD6-\uDDDD])(?:\uD83C[\uDFFB-\uDFFF])\u200D[\u2640\u2642]\uFE0F|\uD83D\uDC69(?:\uD83C[\uDFFB-\uDFFF])\u200D(?:\uD83C[\uDF3E\uDF73\uDF93\uDFA4\uDFA8\uDFEB\uDFED]|\uD83D[\uDCBB\uDCBC\uDD27\uDD2C\uDE80\uDE92])|(?:\uD83C[\uDFC3\uDFC4\uDFCA]|\uD83D[\uDC6E\uDC6F\uDC71\uDC73\uDC77\uDC81\uDC82\uDC86\uDC87\uDE45-\uDE47\uDE4B\uDE4D\uDE4E\uDEA3\uDEB4-\uDEB6]|\uD83E[\uDD26\uDD37-\uDD39\uDD3C-\uDD3E\uDDD6-\uDDDF])\u200D[\u2640\u2642]\uFE0F|\uD83C\uDDFD\uD83C\uDDF0|\uD83C\uDDF6\uD83C\uDDE6|\uD83C\uDDF4\uD83C\uDDF2|\uD83C\uDDE9(?:\uD83C[\uDDEA\uDDEC\uDDEF\uDDF0\uDDF2\uDDF4\uDDFF])|\uD83C\uDDF7(?:\uD83C[\uDDEA\uDDF4\uDDF8\uDDFA\uDDFC])|\uD83C\uDDE8(?:\uD83C[\uDDE6\uDDE8\uDDE9\uDDEB-\uDDEE\uDDF0-\uDDF5\uDDF7\uDDFA-\uDDFF])|(?:\u26F9|\uD83C[\uDFCB\uDFCC]|\uD83D\uDD75)(?:\uFE0F\u200D[\u2640\u2642]|(?:\uD83C[\uDFFB-\uDFFF])\u200D[\u2640\u2642])\uFE0F|(?:\uD83D\uDC41\uFE0F\u200D\uD83D\uDDE8|\uD83D\uDC69(?:\uD83C[\uDFFB-\uDFFF])\u200D[\u2695\u2696\u2708]|\uD83D\uDC69\u200D[\u2695\u2696\u2708]|\uD83D\uDC68(?:(?:\uD83C[\uDFFB-\uDFFF])\u200D[\u2695\u2696\u2708]|\u200D[\u2695\u2696\u2708]))\uFE0F|\uD83C\uDDF2(?:\uD83C[\uDDE6\uDDE8-\uDDED\uDDF0-\uDDFF])|\uD83D\uDC69\u200D(?:\uD83C[\uDF3E\uDF73\uDF93\uDFA4\uDFA8\uDFEB\uDFED]|\uD83D[\uDCBB\uDCBC\uDD27\uDD2C\uDE80\uDE92]|\u2764\uFE0F\u200D(?:\uD83D\uDC8B\u200D(?:\uD83D[\uDC68\uDC69])|\uD83D[\uDC68\uDC69]))|\uD83C\uDDF1(?:\uD83C[\uDDE6-\uDDE8\uDDEE\uDDF0\uDDF7-\uDDFB\uDDFE])|\uD83C\uDDEF(?:\uD83C[\uDDEA\uDDF2\uDDF4\uDDF5])|\uD83C\uDDED(?:\uD83C[\uDDF0\uDDF2\uDDF3\uDDF7\uDDF9\uDDFA])|\uD83C\uDDEB(?:\uD83C[\uDDEE-\uDDF0\uDDF2\uDDF4\uDDF7])|[#\*0-9]\uFE0F\u20E3|\uD83C\uDDE7(?:\uD83C[\uDDE6\uDDE7\uDDE9-\uDDEF\uDDF1-\uDDF4\uDDF6-\uDDF9\uDDFB\uDDFC\uDDFE\uDDFF])|\uD83C\uDDE6(?:\uD83C[\uDDE8-\uDDEC\uDDEE\uDDF1\uDDF2\uDDF4\uDDF6-\uDDFA\uDDFC\uDDFD\uDDFF])|\uD83C\uDDFF(?:\uD83C[\uDDE6\uDDF2\uDDFC])|\uD83C\uDDF5(?:\uD83C[\uDDE6\uDDEA-\uDDED\uDDF0-\uDDF3\uDDF7-\uDDF9\uDDFC\uDDFE])|\uD83C\uDDFB(?:\uD83C[\uDDE6\uDDE8\uDDEA\uDDEC\uDDEE\uDDF3\uDDFA])|\uD83C\uDDF3(?:\uD83C[\uDDE6\uDDE8\uDDEA-\uDDEC\uDDEE\uDDF1\uDDF4\uDDF5\uDDF7\uDDFA\uDDFF])|\uD83C\uDFF4\uDB40\uDC67\uDB40\uDC62(?:\uDB40\uDC77\uDB40\uDC6C\uDB40\uDC73|\uDB40\uDC73\uDB40\uDC63\uDB40\uDC74|\uDB40\uDC65\uDB40\uDC6E\uDB40\uDC67)\uDB40\uDC7F|\uD83D\uDC68(?:\u200D(?:\u2764\uFE0F\u200D(?:\uD83D\uDC8B\u200D)?\uD83D\uDC68|(?:(?:\uD83D[\uDC68\uDC69])\u200D)?\uD83D\uDC66\u200D\uD83D\uDC66|(?:(?:\uD83D[\uDC68\uDC69])\u200D)?\uD83D\uDC67\u200D(?:\uD83D[\uDC66\uDC67])|\uD83C[\uDF3E\uDF73\uDF93\uDFA4\uDFA8\uDFEB\uDFED]|\uD83D[\uDCBB\uDCBC\uDD27\uDD2C\uDE80\uDE92])|(?:\uD83C[\uDFFB-\uDFFF])\u200D(?:\uD83C[\uDF3E\uDF73\uDF93\uDFA4\uDFA8\uDFEB\uDFED]|\uD83D[\uDCBB\uDCBC\uDD27\uDD2C\uDE80\uDE92]))|\uD83C\uDDF8(?:\uD83C[\uDDE6-\uDDEA\uDDEC-\uDDF4\uDDF7-\uDDF9\uDDFB\uDDFD-\uDDFF])|\uD83C\uDDF0(?:\uD83C[\uDDEA\uDDEC-\uDDEE\uDDF2\uDDF3\uDDF5\uDDF7\uDDFC\uDDFE\uDDFF])|\uD83C\uDDFE(?:\uD83C[\uDDEA\uDDF9])|\uD83C\uDDEE(?:\uD83C[\uDDE8-\uDDEA\uDDF1-\uDDF4\uDDF6-\uDDF9])|\uD83C\uDDF9(?:\uD83C[\uDDE6\uDDE8\uDDE9\uDDEB-\uDDED\uDDEF-\uDDF4\uDDF7\uDDF9\uDDFB\uDDFC\uDDFF])|\uD83C\uDDEC(?:\uD83C[\uDDE6\uDDE7\uDDE9-\uDDEE\uDDF1-\uDDF3\uDDF5-\uDDFA\uDDFC\uDDFE])|\uD83C\uDDFA(?:\uD83C[\uDDE6\uDDEC\uDDF2\uDDF3\uDDF8\uDDFE\uDDFF])|\uD83C\uDDEA(?:\uD83C[\uDDE6\uDDE8\uDDEA\uDDEC\uDDED\uDDF7-\uDDFA])|\uD83C\uDDFC(?:\uD83C[\uDDEB\uDDF8])|(?:\u26F9|\uD83C[\uDFCB\uDFCC]|\uD83D\uDD75)(?:\uD83C[\uDFFB-\uDFFF])|(?:\uD83C[\uDFC3\uDFC4\uDFCA]|\uD83D[\uDC6E\uDC71\uDC73\uDC77\uDC81\uDC82\uDC86\uDC87\uDE45-\uDE47\uDE4B\uDE4D\uDE4E\uDEA3\uDEB4-\uDEB6]|\uD83E[\uDD26\uDD37-\uDD39\uDD3D\uDD3E\uDDD6-\uDDDD])(?:\uD83C[\uDFFB-\uDFFF])|(?:[\u261D\u270A-\u270D]|\uD83C[\uDF85\uDFC2\uDFC7]|\uD83D[\uDC42\uDC43\uDC46-\uDC50\uDC66\uDC67\uDC70\uDC72\uDC74-\uDC76\uDC78\uDC7C\uDC83\uDC85\uDCAA\uDD74\uDD7A\uDD90\uDD95\uDD96\uDE4C\uDE4F\uDEC0\uDECC]|\uD83E[\uDD18-\uDD1C\uDD1E\uDD1F\uDD30-\uDD36\uDDD1-\uDDD5])(?:\uD83C[\uDFFB-\uDFFF])|\uD83D\uDC68(?:\u200D(?:(?:(?:\uD83D[\uDC68\uDC69])\u200D)?\uD83D\uDC67|(?:(?:\uD83D[\uDC68\uDC69])\u200D)?\uD83D\uDC66)|\uD83C[\uDFFB-\uDFFF])|(?:[\u261D\u26F9\u270A-\u270D]|\uD83C[\uDF85\uDFC2-\uDFC4\uDFC7\uDFCA-\uDFCC]|\uD83D[\uDC42\uDC43\uDC46-\uDC50\uDC66-\uDC69\uDC6E\uDC70-\uDC78\uDC7C\uDC81-\uDC83\uDC85-\uDC87\uDCAA\uDD74\uDD75\uDD7A\uDD90\uDD95\uDD96\uDE45-\uDE47\uDE4B-\uDE4F\uDEA3\uDEB4-\uDEB6\uDEC0\uDECC]|\uD83E[\uDD18-\uDD1C\uDD1E\uDD1F\uDD26\uDD30-\uDD39\uDD3D\uDD3E\uDDD1-\uDDDD])(?:\uD83C[\uDFFB-\uDFFF])?|(?:[\u231A\u231B\u23E9-\u23EC\u23F0\u23F3\u25FD\u25FE\u2614\u2615\u2648-\u2653\u267F\u2693\u26A1\u26AA\u26AB\u26BD\u26BE\u26C4\u26C5\u26CE\u26D4\u26EA\u26F2\u26F3\u26F5\u26FA\u26FD\u2705\u270A\u270B\u2728\u274C\u274E\u2753-\u2755\u2757\u2795-\u2797\u27B0\u27BF\u2B1B\u2B1C\u2B50\u2B55]|\uD83C[\uDC04\uDCCF\uDD8E\uDD91-\uDD9A\uDDE6-\uDDFF\uDE01\uDE1A\uDE2F\uDE32-\uDE36\uDE38-\uDE3A\uDE50\uDE51\uDF00-\uDF20\uDF2D-\uDF35\uDF37-\uDF7C\uDF7E-\uDF93\uDFA0-\uDFCA\uDFCF-\uDFD3\uDFE0-\uDFF0\uDFF4\uDFF8-\uDFFF]|\uD83D[\uDC00-\uDC3E\uDC40\uDC42-\uDCFC\uDCFF-\uDD3D\uDD4B-\uDD4E\uDD50-\uDD67\uDD7A\uDD95\uDD96\uDDA4\uDDFB-\uDE4F\uDE80-\uDEC5\uDECC\uDED0-\uDED2\uDEEB\uDEEC\uDEF4-\uDEF8]|\uD83E[\uDD10-\uDD3A\uDD3C-\uDD3E\uDD40-\uDD45\uDD47-\uDD4C\uDD50-\uDD6B\uDD80-\uDD97\uDDC0\uDDD0-\uDDE6])|(?:[#\*0-9\xA9\xAE\u203C\u2049\u2122\u2139\u2194-\u2199\u21A9\u21AA\u231A\u231B\u2328\u23CF\u23E9-\u23F3\u23F8-\u23FA\u24C2\u25AA\u25AB\u25B6\u25C0\u25FB-\u25FE\u2600-\u2604\u260E\u2611\u2614\u2615\u2618\u261D\u2620\u2622\u2623\u2626\u262A\u262E\u262F\u2638-\u263A\u2640\u2642\u2648-\u2653\u2660\u2663\u2665\u2666\u2668\u267B\u267F\u2692-\u2697\u2699\u269B\u269C\u26A0\u26A1\u26AA\u26AB\u26B0\u26B1\u26BD\u26BE\u26C4\u26C5\u26C8\u26CE\u26CF\u26D1\u26D3\u26D4\u26E9\u26EA\u26F0-\u26F5\u26F7-\u26FA\u26FD\u2702\u2705\u2708-\u270D\u270F\u2712\u2714\u2716\u271D\u2721\u2728\u2733\u2734\u2744\u2747\u274C\u274E\u2753-\u2755\u2757\u2763\u2764\u2795-\u2797\u27A1\u27B0\u27BF\u2934\u2935\u2B05-\u2B07\u2B1B\u2B1C\u2B50\u2B55\u3030\u303D\u3297\u3299]|\uD83C[\uDC04\uDCCF\uDD70\uDD71\uDD7E\uDD7F\uDD8E\uDD91-\uDD9A\uDDE6-\uDDFF\uDE01\uDE02\uDE1A\uDE2F\uDE32-\uDE3A\uDE50\uDE51\uDF00-\uDF21\uDF24-\uDF93\uDF96\uDF97\uDF99-\uDF9B\uDF9E-\uDFF0\uDFF3-\uDFF5\uDFF7-\uDFFF]|\uD83D[\uDC00-\uDCFD\uDCFF-\uDD3D\uDD49-\uDD4E\uDD50-\uDD67\uDD6F\uDD70\uDD73-\uDD7A\uDD87\uDD8A-\uDD8D\uDD90\uDD95\uDD96\uDDA4\uDDA5\uDDA8\uDDB1\uDDB2\uDDBC\uDDC2-\uDDC4\uDDD1-\uDDD3\uDDDC-\uDDDE\uDDE1\uDDE3\uDDE8\uDDEF\uDDF3\uDDFA-\uDE4F\uDE80-\uDEC5\uDECB-\uDED2\uDEE0-\uDEE5\uDEE9\uDEEB\uDEEC\uDEF0\uDEF3-\uDEF8]|\uD83E[\uDD10-\uDD3A\uDD3C-\uDD3E\uDD40-\uDD45\uDD47-\uDD4C\uDD50-\uDD6B\uDD80-\uDD97\uDDC0\uDDD0-\uDDE6])\uFE0F)/;function fa(t,e,r,n){for(var i,s=t.firstChild,o=[];s;)3===s.nodeType?(i=(s.nodeValue+"").replace(/^\n+/g,""),n||(i=i.replace(/\s+/g," ")),o.push.apply(o,pa(i,e,r,n))):"br"===(s.nodeName+"").toLowerCase()?o[o.length-1]+="<br>":o.push(s.outerHTML),s=s.nextSibling;for(i=o.length;i--;)"&"===o[i]&&o.splice(i,1,"&amp;");return o}function pa(t,e,r,n){if(t+="",r&&(t=t.trim?t.trim():t.replace(ca,"")),e&&""!==e)return t.replace(/>/g,"&gt;").replace(/</g,"&lt;").split(e);for(var i,s,o=[],a=t.length,u=0;u<a;u++)((s=t.charAt(u)).charCodeAt(0)>=55296&&s.charCodeAt(0)<=56319||t.charCodeAt(u+1)>=65024&&t.charCodeAt(u+1)<=65039)&&(i=((t.substr(u,12).split(ha)||[])[1]||"").length||2,s=t.substr(u,i),o.emoji=1,u+=i-1),o.push(">"===s?"&gt;":"<"===s?"&lt;":!n||" "!==s||" "!==t.charAt(u-1)&&" "!==t.charAt(u+1)?s:"&nbsp;");return o}var da,Da,ma={version:"3.12.5",name:"text",init:function(t,e,r){"object"!=typeof e&&(e={value:e});var n,i,s,o,a,u,l,c,h=t.nodeName.toUpperCase(),f=this,p=e,d=p.newClass,D=p.oldClass,m=p.preserveSpaces,g=p.rtl,v=f.delimiter=e.delimiter||"",_=f.fillChar=e.fillChar||(e.padSpace?"&nbsp;":"");if(f.svg=t.getBBox&&("TEXT"===h||"TSPAN"===h),!("innerHTML"in t)&&!f.svg)return!1;if(f.target=t,"value"in e){for(s=fa(t,v,!1,m),Da||(Da=document.createElement("div")),Da.innerHTML=e.value,i=fa(Da,v,!1,m),f.from=r._from,!f.from&&!g||g&&f.from||(h=s,s=i,i=h),f.hasClass=!(!d&&!D),f.newClass=g?D:d,f.oldClass=g?d:D,n=(h=s.length-i.length)<0?s:i,h<0&&(h=-h);--h>-1;)n.push(_);if("diff"===e.type){for(o=0,a=[],u=[],l="",h=0;h<i.length;h++)(c=i[h])===s[h]?l+=c:(a[o]=l+c,u[o++]=l+s[h],l="");i=a,s=u,l&&(i.push(l),s.push(l))}e.speed&&r.duration(Math.min(.05/e.speed*n.length,e.maxDuration||9999)),f.rtl=g,f.original=s,f.text=i,f._props.push("text")}else f.text=f.original=[""]},render:function(t,e){t>1?t=1:t<0&&(t=0),e.from&&(t=1-t);var r,n,i,s=e.text,o=e.hasClass,a=e.newClass,u=e.oldClass,l=e.delimiter,c=e.target,h=e.fillChar,f=e.original,p=e.rtl,d=s.length,D=(p?1-t:t)*d+.5|0;o&&t?(n=u&&D!==d,i=((r=a&&D)?"<span class='"+a+"'>":"")+s.slice(0,D).join(l)+(r?"</span>":"")+(n?"<span class='"+u+"'>":"")+l+f.slice(D).join(l)+(n?"</span>":"")):i=s.slice(0,D).join(l)+l+f.slice(D).join(l),e.svg?c.textContent=i:c.innerHTML="&nbsp;"===h&&~i.indexOf("  ")?i.split("  ").join("&nbsp;&nbsp;"):i}};ma.splitInnerHTML=fa,ma.emojiSafeSplit=pa,ma.getText=function t(e){var r=e.nodeType,n="";if(1===r||9===r||11===r){if("string"==typeof e.textContent)return e.textContent;for(e=e.firstChild;e;e=e.nextSibling)n+=t(e)}else if(3===r||4===r)return e.nodeValue;return n},(da||"undefined"!=typeof window&&(da=window.gsap)&&da.registerPlugin&&da)&&da.registerPlugin(ma);function ga(t,e,r){return Math.max(t,Math.min(e,r))}var va=class{isRunning=!1;value=0;from=0;to=0;currentTime=0;lerp;duration;easing;onUpdate;advance(t){if(!this.isRunning)return;let e=!1;if(this.duration&&this.easing){this.currentTime+=t;const r=ga(0,this.currentTime/this.duration,1);e=r>=1;const n=e?1:this.easing(r);this.value=this.from+(this.to-this.from)*n}else this.lerp?(this.value=function(t,e,r,n){return function(t,e,r){return(1-r)*t+r*e}(t,e,1-Math.exp(-r*n))}(this.value,this.to,60*this.lerp,t),Math.round(this.value)===this.to&&(this.value=this.to,e=!0)):(this.value=this.to,e=!0);e&&this.stop(),this.onUpdate?.(this.value,e)}stop(){this.isRunning=!1}fromTo(t,e,{lerp:r,duration:n,easing:i,onStart:s,onUpdate:o}){this.from=this.value=t,this.to=e,this.lerp=r,this.duration=n,this.easing=i,this.currentTime=0,this.isRunning=!0,s?.(),this.onUpdate=o}};var _a=class{constructor(t,e,{autoResize:r=!0,debounce:n=250}={}){this.wrapper=t,this.content=e,r&&(this.debouncedResize=function(t,e){let r;return function(...n){let i=this;clearTimeout(r),r=setTimeout((()=>{r=void 0,t.apply(i,n)}),e)}}(this.resize,n),this.wrapper instanceof Window?window.addEventListener("resize",this.debouncedResize,!1):(this.wrapperResizeObserver=new ResizeObserver(this.debouncedResize),this.wrapperResizeObserver.observe(this.wrapper)),this.contentResizeObserver=new ResizeObserver(this.debouncedResize),this.contentResizeObserver.observe(this.content)),this.resize()}width=0;height=0;scrollHeight=0;scrollWidth=0;debouncedResize;wrapperResizeObserver;contentResizeObserver;destroy(){this.wrapperResizeObserver?.disconnect(),this.contentResizeObserver?.disconnect(),this.wrapper===window&&this.debouncedResize&&window.removeEventListener("resize",this.debouncedResize,!1)}resize=()=>{this.onWrapperResize(),this.onContentResize()};onWrapperResize=()=>{this.wrapper instanceof Window?(this.width=window.innerWidth,this.height=window.innerHeight):(this.width=this.wrapper.clientWidth,this.height=this.wrapper.clientHeight)};onContentResize=()=>{this.wrapper instanceof Window?(this.scrollHeight=this.content.scrollHeight,this.scrollWidth=this.content.scrollWidth):(this.scrollHeight=this.wrapper.scrollHeight,this.scrollWidth=this.wrapper.scrollWidth)};get limit(){return{x:this.scrollWidth-this.width,y:this.scrollHeight-this.height}}},ya=class{events={};emit(t,...e){let r=this.events[t]||[];for(let t=0,n=r.length;t<n;t++)r[t]?.(...e)}on(t,e){return this.events[t]?.push(e)||(this.events[t]=[e]),()=>{this.events[t]=this.events[t]?.filter((t=>e!==t))}}off(t,e){this.events[t]=this.events[t]?.filter((t=>e!==t))}destroy(){this.events={}}},Ca=100/6,Ea={passive:!1},wa=class{constructor(t,e={wheelMultiplier:1,touchMultiplier:1}){this.element=t,this.options=e,window.addEventListener("resize",this.onWindowResize,!1),this.onWindowResize(),this.element.addEventListener("wheel",this.onWheel,Ea),this.element.addEventListener("touchstart",this.onTouchStart,Ea),this.element.addEventListener("touchmove",this.onTouchMove,Ea),this.element.addEventListener("touchend",this.onTouchEnd,Ea)}touchStart={x:0,y:0};lastDelta={x:0,y:0};window={width:0,height:0};emitter=new ya;on(t,e){return this.emitter.on(t,e)}destroy(){this.emitter.destroy(),window.removeEventListener("resize",this.onWindowResize,!1),this.element.removeEventListener("wheel",this.onWheel,Ea),this.element.removeEventListener("touchstart",this.onTouchStart,Ea),this.element.removeEventListener("touchmove",this.onTouchMove,Ea),this.element.removeEventListener("touchend",this.onTouchEnd,Ea)}onTouchStart=t=>{const{clientX:e,clientY:r}=t.targetTouches?t.targetTouches[0]:t;this.touchStart.x=e,this.touchStart.y=r,this.lastDelta={x:0,y:0},this.emitter.emit("scroll",{deltaX:0,deltaY:0,event:t})};onTouchMove=t=>{const{clientX:e,clientY:r}=t.targetTouches?t.targetTouches[0]:t,n=-(e-this.touchStart.x)*this.options.touchMultiplier,i=-(r-this.touchStart.y)*this.options.touchMultiplier;this.touchStart.x=e,this.touchStart.y=r,this.lastDelta={x:n,y:i},this.emitter.emit("scroll",{deltaX:n,deltaY:i,event:t})};onTouchEnd=t=>{this.emitter.emit("scroll",{deltaX:this.lastDelta.x,deltaY:this.lastDelta.y,event:t})};onWheel=t=>{let{deltaX:e,deltaY:r,deltaMode:n}=t;e*=1===n?Ca:2===n?this.window.width:1,r*=1===n?Ca:2===n?this.window.height:1,e*=this.options.wheelMultiplier,r*=this.options.wheelMultiplier,this.emitter.emit("scroll",{deltaX:e,deltaY:r,event:t})};onWindowResize=()=>{this.window={width:window.innerWidth,height:window.innerHeight}}},Fa=class{_isScrolling=!1;_isStopped=!1;_isLocked=!1;_preventNextNativeScrollEvent=!1;_resetVelocityTimeout=null;isTouching;time=0;userData={};lastVelocity=0;velocity=0;direction=0;options;targetScroll;animatedScroll;animate=new va;emitter=new ya;dimensions;virtualScroll;constructor({wrapper:t=window,content:e=document.documentElement,eventsTarget:r=t,smoothWheel:n=!0,syncTouch:i=!1,syncTouchLerp:s=.075,touchInertiaMultiplier:o=35,duration:a,easing:u=t=>Math.min(1,1.001-Math.pow(2,-10*t)),lerp:l=.1,infinite:c=!1,orientation:h="vertical",gestureOrientation:f="vertical",touchMultiplier:p=1,wheelMultiplier:d=1,autoResize:D=!0,prevent:m,virtualScroll:g,overscroll:v=!0,__experimental__naiveDimensions:_=!1}={}){window.lenisVersion="1.1.14",t&&t!==document.documentElement&&t!==document.body||(t=window),this.options={wrapper:t,content:e,eventsTarget:r,smoothWheel:n,syncTouch:i,syncTouchLerp:s,touchInertiaMultiplier:o,duration:a,easing:u,lerp:l,infinite:c,gestureOrientation:f,orientation:h,touchMultiplier:p,wheelMultiplier:d,autoResize:D,prevent:m,virtualScroll:g,overscroll:v,__experimental__naiveDimensions:_},this.dimensions=new _a(t,e,{autoResize:D}),this.updateClassName(),this.targetScroll=this.animatedScroll=this.actualScroll,this.options.wrapper.addEventListener("scroll",this.onNativeScroll,!1),this.options.wrapper.addEventListener("pointerdown",this.onPointerDown,!1),this.virtualScroll=new wa(r,{touchMultiplier:p,wheelMultiplier:d}),this.virtualScroll.on("scroll",this.onVirtualScroll)}destroy(){this.emitter.destroy(),this.options.wrapper.removeEventListener("scroll",this.onNativeScroll,!1),this.options.wrapper.removeEventListener("pointerdown",this.onPointerDown,!1),this.virtualScroll.destroy(),this.dimensions.destroy(),this.cleanUpClassName()}on(t,e){return this.emitter.on(t,e)}off(t,e){return this.emitter.off(t,e)}setScroll(t){this.isHorizontal?this.rootElement.scrollLeft=t:this.rootElement.scrollTop=t}onPointerDown=t=>{1===t.button&&this.reset()};onVirtualScroll=t=>{if("function"==typeof this.options.virtualScroll&&!1===this.options.virtualScroll(t))return;const{deltaX:e,deltaY:r,event:n}=t;if(this.emitter.emit("virtual-scroll",{deltaX:e,deltaY:r,event:n}),n.ctrlKey)return;if(n.lenisStopPropagation)return;const i=n.type.includes("touch"),s=n.type.includes("wheel");this.isTouching="touchstart"===n.type||"touchmove"===n.type;if(this.options.syncTouch&&i&&"touchstart"===n.type&&!this.isStopped&&!this.isLocked)return void this.reset();const o=0===e&&0===r,a="vertical"===this.options.gestureOrientation&&0===r||"horizontal"===this.options.gestureOrientation&&0===e;if(o||a)return;let u=n.composedPath();u=u.slice(0,u.indexOf(this.rootElement));const l=this.options.prevent;if(u.find((t=>t instanceof HTMLElement&&("function"==typeof l&&l?.(t)||t.hasAttribute?.("data-lenis-prevent")||i&&t.hasAttribute?.("data-lenis-prevent-touch")||s&&t.hasAttribute?.("data-lenis-prevent-wheel")))))return;if(this.isStopped||this.isLocked)return void n.preventDefault();if(!(this.options.syncTouch&&i||this.options.smoothWheel&&s))return this.isScrolling="native",this.animate.stop(),void(n.lenisStopPropagation=!0);let c=r;"both"===this.options.gestureOrientation?c=Math.abs(r)>Math.abs(e)?r:e:"horizontal"===this.options.gestureOrientation&&(c=e),(!this.options.overscroll||this.options.infinite||this.options.wrapper!==window&&(this.animatedScroll>0&&this.animatedScroll<this.limit||0===this.animatedScroll&&r>0||this.animatedScroll===this.limit&&r<0))&&(n.lenisStopPropagation=!0),n.preventDefault();const h=i&&this.options.syncTouch,f=i&&"touchend"===n.type&&Math.abs(c)>5;f&&(c=this.velocity*this.options.touchInertiaMultiplier),this.scrollTo(this.targetScroll+c,{programmatic:!1,...h?{lerp:f?this.options.syncTouchLerp:1}:{lerp:this.options.lerp,duration:this.options.duration,easing:this.options.easing}})};resize(){this.dimensions.resize(),this.animatedScroll=this.targetScroll=this.actualScroll,this.emit()}emit(){this.emitter.emit("scroll",this)}onNativeScroll=()=>{if(null!==this._resetVelocityTimeout&&(clearTimeout(this._resetVelocityTimeout),this._resetVelocityTimeout=null),this._preventNextNativeScrollEvent)this._preventNextNativeScrollEvent=!1;else if(!1===this.isScrolling||"native"===this.isScrolling){const t=this.animatedScroll;this.animatedScroll=this.targetScroll=this.actualScroll,this.lastVelocity=this.velocity,this.velocity=this.animatedScroll-t,this.direction=Math.sign(this.animatedScroll-t),this.isScrolling="native",this.emit(),0!==this.velocity&&(this._resetVelocityTimeout=setTimeout((()=>{this.lastVelocity=this.velocity,this.velocity=0,this.isScrolling=!1,this.emit()}),400))}};reset(){this.isLocked=!1,this.isScrolling=!1,this.animatedScroll=this.targetScroll=this.actualScroll,this.lastVelocity=this.velocity=0,this.animate.stop()}start(){this.isStopped&&(this.isStopped=!1,this.reset())}stop(){this.isStopped||(this.isStopped=!0,this.animate.stop(),this.reset())}raf(t){const e=t-(this.time||t);this.time=t,this.animate.advance(.001*e)}scrollTo(t,{offset:e=0,immediate:r=!1,lock:n=!1,duration:i=this.options.duration,easing:s=this.options.easing,lerp:o=this.options.lerp,onStart:a,onComplete:u,force:l=!1,programmatic:c=!0,userData:h}={}){if(!this.isStopped&&!this.isLocked||l){if("string"==typeof t&&["top","left","start"].includes(t))t=0;else if("string"==typeof t&&["bottom","right","end"].includes(t))t=this.limit;else{let r;if("string"==typeof t?r=document.querySelector(t):t instanceof HTMLElement&&t?.nodeType&&(r=t),r){if(this.options.wrapper!==window){const t=this.rootElement.getBoundingClientRect();e-=this.isHorizontal?t.left:t.top}const n=r.getBoundingClientRect();t=(this.isHorizontal?n.left:n.top)+this.animatedScroll}}if("number"==typeof t){if(t+=e,t=Math.round(t),this.options.infinite?c&&(this.targetScroll=this.animatedScroll=this.scroll):t=ga(0,t,this.limit),t===this.targetScroll)return a?.(this),void u?.(this);if(this.userData=h??{},r)return this.animatedScroll=this.targetScroll=t,this.setScroll(this.scroll),this.reset(),this.preventNextNativeScrollEvent(),this.emit(),u?.(this),void(this.userData={});c||(this.targetScroll=t),this.animate.fromTo(this.animatedScroll,t,{duration:i,easing:s,lerp:o,onStart:()=>{n&&(this.isLocked=!0),this.isScrolling="smooth",a?.(this)},onUpdate:(t,e)=>{this.isScrolling="smooth",this.lastVelocity=this.velocity,this.velocity=t-this.animatedScroll,this.direction=Math.sign(this.velocity),this.animatedScroll=t,this.setScroll(this.scroll),c&&(this.targetScroll=t),e||this.emit(),e&&(this.reset(),this.emit(),u?.(this),this.userData={},this.preventNextNativeScrollEvent())}})}}}preventNextNativeScrollEvent(){this._preventNextNativeScrollEvent=!0,requestAnimationFrame((()=>{this._preventNextNativeScrollEvent=!1}))}get rootElement(){return this.options.wrapper===window?document.documentElement:this.options.wrapper}get limit(){return this.options.__experimental__naiveDimensions?this.isHorizontal?this.rootElement.scrollWidth-this.rootElement.clientWidth:this.rootElement.scrollHeight-this.rootElement.clientHeight:this.dimensions.limit[this.isHorizontal?"x":"y"]}get isHorizontal(){return"horizontal"===this.options.orientation}get actualScroll(){return this.isHorizontal?this.rootElement.scrollLeft:this.rootElement.scrollTop}get scroll(){return this.options.infinite?function(t,e){return(t%e+e)%e}(this.animatedScroll,this.limit):this.animatedScroll}get progress(){return 0===this.limit?1:this.scroll/this.limit}get isScrolling(){return this._isScrolling}set isScrolling(t){this._isScrolling!==t&&(this._isScrolling=t,this.updateClassName())}get isStopped(){return this._isStopped}set isStopped(t){this._isStopped!==t&&(this._isStopped=t,this.updateClassName())}get isLocked(){return this._isLocked}set isLocked(t){this._isLocked!==t&&(this._isLocked=t,this.updateClassName())}get isSmooth(){return"smooth"===this.isScrolling}get className(){let t="lenis";return this.isStopped&&(t+=" lenis-stopped"),this.isLocked&&(t+=" lenis-locked"),this.isScrolling&&(t+=" lenis-scrolling"),"smooth"===this.isScrolling&&(t+=" lenis-smooth"),t}updateClassName(){this.cleanUpClassName(),this.rootElement.className=`${this.rootElement.className} ${this.className}`.trim()}cleanUpClassName(){this.rootElement.className=this.rootElement.className.replace(/lenis(-\w+)?/g,"").trim()}};Vn.registerPlugin(ta,ma);var ba=function(t){return 1===t?1:1-Math.pow(2,-10*t)};!function(){var t=new Fa({duration:1.35,easing:ba,smooth:!0,smoothWheel:!0,wheelMultiplier:.85});t.on("scroll",ta.update),Vn.ticker.add((function(e){t.raf(1e3*e)})),Vn.ticker.lagSmoothing(0)}();var xa="http://www.w3.org/2000/svg";function Ta(t,e){var r=arguments.length>2&&void 0!==arguments[2]?arguments[2]:null,n=arguments.length>3&&void 0!==arguments[3]&&arguments[3];document.querySelectorAll(t).forEach((function(t){var i=document.createElementNS(xa,"svg");i.style.cssText="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;overflow:visible;";var s=document.createElementNS(xa,"path");s.setAttribute("fill","none"),s.setAttribute("stroke",e),s.setAttribute("stroke-width","2"),i.appendChild(s),t.appendChild(i);var o=null,a=function(){var e=t.offsetWidth,r=t.offsetHeight;return i.setAttribute("viewBox","0 0 ".concat(e," ").concat(r)),s.setAttribute("d",function(t,e,r){return["M ".concat(t/2," ").concat(e),"L ".concat(r," ").concat(e),"Q 0 ".concat(e," 0 ").concat(e-r),"L 0 ".concat(r),"Q 0 0 ".concat(r," 0"),"L ".concat(t-r," 0"),"Q ".concat(t," 0 ").concat(t," ").concat(r),"L ".concat(t," ").concat(e-r),"Q ".concat(t," ").concat(e," ").concat(t-r," ").concat(e),"L ".concat(t-r-20," ").concat(e)].join(" ")}(e,r,4)),s.getTotalLength()};if(n){var u=function(){var t=a();Vn.set(s,{strokeDasharray:t,strokeDashoffset:0})};u(),window.addEventListener("load",u)}r&&(t.addEventListener("mousedown",(function(){return s.setAttribute("stroke",r)})),t.addEventListener("mouseup",(function(){return s.setAttribute("stroke",e)})),t.addEventListener("mouseleave",(function(){return s.setAttribute("stroke",e)}))),t.addEventListener("mouseenter",(function(){var t=a();o&&o.kill(),n?o=Vn.to(s,{strokeDashoffset:t,duration:1,ease:"none"}):(Vn.set(s,{strokeDasharray:t,strokeDashoffset:t}),o=Vn.to(s,{strokeDashoffset:0,duration:1,ease:"none"}))})),t.addEventListener("mouseleave",(function(){o&&o.kill(),o=n?Vn.to(s,{strokeDashoffset:0,duration:.8,ease:"none"}):Vn.to(s,{strokeDashoffset:s.getTotalLength(),duration:.8,ease:"none"})}))}))}function Aa(t){return Aa="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t},Aa(t)}function Sa(t,e){var r=Object.keys(t);if(Object.getOwnPropertySymbols){var n=Object.getOwnPropertySymbols(t);e&&(n=n.filter((function(e){return Object.getOwnPropertyDescriptor(t,e).enumerable}))),r.push.apply(r,n)}return r}function ka(t){for(var e=1;e<arguments.length;e++){var r=null!=arguments[e]?arguments[e]:{};e%2?Sa(Object(r),!0).forEach((function(e){Ma(t,e,r[e])})):Object.getOwnPropertyDescriptors?Object.defineProperties(t,Object.getOwnPropertyDescriptors(r)):Sa(Object(r)).forEach((function(e){Object.defineProperty(t,e,Object.getOwnPropertyDescriptor(r,e))}))}return t}function Ma(t,e,r){return(e=function(t){var e=function(t,e){if("object"!=Aa(t)||!t)return t;var r=t[Symbol.toPrimitive];if(void 0!==r){var n=r.call(t,e||"default");if("object"!=Aa(n))return n;throw new TypeError("@@toPrimitive must return a primitive value.")}return("string"===e?String:Number)(t)}(t,"string");return"symbol"==Aa(e)?e:e+""}(e))in t?Object.defineProperty(t,e,{value:r,enumerable:!0,configurable:!0,writable:!0}):t[e]=r,t}var Oa={"fade-up":{y:60,autoAlpha:0},"fade-down":{y:-60,autoAlpha:0},"fade-left":{x:-60,autoAlpha:0},"fade-right":{x:60,autoAlpha:0},"fade-in":{autoAlpha:0},"zoom-in":{scale:.85,autoAlpha:0},"zoom-out":{scale:1.15,autoAlpha:0},"flip-up":{rotationX:15,y:40,autoAlpha:0,transformPerspective:800},"slide-up":{y:80}},Ba="fade-up";var Pa={start:"top 60%",drawDuration:2.5},Ra={start:"top 65%",drawDuration:2},za={start:"top 70%",drawDuration:1.8};function La(){var t=document.querySelector("[data-presentation-draw]");if(t){var e=t.querySelector("[data-reveal-border]"),r=t.querySelector("[data-reveal-title]"),n=t.querySelector("[data-reveal-desc]");if(e){e.classList.add("is-svg-drawn");var i="http://www.w3.org/2000/svg",s=document.createElementNS(i,"svg");s.style.cssText="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;overflow:visible;";var o=document.createElementNS(i,"path");s.appendChild(o),e.appendChild(s);var a=c();Vn.set(o,{strokeDasharray:a,strokeDashoffset:a}),r&&Vn.set(r,{autoAlpha:0,y:30,filter:"blur(8px)"}),n&&Vn.set(n,{autoAlpha:0,y:30,filter:"blur(8px)"});var u=function(e){var i=Vn.timeline({paused:!0,scrollTrigger:{trigger:t,start:e.start,toggleActions:"play none none none",invalidateOnRefresh:!0,onRefresh:function(){a=c(),Vn.set(o,{strokeDasharray:a})}}});i.to(o,{strokeDashoffset:0,duration:e.drawDuration,ease:"power2.out"}),r&&i.to(r,{autoAlpha:1,y:0,filter:"blur(0px)",duration:1.2,ease:"power3.out"},"-=0.6"),n&&i.to(n,{autoAlpha:1,y:0,filter:"blur(0px)",duration:1.2,ease:"power3.out"},"-=0.9")},l=Vn.matchMedia();l.add("(min-width: 1280px)",(function(){return u(Pa)})),l.add("(min-width: 768px) and (max-width: 1279px)",(function(){return u(Ra)})),l.add("(max-width: 767px)",(function(){return u(za)}))}}function c(){var t,r=e.offsetWidth,n=e.offsetHeight,i=(t=window.innerWidth)>=1280?{left:172,width:162}:t>=768?{left:67,width:63}:{left:30,width:30},a=i.left,u=i.width;return s.setAttribute("viewBox","0 0 ".concat(r," ").concat(n)),o.setAttribute("d",function(t,e,r,n,i){return["M ".concat(n+i," 0"),"L ".concat(t-r," 0"),"Q ".concat(t," 0 ").concat(t," ").concat(r),"L ".concat(t," ").concat(e-r),"Q ".concat(t," ").concat(e," ").concat(t-r," ").concat(e),"L ".concat(r," ").concat(e),"Q 0 ".concat(e," 0 ").concat(e-r),"L 0 ".concat(r),"Q 0 0 ".concat(r," 0"),"L ".concat(n," 0")].join(" ")}(r,n,8,a,u)),o.getTotalLength()}}var Na={start:"top 80%",borderDuration:1.2},Ia={start:"top 85%",borderDuration:1},Ya={start:"top 90%",borderDuration:.9};document.addEventListener("DOMContentLoaded",(function(){var t,e;Ta(".btn-primary","#F1F2ED","#874644",!0),Ta(".btn-header","#F1F2ED","#874644"),Ta(".btn-reservation","#F1F2ED"),Ta(".btn-footer","#874644"),Vn.utils.toArray("[data-animate]").forEach((function(t){var e=t.getAttribute("data-animate")||Ba,r=parseFloat(t.getAttribute("data-animate-delay"))||0,n=parseFloat(t.getAttribute("data-animate-duration"))||.8,i=t.getAttribute("data-animate-start")||"top 70%",s=parseFloat(t.getAttribute("data-animate-stagger"))||0,o="true"===t.getAttribute("data-animate-once"),a=t.hasAttribute("data-animate-eager"),u=t.hasAttribute("data-animate-scrub"),l=t.getAttribute("data-animate-scrub"),c=t.getAttribute("data-animate-end")||"bottom top",h=Oa[e]||Oa[Ba],f=function(t){var e={};return"y"in t&&(e.y=0),"x"in t&&(e.x=0),"autoAlpha"in t&&(e.autoAlpha=1),"scale"in t&&(e.scale=1),"rotationX"in t&&(e.rotationX=0),"transformPerspective"in t&&(e.transformPerspective=800),e}(h);if(a){if(s>0){var p=t.querySelectorAll("[data-animate-child]");if(p.length)return void Vn.fromTo(p,h,ka(ka({},f),{},{duration:n,delay:r,stagger:s,ease:"power2.out"}))}Vn.fromTo(t,h,ka(ka({},f),{},{duration:n,delay:r,ease:"power2.out"}))}else if(u){var d=!l||""===l||parseFloat(l);if(s>0){var D=t.querySelectorAll("[data-animate-child]");if(D.length)return void Vn.timeline({scrollTrigger:{trigger:t,start:i,end:c,scrub:d}}).fromTo(D,h,ka(ka({},f),{},{duration:n,stagger:s,ease:"none"}))}Vn.fromTo(t,h,ka(ka({},f),{},{ease:"none",scrollTrigger:{trigger:t,start:i,end:c,scrub:d}}))}else{if(s>0){var m=t.querySelectorAll("[data-animate-child]");if(m.length){var g=Vn.timeline({paused:!0,defaults:{ease:"power2.out"}});return g.fromTo(m,h,ka(ka({},f),{},{duration:n,delay:r,stagger:s})),void ta.create({trigger:t,start:i,onEnter:function(){return g.restart()},onLeaveBack:o?void 0:function(){return g.reverse()}})}}var v=Vn.timeline({paused:!0,defaults:{ease:"power2.out"}});v.fromTo(t,h,ka(ka({},f),{},{duration:n,delay:r})),ta.create({trigger:t,start:i,onEnter:function(){return v.restart()},onLeaveBack:o?void 0:function(){return v.reverse()}})}})),Vn.utils.toArray("[data-parallax], [data-parallax-x]").forEach((function(t){var e=parseFloat(t.getAttribute("data-parallax"))||0,r=parseFloat(t.getAttribute("data-parallax-x"))||0,n=parseFloat(t.getAttribute("data-parallax-speed"))||1,i=t.getAttribute("data-parallax-start")||"top bottom",s=t.getAttribute("data-parallax-end")||"bottom top",o={};e&&(o.y=e),r&&(o.x=r),Vn.to(t,ka(ka({},o),{},{ease:"none",scrollTrigger:{trigger:t,start:i,end:s,scrub:n}}))})),function(){var t=document.querySelector("[data-banner-intro]");if(t){var e=t.querySelector("[data-banner-subtitle]"),r=t.querySelector("[data-banner-typewriter]"),n=t.querySelector("[data-banner-cta]"),i=r&&r.getAttribute("data-banner-cursor")||"persist";e&&Vn.set(e,{autoAlpha:0,y:20}),n&&Vn.set(n,{autoAlpha:0,y:20});var s=r?r.textContent.trim():"",o=null,a=null;if(r&&s){r.textContent="",r.style.position="relative";var u=document.createElement("span");u.className="typewriter-placeholder",u.textContent=s,(o=document.createElement("span")).className="typewriter-text",(a=document.createElement("span")).className="typewriter-cursor",a.textContent="|";var l=document.createElement("span");l.className="typewriter-overlay",l.appendChild(o),l.appendChild(a),r.appendChild(u),r.appendChild(l),Vn.set(r,{autoAlpha:1})}var c=Vn.timeline({delay:.3});e&&c.to(e,{autoAlpha:1,y:0,duration:.5,ease:"power2.out"}),o&&s&&c.to(o,{text:{value:s,delimiter:""},duration:.08*s.length,ease:"none",onComplete:function(){a&&"hide"===i&&Vn.to(a,{autoAlpha:0,delay:1.5,duration:.4})}},"+=0.2"),n&&c.to(n,{autoAlpha:1,y:0,duration:.6,ease:"power2.out"},"-=0.3")}}(),(t=document.querySelectorAll("[data-pinned-reveal]")).length&&t.forEach((function(t){var e=t.querySelector("[data-reveal-border]"),r=t.querySelector("[data-reveal-title]"),n=t.querySelector("[data-reveal-desc]");e&&Vn.set(e,{autoAlpha:0,scale:.94,transformOrigin:"50% 50%"}),r&&Vn.set(r,{autoAlpha:0,y:30,filter:"blur(8px)"}),n&&Vn.set(n,{autoAlpha:0,y:30,filter:"blur(8px)"});var i=Vn.timeline({scrollTrigger:{trigger:t,start:"top top-=150",end:"+=2000",scrub:1.2,pin:!0,anticipatePin:1,pinType:"transform",invalidateOnRefresh:!0}});i.to({},{duration:.15}),e&&i.to(e,{autoAlpha:1,scale:1,duration:4.5,ease:"power2.out"}),r&&i.to(r,{autoAlpha:1,y:0,filter:"blur(0px)",duration:1.2,ease:"power3.out"},"+=0.15"),n&&i.to(n,{autoAlpha:1,y:0,filter:"blur(0px)",duration:1.2,ease:"power3.out"},"-=0.7"),i.to({},{duration:.2})})),La(),function(){var t=document.querySelector("[data-weekly-reveal]");if(t){var e=t.querySelector("[data-reveal-border]"),r=t.querySelector("[data-reveal-title]"),n=t.querySelector("[data-reveal-desc]");e&&Vn.set(e,{autoAlpha:0,scale:.94,transformOrigin:"50% 50%"}),r&&Vn.set(r,{autoAlpha:0,y:30,filter:"blur(8px)"}),n&&Vn.set(n,{autoAlpha:0,y:30,filter:"blur(8px)"});var i=function(i){var s=Vn.timeline({paused:!0,scrollTrigger:{trigger:t,start:i.start,toggleActions:"play none none none",invalidateOnRefresh:!0}});e&&s.to(e,{autoAlpha:1,scale:1,duration:i.borderDuration,ease:"power2.out"}),r&&s.to(r,{autoAlpha:1,y:0,filter:"blur(0px)",duration:1.2,ease:"power3.out"},"-=0.6"),n&&s.to(n,{autoAlpha:1,y:0,filter:"blur(0px)",duration:1.2,ease:"power3.out"},"-=0.9")},s=Vn.matchMedia();s.add("(min-width: 1280px)",(function(){return i(Na)})),s.add("(min-width: 768px) and (max-width: 1279px)",(function(){return i(Ia)})),s.add("(max-width: 767px)",(function(){return i(Ya)}))}}(),(e=document.querySelectorAll("[data-meals-grid]")).length&&e.forEach((function(t){var e=t.querySelectorAll("[data-meals-card]"),r=parseFloat(t.getAttribute("data-meals-stagger"))||.3;e.forEach((function(t,e){var n=t.querySelector(".card-meal__img"),i=n?n.querySelector("img"):null;if(i&&n){Vn.set(i,{yPercent:-100}),Vn.set(n,{"--overlay-opacity":0});var s=t.getAttribute("data-meals-delay"),o=null!==s?parseFloat(s):e*r,a=Vn.timeline({delay:o,scrollTrigger:{trigger:t,start:"top 70%",toggleActions:"play none none none"},onComplete:function(){return Vn.set(i,{clearProps:"transform"})}});a.to(i,{yPercent:0,duration:1.8,ease:"power3.out"}),a.to(n,{"--overlay-opacity":1,duration:1.4,ease:"power2.out"})}}))}))}))},460(){},550(){}},r={};function n(t){var i=r[t];if(void 0!==i)return i.exports;var s=r[t]={exports:{}};return e[t](s,s.exports,n),s.exports}n.m=e,t=[],n.O=(e,r,i,s)=>{if(!r){var o=1/0;for(c=0;c<t.length;c++){for(var[r,i,s]=t[c],a=!0,u=0;u<r.length;u++)(!1&s||o>=s)&&Object.keys(n.O).every((t=>n.O[t](r[u])))?r.splice(u--,1):(a=!1,s<o&&(o=s));if(a){t.splice(c--,1);var l=i();void 0!==l&&(e=l)}}return e}s=s||0;for(var c=t.length;c>0&&t[c-1][2]>s;c--)t[c]=t[c-1];t[c]=[r,i,s]},n.o=(t,e)=>Object.prototype.hasOwnProperty.call(t,e),(()=>{var t={829:0,456:0,552:0};n.O.j=e=>0===t[e];var e=(e,r)=>{var i,s,[o,a,u]=r,l=0;if(o.some((e=>0!==t[e]))){for(i in a)n.o(a,i)&&(n.m[i]=a[i]);if(u)var c=u(n)}for(e&&e(r);l<o.length;l++)s=o[l],n.o(t,s)&&t[s]&&t[s][0](),t[s]=0;return n.O(c)},r=self.webpackChunkstarter_theme=self.webpackChunkstarter_theme||[];r.forEach(e.bind(null,0)),r.push=e.bind(null,r.push.bind(r))})(),n.O(void 0,[456,552],(()=>n(485))),n.O(void 0,[456,552],(()=>n(460)));var i=n.O(void 0,[456,552],(()=>n(550)));i=n.O(i)})();
+/******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
+/******/ 	var __webpack_modules__ = ({
+
+/***/ "./assets/js/animations.js"
+/*!*********************************!*\
+  !*** ./assets/js/animations.js ***!
+  \*********************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   initAnimations: () => (/* binding */ initAnimations),
+/* harmony export */   initBannerIntro: () => (/* binding */ initBannerIntro),
+/* harmony export */   initMealsReveal: () => (/* binding */ initMealsReveal),
+/* harmony export */   initParallax: () => (/* binding */ initParallax),
+/* harmony export */   initPinnedReveal: () => (/* binding */ initPinnedReveal),
+/* harmony export */   initPresentationDraw: () => (/* binding */ initPresentationDraw),
+/* harmony export */   initWeeklyReveal: () => (/* binding */ initWeeklyReveal)
+/* harmony export */ });
+/* harmony import */ var _gsap_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./gsap.js */ "./assets/js/gsap.js");
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
+function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+
+
+/**
+ * Animation presets mapped to data-animate attribute values.
+ *
+ * Usage in HTML:
+ *   data-animate="fade-up"      — fade in + slide up (default)
+ *   data-animate="fade-down"    — fade in + slide down
+ *   data-animate="fade-left"    — fade in + slide from left
+ *   data-animate="fade-right"   — fade in + slide from right
+ *   data-animate="fade-in"      — fade in only (no movement)
+ *   data-animate="zoom-in"      — fade in + scale up
+ *   data-animate="zoom-out"     — fade in + scale down
+ *   data-animate="flip-up"      — fade in + rotate X
+ *   data-animate="slide-up"     — slide up (no fade)
+ *
+ * Optional data attributes:
+ *   data-animate-delay="0.2"    — delay in seconds
+ *   data-animate-duration="1"   — duration in seconds
+ *   data-animate-start="top 75%" — ScrollTrigger start position
+ *   data-animate-once="true"    — play only once (default: repeats on re-enter)
+ *   data-animate-eager          — animate immediately on page load (no ScrollTrigger)
+ *   data-animate-scrub          — animation tied 1:1 to scroll position (forward + reverse)
+ *   data-animate-scrub="2"     — scrub with smoothing (higher = more lag behind scroll)
+ *   data-animate-end="bottom top" — ScrollTrigger end position (only used with scrub)
+ *   data-animate-stagger="0.1"  — stagger children with [data-animate-child]
+ */
+var presets = {
+  'fade-up': {
+    y: 60,
+    autoAlpha: 0
+  },
+  'fade-down': {
+    y: -60,
+    autoAlpha: 0
+  },
+  'fade-left': {
+    x: -60,
+    autoAlpha: 0
+  },
+  'fade-right': {
+    x: 60,
+    autoAlpha: 0
+  },
+  'fade-in': {
+    autoAlpha: 0
+  },
+  'zoom-in': {
+    scale: 0.85,
+    autoAlpha: 0
+  },
+  'zoom-out': {
+    scale: 1.15,
+    autoAlpha: 0
+  },
+  'flip-up': {
+    rotationX: 15,
+    y: 40,
+    autoAlpha: 0,
+    transformPerspective: 800
+  },
+  'slide-up': {
+    y: 80
+  }
+};
+var defaultPreset = 'fade-up';
+function initAnimations() {
+  var elements = _gsap_js__WEBPACK_IMPORTED_MODULE_0__.gsap.utils.toArray('[data-animate]');
+  elements.forEach(function (el) {
+    var type = el.getAttribute('data-animate') || defaultPreset;
+    var delay = parseFloat(el.getAttribute('data-animate-delay')) || 0;
+    var duration = parseFloat(el.getAttribute('data-animate-duration')) || 0.8;
+    var start = el.getAttribute('data-animate-start') || 'top 70%';
+    var stagger = parseFloat(el.getAttribute('data-animate-stagger')) || 0;
+    var once = el.getAttribute('data-animate-once') === 'true';
+    var eager = el.hasAttribute('data-animate-eager');
+    var hasScrub = el.hasAttribute('data-animate-scrub');
+    var scrubVal = el.getAttribute('data-animate-scrub');
+    var end = el.getAttribute('data-animate-end') || 'bottom top';
+    var from = presets[type] || presets[defaultPreset];
+    var to = resetProps(from);
+
+    // Eager mode: animate immediately, no ScrollTrigger
+    if (eager) {
+      if (stagger > 0) {
+        var children = el.querySelectorAll('[data-animate-child]');
+        if (children.length) {
+          _gsap_js__WEBPACK_IMPORTED_MODULE_0__.gsap.fromTo(children, from, _objectSpread(_objectSpread({}, to), {}, {
+            duration: duration,
+            delay: delay,
+            stagger: stagger,
+            ease: 'power2.out'
+          }));
+          return;
+        }
+      }
+      _gsap_js__WEBPACK_IMPORTED_MODULE_0__.gsap.fromTo(el, from, _objectSpread(_objectSpread({}, to), {}, {
+        duration: duration,
+        delay: delay,
+        ease: 'power2.out'
+      }));
+      return;
+    }
+
+    // Scrub mode: animation tied to scroll position
+    if (hasScrub) {
+      // scrub value: true (1:1), or a number for smoothing
+      var scrub = scrubVal && scrubVal !== '' ? parseFloat(scrubVal) : true;
+      if (stagger > 0) {
+        var _children = el.querySelectorAll('[data-animate-child]');
+        if (_children.length) {
+          var _tl = _gsap_js__WEBPACK_IMPORTED_MODULE_0__.gsap.timeline({
+            scrollTrigger: {
+              trigger: el,
+              start: start,
+              end: end,
+              scrub: scrub
+            }
+          });
+          _tl.fromTo(_children, from, _objectSpread(_objectSpread({}, to), {}, {
+            duration: duration,
+            stagger: stagger,
+            ease: 'none'
+          }));
+          return;
+        }
+      }
+      _gsap_js__WEBPACK_IMPORTED_MODULE_0__.gsap.fromTo(el, from, _objectSpread(_objectSpread({}, to), {}, {
+        ease: 'none',
+        scrollTrigger: {
+          trigger: el,
+          start: start,
+          end: end,
+          scrub: scrub
+        }
+      }));
+      return;
+    }
+
+    // Stagger mode: animate children instead of the parent
+    if (stagger > 0) {
+      var _children2 = el.querySelectorAll('[data-animate-child]');
+      if (_children2.length) {
+        var _tl2 = _gsap_js__WEBPACK_IMPORTED_MODULE_0__.gsap.timeline({
+          paused: true,
+          defaults: {
+            ease: 'power2.out'
+          }
+        });
+        _tl2.fromTo(_children2, from, _objectSpread(_objectSpread({}, to), {}, {
+          duration: duration,
+          delay: delay,
+          stagger: stagger
+        }));
+        _gsap_js__WEBPACK_IMPORTED_MODULE_0__.ScrollTrigger.create({
+          trigger: el,
+          start: start,
+          onEnter: function onEnter() {
+            return _tl2.restart();
+          },
+          onLeaveBack: once ? undefined : function () {
+            return _tl2.reverse();
+          }
+        });
+        return;
+      }
+    }
+
+    // Single element animation — use a timeline for clean reverse
+    var tl = _gsap_js__WEBPACK_IMPORTED_MODULE_0__.gsap.timeline({
+      paused: true,
+      defaults: {
+        ease: 'power2.out'
+      }
+    });
+    tl.fromTo(el, from, _objectSpread(_objectSpread({}, to), {}, {
+      duration: duration,
+      delay: delay
+    }));
+    _gsap_js__WEBPACK_IMPORTED_MODULE_0__.ScrollTrigger.create({
+      trigger: el,
+      start: start,
+      onEnter: function onEnter() {
+        return tl.restart();
+      },
+      onLeaveBack: once ? undefined : function () {
+        return tl.reverse();
+      }
+    });
+  });
+}
+
+/**
+ * Build a "to" tween object that resets all animated properties to their
+ * natural values (0 for transforms, 1 for opacity/scale).
+ */
+function resetProps(from) {
+  var to = {};
+  if ('y' in from) to.y = 0;
+  if ('x' in from) to.x = 0;
+  if ('autoAlpha' in from) to.autoAlpha = 1;
+  if ('scale' in from) to.scale = 1;
+  if ('rotationX' in from) to.rotationX = 0;
+  if ('transformPerspective' in from) to.transformPerspective = 800;
+  return to;
+}
+
+/**
+ * Parallax effect driven by scroll position.
+ *
+ * Usage in HTML:
+ *   data-parallax="100"         — moves 100px upward as you scroll (default direction: up)
+ *   data-parallax="-80"         — moves 80px downward as you scroll
+ *   data-parallax-x="60"       — horizontal parallax (positive = moves right)
+ *   data-parallax-speed="0.5"  — multiplier for scrub speed (default: 1)
+ *   data-parallax-start         — ScrollTrigger start (default: "top bottom")
+ *   data-parallax-end           — ScrollTrigger end (default: "bottom top")
+ */
+function initParallax() {
+  var elements = _gsap_js__WEBPACK_IMPORTED_MODULE_0__.gsap.utils.toArray('[data-parallax], [data-parallax-x]');
+  elements.forEach(function (el) {
+    var yVal = parseFloat(el.getAttribute('data-parallax')) || 0;
+    var xVal = parseFloat(el.getAttribute('data-parallax-x')) || 0;
+    var speed = parseFloat(el.getAttribute('data-parallax-speed')) || 1;
+    var start = el.getAttribute('data-parallax-start') || 'top bottom';
+    var end = el.getAttribute('data-parallax-end') || 'bottom top';
+    var toVars = {};
+    if (yVal) toVars.y = yVal;
+    if (xVal) toVars.x = xVal;
+    _gsap_js__WEBPACK_IMPORTED_MODULE_0__.gsap.to(el, _objectSpread(_objectSpread({}, toVars), {}, {
+      ease: 'none',
+      scrollTrigger: {
+        trigger: el,
+        start: start,
+        end: end,
+        scrub: speed
+      }
+    }));
+  });
+}
+
+/**
+ * Banner intro timeline: subtitle fade-in → title typewriter → CTA fade-up.
+ *
+ * Markup contract (data attributes on banner.php):
+ *   [data-banner-intro]      — wrapper (timeline scope)
+ *   [data-banner-subtitle]   — overline / subtitle
+ *   [data-banner-typewriter] — title with typewriter effect
+ *   [data-banner-cta]        — call-to-action button
+ *
+ * Optional on [data-banner-typewriter]:
+ *   data-banner-cursor="persist" — cursor keeps blinking after typing (default)
+ *   data-banner-cursor="hide"    — cursor fades out after typing finishes
+ */
+function initBannerIntro() {
+  var wrapper = document.querySelector('[data-banner-intro]');
+  if (!wrapper) return;
+  var subtitle = wrapper.querySelector('[data-banner-subtitle]');
+  var titleEl = wrapper.querySelector('[data-banner-typewriter]');
+  var cta = wrapper.querySelector('[data-banner-cta]');
+  var cursorMode = titleEl ? titleEl.getAttribute('data-banner-cursor') || 'persist' : 'persist';
+
+  // Set initial states (CSS already hides with opacity:0/visibility:hidden)
+  if (subtitle) _gsap_js__WEBPACK_IMPORTED_MODULE_0__.gsap.set(subtitle, {
+    autoAlpha: 0,
+    y: 20
+  });
+  if (cta) _gsap_js__WEBPACK_IMPORTED_MODULE_0__.gsap.set(cta, {
+    autoAlpha: 0,
+    y: 20
+  });
+
+  // Prepare typewriter structure
+  var titleText = titleEl ? titleEl.textContent.trim() : '';
+  var textSpan = null;
+  var cursorEl = null;
+  if (titleEl && titleText) {
+    titleEl.textContent = '';
+    titleEl.style.position = 'relative';
+    var placeholder = document.createElement('span');
+    placeholder.className = 'typewriter-placeholder';
+    placeholder.textContent = titleText;
+    textSpan = document.createElement('span');
+    textSpan.className = 'typewriter-text';
+    cursorEl = document.createElement('span');
+    cursorEl.className = 'typewriter-cursor';
+    cursorEl.textContent = '|';
+    var overlay = document.createElement('span');
+    overlay.className = 'typewriter-overlay';
+    overlay.appendChild(textSpan);
+    overlay.appendChild(cursorEl);
+    titleEl.appendChild(placeholder);
+    titleEl.appendChild(overlay);
+
+    // Reveal the title container (CSS hid it to prevent FOUC)
+    _gsap_js__WEBPACK_IMPORTED_MODULE_0__.gsap.set(titleEl, {
+      autoAlpha: 1
+    });
+  }
+
+  // Build the timeline
+  var tl = _gsap_js__WEBPACK_IMPORTED_MODULE_0__.gsap.timeline({
+    delay: 0.3
+  });
+
+  // 1. Subtitle fade-in
+  if (subtitle) {
+    tl.to(subtitle, {
+      autoAlpha: 1,
+      y: 0,
+      duration: 0.5,
+      ease: 'power2.out'
+    });
+  }
+
+  // 2. Title typewriter
+  if (textSpan && titleText) {
+    tl.to(textSpan, {
+      text: {
+        value: titleText,
+        delimiter: ''
+      },
+      duration: titleText.length * 0.08,
+      ease: 'none',
+      onComplete: function onComplete() {
+        if (cursorEl && cursorMode === 'hide') {
+          _gsap_js__WEBPACK_IMPORTED_MODULE_0__.gsap.to(cursorEl, {
+            autoAlpha: 0,
+            delay: 1.5,
+            duration: 0.4
+          });
+        }
+      }
+    }, '+=0.2');
+  }
+
+  // 3. CTA fade-up — overlaps slightly with end of typewriter for smooth flow
+  if (cta) {
+    tl.to(cta, {
+      autoAlpha: 1,
+      y: 0,
+      duration: 0.6,
+      ease: 'power2.out'
+    }, '-=0.3');
+  }
+}
+
+/**
+ * Pinned reveal — section pins, border fades in (with scale), then title and
+ * description reveal in sequence. Same pin config as the presentation section
+ * but with a simple fade+scale border reveal instead of SVG line drawing.
+ *
+ * Markup contract (per section):
+ *   [data-pinned-reveal]   — section wrapper (gets pinned)
+ *   [data-reveal-border]   — bordered box
+ *   [data-reveal-title]    — title
+ *   [data-reveal-desc]     — description
+ */
+function initPinnedReveal() {
+  var sections = document.querySelectorAll('[data-pinned-reveal]');
+  if (!sections.length) return;
+  sections.forEach(function (section) {
+    var border = section.querySelector('[data-reveal-border]');
+    var title = section.querySelector('[data-reveal-title]');
+    var desc = section.querySelector('[data-reveal-desc]');
+
+    // Initial states (same as initPresentationDraw)
+    if (border) _gsap_js__WEBPACK_IMPORTED_MODULE_0__.gsap.set(border, {
+      autoAlpha: 0,
+      scale: 0.94,
+      transformOrigin: '50% 50%'
+    });
+    if (title) _gsap_js__WEBPACK_IMPORTED_MODULE_0__.gsap.set(title, {
+      autoAlpha: 0,
+      y: 30,
+      filter: 'blur(8px)'
+    });
+    if (desc) _gsap_js__WEBPACK_IMPORTED_MODULE_0__.gsap.set(desc, {
+      autoAlpha: 0,
+      y: 30,
+      filter: 'blur(8px)'
+    });
+
+    // Pinned scrubbed timeline — same config as initPresentationDraw
+    var tl = _gsap_js__WEBPACK_IMPORTED_MODULE_0__.gsap.timeline({
+      scrollTrigger: {
+        trigger: section,
+        start: 'top top-=150',
+        end: '+=2000',
+        scrub: 1.2,
+        pin: true,
+        anticipatePin: 1,
+        pinType: 'transform',
+        invalidateOnRefresh: true
+      }
+    });
+
+    // Buffer at start
+    tl.to({}, {
+      duration: 0.15
+    });
+
+    // 1. Border fade + scale-in (replaces the SVG line drawing of the presentation)
+    if (border) {
+      tl.to(border, {
+        autoAlpha: 1,
+        scale: 1,
+        duration: 4.5,
+        ease: 'power2.out'
+      });
+    }
+
+    // 2. Title — exactly the same config as the presentation
+    if (title) {
+      tl.to(title, {
+        autoAlpha: 1,
+        y: 0,
+        filter: 'blur(0px)',
+        duration: 1.2,
+        ease: 'power3.out'
+      }, '+=0.15');
+    }
+
+    // 3. Description — exactly the same config as the presentation
+    if (desc) {
+      tl.to(desc, {
+        autoAlpha: 1,
+        y: 0,
+        filter: 'blur(0px)',
+        duration: 1.2,
+        ease: 'power3.out'
+      }, '-=0.7');
+    }
+
+    // Buffer at end
+    tl.to({}, {
+      duration: 0.2
+    });
+  });
+}
+
+/**
+ * Meals cards — image slide-down reveal.
+ * Each card's image starts hidden above its bordered container and slides
+ * down into place when the card enters the viewport.
+ *
+ * The container (.card-meal__img) already has overflow: hidden, so the
+ * sliding image stays clipped within the rounded border.
+ *
+ * Markup contract:
+ *   [data-meals-card]      — each card wrapper
+ *   .card-meal__img img    — the image to slide
+ */
+function initMealsReveal() {
+  // ─── Toggle ────────────────────────────────────────────────────────────────
+  // true  → slide down on scroll down + slide up on scroll up (reversible)
+  // false → slide down once on first scroll down, never reverses (original)
+  var MEALS_REVERSE_ON_SCROLL_UP = true;
+  // ───────────────────────────────────────────────────────────────────────────
+
+  // Each grid wrapper has its own cumulative delay so the mobile/desktop and
+  // tablet layouts (rendered as separate DOMs and toggled via responsive
+  // visibility) animate from index 0 inside their own container.
+  var grids = document.querySelectorAll('[data-meals-grid]');
+  if (!grids.length) return;
+  grids.forEach(function (grid) {
+    var cards = grid.querySelectorAll('[data-meals-card]');
+    // Per-grid stagger override via data-meals-stagger (defaults to 0.3s)
+    var stagger = parseFloat(grid.getAttribute('data-meals-stagger')) || 0.3;
+    cards.forEach(function (card, index) {
+      var imgContainer = card.querySelector('.card-meal__img');
+      var img = imgContainer ? imgContainer.querySelector('img') : null;
+      if (!img || !imgContainer) return;
+
+      // Initial states — image hidden above the container, gradient overlay invisible
+      _gsap_js__WEBPACK_IMPORTED_MODULE_0__.gsap.set(img, {
+        yPercent: -100
+      });
+      _gsap_js__WEBPACK_IMPORTED_MODULE_0__.gsap.set(imgContainer, {
+        '--overlay-opacity': 0
+      });
+
+      // Per-card delay override via data-meals-delay; otherwise cumulative cascade
+      var delayAttr = card.getAttribute('data-meals-delay');
+      var delay = delayAttr !== null ? parseFloat(delayAttr) : index * stagger;
+      var tl = _gsap_js__WEBPACK_IMPORTED_MODULE_0__.gsap.timeline({
+        delay: delay,
+        scrollTrigger: {
+          trigger: card,
+          start: 'top 70%',
+          toggleActions: MEALS_REVERSE_ON_SCROLL_UP ? 'play none none reverse' : 'play none none none'
+        },
+        // When not reversing, clear the inline transform so CSS hover keeps working.
+        onComplete: MEALS_REVERSE_ON_SCROLL_UP ? null : function () {
+          return _gsap_js__WEBPACK_IMPORTED_MODULE_0__.gsap.set(img, {
+            clearProps: 'transform'
+          });
+        }
+      });
+
+      // 1. Slide image down into the bordered container
+      tl.to(img, {
+        yPercent: 0,
+        duration: 1.8,
+        ease: 'power3.out'
+      });
+
+      // 2. After the image has settled, fade in the bottom gradient overlay
+      tl.to(imgContainer, {
+        '--overlay-opacity': 1,
+        duration: 1.4,
+        ease: 'power2.out'
+      });
+    });
+  });
+}
+
+/**
+ * Presentation section — SVG border line drawing reveal (no pin).
+ * Sequence:
+ *   1. Section enters viewport at the configured start position.
+ *   2. SVG path traces the bordered rectangle (line drawing effect, like the buttons).
+ *   3. Title and description fade in once the line is drawn.
+ *
+ * Markup contract on presentation.php:
+ *   [data-presentation-draw] — section wrapper (trigger)
+ *   [data-reveal-border]     — bordered box (CSS border hidden, SVG drawn here)
+ *   [data-reveal-title]      — title
+ *   [data-reveal-desc]       — description
+ *
+ * Per-breakpoint trigger tuning lives in PRESENTATION_CONFIG below.
+ */
+var PRESENTATION_CONFIG = {
+  // Desktop ≥ 1280px
+  desktop: {
+    start: 'top 60%',
+    drawDuration: 2.5
+  },
+  // Tablet 768–1279px
+  tablet: {
+    start: 'top 65%',
+    drawDuration: 2
+  },
+  // Mobile < 768px
+  mobile: {
+    start: 'top 70%',
+    drawDuration: 1.8
+  }
+};
+function initPresentationDraw() {
+  var section = document.querySelector('[data-presentation-draw]');
+  if (!section) return;
+  var border = section.querySelector('[data-reveal-border]');
+  var title = section.querySelector('[data-reveal-title]');
+  var desc = section.querySelector('[data-reveal-desc]');
+  if (!border) return;
+
+  // Tell SCSS to hide the static border + gap overlay (SVG takes over)
+  border.classList.add('is-svg-drawn');
+
+  // Build the SVG layer
+  var SVG_NS = 'http://www.w3.org/2000/svg';
+  var svg = document.createElementNS(SVG_NS, 'svg');
+  svg.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;overflow:visible;';
+  var path = document.createElementNS(SVG_NS, 'path');
+  svg.appendChild(path);
+  border.appendChild(svg);
+
+  // Top-gap position per breakpoint — must match SCSS values
+  function getGap() {
+    var vw = window.innerWidth;
+    if (vw >= 1280) return {
+      left: 172,
+      width: 162
+    };
+    if (vw >= 768) return {
+      left: 67,
+      width: 63
+    };
+    return {
+      left: 30,
+      width: 30
+    };
+  }
+
+  // Trace the rounded rectangle clockwise, excluding the top gap segment.
+  // Start at the right edge of the gap, finish at the left edge.
+  function buildPath(w, h, r, gapLeft, gapWidth) {
+    var gapEnd = gapLeft + gapWidth;
+    return ["M ".concat(gapEnd, " 0"), "L ".concat(w - r, " 0"), "Q ".concat(w, " 0 ").concat(w, " ").concat(r), "L ".concat(w, " ").concat(h - r), "Q ".concat(w, " ").concat(h, " ").concat(w - r, " ").concat(h), "L ".concat(r, " ").concat(h), "Q 0 ".concat(h, " 0 ").concat(h - r), "L 0 ".concat(r), "Q 0 0 ".concat(r, " 0"), "L ".concat(gapLeft, " 0")].join(' ');
+  }
+  function updatePath() {
+    var w = border.offsetWidth;
+    var h = border.offsetHeight;
+    var r = 8;
+    var _getGap = getGap(),
+      left = _getGap.left,
+      width = _getGap.width;
+    svg.setAttribute('viewBox', "0 0 ".concat(w, " ").concat(h));
+    path.setAttribute('d', buildPath(w, h, r, left, width));
+    return path.getTotalLength();
+  }
+  var pathLength = updatePath();
+  _gsap_js__WEBPACK_IMPORTED_MODULE_0__.gsap.set(path, {
+    strokeDasharray: pathLength,
+    strokeDashoffset: pathLength
+  });
+
+  // Initial states for text — applied once, regardless of breakpoint
+  if (title) _gsap_js__WEBPACK_IMPORTED_MODULE_0__.gsap.set(title, {
+    autoAlpha: 0,
+    y: 30,
+    filter: 'blur(8px)'
+  });
+  if (desc) _gsap_js__WEBPACK_IMPORTED_MODULE_0__.gsap.set(desc, {
+    autoAlpha: 0,
+    y: 30,
+    filter: 'blur(8px)'
+  });
+
+  // Build a play-once timeline using the breakpoint-specific config
+  var buildTimeline = function buildTimeline(cfg) {
+    var tl = _gsap_js__WEBPACK_IMPORTED_MODULE_0__.gsap.timeline({
+      paused: true,
+      scrollTrigger: {
+        trigger: section,
+        start: cfg.start,
+        toggleActions: 'play none none none',
+        invalidateOnRefresh: true,
+        onRefresh: function onRefresh() {
+          // Recompute on resize/refresh so path stays accurate
+          pathLength = updatePath();
+          _gsap_js__WEBPACK_IMPORTED_MODULE_0__.gsap.set(path, {
+            strokeDasharray: pathLength
+          });
+        }
+      }
+    });
+
+    // 1. Draw the border line
+    tl.to(path, {
+      strokeDashoffset: 0,
+      duration: cfg.drawDuration,
+      ease: 'power2.out'
+    });
+
+    // 2. Title — starts mid-way through the line drawing so the text reveals
+    // alongside the border instead of after it finishes.
+    if (title) {
+      tl.to(title, {
+        autoAlpha: 1,
+        y: 0,
+        filter: 'blur(0px)',
+        duration: 1.2,
+        ease: 'power3.out'
+      }, "-=".concat(cfg.drawDuration * 0.9));
+    }
+
+    // 3. Description — slight overlap with title for a smooth flow
+    if (desc) {
+      tl.to(desc, {
+        autoAlpha: 1,
+        y: 0,
+        filter: 'blur(0px)',
+        duration: 1.2,
+        ease: 'power3.out'
+      }, '-=1.8');
+    }
+  };
+
+  // Per-breakpoint timeline — gsap.matchMedia automatically creates/kills
+  // the right ScrollTrigger when the viewport crosses a breakpoint
+  var mm = _gsap_js__WEBPACK_IMPORTED_MODULE_0__.gsap.matchMedia();
+  mm.add('(min-width: 1280px)', function () {
+    return buildTimeline(PRESENTATION_CONFIG.desktop);
+  });
+  mm.add('(min-width: 768px) and (max-width: 1279px)', function () {
+    return buildTimeline(PRESENTATION_CONFIG.tablet);
+  });
+  mm.add('(max-width: 767px)', function () {
+    return buildTimeline(PRESENTATION_CONFIG.mobile);
+  });
+}
+
+/**
+ * Weekly section — play-once reveal triggered when the section enters the
+ * viewport. Border fades + scales in, then title and description reveal in
+ * sequence. No pin, no scrub.
+ *
+ * Markup contract on weekly.php:
+ *   [data-weekly-reveal]   — section wrapper (trigger)
+ *   [data-reveal-border]   — bordered box
+ *   [data-reveal-title]    — title
+ *   [data-reveal-desc]     — description
+ */
+var WEEKLY_CONFIG = {
+  desktop: {
+    start: 'top 80%',
+    borderDuration: 1.2
+  },
+  tablet: {
+    start: 'top 85%',
+    borderDuration: 1.0
+  },
+  mobile: {
+    start: 'top 90%',
+    borderDuration: 0.9
+  }
+};
+function initWeeklyReveal() {
+  var section = document.querySelector('[data-weekly-reveal]');
+  if (!section) return;
+  var border = section.querySelector('[data-reveal-border]');
+  var title = section.querySelector('[data-reveal-title]');
+  var desc = section.querySelector('[data-reveal-desc]');
+
+  // Initial states — applied once, regardless of breakpoint
+  if (border) _gsap_js__WEBPACK_IMPORTED_MODULE_0__.gsap.set(border, {
+    autoAlpha: 0,
+    scale: 0.94,
+    transformOrigin: '50% 50%'
+  });
+  if (title) _gsap_js__WEBPACK_IMPORTED_MODULE_0__.gsap.set(title, {
+    autoAlpha: 0,
+    y: 30,
+    filter: 'blur(8px)'
+  });
+  if (desc) _gsap_js__WEBPACK_IMPORTED_MODULE_0__.gsap.set(desc, {
+    autoAlpha: 0,
+    y: 30,
+    filter: 'blur(8px)'
+  });
+
+  // Build a play-once timeline using the breakpoint-specific config
+  var buildTimeline = function buildTimeline(cfg) {
+    var tl = _gsap_js__WEBPACK_IMPORTED_MODULE_0__.gsap.timeline({
+      paused: true,
+      scrollTrigger: {
+        trigger: section,
+        start: cfg.start,
+        toggleActions: 'play none none none',
+        invalidateOnRefresh: true
+      }
+    });
+
+    // 1. Border fade + scale-in
+    if (border) {
+      tl.to(border, {
+        autoAlpha: 1,
+        scale: 1,
+        duration: cfg.borderDuration,
+        ease: 'power2.out'
+      });
+    }
+
+    // 2. Title
+    if (title) {
+      tl.to(title, {
+        autoAlpha: 1,
+        y: 0,
+        filter: 'blur(0px)',
+        duration: 1.2,
+        ease: 'power3.out'
+      }, '-=0.6');
+    }
+
+    // 3. Description
+    if (desc) {
+      tl.to(desc, {
+        autoAlpha: 1,
+        y: 0,
+        filter: 'blur(0px)',
+        duration: 1.2,
+        ease: 'power3.out'
+      }, '-=0.9');
+    }
+  };
+  var mm = _gsap_js__WEBPACK_IMPORTED_MODULE_0__.gsap.matchMedia();
+  mm.add('(min-width: 1280px)', function () {
+    return buildTimeline(WEEKLY_CONFIG.desktop);
+  });
+  mm.add('(min-width: 768px) and (max-width: 1279px)', function () {
+    return buildTimeline(WEEKLY_CONFIG.tablet);
+  });
+  mm.add('(max-width: 767px)', function () {
+    return buildTimeline(WEEKLY_CONFIG.mobile);
+  });
+}
+
+
+/***/ },
+
+/***/ "./assets/js/buttons.js"
+/*!******************************!*\
+  !*** ./assets/js/buttons.js ***!
+  \******************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   initFooterButtons: () => (/* binding */ initFooterButtons),
+/* harmony export */   initHeaderButtons: () => (/* binding */ initHeaderButtons),
+/* harmony export */   initPrimaryButtons: () => (/* binding */ initPrimaryButtons),
+/* harmony export */   initReservationButtons: () => (/* binding */ initReservationButtons)
+/* harmony export */ });
+/* harmony import */ var _gsap_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./gsap.js */ "./assets/js/gsap.js");
+
+var SVG_NS = 'http://www.w3.org/2000/svg';
+var BORDER_RADIUS = 4;
+
+/**
+ * Builds the SVG path starting at bottom-center, going counterclockwise:
+ * left → up left side → top → down right side → bottom-right corner → a few px along bottom.
+ */
+function buildBorderPath(w, h, r) {
+  var extra = 20;
+  return ["M ".concat(w / 2, " ").concat(h), "L ".concat(r, " ").concat(h), "Q 0 ".concat(h, " 0 ").concat(h - r), "L 0 ".concat(r), "Q 0 0 ".concat(r, " 0"), "L ".concat(w - r, " 0"), "Q ".concat(w, " 0 ").concat(w, " ").concat(r), "L ".concat(w, " ").concat(h - r), "Q ".concat(w, " ").concat(h, " ").concat(w - r, " ").concat(h), "L ".concat(w - r - extra, " ").concat(h)].join(' ');
+}
+
+/**
+ * Animated button border.
+ *
+ * @param {string}  selector            CSS selector for the button(s).
+ * @param {string}  strokeColor         Stroke colour for the SVG path.
+ * @param {?string} pressedStrokeColor  Optional stroke colour while mousedown.
+ * @param {boolean} reverse             When true, the line is drawn by default
+ *                                      and animates AWAY on hover (un-draws),
+ *                                      then redraws on leave. When false, line
+ *                                      is hidden and draws on hover (default).
+ */
+function initAnimatedButton(selector, strokeColor) {
+  var pressedStrokeColor = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
+  var reverse = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
+  document.querySelectorAll(selector).forEach(function (btn) {
+    var svg = document.createElementNS(SVG_NS, 'svg');
+    svg.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;overflow:visible;';
+    var path = document.createElementNS(SVG_NS, 'path');
+    path.setAttribute('fill', 'none');
+    path.setAttribute('stroke', strokeColor);
+    path.setAttribute('stroke-width', '2');
+    svg.appendChild(path);
+    btn.appendChild(svg);
+    var anim = null;
+
+    // Build / measure the path based on the button's current dimensions
+    var setupPath = function setupPath() {
+      var w = btn.offsetWidth;
+      var h = btn.offsetHeight;
+      svg.setAttribute('viewBox', "0 0 ".concat(w, " ").concat(h));
+      path.setAttribute('d', buildBorderPath(w, h, BORDER_RADIUS));
+      return path.getTotalLength();
+    };
+    if (reverse) {
+      // Reverse mode — draw the line immediately so it's visible by default.
+      // Re-measure after layout settles (fonts, images) to keep the path accurate.
+      var apply = function apply() {
+        var length = setupPath();
+        _gsap_js__WEBPACK_IMPORTED_MODULE_0__.gsap.set(path, {
+          strokeDasharray: length,
+          strokeDashoffset: 0
+        });
+      };
+      apply();
+      window.addEventListener('load', apply);
+    }
+    if (pressedStrokeColor) {
+      btn.addEventListener('mousedown', function () {
+        return path.setAttribute('stroke', pressedStrokeColor);
+      });
+      btn.addEventListener('mouseup', function () {
+        return path.setAttribute('stroke', strokeColor);
+      });
+      btn.addEventListener('mouseleave', function () {
+        return path.setAttribute('stroke', strokeColor);
+      });
+    }
+    btn.addEventListener('mouseenter', function () {
+      var length = setupPath();
+      if (anim) anim.kill();
+      if (reverse) {
+        // Un-draw — line wipes off in reverse direction
+        anim = _gsap_js__WEBPACK_IMPORTED_MODULE_0__.gsap.to(path, {
+          strokeDashoffset: length,
+          duration: 1,
+          ease: 'none'
+        });
+      } else {
+        _gsap_js__WEBPACK_IMPORTED_MODULE_0__.gsap.set(path, {
+          strokeDasharray: length,
+          strokeDashoffset: length
+        });
+        anim = _gsap_js__WEBPACK_IMPORTED_MODULE_0__.gsap.to(path, {
+          strokeDashoffset: 0,
+          duration: 1,
+          ease: 'none'
+        });
+      }
+    });
+    btn.addEventListener('mouseleave', function () {
+      if (anim) anim.kill();
+      if (reverse) {
+        // Redraw — line traces back in
+        anim = _gsap_js__WEBPACK_IMPORTED_MODULE_0__.gsap.to(path, {
+          strokeDashoffset: 0,
+          duration: 0.8,
+          ease: 'none'
+        });
+      } else {
+        anim = _gsap_js__WEBPACK_IMPORTED_MODULE_0__.gsap.to(path, {
+          strokeDashoffset: path.getTotalLength(),
+          duration: 0.8,
+          ease: 'none'
+        });
+      }
+    });
+  });
+}
+function initPrimaryButtons() {
+  initAnimatedButton('.btn-primary', '#F1F2ED', '#874644', true);
+}
+function initHeaderButtons() {
+  initAnimatedButton('.btn-header', '#F1F2ED', '#874644');
+}
+function initReservationButtons() {
+  initAnimatedButton('.btn-reservation', '#F1F2ED');
+}
+function initFooterButtons() {
+  initAnimatedButton('.btn-footer', '#874644');
+}
+
+
+/***/ },
+
+/***/ "./assets/js/gsap.js"
+/*!***************************!*\
+  !*** ./assets/js/gsap.js ***!
+  \***************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ScrollTrigger: () => (/* reexport safe */ gsap_ScrollTrigger__WEBPACK_IMPORTED_MODULE_1__.ScrollTrigger),
+/* harmony export */   TextPlugin: () => (/* reexport safe */ gsap_TextPlugin__WEBPACK_IMPORTED_MODULE_2__.TextPlugin),
+/* harmony export */   gsap: () => (/* reexport safe */ gsap__WEBPACK_IMPORTED_MODULE_0__["default"]),
+/* harmony export */   lenis: () => (/* binding */ lenis)
+/* harmony export */ });
+/* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! gsap */ "./node_modules/gsap/index.js");
+/* harmony import */ var gsap_ScrollTrigger__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! gsap/ScrollTrigger */ "./node_modules/gsap/ScrollTrigger.js");
+/* harmony import */ var gsap_TextPlugin__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! gsap/TextPlugin */ "./node_modules/gsap/TextPlugin.js");
+/* harmony import */ var lenis__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! lenis */ "./node_modules/lenis/dist/lenis.mjs");
+
+
+
+
+gsap__WEBPACK_IMPORTED_MODULE_0__["default"].registerPlugin(gsap_ScrollTrigger__WEBPACK_IMPORTED_MODULE_1__.ScrollTrigger, gsap_TextPlugin__WEBPACK_IMPORTED_MODULE_2__.TextPlugin);
+
+// Expo-out easing for a cinematic, filmic stop
+var easeExpoOut = function easeExpoOut(t) {
+  return t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
+};
+
+/**
+ * Initialise Lenis with a cinematic glide feel.
+ * Tweak duration and wheelMultiplier per project to taste.
+ *
+ * @returns {Lenis}
+ */
+function initLenis() {
+  var lenis = new lenis__WEBPACK_IMPORTED_MODULE_3__["default"]({
+    duration: 1.35,
+    // adjust per project — higher = longer glide
+    easing: easeExpoOut,
+    smooth: true,
+    smoothWheel: true,
+    wheelMultiplier: 0.85 // lower = softer on high-res/trackpad devices
+  });
+
+  // Keep ScrollTrigger in sync with Lenis scroll position
+  lenis.on('scroll', gsap_ScrollTrigger__WEBPACK_IMPORTED_MODULE_1__.ScrollTrigger.update);
+
+  // Drive Lenis with GSAP ticker — single RAF source
+  gsap__WEBPACK_IMPORTED_MODULE_0__["default"].ticker.add(function (time) {
+    lenis.raf(time * 1000);
+  });
+  gsap__WEBPACK_IMPORTED_MODULE_0__["default"].ticker.lagSmoothing(0);
+  return lenis;
+}
+var lenis = initLenis();
+
+
+/***/ },
+
+/***/ "./assets/js/main.js"
+/*!***************************!*\
+  !*** ./assets/js/main.js ***!
+  \***************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _gsap_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./gsap.js */ "./assets/js/gsap.js");
+/* harmony import */ var _utils_helpers_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./utils/helpers.js */ "./assets/js/utils/helpers.js");
+/* harmony import */ var _buttons_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./buttons.js */ "./assets/js/buttons.js");
+/* harmony import */ var _animations_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./animations.js */ "./assets/js/animations.js");
+// =============================================================================
+// Base libraries
+// =============================================================================
+
+
+// =============================================================================
+// Optional libraries — uncomment as needed per project
+// =============================================================================
+// import './swiper.js';
+// import './fancybox.js';
+
+// =============================================================================
+// Utilities
+// =============================================================================
+
+
+// =============================================================================
+// Components
+// =============================================================================
+
+
+
+// =============================================================================
+// DOM ready
+// =============================================================================
+document.addEventListener('DOMContentLoaded', function () {
+  (0,_buttons_js__WEBPACK_IMPORTED_MODULE_2__.initPrimaryButtons)();
+  (0,_buttons_js__WEBPACK_IMPORTED_MODULE_2__.initHeaderButtons)();
+  (0,_buttons_js__WEBPACK_IMPORTED_MODULE_2__.initReservationButtons)();
+  (0,_buttons_js__WEBPACK_IMPORTED_MODULE_2__.initFooterButtons)();
+  (0,_animations_js__WEBPACK_IMPORTED_MODULE_3__.initAnimations)();
+  (0,_animations_js__WEBPACK_IMPORTED_MODULE_3__.initParallax)();
+  (0,_animations_js__WEBPACK_IMPORTED_MODULE_3__.initBannerIntro)();
+  (0,_animations_js__WEBPACK_IMPORTED_MODULE_3__.initPinnedReveal)();
+  (0,_animations_js__WEBPACK_IMPORTED_MODULE_3__.initPresentationDraw)();
+  (0,_animations_js__WEBPACK_IMPORTED_MODULE_3__.initWeeklyReveal)();
+  (0,_animations_js__WEBPACK_IMPORTED_MODULE_3__.initMealsReveal)();
+});
+
+/***/ },
+
+/***/ "./assets/js/utils/helpers.js"
+/*!************************************!*\
+  !*** ./assets/js/utils/helpers.js ***!
+  \************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   debounce: () => (/* binding */ debounce),
+/* harmony export */   isTouchDevice: () => (/* binding */ isTouchDevice)
+/* harmony export */ });
+/**
+ * General-purpose utility functions.
+ */
+
+/**
+ * Debounce — delays a function call until after a given wait time.
+ * Useful for resize/scroll listeners.
+ *
+ * @param {Function} fn   Function to debounce.
+ * @param {number}   wait Wait time in milliseconds.
+ * @returns {Function}
+ */
+function debounce(fn) {
+  var wait = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 200;
+  var timer;
+  return function () {
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+    clearTimeout(timer);
+    timer = setTimeout(function () {
+      return fn.apply(void 0, args);
+    }, wait);
+  };
+}
+
+/**
+ * Returns true if the current device is touch-based.
+ *
+ * @returns {boolean}
+ */
+function isTouchDevice() {
+  return window.matchMedia('(hover: none)').matches;
+}
+
+/***/ },
+
+/***/ "./node_modules/gsap/CSSPlugin.js"
+/*!****************************************!*\
+  !*** ./node_modules/gsap/CSSPlugin.js ***!
+  \****************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   CSSPlugin: () => (/* binding */ CSSPlugin),
+/* harmony export */   _createElement: () => (/* binding */ _createElement),
+/* harmony export */   _getBBox: () => (/* binding */ _getBBox),
+/* harmony export */   checkPrefix: () => (/* binding */ _checkPropPrefix),
+/* harmony export */   "default": () => (/* binding */ CSSPlugin)
+/* harmony export */ });
+/* harmony import */ var _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./gsap-core.js */ "./node_modules/gsap/gsap-core.js");
+/*!
+ * CSSPlugin 3.12.5
+ * https://gsap.com
+ *
+ * Copyright 2008-2024, GreenSock. All rights reserved.
+ * Subject to the terms at https://gsap.com/standard-license or for
+ * Club GSAP members, the agreement issued with that membership.
+ * @author: Jack Doyle, jack@greensock.com
+*/
+
+/* eslint-disable */
+
+
+var _win,
+    _doc,
+    _docElement,
+    _pluginInitted,
+    _tempDiv,
+    _tempDivStyler,
+    _recentSetterPlugin,
+    _reverting,
+    _windowExists = function _windowExists() {
+  return typeof window !== "undefined";
+},
+    _transformProps = {},
+    _RAD2DEG = 180 / Math.PI,
+    _DEG2RAD = Math.PI / 180,
+    _atan2 = Math.atan2,
+    _bigNum = 1e8,
+    _capsExp = /([A-Z])/g,
+    _horizontalExp = /(left|right|width|margin|padding|x)/i,
+    _complexExp = /[\s,\(]\S/,
+    _propertyAliases = {
+  autoAlpha: "opacity,visibility",
+  scale: "scaleX,scaleY",
+  alpha: "opacity"
+},
+    _renderCSSProp = function _renderCSSProp(ratio, data) {
+  return data.set(data.t, data.p, Math.round((data.s + data.c * ratio) * 10000) / 10000 + data.u, data);
+},
+    _renderPropWithEnd = function _renderPropWithEnd(ratio, data) {
+  return data.set(data.t, data.p, ratio === 1 ? data.e : Math.round((data.s + data.c * ratio) * 10000) / 10000 + data.u, data);
+},
+    _renderCSSPropWithBeginning = function _renderCSSPropWithBeginning(ratio, data) {
+  return data.set(data.t, data.p, ratio ? Math.round((data.s + data.c * ratio) * 10000) / 10000 + data.u : data.b, data);
+},
+    //if units change, we need a way to render the original unit/value when the tween goes all the way back to the beginning (ratio:0)
+_renderRoundedCSSProp = function _renderRoundedCSSProp(ratio, data) {
+  var value = data.s + data.c * ratio;
+  data.set(data.t, data.p, ~~(value + (value < 0 ? -.5 : .5)) + data.u, data);
+},
+    _renderNonTweeningValue = function _renderNonTweeningValue(ratio, data) {
+  return data.set(data.t, data.p, ratio ? data.e : data.b, data);
+},
+    _renderNonTweeningValueOnlyAtEnd = function _renderNonTweeningValueOnlyAtEnd(ratio, data) {
+  return data.set(data.t, data.p, ratio !== 1 ? data.b : data.e, data);
+},
+    _setterCSSStyle = function _setterCSSStyle(target, property, value) {
+  return target.style[property] = value;
+},
+    _setterCSSProp = function _setterCSSProp(target, property, value) {
+  return target.style.setProperty(property, value);
+},
+    _setterTransform = function _setterTransform(target, property, value) {
+  return target._gsap[property] = value;
+},
+    _setterScale = function _setterScale(target, property, value) {
+  return target._gsap.scaleX = target._gsap.scaleY = value;
+},
+    _setterScaleWithRender = function _setterScaleWithRender(target, property, value, data, ratio) {
+  var cache = target._gsap;
+  cache.scaleX = cache.scaleY = value;
+  cache.renderTransform(ratio, cache);
+},
+    _setterTransformWithRender = function _setterTransformWithRender(target, property, value, data, ratio) {
+  var cache = target._gsap;
+  cache[property] = value;
+  cache.renderTransform(ratio, cache);
+},
+    _transformProp = "transform",
+    _transformOriginProp = _transformProp + "Origin",
+    _saveStyle = function _saveStyle(property, isNotCSS) {
+  var _this = this;
+
+  var target = this.target,
+      style = target.style,
+      cache = target._gsap;
+
+  if (property in _transformProps && style) {
+    this.tfm = this.tfm || {};
+
+    if (property !== "transform") {
+      property = _propertyAliases[property] || property;
+      ~property.indexOf(",") ? property.split(",").forEach(function (a) {
+        return _this.tfm[a] = _get(target, a);
+      }) : this.tfm[property] = cache.x ? cache[property] : _get(target, property); // note: scale would map to "scaleX,scaleY", thus we loop and apply them both.
+
+      property === _transformOriginProp && (this.tfm.zOrigin = cache.zOrigin);
+    } else {
+      return _propertyAliases.transform.split(",").forEach(function (p) {
+        return _saveStyle.call(_this, p, isNotCSS);
+      });
+    }
+
+    if (this.props.indexOf(_transformProp) >= 0) {
+      return;
+    }
+
+    if (cache.svg) {
+      this.svgo = target.getAttribute("data-svg-origin");
+      this.props.push(_transformOriginProp, isNotCSS, "");
+    }
+
+    property = _transformProp;
+  }
+
+  (style || isNotCSS) && this.props.push(property, isNotCSS, style[property]);
+},
+    _removeIndependentTransforms = function _removeIndependentTransforms(style) {
+  if (style.translate) {
+    style.removeProperty("translate");
+    style.removeProperty("scale");
+    style.removeProperty("rotate");
+  }
+},
+    _revertStyle = function _revertStyle() {
+  var props = this.props,
+      target = this.target,
+      style = target.style,
+      cache = target._gsap,
+      i,
+      p;
+
+  for (i = 0; i < props.length; i += 3) {
+    // stored like this: property, isNotCSS, value
+    props[i + 1] ? target[props[i]] = props[i + 2] : props[i + 2] ? style[props[i]] = props[i + 2] : style.removeProperty(props[i].substr(0, 2) === "--" ? props[i] : props[i].replace(_capsExp, "-$1").toLowerCase());
+  }
+
+  if (this.tfm) {
+    for (p in this.tfm) {
+      cache[p] = this.tfm[p];
+    }
+
+    if (cache.svg) {
+      cache.renderTransform();
+      target.setAttribute("data-svg-origin", this.svgo || "");
+    }
+
+    i = _reverting();
+
+    if ((!i || !i.isStart) && !style[_transformProp]) {
+      _removeIndependentTransforms(style);
+
+      if (cache.zOrigin && style[_transformOriginProp]) {
+        style[_transformOriginProp] += " " + cache.zOrigin + "px"; // since we're uncaching, we must put the zOrigin back into the transformOrigin so that we can pull it out accurately when we parse again. Otherwise, we'd lose the z portion of the origin since we extract it to protect from Safari bugs.
+
+        cache.zOrigin = 0;
+        cache.renderTransform();
+      }
+
+      cache.uncache = 1; // if it's a startAt that's being reverted in the _initTween() of the core, we don't need to uncache transforms. This is purely a performance optimization.
+    }
+  }
+},
+    _getStyleSaver = function _getStyleSaver(target, properties) {
+  var saver = {
+    target: target,
+    props: [],
+    revert: _revertStyle,
+    save: _saveStyle
+  };
+  target._gsap || _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.gsap.core.getCache(target); // just make sure there's a _gsap cache defined because we read from it in _saveStyle() and it's more efficient to just check it here once.
+
+  properties && properties.split(",").forEach(function (p) {
+    return saver.save(p);
+  });
+  return saver;
+},
+    _supports3D,
+    _createElement = function _createElement(type, ns) {
+  var e = _doc.createElementNS ? _doc.createElementNS((ns || "http://www.w3.org/1999/xhtml").replace(/^https/, "http"), type) : _doc.createElement(type); //some servers swap in https for http in the namespace which can break things, making "style" inaccessible.
+
+  return e && e.style ? e : _doc.createElement(type); //some environments won't allow access to the element's style when created with a namespace in which case we default to the standard createElement() to work around the issue. Also note that when GSAP is embedded directly inside an SVG file, createElement() won't allow access to the style object in Firefox (see https://gsap.com/forums/topic/20215-problem-using-tweenmax-in-standalone-self-containing-svg-file-err-cannot-set-property-csstext-of-undefined/).
+},
+    _getComputedProperty = function _getComputedProperty(target, property, skipPrefixFallback) {
+  var cs = getComputedStyle(target);
+  return cs[property] || cs.getPropertyValue(property.replace(_capsExp, "-$1").toLowerCase()) || cs.getPropertyValue(property) || !skipPrefixFallback && _getComputedProperty(target, _checkPropPrefix(property) || property, 1) || ""; //css variables may not need caps swapped out for dashes and lowercase.
+},
+    _prefixes = "O,Moz,ms,Ms,Webkit".split(","),
+    _checkPropPrefix = function _checkPropPrefix(property, element, preferPrefix) {
+  var e = element || _tempDiv,
+      s = e.style,
+      i = 5;
+
+  if (property in s && !preferPrefix) {
+    return property;
+  }
+
+  property = property.charAt(0).toUpperCase() + property.substr(1);
+
+  while (i-- && !(_prefixes[i] + property in s)) {}
+
+  return i < 0 ? null : (i === 3 ? "ms" : i >= 0 ? _prefixes[i] : "") + property;
+},
+    _initCore = function _initCore() {
+  if (_windowExists() && window.document) {
+    _win = window;
+    _doc = _win.document;
+    _docElement = _doc.documentElement;
+    _tempDiv = _createElement("div") || {
+      style: {}
+    };
+    _tempDivStyler = _createElement("div");
+    _transformProp = _checkPropPrefix(_transformProp);
+    _transformOriginProp = _transformProp + "Origin";
+    _tempDiv.style.cssText = "border-width:0;line-height:0;position:absolute;padding:0"; //make sure to override certain properties that may contaminate measurements, in case the user has overreaching style sheets.
+
+    _supports3D = !!_checkPropPrefix("perspective");
+    _reverting = _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.gsap.core.reverting;
+    _pluginInitted = 1;
+  }
+},
+    _getBBoxHack = function _getBBoxHack(swapIfPossible) {
+  //works around issues in some browsers (like Firefox) that don't correctly report getBBox() on SVG elements inside a <defs> element and/or <mask>. We try creating an SVG, adding it to the documentElement and toss the element in there so that it's definitely part of the rendering tree, then grab the bbox and if it works, we actually swap out the original getBBox() method for our own that does these extra steps whenever getBBox is needed. This helps ensure that performance is optimal (only do all these extra steps when absolutely necessary...most elements don't need it).
+  var svg = _createElement("svg", this.ownerSVGElement && this.ownerSVGElement.getAttribute("xmlns") || "http://www.w3.org/2000/svg"),
+      oldParent = this.parentNode,
+      oldSibling = this.nextSibling,
+      oldCSS = this.style.cssText,
+      bbox;
+
+  _docElement.appendChild(svg);
+
+  svg.appendChild(this);
+  this.style.display = "block";
+
+  if (swapIfPossible) {
+    try {
+      bbox = this.getBBox();
+      this._gsapBBox = this.getBBox; //store the original
+
+      this.getBBox = _getBBoxHack;
+    } catch (e) {}
+  } else if (this._gsapBBox) {
+    bbox = this._gsapBBox();
+  }
+
+  if (oldParent) {
+    if (oldSibling) {
+      oldParent.insertBefore(this, oldSibling);
+    } else {
+      oldParent.appendChild(this);
+    }
+  }
+
+  _docElement.removeChild(svg);
+
+  this.style.cssText = oldCSS;
+  return bbox;
+},
+    _getAttributeFallbacks = function _getAttributeFallbacks(target, attributesArray) {
+  var i = attributesArray.length;
+
+  while (i--) {
+    if (target.hasAttribute(attributesArray[i])) {
+      return target.getAttribute(attributesArray[i]);
+    }
+  }
+},
+    _getBBox = function _getBBox(target) {
+  var bounds;
+
+  try {
+    bounds = target.getBBox(); //Firefox throws errors if you try calling getBBox() on an SVG element that's not rendered (like in a <symbol> or <defs>). https://bugzilla.mozilla.org/show_bug.cgi?id=612118
+  } catch (error) {
+    bounds = _getBBoxHack.call(target, true);
+  }
+
+  bounds && (bounds.width || bounds.height) || target.getBBox === _getBBoxHack || (bounds = _getBBoxHack.call(target, true)); //some browsers (like Firefox) misreport the bounds if the element has zero width and height (it just assumes it's at x:0, y:0), thus we need to manually grab the position in that case.
+
+  return bounds && !bounds.width && !bounds.x && !bounds.y ? {
+    x: +_getAttributeFallbacks(target, ["x", "cx", "x1"]) || 0,
+    y: +_getAttributeFallbacks(target, ["y", "cy", "y1"]) || 0,
+    width: 0,
+    height: 0
+  } : bounds;
+},
+    _isSVG = function _isSVG(e) {
+  return !!(e.getCTM && (!e.parentNode || e.ownerSVGElement) && _getBBox(e));
+},
+    //reports if the element is an SVG on which getBBox() actually works
+_removeProperty = function _removeProperty(target, property) {
+  if (property) {
+    var style = target.style,
+        first2Chars;
+
+    if (property in _transformProps && property !== _transformOriginProp) {
+      property = _transformProp;
+    }
+
+    if (style.removeProperty) {
+      first2Chars = property.substr(0, 2);
+
+      if (first2Chars === "ms" || property.substr(0, 6) === "webkit") {
+        //Microsoft and some Webkit browsers don't conform to the standard of capitalizing the first prefix character, so we adjust so that when we prefix the caps with a dash, it's correct (otherwise it'd be "ms-transform" instead of "-ms-transform" for IE9, for example)
+        property = "-" + property;
+      }
+
+      style.removeProperty(first2Chars === "--" ? property : property.replace(_capsExp, "-$1").toLowerCase());
+    } else {
+      //note: old versions of IE use "removeAttribute()" instead of "removeProperty()"
+      style.removeAttribute(property);
+    }
+  }
+},
+    _addNonTweeningPT = function _addNonTweeningPT(plugin, target, property, beginning, end, onlySetAtEnd) {
+  var pt = new _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.PropTween(plugin._pt, target, property, 0, 1, onlySetAtEnd ? _renderNonTweeningValueOnlyAtEnd : _renderNonTweeningValue);
+  plugin._pt = pt;
+  pt.b = beginning;
+  pt.e = end;
+
+  plugin._props.push(property);
+
+  return pt;
+},
+    _nonConvertibleUnits = {
+  deg: 1,
+  rad: 1,
+  turn: 1
+},
+    _nonStandardLayouts = {
+  grid: 1,
+  flex: 1
+},
+    //takes a single value like 20px and converts it to the unit specified, like "%", returning only the numeric amount.
+_convertToUnit = function _convertToUnit(target, property, value, unit) {
+  var curValue = parseFloat(value) || 0,
+      curUnit = (value + "").trim().substr((curValue + "").length) || "px",
+      // some browsers leave extra whitespace at the beginning of CSS variables, hence the need to trim()
+  style = _tempDiv.style,
+      horizontal = _horizontalExp.test(property),
+      isRootSVG = target.tagName.toLowerCase() === "svg",
+      measureProperty = (isRootSVG ? "client" : "offset") + (horizontal ? "Width" : "Height"),
+      amount = 100,
+      toPixels = unit === "px",
+      toPercent = unit === "%",
+      px,
+      parent,
+      cache,
+      isSVG;
+
+  if (unit === curUnit || !curValue || _nonConvertibleUnits[unit] || _nonConvertibleUnits[curUnit]) {
+    return curValue;
+  }
+
+  curUnit !== "px" && !toPixels && (curValue = _convertToUnit(target, property, value, "px"));
+  isSVG = target.getCTM && _isSVG(target);
+
+  if ((toPercent || curUnit === "%") && (_transformProps[property] || ~property.indexOf("adius"))) {
+    px = isSVG ? target.getBBox()[horizontal ? "width" : "height"] : target[measureProperty];
+    return (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._round)(toPercent ? curValue / px * amount : curValue / 100 * px);
+  }
+
+  style[horizontal ? "width" : "height"] = amount + (toPixels ? curUnit : unit);
+  parent = ~property.indexOf("adius") || unit === "em" && target.appendChild && !isRootSVG ? target : target.parentNode;
+
+  if (isSVG) {
+    parent = (target.ownerSVGElement || {}).parentNode;
+  }
+
+  if (!parent || parent === _doc || !parent.appendChild) {
+    parent = _doc.body;
+  }
+
+  cache = parent._gsap;
+
+  if (cache && toPercent && cache.width && horizontal && cache.time === _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._ticker.time && !cache.uncache) {
+    return (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._round)(curValue / cache.width * amount);
+  } else {
+    if (toPercent && (property === "height" || property === "width")) {
+      // if we're dealing with width/height that's inside a container with padding and/or it's a flexbox/grid container, we must apply it to the target itself rather than the _tempDiv in order to ensure complete accuracy, factoring in the parent's padding.
+      var v = target.style[property];
+      target.style[property] = amount + unit;
+      px = target[measureProperty];
+      v ? target.style[property] = v : _removeProperty(target, property);
+    } else {
+      (toPercent || curUnit === "%") && !_nonStandardLayouts[_getComputedProperty(parent, "display")] && (style.position = _getComputedProperty(target, "position"));
+      parent === target && (style.position = "static"); // like for borderRadius, if it's a % we must have it relative to the target itself but that may not have position: relative or position: absolute in which case it'd go up the chain until it finds its offsetParent (bad). position: static protects against that.
+
+      parent.appendChild(_tempDiv);
+      px = _tempDiv[measureProperty];
+      parent.removeChild(_tempDiv);
+      style.position = "absolute";
+    }
+
+    if (horizontal && toPercent) {
+      cache = (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._getCache)(parent);
+      cache.time = _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._ticker.time;
+      cache.width = parent[measureProperty];
+    }
+  }
+
+  return (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._round)(toPixels ? px * curValue / amount : px && curValue ? amount / px * curValue : 0);
+},
+    _get = function _get(target, property, unit, uncache) {
+  var value;
+  _pluginInitted || _initCore();
+
+  if (property in _propertyAliases && property !== "transform") {
+    property = _propertyAliases[property];
+
+    if (~property.indexOf(",")) {
+      property = property.split(",")[0];
+    }
+  }
+
+  if (_transformProps[property] && property !== "transform") {
+    value = _parseTransform(target, uncache);
+    value = property !== "transformOrigin" ? value[property] : value.svg ? value.origin : _firstTwoOnly(_getComputedProperty(target, _transformOriginProp)) + " " + value.zOrigin + "px";
+  } else {
+    value = target.style[property];
+
+    if (!value || value === "auto" || uncache || ~(value + "").indexOf("calc(")) {
+      value = _specialProps[property] && _specialProps[property](target, property, unit) || _getComputedProperty(target, property) || (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._getProperty)(target, property) || (property === "opacity" ? 1 : 0); // note: some browsers, like Firefox, don't report borderRadius correctly! Instead, it only reports every corner like  borderTopLeftRadius
+    }
+  }
+
+  return unit && !~(value + "").trim().indexOf(" ") ? _convertToUnit(target, property, value, unit) + unit : value;
+},
+    _tweenComplexCSSString = function _tweenComplexCSSString(target, prop, start, end) {
+  // note: we call _tweenComplexCSSString.call(pluginInstance...) to ensure that it's scoped properly. We may call it from within a plugin too, thus "this" would refer to the plugin.
+  if (!start || start === "none") {
+    // some browsers like Safari actually PREFER the prefixed property and mis-report the unprefixed value like clipPath (BUG). In other words, even though clipPath exists in the style ("clipPath" in target.style) and it's set in the CSS properly (along with -webkit-clip-path), Safari reports clipPath as "none" whereas WebkitClipPath reports accurately like "ellipse(100% 0% at 50% 0%)", so in this case we must SWITCH to using the prefixed property instead. See https://gsap.com/forums/topic/18310-clippath-doesnt-work-on-ios/
+    var p = _checkPropPrefix(prop, target, 1),
+        s = p && _getComputedProperty(target, p, 1);
+
+    if (s && s !== start) {
+      prop = p;
+      start = s;
+    } else if (prop === "borderColor") {
+      start = _getComputedProperty(target, "borderTopColor"); // Firefox bug: always reports "borderColor" as "", so we must fall back to borderTopColor. See https://gsap.com/forums/topic/24583-how-to-return-colors-that-i-had-after-reverse/
+    }
+  }
+
+  var pt = new _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.PropTween(this._pt, target.style, prop, 0, 1, _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._renderComplexString),
+      index = 0,
+      matchIndex = 0,
+      a,
+      result,
+      startValues,
+      startNum,
+      color,
+      startValue,
+      endValue,
+      endNum,
+      chunk,
+      endUnit,
+      startUnit,
+      endValues;
+  pt.b = start;
+  pt.e = end;
+  start += ""; // ensure values are strings
+
+  end += "";
+
+  if (end === "auto") {
+    startValue = target.style[prop];
+    target.style[prop] = end;
+    end = _getComputedProperty(target, prop) || end;
+    startValue ? target.style[prop] = startValue : _removeProperty(target, prop);
+  }
+
+  a = [start, end];
+
+  (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._colorStringFilter)(a); // pass an array with the starting and ending values and let the filter do whatever it needs to the values. If colors are found, it returns true and then we must match where the color shows up order-wise because for things like boxShadow, sometimes the browser provides the computed values with the color FIRST, but the user provides it with the color LAST, so flip them if necessary. Same for drop-shadow().
+
+
+  start = a[0];
+  end = a[1];
+  startValues = start.match(_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._numWithUnitExp) || [];
+  endValues = end.match(_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._numWithUnitExp) || [];
+
+  if (endValues.length) {
+    while (result = _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._numWithUnitExp.exec(end)) {
+      endValue = result[0];
+      chunk = end.substring(index, result.index);
+
+      if (color) {
+        color = (color + 1) % 5;
+      } else if (chunk.substr(-5) === "rgba(" || chunk.substr(-5) === "hsla(") {
+        color = 1;
+      }
+
+      if (endValue !== (startValue = startValues[matchIndex++] || "")) {
+        startNum = parseFloat(startValue) || 0;
+        startUnit = startValue.substr((startNum + "").length);
+        endValue.charAt(1) === "=" && (endValue = (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._parseRelative)(startNum, endValue) + startUnit);
+        endNum = parseFloat(endValue);
+        endUnit = endValue.substr((endNum + "").length);
+        index = _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._numWithUnitExp.lastIndex - endUnit.length;
+
+        if (!endUnit) {
+          //if something like "perspective:300" is passed in and we must add a unit to the end
+          endUnit = endUnit || _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._config.units[prop] || startUnit;
+
+          if (index === end.length) {
+            end += endUnit;
+            pt.e += endUnit;
+          }
+        }
+
+        if (startUnit !== endUnit) {
+          startNum = _convertToUnit(target, prop, startValue, endUnit) || 0;
+        } // these nested PropTweens are handled in a special way - we'll never actually call a render or setter method on them. We'll just loop through them in the parent complex string PropTween's render method.
+
+
+        pt._pt = {
+          _next: pt._pt,
+          p: chunk || matchIndex === 1 ? chunk : ",",
+          //note: SVG spec allows omission of comma/space when a negative sign is wedged between two numbers, like 2.5-5.3 instead of 2.5,-5.3 but when tweening, the negative value may switch to positive, so we insert the comma just in case.
+          s: startNum,
+          c: endNum - startNum,
+          m: color && color < 4 || prop === "zIndex" ? Math.round : 0
+        };
+      }
+    }
+
+    pt.c = index < end.length ? end.substring(index, end.length) : ""; //we use the "c" of the PropTween to store the final part of the string (after the last number)
+  } else {
+    pt.r = prop === "display" && end === "none" ? _renderNonTweeningValueOnlyAtEnd : _renderNonTweeningValue;
+  }
+
+  _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._relExp.test(end) && (pt.e = 0); //if the end string contains relative values or dynamic random(...) values, delete the end it so that on the final render we don't actually set it to the string with += or -= characters (forces it to use the calculated value).
+
+  this._pt = pt; //start the linked list with this new PropTween. Remember, we call _tweenComplexCSSString.call(pluginInstance...) to ensure that it's scoped properly. We may call it from within another plugin too, thus "this" would refer to the plugin.
+
+  return pt;
+},
+    _keywordToPercent = {
+  top: "0%",
+  bottom: "100%",
+  left: "0%",
+  right: "100%",
+  center: "50%"
+},
+    _convertKeywordsToPercentages = function _convertKeywordsToPercentages(value) {
+  var split = value.split(" "),
+      x = split[0],
+      y = split[1] || "50%";
+
+  if (x === "top" || x === "bottom" || y === "left" || y === "right") {
+    //the user provided them in the wrong order, so flip them
+    value = x;
+    x = y;
+    y = value;
+  }
+
+  split[0] = _keywordToPercent[x] || x;
+  split[1] = _keywordToPercent[y] || y;
+  return split.join(" ");
+},
+    _renderClearProps = function _renderClearProps(ratio, data) {
+  if (data.tween && data.tween._time === data.tween._dur) {
+    var target = data.t,
+        style = target.style,
+        props = data.u,
+        cache = target._gsap,
+        prop,
+        clearTransforms,
+        i;
+
+    if (props === "all" || props === true) {
+      style.cssText = "";
+      clearTransforms = 1;
+    } else {
+      props = props.split(",");
+      i = props.length;
+
+      while (--i > -1) {
+        prop = props[i];
+
+        if (_transformProps[prop]) {
+          clearTransforms = 1;
+          prop = prop === "transformOrigin" ? _transformOriginProp : _transformProp;
+        }
+
+        _removeProperty(target, prop);
+      }
+    }
+
+    if (clearTransforms) {
+      _removeProperty(target, _transformProp);
+
+      if (cache) {
+        cache.svg && target.removeAttribute("transform");
+
+        _parseTransform(target, 1); // force all the cached values back to "normal"/identity, otherwise if there's another tween that's already set to render transforms on this element, it could display the wrong values.
+
+
+        cache.uncache = 1;
+
+        _removeIndependentTransforms(style);
+      }
+    }
+  }
+},
+    // note: specialProps should return 1 if (and only if) they have a non-zero priority. It indicates we need to sort the linked list.
+_specialProps = {
+  clearProps: function clearProps(plugin, target, property, endValue, tween) {
+    if (tween.data !== "isFromStart") {
+      var pt = plugin._pt = new _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.PropTween(plugin._pt, target, property, 0, 0, _renderClearProps);
+      pt.u = endValue;
+      pt.pr = -10;
+      pt.tween = tween;
+
+      plugin._props.push(property);
+
+      return 1;
+    }
+  }
+  /* className feature (about 0.4kb gzipped).
+  , className(plugin, target, property, endValue, tween) {
+  	let _renderClassName = (ratio, data) => {
+  			data.css.render(ratio, data.css);
+  			if (!ratio || ratio === 1) {
+  				let inline = data.rmv,
+  					target = data.t,
+  					p;
+  				target.setAttribute("class", ratio ? data.e : data.b);
+  				for (p in inline) {
+  					_removeProperty(target, p);
+  				}
+  			}
+  		},
+  		_getAllStyles = (target) => {
+  			let styles = {},
+  				computed = getComputedStyle(target),
+  				p;
+  			for (p in computed) {
+  				if (isNaN(p) && p !== "cssText" && p !== "length") {
+  					styles[p] = computed[p];
+  				}
+  			}
+  			_setDefaults(styles, _parseTransform(target, 1));
+  			return styles;
+  		},
+  		startClassList = target.getAttribute("class"),
+  		style = target.style,
+  		cssText = style.cssText,
+  		cache = target._gsap,
+  		classPT = cache.classPT,
+  		inlineToRemoveAtEnd = {},
+  		data = {t:target, plugin:plugin, rmv:inlineToRemoveAtEnd, b:startClassList, e:(endValue.charAt(1) !== "=") ? endValue : startClassList.replace(new RegExp("(?:\\s|^)" + endValue.substr(2) + "(?![\\w-])"), "") + ((endValue.charAt(0) === "+") ? " " + endValue.substr(2) : "")},
+  		changingVars = {},
+  		startVars = _getAllStyles(target),
+  		transformRelated = /(transform|perspective)/i,
+  		endVars, p;
+  	if (classPT) {
+  		classPT.r(1, classPT.d);
+  		_removeLinkedListItem(classPT.d.plugin, classPT, "_pt");
+  	}
+  	target.setAttribute("class", data.e);
+  	endVars = _getAllStyles(target, true);
+  	target.setAttribute("class", startClassList);
+  	for (p in endVars) {
+  		if (endVars[p] !== startVars[p] && !transformRelated.test(p)) {
+  			changingVars[p] = endVars[p];
+  			if (!style[p] && style[p] !== "0") {
+  				inlineToRemoveAtEnd[p] = 1;
+  			}
+  		}
+  	}
+  	cache.classPT = plugin._pt = new PropTween(plugin._pt, target, "className", 0, 0, _renderClassName, data, 0, -11);
+  	if (style.cssText !== cssText) { //only apply if things change. Otherwise, in cases like a background-image that's pulled dynamically, it could cause a refresh. See https://gsap.com/forums/topic/20368-possible-gsap-bug-switching-classnames-in-chrome/.
+  		style.cssText = cssText; //we recorded cssText before we swapped classes and ran _getAllStyles() because in cases when a className tween is overwritten, we remove all the related tweening properties from that class change (otherwise class-specific stuff can't override properties we've directly set on the target's style object due to specificity).
+  	}
+  	_parseTransform(target, true); //to clear the caching of transforms
+  	data.css = new gsap.plugins.css();
+  	data.css.init(target, changingVars, tween);
+  	plugin._props.push(...data.css._props);
+  	return 1;
+  }
+  */
+
+},
+
+/*
+ * --------------------------------------------------------------------------------------
+ * TRANSFORMS
+ * --------------------------------------------------------------------------------------
+ */
+_identity2DMatrix = [1, 0, 0, 1, 0, 0],
+    _rotationalProperties = {},
+    _isNullTransform = function _isNullTransform(value) {
+  return value === "matrix(1, 0, 0, 1, 0, 0)" || value === "none" || !value;
+},
+    _getComputedTransformMatrixAsArray = function _getComputedTransformMatrixAsArray(target) {
+  var matrixString = _getComputedProperty(target, _transformProp);
+
+  return _isNullTransform(matrixString) ? _identity2DMatrix : matrixString.substr(7).match(_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._numExp).map(_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._round);
+},
+    _getMatrix = function _getMatrix(target, force2D) {
+  var cache = target._gsap || (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._getCache)(target),
+      style = target.style,
+      matrix = _getComputedTransformMatrixAsArray(target),
+      parent,
+      nextSibling,
+      temp,
+      addedToDOM;
+
+  if (cache.svg && target.getAttribute("transform")) {
+    temp = target.transform.baseVal.consolidate().matrix; //ensures that even complex values like "translate(50,60) rotate(135,0,0)" are parsed because it mashes it into a matrix.
+
+    matrix = [temp.a, temp.b, temp.c, temp.d, temp.e, temp.f];
+    return matrix.join(",") === "1,0,0,1,0,0" ? _identity2DMatrix : matrix;
+  } else if (matrix === _identity2DMatrix && !target.offsetParent && target !== _docElement && !cache.svg) {
+    //note: if offsetParent is null, that means the element isn't in the normal document flow, like if it has display:none or one of its ancestors has display:none). Firefox returns null for getComputedStyle() if the element is in an iframe that has display:none. https://bugzilla.mozilla.org/show_bug.cgi?id=548397
+    //browsers don't report transforms accurately unless the element is in the DOM and has a display value that's not "none". Firefox and Microsoft browsers have a partial bug where they'll report transforms even if display:none BUT not any percentage-based values like translate(-50%, 8px) will be reported as if it's translate(0, 8px).
+    temp = style.display;
+    style.display = "block";
+    parent = target.parentNode;
+
+    if (!parent || !target.offsetParent) {
+      // note: in 3.3.0 we switched target.offsetParent to _doc.body.contains(target) to avoid [sometimes unnecessary] MutationObserver calls but that wasn't adequate because there are edge cases where nested position: fixed elements need to get reparented to accurately sense transforms. See https://github.com/greensock/GSAP/issues/388 and https://github.com/greensock/GSAP/issues/375
+      addedToDOM = 1; //flag
+
+      nextSibling = target.nextElementSibling;
+
+      _docElement.appendChild(target); //we must add it to the DOM in order to get values properly
+
+    }
+
+    matrix = _getComputedTransformMatrixAsArray(target);
+    temp ? style.display = temp : _removeProperty(target, "display");
+
+    if (addedToDOM) {
+      nextSibling ? parent.insertBefore(target, nextSibling) : parent ? parent.appendChild(target) : _docElement.removeChild(target);
+    }
+  }
+
+  return force2D && matrix.length > 6 ? [matrix[0], matrix[1], matrix[4], matrix[5], matrix[12], matrix[13]] : matrix;
+},
+    _applySVGOrigin = function _applySVGOrigin(target, origin, originIsAbsolute, smooth, matrixArray, pluginToAddPropTweensTo) {
+  var cache = target._gsap,
+      matrix = matrixArray || _getMatrix(target, true),
+      xOriginOld = cache.xOrigin || 0,
+      yOriginOld = cache.yOrigin || 0,
+      xOffsetOld = cache.xOffset || 0,
+      yOffsetOld = cache.yOffset || 0,
+      a = matrix[0],
+      b = matrix[1],
+      c = matrix[2],
+      d = matrix[3],
+      tx = matrix[4],
+      ty = matrix[5],
+      originSplit = origin.split(" "),
+      xOrigin = parseFloat(originSplit[0]) || 0,
+      yOrigin = parseFloat(originSplit[1]) || 0,
+      bounds,
+      determinant,
+      x,
+      y;
+
+  if (!originIsAbsolute) {
+    bounds = _getBBox(target);
+    xOrigin = bounds.x + (~originSplit[0].indexOf("%") ? xOrigin / 100 * bounds.width : xOrigin);
+    yOrigin = bounds.y + (~(originSplit[1] || originSplit[0]).indexOf("%") ? yOrigin / 100 * bounds.height : yOrigin); // if (!("xOrigin" in cache) && (xOrigin || yOrigin)) { // added in 3.12.3, reverted in 3.12.4; requires more exploration
+    // 	xOrigin -= bounds.x;
+    // 	yOrigin -= bounds.y;
+    // }
+  } else if (matrix !== _identity2DMatrix && (determinant = a * d - b * c)) {
+    //if it's zero (like if scaleX and scaleY are zero), skip it to avoid errors with dividing by zero.
+    x = xOrigin * (d / determinant) + yOrigin * (-c / determinant) + (c * ty - d * tx) / determinant;
+    y = xOrigin * (-b / determinant) + yOrigin * (a / determinant) - (a * ty - b * tx) / determinant;
+    xOrigin = x;
+    yOrigin = y; // theory: we only had to do this for smoothing and it assumes that the previous one was not originIsAbsolute.
+  }
+
+  if (smooth || smooth !== false && cache.smooth) {
+    tx = xOrigin - xOriginOld;
+    ty = yOrigin - yOriginOld;
+    cache.xOffset = xOffsetOld + (tx * a + ty * c) - tx;
+    cache.yOffset = yOffsetOld + (tx * b + ty * d) - ty;
+  } else {
+    cache.xOffset = cache.yOffset = 0;
+  }
+
+  cache.xOrigin = xOrigin;
+  cache.yOrigin = yOrigin;
+  cache.smooth = !!smooth;
+  cache.origin = origin;
+  cache.originIsAbsolute = !!originIsAbsolute;
+  target.style[_transformOriginProp] = "0px 0px"; //otherwise, if someone sets  an origin via CSS, it will likely interfere with the SVG transform attribute ones (because remember, we're baking the origin into the matrix() value).
+
+  if (pluginToAddPropTweensTo) {
+    _addNonTweeningPT(pluginToAddPropTweensTo, cache, "xOrigin", xOriginOld, xOrigin);
+
+    _addNonTweeningPT(pluginToAddPropTweensTo, cache, "yOrigin", yOriginOld, yOrigin);
+
+    _addNonTweeningPT(pluginToAddPropTweensTo, cache, "xOffset", xOffsetOld, cache.xOffset);
+
+    _addNonTweeningPT(pluginToAddPropTweensTo, cache, "yOffset", yOffsetOld, cache.yOffset);
+  }
+
+  target.setAttribute("data-svg-origin", xOrigin + " " + yOrigin);
+},
+    _parseTransform = function _parseTransform(target, uncache) {
+  var cache = target._gsap || new _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.GSCache(target);
+
+  if ("x" in cache && !uncache && !cache.uncache) {
+    return cache;
+  }
+
+  var style = target.style,
+      invertedScaleX = cache.scaleX < 0,
+      px = "px",
+      deg = "deg",
+      cs = getComputedStyle(target),
+      origin = _getComputedProperty(target, _transformOriginProp) || "0",
+      x,
+      y,
+      z,
+      scaleX,
+      scaleY,
+      rotation,
+      rotationX,
+      rotationY,
+      skewX,
+      skewY,
+      perspective,
+      xOrigin,
+      yOrigin,
+      matrix,
+      angle,
+      cos,
+      sin,
+      a,
+      b,
+      c,
+      d,
+      a12,
+      a22,
+      t1,
+      t2,
+      t3,
+      a13,
+      a23,
+      a33,
+      a42,
+      a43,
+      a32;
+  x = y = z = rotation = rotationX = rotationY = skewX = skewY = perspective = 0;
+  scaleX = scaleY = 1;
+  cache.svg = !!(target.getCTM && _isSVG(target));
+
+  if (cs.translate) {
+    // accommodate independent transforms by combining them into normal ones.
+    if (cs.translate !== "none" || cs.scale !== "none" || cs.rotate !== "none") {
+      style[_transformProp] = (cs.translate !== "none" ? "translate3d(" + (cs.translate + " 0 0").split(" ").slice(0, 3).join(", ") + ") " : "") + (cs.rotate !== "none" ? "rotate(" + cs.rotate + ") " : "") + (cs.scale !== "none" ? "scale(" + cs.scale.split(" ").join(",") + ") " : "") + (cs[_transformProp] !== "none" ? cs[_transformProp] : "");
+    }
+
+    style.scale = style.rotate = style.translate = "none";
+  }
+
+  matrix = _getMatrix(target, cache.svg);
+
+  if (cache.svg) {
+    if (cache.uncache) {
+      // if cache.uncache is true (and maybe if origin is 0,0), we need to set element.style.transformOrigin = (cache.xOrigin - bbox.x) + "px " + (cache.yOrigin - bbox.y) + "px". Previously we let the data-svg-origin stay instead, but when introducing revert(), it complicated things.
+      t2 = target.getBBox();
+      origin = cache.xOrigin - t2.x + "px " + (cache.yOrigin - t2.y) + "px";
+      t1 = "";
+    } else {
+      t1 = !uncache && target.getAttribute("data-svg-origin"); //  Remember, to work around browser inconsistencies we always force SVG elements' transformOrigin to 0,0 and offset the translation accordingly.
+    }
+
+    _applySVGOrigin(target, t1 || origin, !!t1 || cache.originIsAbsolute, cache.smooth !== false, matrix);
+  }
+
+  xOrigin = cache.xOrigin || 0;
+  yOrigin = cache.yOrigin || 0;
+
+  if (matrix !== _identity2DMatrix) {
+    a = matrix[0]; //a11
+
+    b = matrix[1]; //a21
+
+    c = matrix[2]; //a31
+
+    d = matrix[3]; //a41
+
+    x = a12 = matrix[4];
+    y = a22 = matrix[5]; //2D matrix
+
+    if (matrix.length === 6) {
+      scaleX = Math.sqrt(a * a + b * b);
+      scaleY = Math.sqrt(d * d + c * c);
+      rotation = a || b ? _atan2(b, a) * _RAD2DEG : 0; //note: if scaleX is 0, we cannot accurately measure rotation. Same for skewX with a scaleY of 0. Therefore, we default to the previously recorded value (or zero if that doesn't exist).
+
+      skewX = c || d ? _atan2(c, d) * _RAD2DEG + rotation : 0;
+      skewX && (scaleY *= Math.abs(Math.cos(skewX * _DEG2RAD)));
+
+      if (cache.svg) {
+        x -= xOrigin - (xOrigin * a + yOrigin * c);
+        y -= yOrigin - (xOrigin * b + yOrigin * d);
+      } //3D matrix
+
+    } else {
+      a32 = matrix[6];
+      a42 = matrix[7];
+      a13 = matrix[8];
+      a23 = matrix[9];
+      a33 = matrix[10];
+      a43 = matrix[11];
+      x = matrix[12];
+      y = matrix[13];
+      z = matrix[14];
+      angle = _atan2(a32, a33);
+      rotationX = angle * _RAD2DEG; //rotationX
+
+      if (angle) {
+        cos = Math.cos(-angle);
+        sin = Math.sin(-angle);
+        t1 = a12 * cos + a13 * sin;
+        t2 = a22 * cos + a23 * sin;
+        t3 = a32 * cos + a33 * sin;
+        a13 = a12 * -sin + a13 * cos;
+        a23 = a22 * -sin + a23 * cos;
+        a33 = a32 * -sin + a33 * cos;
+        a43 = a42 * -sin + a43 * cos;
+        a12 = t1;
+        a22 = t2;
+        a32 = t3;
+      } //rotationY
+
+
+      angle = _atan2(-c, a33);
+      rotationY = angle * _RAD2DEG;
+
+      if (angle) {
+        cos = Math.cos(-angle);
+        sin = Math.sin(-angle);
+        t1 = a * cos - a13 * sin;
+        t2 = b * cos - a23 * sin;
+        t3 = c * cos - a33 * sin;
+        a43 = d * sin + a43 * cos;
+        a = t1;
+        b = t2;
+        c = t3;
+      } //rotationZ
+
+
+      angle = _atan2(b, a);
+      rotation = angle * _RAD2DEG;
+
+      if (angle) {
+        cos = Math.cos(angle);
+        sin = Math.sin(angle);
+        t1 = a * cos + b * sin;
+        t2 = a12 * cos + a22 * sin;
+        b = b * cos - a * sin;
+        a22 = a22 * cos - a12 * sin;
+        a = t1;
+        a12 = t2;
+      }
+
+      if (rotationX && Math.abs(rotationX) + Math.abs(rotation) > 359.9) {
+        //when rotationY is set, it will often be parsed as 180 degrees different than it should be, and rotationX and rotation both being 180 (it looks the same), so we adjust for that here.
+        rotationX = rotation = 0;
+        rotationY = 180 - rotationY;
+      }
+
+      scaleX = (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._round)(Math.sqrt(a * a + b * b + c * c));
+      scaleY = (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._round)(Math.sqrt(a22 * a22 + a32 * a32));
+      angle = _atan2(a12, a22);
+      skewX = Math.abs(angle) > 0.0002 ? angle * _RAD2DEG : 0;
+      perspective = a43 ? 1 / (a43 < 0 ? -a43 : a43) : 0;
+    }
+
+    if (cache.svg) {
+      //sense if there are CSS transforms applied on an SVG element in which case we must overwrite them when rendering. The transform attribute is more reliable cross-browser, but we can't just remove the CSS ones because they may be applied in a CSS rule somewhere (not just inline).
+      t1 = target.getAttribute("transform");
+      cache.forceCSS = target.setAttribute("transform", "") || !_isNullTransform(_getComputedProperty(target, _transformProp));
+      t1 && target.setAttribute("transform", t1);
+    }
+  }
+
+  if (Math.abs(skewX) > 90 && Math.abs(skewX) < 270) {
+    if (invertedScaleX) {
+      scaleX *= -1;
+      skewX += rotation <= 0 ? 180 : -180;
+      rotation += rotation <= 0 ? 180 : -180;
+    } else {
+      scaleY *= -1;
+      skewX += skewX <= 0 ? 180 : -180;
+    }
+  }
+
+  uncache = uncache || cache.uncache;
+  cache.x = x - ((cache.xPercent = x && (!uncache && cache.xPercent || (Math.round(target.offsetWidth / 2) === Math.round(-x) ? -50 : 0))) ? target.offsetWidth * cache.xPercent / 100 : 0) + px;
+  cache.y = y - ((cache.yPercent = y && (!uncache && cache.yPercent || (Math.round(target.offsetHeight / 2) === Math.round(-y) ? -50 : 0))) ? target.offsetHeight * cache.yPercent / 100 : 0) + px;
+  cache.z = z + px;
+  cache.scaleX = (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._round)(scaleX);
+  cache.scaleY = (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._round)(scaleY);
+  cache.rotation = (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._round)(rotation) + deg;
+  cache.rotationX = (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._round)(rotationX) + deg;
+  cache.rotationY = (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._round)(rotationY) + deg;
+  cache.skewX = skewX + deg;
+  cache.skewY = skewY + deg;
+  cache.transformPerspective = perspective + px;
+
+  if (cache.zOrigin = parseFloat(origin.split(" ")[2]) || !uncache && cache.zOrigin || 0) {
+    style[_transformOriginProp] = _firstTwoOnly(origin);
+  }
+
+  cache.xOffset = cache.yOffset = 0;
+  cache.force3D = _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._config.force3D;
+  cache.renderTransform = cache.svg ? _renderSVGTransforms : _supports3D ? _renderCSSTransforms : _renderNon3DTransforms;
+  cache.uncache = 0;
+  return cache;
+},
+    _firstTwoOnly = function _firstTwoOnly(value) {
+  return (value = value.split(" "))[0] + " " + value[1];
+},
+    //for handling transformOrigin values, stripping out the 3rd dimension
+_addPxTranslate = function _addPxTranslate(target, start, value) {
+  var unit = (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.getUnit)(start);
+  return (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._round)(parseFloat(start) + parseFloat(_convertToUnit(target, "x", value + "px", unit))) + unit;
+},
+    _renderNon3DTransforms = function _renderNon3DTransforms(ratio, cache) {
+  cache.z = "0px";
+  cache.rotationY = cache.rotationX = "0deg";
+  cache.force3D = 0;
+
+  _renderCSSTransforms(ratio, cache);
+},
+    _zeroDeg = "0deg",
+    _zeroPx = "0px",
+    _endParenthesis = ") ",
+    _renderCSSTransforms = function _renderCSSTransforms(ratio, cache) {
+  var _ref = cache || this,
+      xPercent = _ref.xPercent,
+      yPercent = _ref.yPercent,
+      x = _ref.x,
+      y = _ref.y,
+      z = _ref.z,
+      rotation = _ref.rotation,
+      rotationY = _ref.rotationY,
+      rotationX = _ref.rotationX,
+      skewX = _ref.skewX,
+      skewY = _ref.skewY,
+      scaleX = _ref.scaleX,
+      scaleY = _ref.scaleY,
+      transformPerspective = _ref.transformPerspective,
+      force3D = _ref.force3D,
+      target = _ref.target,
+      zOrigin = _ref.zOrigin,
+      transforms = "",
+      use3D = force3D === "auto" && ratio && ratio !== 1 || force3D === true; // Safari has a bug that causes it not to render 3D transform-origin values properly, so we force the z origin to 0, record it in the cache, and then do the math here to offset the translate values accordingly (basically do the 3D transform-origin part manually)
+
+
+  if (zOrigin && (rotationX !== _zeroDeg || rotationY !== _zeroDeg)) {
+    var angle = parseFloat(rotationY) * _DEG2RAD,
+        a13 = Math.sin(angle),
+        a33 = Math.cos(angle),
+        cos;
+
+    angle = parseFloat(rotationX) * _DEG2RAD;
+    cos = Math.cos(angle);
+    x = _addPxTranslate(target, x, a13 * cos * -zOrigin);
+    y = _addPxTranslate(target, y, -Math.sin(angle) * -zOrigin);
+    z = _addPxTranslate(target, z, a33 * cos * -zOrigin + zOrigin);
+  }
+
+  if (transformPerspective !== _zeroPx) {
+    transforms += "perspective(" + transformPerspective + _endParenthesis;
+  }
+
+  if (xPercent || yPercent) {
+    transforms += "translate(" + xPercent + "%, " + yPercent + "%) ";
+  }
+
+  if (use3D || x !== _zeroPx || y !== _zeroPx || z !== _zeroPx) {
+    transforms += z !== _zeroPx || use3D ? "translate3d(" + x + ", " + y + ", " + z + ") " : "translate(" + x + ", " + y + _endParenthesis;
+  }
+
+  if (rotation !== _zeroDeg) {
+    transforms += "rotate(" + rotation + _endParenthesis;
+  }
+
+  if (rotationY !== _zeroDeg) {
+    transforms += "rotateY(" + rotationY + _endParenthesis;
+  }
+
+  if (rotationX !== _zeroDeg) {
+    transforms += "rotateX(" + rotationX + _endParenthesis;
+  }
+
+  if (skewX !== _zeroDeg || skewY !== _zeroDeg) {
+    transforms += "skew(" + skewX + ", " + skewY + _endParenthesis;
+  }
+
+  if (scaleX !== 1 || scaleY !== 1) {
+    transforms += "scale(" + scaleX + ", " + scaleY + _endParenthesis;
+  }
+
+  target.style[_transformProp] = transforms || "translate(0, 0)";
+},
+    _renderSVGTransforms = function _renderSVGTransforms(ratio, cache) {
+  var _ref2 = cache || this,
+      xPercent = _ref2.xPercent,
+      yPercent = _ref2.yPercent,
+      x = _ref2.x,
+      y = _ref2.y,
+      rotation = _ref2.rotation,
+      skewX = _ref2.skewX,
+      skewY = _ref2.skewY,
+      scaleX = _ref2.scaleX,
+      scaleY = _ref2.scaleY,
+      target = _ref2.target,
+      xOrigin = _ref2.xOrigin,
+      yOrigin = _ref2.yOrigin,
+      xOffset = _ref2.xOffset,
+      yOffset = _ref2.yOffset,
+      forceCSS = _ref2.forceCSS,
+      tx = parseFloat(x),
+      ty = parseFloat(y),
+      a11,
+      a21,
+      a12,
+      a22,
+      temp;
+
+  rotation = parseFloat(rotation);
+  skewX = parseFloat(skewX);
+  skewY = parseFloat(skewY);
+
+  if (skewY) {
+    //for performance reasons, we combine all skewing into the skewX and rotation values. Remember, a skewY of 10 degrees looks the same as a rotation of 10 degrees plus a skewX of 10 degrees.
+    skewY = parseFloat(skewY);
+    skewX += skewY;
+    rotation += skewY;
+  }
+
+  if (rotation || skewX) {
+    rotation *= _DEG2RAD;
+    skewX *= _DEG2RAD;
+    a11 = Math.cos(rotation) * scaleX;
+    a21 = Math.sin(rotation) * scaleX;
+    a12 = Math.sin(rotation - skewX) * -scaleY;
+    a22 = Math.cos(rotation - skewX) * scaleY;
+
+    if (skewX) {
+      skewY *= _DEG2RAD;
+      temp = Math.tan(skewX - skewY);
+      temp = Math.sqrt(1 + temp * temp);
+      a12 *= temp;
+      a22 *= temp;
+
+      if (skewY) {
+        temp = Math.tan(skewY);
+        temp = Math.sqrt(1 + temp * temp);
+        a11 *= temp;
+        a21 *= temp;
+      }
+    }
+
+    a11 = (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._round)(a11);
+    a21 = (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._round)(a21);
+    a12 = (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._round)(a12);
+    a22 = (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._round)(a22);
+  } else {
+    a11 = scaleX;
+    a22 = scaleY;
+    a21 = a12 = 0;
+  }
+
+  if (tx && !~(x + "").indexOf("px") || ty && !~(y + "").indexOf("px")) {
+    tx = _convertToUnit(target, "x", x, "px");
+    ty = _convertToUnit(target, "y", y, "px");
+  }
+
+  if (xOrigin || yOrigin || xOffset || yOffset) {
+    tx = (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._round)(tx + xOrigin - (xOrigin * a11 + yOrigin * a12) + xOffset);
+    ty = (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._round)(ty + yOrigin - (xOrigin * a21 + yOrigin * a22) + yOffset);
+  }
+
+  if (xPercent || yPercent) {
+    //The SVG spec doesn't support percentage-based translation in the "transform" attribute, so we merge it into the translation to simulate it.
+    temp = target.getBBox();
+    tx = (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._round)(tx + xPercent / 100 * temp.width);
+    ty = (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._round)(ty + yPercent / 100 * temp.height);
+  }
+
+  temp = "matrix(" + a11 + "," + a21 + "," + a12 + "," + a22 + "," + tx + "," + ty + ")";
+  target.setAttribute("transform", temp);
+  forceCSS && (target.style[_transformProp] = temp); //some browsers prioritize CSS transforms over the transform attribute. When we sense that the user has CSS transforms applied, we must overwrite them this way (otherwise some browser simply won't render the transform attribute changes!)
+},
+    _addRotationalPropTween = function _addRotationalPropTween(plugin, target, property, startNum, endValue) {
+  var cap = 360,
+      isString = (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._isString)(endValue),
+      endNum = parseFloat(endValue) * (isString && ~endValue.indexOf("rad") ? _RAD2DEG : 1),
+      change = endNum - startNum,
+      finalValue = startNum + change + "deg",
+      direction,
+      pt;
+
+  if (isString) {
+    direction = endValue.split("_")[1];
+
+    if (direction === "short") {
+      change %= cap;
+
+      if (change !== change % (cap / 2)) {
+        change += change < 0 ? cap : -cap;
+      }
+    }
+
+    if (direction === "cw" && change < 0) {
+      change = (change + cap * _bigNum) % cap - ~~(change / cap) * cap;
+    } else if (direction === "ccw" && change > 0) {
+      change = (change - cap * _bigNum) % cap - ~~(change / cap) * cap;
+    }
+  }
+
+  plugin._pt = pt = new _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.PropTween(plugin._pt, target, property, startNum, change, _renderPropWithEnd);
+  pt.e = finalValue;
+  pt.u = "deg";
+
+  plugin._props.push(property);
+
+  return pt;
+},
+    _assign = function _assign(target, source) {
+  // Internet Explorer doesn't have Object.assign(), so we recreate it here.
+  for (var p in source) {
+    target[p] = source[p];
+  }
+
+  return target;
+},
+    _addRawTransformPTs = function _addRawTransformPTs(plugin, transforms, target) {
+  //for handling cases where someone passes in a whole transform string, like transform: "scale(2, 3) rotate(20deg) translateY(30em)"
+  var startCache = _assign({}, target._gsap),
+      exclude = "perspective,force3D,transformOrigin,svgOrigin",
+      style = target.style,
+      endCache,
+      p,
+      startValue,
+      endValue,
+      startNum,
+      endNum,
+      startUnit,
+      endUnit;
+
+  if (startCache.svg) {
+    startValue = target.getAttribute("transform");
+    target.setAttribute("transform", "");
+    style[_transformProp] = transforms;
+    endCache = _parseTransform(target, 1);
+
+    _removeProperty(target, _transformProp);
+
+    target.setAttribute("transform", startValue);
+  } else {
+    startValue = getComputedStyle(target)[_transformProp];
+    style[_transformProp] = transforms;
+    endCache = _parseTransform(target, 1);
+    style[_transformProp] = startValue;
+  }
+
+  for (p in _transformProps) {
+    startValue = startCache[p];
+    endValue = endCache[p];
+
+    if (startValue !== endValue && exclude.indexOf(p) < 0) {
+      //tweening to no perspective gives very unintuitive results - just keep the same perspective in that case.
+      startUnit = (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.getUnit)(startValue);
+      endUnit = (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.getUnit)(endValue);
+      startNum = startUnit !== endUnit ? _convertToUnit(target, p, startValue, endUnit) : parseFloat(startValue);
+      endNum = parseFloat(endValue);
+      plugin._pt = new _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.PropTween(plugin._pt, endCache, p, startNum, endNum - startNum, _renderCSSProp);
+      plugin._pt.u = endUnit || 0;
+
+      plugin._props.push(p);
+    }
+  }
+
+  _assign(endCache, startCache);
+}; // handle splitting apart padding, margin, borderWidth, and borderRadius into their 4 components. Firefox, for example, won't report borderRadius correctly - it will only do borderTopLeftRadius and the other corners. We also want to handle paddingTop, marginLeft, borderRightWidth, etc.
+
+
+(0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._forEachName)("padding,margin,Width,Radius", function (name, index) {
+  var t = "Top",
+      r = "Right",
+      b = "Bottom",
+      l = "Left",
+      props = (index < 3 ? [t, r, b, l] : [t + l, t + r, b + r, b + l]).map(function (side) {
+    return index < 2 ? name + side : "border" + side + name;
+  });
+
+  _specialProps[index > 1 ? "border" + name : name] = function (plugin, target, property, endValue, tween) {
+    var a, vars;
+
+    if (arguments.length < 4) {
+      // getter, passed target, property, and unit (from _get())
+      a = props.map(function (prop) {
+        return _get(plugin, prop, property);
+      });
+      vars = a.join(" ");
+      return vars.split(a[0]).length === 5 ? a[0] : vars;
+    }
+
+    a = (endValue + "").split(" ");
+    vars = {};
+    props.forEach(function (prop, i) {
+      return vars[prop] = a[i] = a[i] || a[(i - 1) / 2 | 0];
+    });
+    plugin.init(target, vars, tween);
+  };
+});
+
+var CSSPlugin = {
+  name: "css",
+  register: _initCore,
+  targetTest: function targetTest(target) {
+    return target.style && target.nodeType;
+  },
+  init: function init(target, vars, tween, index, targets) {
+    var props = this._props,
+        style = target.style,
+        startAt = tween.vars.startAt,
+        startValue,
+        endValue,
+        endNum,
+        startNum,
+        type,
+        specialProp,
+        p,
+        startUnit,
+        endUnit,
+        relative,
+        isTransformRelated,
+        transformPropTween,
+        cache,
+        smooth,
+        hasPriority,
+        inlineProps;
+    _pluginInitted || _initCore(); // we may call init() multiple times on the same plugin instance, like when adding special properties, so make sure we don't overwrite the revert data or inlineProps
+
+    this.styles = this.styles || _getStyleSaver(target);
+    inlineProps = this.styles.props;
+    this.tween = tween;
+
+    for (p in vars) {
+      if (p === "autoRound") {
+        continue;
+      }
+
+      endValue = vars[p];
+
+      if (_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._plugins[p] && (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._checkPlugin)(p, vars, tween, index, target, targets)) {
+        // plugins
+        continue;
+      }
+
+      type = typeof endValue;
+      specialProp = _specialProps[p];
+
+      if (type === "function") {
+        endValue = endValue.call(tween, index, target, targets);
+        type = typeof endValue;
+      }
+
+      if (type === "string" && ~endValue.indexOf("random(")) {
+        endValue = (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._replaceRandom)(endValue);
+      }
+
+      if (specialProp) {
+        specialProp(this, target, p, endValue, tween) && (hasPriority = 1);
+      } else if (p.substr(0, 2) === "--") {
+        //CSS variable
+        startValue = (getComputedStyle(target).getPropertyValue(p) + "").trim();
+        endValue += "";
+        _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._colorExp.lastIndex = 0;
+
+        if (!_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._colorExp.test(startValue)) {
+          // colors don't have units
+          startUnit = (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.getUnit)(startValue);
+          endUnit = (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.getUnit)(endValue);
+        }
+
+        endUnit ? startUnit !== endUnit && (startValue = _convertToUnit(target, p, startValue, endUnit) + endUnit) : startUnit && (endValue += startUnit);
+        this.add(style, "setProperty", startValue, endValue, index, targets, 0, 0, p);
+        props.push(p);
+        inlineProps.push(p, 0, style[p]);
+      } else if (type !== "undefined") {
+        if (startAt && p in startAt) {
+          // in case someone hard-codes a complex value as the start, like top: "calc(2vh / 2)". Without this, it'd use the computed value (always in px)
+          startValue = typeof startAt[p] === "function" ? startAt[p].call(tween, index, target, targets) : startAt[p];
+          (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._isString)(startValue) && ~startValue.indexOf("random(") && (startValue = (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._replaceRandom)(startValue));
+          (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.getUnit)(startValue + "") || startValue === "auto" || (startValue += _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._config.units[p] || (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.getUnit)(_get(target, p)) || ""); // for cases when someone passes in a unitless value like {x: 100}; if we try setting translate(100, 0px) it won't work.
+
+          (startValue + "").charAt(1) === "=" && (startValue = _get(target, p)); // can't work with relative values
+        } else {
+          startValue = _get(target, p);
+        }
+
+        startNum = parseFloat(startValue);
+        relative = type === "string" && endValue.charAt(1) === "=" && endValue.substr(0, 2);
+        relative && (endValue = endValue.substr(2));
+        endNum = parseFloat(endValue);
+
+        if (p in _propertyAliases) {
+          if (p === "autoAlpha") {
+            //special case where we control the visibility along with opacity. We still allow the opacity value to pass through and get tweened.
+            if (startNum === 1 && _get(target, "visibility") === "hidden" && endNum) {
+              //if visibility is initially set to "hidden", we should interpret that as intent to make opacity 0 (a convenience)
+              startNum = 0;
+            }
+
+            inlineProps.push("visibility", 0, style.visibility);
+
+            _addNonTweeningPT(this, style, "visibility", startNum ? "inherit" : "hidden", endNum ? "inherit" : "hidden", !endNum);
+          }
+
+          if (p !== "scale" && p !== "transform") {
+            p = _propertyAliases[p];
+            ~p.indexOf(",") && (p = p.split(",")[0]);
+          }
+        }
+
+        isTransformRelated = p in _transformProps; //--- TRANSFORM-RELATED ---
+
+        if (isTransformRelated) {
+          this.styles.save(p);
+
+          if (!transformPropTween) {
+            cache = target._gsap;
+            cache.renderTransform && !vars.parseTransform || _parseTransform(target, vars.parseTransform); // if, for example, gsap.set(... {transform:"translateX(50vw)"}), the _get() call doesn't parse the transform, thus cache.renderTransform won't be set yet so force the parsing of the transform here.
+
+            smooth = vars.smoothOrigin !== false && cache.smooth;
+            transformPropTween = this._pt = new _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.PropTween(this._pt, style, _transformProp, 0, 1, cache.renderTransform, cache, 0, -1); //the first time through, create the rendering PropTween so that it runs LAST (in the linked list, we keep adding to the beginning)
+
+            transformPropTween.dep = 1; //flag it as dependent so that if things get killed/overwritten and this is the only PropTween left, we can safely kill the whole tween.
+          }
+
+          if (p === "scale") {
+            this._pt = new _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.PropTween(this._pt, cache, "scaleY", cache.scaleY, (relative ? (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._parseRelative)(cache.scaleY, relative + endNum) : endNum) - cache.scaleY || 0, _renderCSSProp);
+            this._pt.u = 0;
+            props.push("scaleY", p);
+            p += "X";
+          } else if (p === "transformOrigin") {
+            inlineProps.push(_transformOriginProp, 0, style[_transformOriginProp]);
+            endValue = _convertKeywordsToPercentages(endValue); //in case something like "left top" or "bottom right" is passed in. Convert to percentages.
+
+            if (cache.svg) {
+              _applySVGOrigin(target, endValue, 0, smooth, 0, this);
+            } else {
+              endUnit = parseFloat(endValue.split(" ")[2]) || 0; //handle the zOrigin separately!
+
+              endUnit !== cache.zOrigin && _addNonTweeningPT(this, cache, "zOrigin", cache.zOrigin, endUnit);
+
+              _addNonTweeningPT(this, style, p, _firstTwoOnly(startValue), _firstTwoOnly(endValue));
+            }
+
+            continue;
+          } else if (p === "svgOrigin") {
+            _applySVGOrigin(target, endValue, 1, smooth, 0, this);
+
+            continue;
+          } else if (p in _rotationalProperties) {
+            _addRotationalPropTween(this, cache, p, startNum, relative ? (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._parseRelative)(startNum, relative + endValue) : endValue);
+
+            continue;
+          } else if (p === "smoothOrigin") {
+            _addNonTweeningPT(this, cache, "smooth", cache.smooth, endValue);
+
+            continue;
+          } else if (p === "force3D") {
+            cache[p] = endValue;
+            continue;
+          } else if (p === "transform") {
+            _addRawTransformPTs(this, endValue, target);
+
+            continue;
+          }
+        } else if (!(p in style)) {
+          p = _checkPropPrefix(p) || p;
+        }
+
+        if (isTransformRelated || (endNum || endNum === 0) && (startNum || startNum === 0) && !_complexExp.test(endValue) && p in style) {
+          startUnit = (startValue + "").substr((startNum + "").length);
+          endNum || (endNum = 0); // protect against NaN
+
+          endUnit = (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.getUnit)(endValue) || (p in _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._config.units ? _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._config.units[p] : startUnit);
+          startUnit !== endUnit && (startNum = _convertToUnit(target, p, startValue, endUnit));
+          this._pt = new _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.PropTween(this._pt, isTransformRelated ? cache : style, p, startNum, (relative ? (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._parseRelative)(startNum, relative + endNum) : endNum) - startNum, !isTransformRelated && (endUnit === "px" || p === "zIndex") && vars.autoRound !== false ? _renderRoundedCSSProp : _renderCSSProp);
+          this._pt.u = endUnit || 0;
+
+          if (startUnit !== endUnit && endUnit !== "%") {
+            //when the tween goes all the way back to the beginning, we need to revert it to the OLD/ORIGINAL value (with those units). We record that as a "b" (beginning) property and point to a render method that handles that. (performance optimization)
+            this._pt.b = startValue;
+            this._pt.r = _renderCSSPropWithBeginning;
+          }
+        } else if (!(p in style)) {
+          if (p in target) {
+            //maybe it's not a style - it could be a property added directly to an element in which case we'll try to animate that.
+            this.add(target, p, startValue || target[p], relative ? relative + endValue : endValue, index, targets);
+          } else if (p !== "parseTransform") {
+            (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._missingPlugin)(p, endValue);
+
+            continue;
+          }
+        } else {
+          _tweenComplexCSSString.call(this, target, p, startValue, relative ? relative + endValue : endValue);
+        }
+
+        isTransformRelated || (p in style ? inlineProps.push(p, 0, style[p]) : inlineProps.push(p, 1, startValue || target[p]));
+        props.push(p);
+      }
+    }
+
+    hasPriority && (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._sortPropTweensByPriority)(this);
+  },
+  render: function render(ratio, data) {
+    if (data.tween._time || !_reverting()) {
+      var pt = data._pt;
+
+      while (pt) {
+        pt.r(ratio, pt.d);
+        pt = pt._next;
+      }
+    } else {
+      data.styles.revert();
+    }
+  },
+  get: _get,
+  aliases: _propertyAliases,
+  getSetter: function getSetter(target, property, plugin) {
+    //returns a setter function that accepts target, property, value and applies it accordingly. Remember, properties like "x" aren't as simple as target.style.property = value because they've got to be applied to a proxy object and then merged into a transform string in a renderer.
+    var p = _propertyAliases[property];
+    p && p.indexOf(",") < 0 && (property = p);
+    return property in _transformProps && property !== _transformOriginProp && (target._gsap.x || _get(target, "x")) ? plugin && _recentSetterPlugin === plugin ? property === "scale" ? _setterScale : _setterTransform : (_recentSetterPlugin = plugin || {}) && (property === "scale" ? _setterScaleWithRender : _setterTransformWithRender) : target.style && !(0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._isUndefined)(target.style[property]) ? _setterCSSStyle : ~property.indexOf("-") ? _setterCSSProp : (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._getSetter)(target, property);
+  },
+  core: {
+    _removeProperty: _removeProperty,
+    _getMatrix: _getMatrix
+  }
+};
+_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.gsap.utils.checkPrefix = _checkPropPrefix;
+_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.gsap.core.getStyleSaver = _getStyleSaver;
+
+(function (positionAndScale, rotation, others, aliases) {
+  var all = (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._forEachName)(positionAndScale + "," + rotation + "," + others, function (name) {
+    _transformProps[name] = 1;
+  });
+
+  (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._forEachName)(rotation, function (name) {
+    _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._config.units[name] = "deg";
+    _rotationalProperties[name] = 1;
+  });
+
+  _propertyAliases[all[13]] = positionAndScale + "," + rotation;
+
+  (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._forEachName)(aliases, function (name) {
+    var split = name.split(":");
+    _propertyAliases[split[1]] = all[split[0]];
+  });
+})("x,y,z,scale,scaleX,scaleY,xPercent,yPercent", "rotation,rotationX,rotationY,skewX,skewY", "transform,transformOrigin,svgOrigin,force3D,smoothOrigin,transformPerspective", "0:translateX,1:translateY,2:translateZ,8:rotate,8:rotationZ,8:rotateZ,9:rotateX,10:rotateY");
+
+(0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._forEachName)("x,y,z,top,right,bottom,left,width,height,fontSize,padding,margin,perspective", function (name) {
+  _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._config.units[name] = "px";
+});
+
+_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.gsap.registerPlugin(CSSPlugin);
+
+
+/***/ },
+
+/***/ "./node_modules/gsap/Observer.js"
+/*!***************************************!*\
+  !*** ./node_modules/gsap/Observer.js ***!
+  \***************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   Observer: () => (/* binding */ Observer),
+/* harmony export */   _getProxyProp: () => (/* binding */ _getProxyProp),
+/* harmony export */   _getScrollFunc: () => (/* binding */ _getScrollFunc),
+/* harmony export */   _getTarget: () => (/* binding */ _getTarget),
+/* harmony export */   _getVelocityProp: () => (/* binding */ _getVelocityProp),
+/* harmony export */   _horizontal: () => (/* binding */ _horizontal),
+/* harmony export */   _isViewport: () => (/* binding */ _isViewport),
+/* harmony export */   _proxies: () => (/* binding */ _proxies),
+/* harmony export */   _scrollers: () => (/* binding */ _scrollers),
+/* harmony export */   _vertical: () => (/* binding */ _vertical),
+/* harmony export */   "default": () => (/* binding */ Observer)
+/* harmony export */ });
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+/*!
+ * Observer 3.12.5
+ * https://gsap.com
+ *
+ * @license Copyright 2008-2024, GreenSock. All rights reserved.
+ * Subject to the terms at https://gsap.com/standard-license or for
+ * Club GSAP members, the agreement issued with that membership.
+ * @author: Jack Doyle, jack@greensock.com
+*/
+
+/* eslint-disable */
+var gsap,
+    _coreInitted,
+    _clamp,
+    _win,
+    _doc,
+    _docEl,
+    _body,
+    _isTouch,
+    _pointerType,
+    ScrollTrigger,
+    _root,
+    _normalizer,
+    _eventTypes,
+    _context,
+    _getGSAP = function _getGSAP() {
+  return gsap || typeof window !== "undefined" && (gsap = window.gsap) && gsap.registerPlugin && gsap;
+},
+    _startup = 1,
+    _observers = [],
+    _scrollers = [],
+    _proxies = [],
+    _getTime = Date.now,
+    _bridge = function _bridge(name, value) {
+  return value;
+},
+    _integrate = function _integrate() {
+  var core = ScrollTrigger.core,
+      data = core.bridge || {},
+      scrollers = core._scrollers,
+      proxies = core._proxies;
+  scrollers.push.apply(scrollers, _scrollers);
+  proxies.push.apply(proxies, _proxies);
+  _scrollers = scrollers;
+  _proxies = proxies;
+
+  _bridge = function _bridge(name, value) {
+    return data[name](value);
+  };
+},
+    _getProxyProp = function _getProxyProp(element, property) {
+  return ~_proxies.indexOf(element) && _proxies[_proxies.indexOf(element) + 1][property];
+},
+    _isViewport = function _isViewport(el) {
+  return !!~_root.indexOf(el);
+},
+    _addListener = function _addListener(element, type, func, passive, capture) {
+  return element.addEventListener(type, func, {
+    passive: passive !== false,
+    capture: !!capture
+  });
+},
+    _removeListener = function _removeListener(element, type, func, capture) {
+  return element.removeEventListener(type, func, !!capture);
+},
+    _scrollLeft = "scrollLeft",
+    _scrollTop = "scrollTop",
+    _onScroll = function _onScroll() {
+  return _normalizer && _normalizer.isPressed || _scrollers.cache++;
+},
+    _scrollCacheFunc = function _scrollCacheFunc(f, doNotCache) {
+  var cachingFunc = function cachingFunc(value) {
+    // since reading the scrollTop/scrollLeft/pageOffsetY/pageOffsetX can trigger a layout, this function allows us to cache the value so it only gets read fresh after a "scroll" event fires (or while we're refreshing because that can lengthen the page and alter the scroll position). when "soft" is true, that means don't actually set the scroll, but cache the new value instead (useful in ScrollSmoother)
+    if (value || value === 0) {
+      _startup && (_win.history.scrollRestoration = "manual"); // otherwise the new position will get overwritten by the browser onload.
+
+      var isNormalizing = _normalizer && _normalizer.isPressed;
+      value = cachingFunc.v = Math.round(value) || (_normalizer && _normalizer.iOS ? 1 : 0); //TODO: iOS Bug: if you allow it to go to 0, Safari can start to report super strange (wildly inaccurate) touch positions!
+
+      f(value);
+      cachingFunc.cacheID = _scrollers.cache;
+      isNormalizing && _bridge("ss", value); // set scroll (notify ScrollTrigger so it can dispatch a "scrollStart" event if necessary
+    } else if (doNotCache || _scrollers.cache !== cachingFunc.cacheID || _bridge("ref")) {
+      cachingFunc.cacheID = _scrollers.cache;
+      cachingFunc.v = f();
+    }
+
+    return cachingFunc.v + cachingFunc.offset;
+  };
+
+  cachingFunc.offset = 0;
+  return f && cachingFunc;
+},
+    _horizontal = {
+  s: _scrollLeft,
+  p: "left",
+  p2: "Left",
+  os: "right",
+  os2: "Right",
+  d: "width",
+  d2: "Width",
+  a: "x",
+  sc: _scrollCacheFunc(function (value) {
+    return arguments.length ? _win.scrollTo(value, _vertical.sc()) : _win.pageXOffset || _doc[_scrollLeft] || _docEl[_scrollLeft] || _body[_scrollLeft] || 0;
+  })
+},
+    _vertical = {
+  s: _scrollTop,
+  p: "top",
+  p2: "Top",
+  os: "bottom",
+  os2: "Bottom",
+  d: "height",
+  d2: "Height",
+  a: "y",
+  op: _horizontal,
+  sc: _scrollCacheFunc(function (value) {
+    return arguments.length ? _win.scrollTo(_horizontal.sc(), value) : _win.pageYOffset || _doc[_scrollTop] || _docEl[_scrollTop] || _body[_scrollTop] || 0;
+  })
+},
+    _getTarget = function _getTarget(t, self) {
+  return (self && self._ctx && self._ctx.selector || gsap.utils.toArray)(t)[0] || (typeof t === "string" && gsap.config().nullTargetWarn !== false ? console.warn("Element not found:", t) : null);
+},
+    _getScrollFunc = function _getScrollFunc(element, _ref) {
+  var s = _ref.s,
+      sc = _ref.sc;
+  // we store the scroller functions in an alternating sequenced Array like [element, verticalScrollFunc, horizontalScrollFunc, ...] so that we can minimize memory, maximize performance, and we also record the last position as a ".rec" property in order to revert to that after refreshing to ensure things don't shift around.
+  _isViewport(element) && (element = _doc.scrollingElement || _docEl);
+
+  var i = _scrollers.indexOf(element),
+      offset = sc === _vertical.sc ? 1 : 2;
+
+  !~i && (i = _scrollers.push(element) - 1);
+  _scrollers[i + offset] || _addListener(element, "scroll", _onScroll); // clear the cache when a scroll occurs
+
+  var prev = _scrollers[i + offset],
+      func = prev || (_scrollers[i + offset] = _scrollCacheFunc(_getProxyProp(element, s), true) || (_isViewport(element) ? sc : _scrollCacheFunc(function (value) {
+    return arguments.length ? element[s] = value : element[s];
+  })));
+  func.target = element;
+  prev || (func.smooth = gsap.getProperty(element, "scrollBehavior") === "smooth"); // only set it the first time (don't reset every time a scrollFunc is requested because perhaps it happens during a refresh() when it's disabled in ScrollTrigger.
+
+  return func;
+},
+    _getVelocityProp = function _getVelocityProp(value, minTimeRefresh, useDelta) {
+  var v1 = value,
+      v2 = value,
+      t1 = _getTime(),
+      t2 = t1,
+      min = minTimeRefresh || 50,
+      dropToZeroTime = Math.max(500, min * 3),
+      update = function update(value, force) {
+    var t = _getTime();
+
+    if (force || t - t1 > min) {
+      v2 = v1;
+      v1 = value;
+      t2 = t1;
+      t1 = t;
+    } else if (useDelta) {
+      v1 += value;
+    } else {
+      // not totally necessary, but makes it a bit more accurate by adjusting the v1 value according to the new slope. This way we're not just ignoring the incoming data. Removing for now because it doesn't seem to make much practical difference and it's probably not worth the kb.
+      v1 = v2 + (value - v2) / (t - t2) * (t1 - t2);
+    }
+  },
+      reset = function reset() {
+    v2 = v1 = useDelta ? 0 : v1;
+    t2 = t1 = 0;
+  },
+      getVelocity = function getVelocity(latestValue) {
+    var tOld = t2,
+        vOld = v2,
+        t = _getTime();
+
+    (latestValue || latestValue === 0) && latestValue !== v1 && update(latestValue);
+    return t1 === t2 || t - t2 > dropToZeroTime ? 0 : (v1 + (useDelta ? vOld : -vOld)) / ((useDelta ? t : t1) - tOld) * 1000;
+  };
+
+  return {
+    update: update,
+    reset: reset,
+    getVelocity: getVelocity
+  };
+},
+    _getEvent = function _getEvent(e, preventDefault) {
+  preventDefault && !e._gsapAllow && e.preventDefault();
+  return e.changedTouches ? e.changedTouches[0] : e;
+},
+    _getAbsoluteMax = function _getAbsoluteMax(a) {
+  var max = Math.max.apply(Math, a),
+      min = Math.min.apply(Math, a);
+  return Math.abs(max) >= Math.abs(min) ? max : min;
+},
+    _setScrollTrigger = function _setScrollTrigger() {
+  ScrollTrigger = gsap.core.globals().ScrollTrigger;
+  ScrollTrigger && ScrollTrigger.core && _integrate();
+},
+    _initCore = function _initCore(core) {
+  gsap = core || _getGSAP();
+
+  if (!_coreInitted && gsap && typeof document !== "undefined" && document.body) {
+    _win = window;
+    _doc = document;
+    _docEl = _doc.documentElement;
+    _body = _doc.body;
+    _root = [_win, _doc, _docEl, _body];
+    _clamp = gsap.utils.clamp;
+
+    _context = gsap.core.context || function () {};
+
+    _pointerType = "onpointerenter" in _body ? "pointer" : "mouse"; // isTouch is 0 if no touch, 1 if ONLY touch, and 2 if it can accommodate touch but also other types like mouse/pointer.
+
+    _isTouch = Observer.isTouch = _win.matchMedia && _win.matchMedia("(hover: none), (pointer: coarse)").matches ? 1 : "ontouchstart" in _win || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0 ? 2 : 0;
+    _eventTypes = Observer.eventTypes = ("ontouchstart" in _docEl ? "touchstart,touchmove,touchcancel,touchend" : !("onpointerdown" in _docEl) ? "mousedown,mousemove,mouseup,mouseup" : "pointerdown,pointermove,pointercancel,pointerup").split(",");
+    setTimeout(function () {
+      return _startup = 0;
+    }, 500);
+
+    _setScrollTrigger();
+
+    _coreInitted = 1;
+  }
+
+  return _coreInitted;
+};
+
+_horizontal.op = _vertical;
+_scrollers.cache = 0;
+var Observer = /*#__PURE__*/function () {
+  function Observer(vars) {
+    this.init(vars);
+  }
+
+  var _proto = Observer.prototype;
+
+  _proto.init = function init(vars) {
+    _coreInitted || _initCore(gsap) || console.warn("Please gsap.registerPlugin(Observer)");
+    ScrollTrigger || _setScrollTrigger();
+    var tolerance = vars.tolerance,
+        dragMinimum = vars.dragMinimum,
+        type = vars.type,
+        target = vars.target,
+        lineHeight = vars.lineHeight,
+        debounce = vars.debounce,
+        preventDefault = vars.preventDefault,
+        onStop = vars.onStop,
+        onStopDelay = vars.onStopDelay,
+        ignore = vars.ignore,
+        wheelSpeed = vars.wheelSpeed,
+        event = vars.event,
+        onDragStart = vars.onDragStart,
+        onDragEnd = vars.onDragEnd,
+        onDrag = vars.onDrag,
+        onPress = vars.onPress,
+        onRelease = vars.onRelease,
+        onRight = vars.onRight,
+        onLeft = vars.onLeft,
+        onUp = vars.onUp,
+        onDown = vars.onDown,
+        onChangeX = vars.onChangeX,
+        onChangeY = vars.onChangeY,
+        onChange = vars.onChange,
+        onToggleX = vars.onToggleX,
+        onToggleY = vars.onToggleY,
+        onHover = vars.onHover,
+        onHoverEnd = vars.onHoverEnd,
+        onMove = vars.onMove,
+        ignoreCheck = vars.ignoreCheck,
+        isNormalizer = vars.isNormalizer,
+        onGestureStart = vars.onGestureStart,
+        onGestureEnd = vars.onGestureEnd,
+        onWheel = vars.onWheel,
+        onEnable = vars.onEnable,
+        onDisable = vars.onDisable,
+        onClick = vars.onClick,
+        scrollSpeed = vars.scrollSpeed,
+        capture = vars.capture,
+        allowClicks = vars.allowClicks,
+        lockAxis = vars.lockAxis,
+        onLockAxis = vars.onLockAxis;
+    this.target = target = _getTarget(target) || _docEl;
+    this.vars = vars;
+    ignore && (ignore = gsap.utils.toArray(ignore));
+    tolerance = tolerance || 1e-9;
+    dragMinimum = dragMinimum || 0;
+    wheelSpeed = wheelSpeed || 1;
+    scrollSpeed = scrollSpeed || 1;
+    type = type || "wheel,touch,pointer";
+    debounce = debounce !== false;
+    lineHeight || (lineHeight = parseFloat(_win.getComputedStyle(_body).lineHeight) || 22); // note: browser may report "normal", so default to 22.
+
+    var id,
+        onStopDelayedCall,
+        dragged,
+        moved,
+        wheeled,
+        locked,
+        axis,
+        self = this,
+        prevDeltaX = 0,
+        prevDeltaY = 0,
+        passive = vars.passive || !preventDefault,
+        scrollFuncX = _getScrollFunc(target, _horizontal),
+        scrollFuncY = _getScrollFunc(target, _vertical),
+        scrollX = scrollFuncX(),
+        scrollY = scrollFuncY(),
+        limitToTouch = ~type.indexOf("touch") && !~type.indexOf("pointer") && _eventTypes[0] === "pointerdown",
+        // for devices that accommodate mouse events and touch events, we need to distinguish.
+    isViewport = _isViewport(target),
+        ownerDoc = target.ownerDocument || _doc,
+        deltaX = [0, 0, 0],
+        // wheel, scroll, pointer/touch
+    deltaY = [0, 0, 0],
+        onClickTime = 0,
+        clickCapture = function clickCapture() {
+      return onClickTime = _getTime();
+    },
+        _ignoreCheck = function _ignoreCheck(e, isPointerOrTouch) {
+      return (self.event = e) && ignore && ~ignore.indexOf(e.target) || isPointerOrTouch && limitToTouch && e.pointerType !== "touch" || ignoreCheck && ignoreCheck(e, isPointerOrTouch);
+    },
+        onStopFunc = function onStopFunc() {
+      self._vx.reset();
+
+      self._vy.reset();
+
+      onStopDelayedCall.pause();
+      onStop && onStop(self);
+    },
+        update = function update() {
+      var dx = self.deltaX = _getAbsoluteMax(deltaX),
+          dy = self.deltaY = _getAbsoluteMax(deltaY),
+          changedX = Math.abs(dx) >= tolerance,
+          changedY = Math.abs(dy) >= tolerance;
+
+      onChange && (changedX || changedY) && onChange(self, dx, dy, deltaX, deltaY); // in ScrollTrigger.normalizeScroll(), we need to know if it was touch/pointer so we need access to the deltaX/deltaY Arrays before we clear them out.
+
+      if (changedX) {
+        onRight && self.deltaX > 0 && onRight(self);
+        onLeft && self.deltaX < 0 && onLeft(self);
+        onChangeX && onChangeX(self);
+        onToggleX && self.deltaX < 0 !== prevDeltaX < 0 && onToggleX(self);
+        prevDeltaX = self.deltaX;
+        deltaX[0] = deltaX[1] = deltaX[2] = 0;
+      }
+
+      if (changedY) {
+        onDown && self.deltaY > 0 && onDown(self);
+        onUp && self.deltaY < 0 && onUp(self);
+        onChangeY && onChangeY(self);
+        onToggleY && self.deltaY < 0 !== prevDeltaY < 0 && onToggleY(self);
+        prevDeltaY = self.deltaY;
+        deltaY[0] = deltaY[1] = deltaY[2] = 0;
+      }
+
+      if (moved || dragged) {
+        onMove && onMove(self);
+
+        if (dragged) {
+          onDrag(self);
+          dragged = false;
+        }
+
+        moved = false;
+      }
+
+      locked && !(locked = false) && onLockAxis && onLockAxis(self);
+
+      if (wheeled) {
+        onWheel(self);
+        wheeled = false;
+      }
+
+      id = 0;
+    },
+        onDelta = function onDelta(x, y, index) {
+      deltaX[index] += x;
+      deltaY[index] += y;
+
+      self._vx.update(x);
+
+      self._vy.update(y);
+
+      debounce ? id || (id = requestAnimationFrame(update)) : update();
+    },
+        onTouchOrPointerDelta = function onTouchOrPointerDelta(x, y) {
+      if (lockAxis && !axis) {
+        self.axis = axis = Math.abs(x) > Math.abs(y) ? "x" : "y";
+        locked = true;
+      }
+
+      if (axis !== "y") {
+        deltaX[2] += x;
+
+        self._vx.update(x, true); // update the velocity as frequently as possible instead of in the debounced function so that very quick touch-scrolls (flicks) feel natural. If it's the mouse/touch/pointer, force it so that we get snappy/accurate momentum scroll.
+
+      }
+
+      if (axis !== "x") {
+        deltaY[2] += y;
+
+        self._vy.update(y, true);
+      }
+
+      debounce ? id || (id = requestAnimationFrame(update)) : update();
+    },
+        _onDrag = function _onDrag(e) {
+      if (_ignoreCheck(e, 1)) {
+        return;
+      }
+
+      e = _getEvent(e, preventDefault);
+      var x = e.clientX,
+          y = e.clientY,
+          dx = x - self.x,
+          dy = y - self.y,
+          isDragging = self.isDragging;
+      self.x = x;
+      self.y = y;
+
+      if (isDragging || Math.abs(self.startX - x) >= dragMinimum || Math.abs(self.startY - y) >= dragMinimum) {
+        onDrag && (dragged = true);
+        isDragging || (self.isDragging = true);
+        onTouchOrPointerDelta(dx, dy);
+        isDragging || onDragStart && onDragStart(self);
+      }
+    },
+        _onPress = self.onPress = function (e) {
+      if (_ignoreCheck(e, 1) || e && e.button) {
+        return;
+      }
+
+      self.axis = axis = null;
+      onStopDelayedCall.pause();
+      self.isPressed = true;
+      e = _getEvent(e); // note: may need to preventDefault(?) Won't side-scroll on iOS Safari if we do, though.
+
+      prevDeltaX = prevDeltaY = 0;
+      self.startX = self.x = e.clientX;
+      self.startY = self.y = e.clientY;
+
+      self._vx.reset(); // otherwise the t2 may be stale if the user touches and flicks super fast and releases in less than 2 requestAnimationFrame ticks, causing velocity to be 0.
+
+
+      self._vy.reset();
+
+      _addListener(isNormalizer ? target : ownerDoc, _eventTypes[1], _onDrag, passive, true);
+
+      self.deltaX = self.deltaY = 0;
+      onPress && onPress(self);
+    },
+        _onRelease = self.onRelease = function (e) {
+      if (_ignoreCheck(e, 1)) {
+        return;
+      }
+
+      _removeListener(isNormalizer ? target : ownerDoc, _eventTypes[1], _onDrag, true);
+
+      var isTrackingDrag = !isNaN(self.y - self.startY),
+          wasDragging = self.isDragging,
+          isDragNotClick = wasDragging && (Math.abs(self.x - self.startX) > 3 || Math.abs(self.y - self.startY) > 3),
+          // some touch devices need some wiggle room in terms of sensing clicks - the finger may move a few pixels.
+      eventData = _getEvent(e);
+
+      if (!isDragNotClick && isTrackingDrag) {
+        self._vx.reset();
+
+        self._vy.reset(); //if (preventDefault && allowClicks && self.isPressed) { // check isPressed because in a rare edge case, the inputObserver in ScrollTrigger may stopPropagation() on the press/drag, so the onRelease may get fired without the onPress/onDrag ever getting called, thus it could trigger a click to occur on a link after scroll-dragging it.
+
+
+        if (preventDefault && allowClicks) {
+          gsap.delayedCall(0.08, function () {
+            // some browsers (like Firefox) won't trust script-generated clicks, so if the user tries to click on a video to play it, for example, it simply won't work. Since a regular "click" event will most likely be generated anyway (one that has its isTrusted flag set to true), we must slightly delay our script-generated click so that the "real"/trusted one is prioritized. Remember, when there are duplicate events in quick succession, we suppress all but the first one. Some browsers don't even trigger the "real" one at all, so our synthetic one is a safety valve that ensures that no matter what, a click event does get dispatched.
+            if (_getTime() - onClickTime > 300 && !e.defaultPrevented) {
+              if (e.target.click) {
+                //some browsers (like mobile Safari) don't properly trigger the click event
+                e.target.click();
+              } else if (ownerDoc.createEvent) {
+                var syntheticEvent = ownerDoc.createEvent("MouseEvents");
+                syntheticEvent.initMouseEvent("click", true, true, _win, 1, eventData.screenX, eventData.screenY, eventData.clientX, eventData.clientY, false, false, false, false, 0, null);
+                e.target.dispatchEvent(syntheticEvent);
+              }
+            }
+          });
+        }
+      }
+
+      self.isDragging = self.isGesturing = self.isPressed = false;
+      onStop && wasDragging && !isNormalizer && onStopDelayedCall.restart(true);
+      onDragEnd && wasDragging && onDragEnd(self);
+      onRelease && onRelease(self, isDragNotClick);
+    },
+        _onGestureStart = function _onGestureStart(e) {
+      return e.touches && e.touches.length > 1 && (self.isGesturing = true) && onGestureStart(e, self.isDragging);
+    },
+        _onGestureEnd = function _onGestureEnd() {
+      return (self.isGesturing = false) || onGestureEnd(self);
+    },
+        onScroll = function onScroll(e) {
+      if (_ignoreCheck(e)) {
+        return;
+      }
+
+      var x = scrollFuncX(),
+          y = scrollFuncY();
+      onDelta((x - scrollX) * scrollSpeed, (y - scrollY) * scrollSpeed, 1);
+      scrollX = x;
+      scrollY = y;
+      onStop && onStopDelayedCall.restart(true);
+    },
+        _onWheel = function _onWheel(e) {
+      if (_ignoreCheck(e)) {
+        return;
+      }
+
+      e = _getEvent(e, preventDefault);
+      onWheel && (wheeled = true);
+      var multiplier = (e.deltaMode === 1 ? lineHeight : e.deltaMode === 2 ? _win.innerHeight : 1) * wheelSpeed;
+      onDelta(e.deltaX * multiplier, e.deltaY * multiplier, 0);
+      onStop && !isNormalizer && onStopDelayedCall.restart(true);
+    },
+        _onMove = function _onMove(e) {
+      if (_ignoreCheck(e)) {
+        return;
+      }
+
+      var x = e.clientX,
+          y = e.clientY,
+          dx = x - self.x,
+          dy = y - self.y;
+      self.x = x;
+      self.y = y;
+      moved = true;
+      onStop && onStopDelayedCall.restart(true);
+      (dx || dy) && onTouchOrPointerDelta(dx, dy);
+    },
+        _onHover = function _onHover(e) {
+      self.event = e;
+      onHover(self);
+    },
+        _onHoverEnd = function _onHoverEnd(e) {
+      self.event = e;
+      onHoverEnd(self);
+    },
+        _onClick = function _onClick(e) {
+      return _ignoreCheck(e) || _getEvent(e, preventDefault) && onClick(self);
+    };
+
+    onStopDelayedCall = self._dc = gsap.delayedCall(onStopDelay || 0.25, onStopFunc).pause();
+    self.deltaX = self.deltaY = 0;
+    self._vx = _getVelocityProp(0, 50, true);
+    self._vy = _getVelocityProp(0, 50, true);
+    self.scrollX = scrollFuncX;
+    self.scrollY = scrollFuncY;
+    self.isDragging = self.isGesturing = self.isPressed = false;
+
+    _context(this);
+
+    self.enable = function (e) {
+      if (!self.isEnabled) {
+        _addListener(isViewport ? ownerDoc : target, "scroll", _onScroll);
+
+        type.indexOf("scroll") >= 0 && _addListener(isViewport ? ownerDoc : target, "scroll", onScroll, passive, capture);
+        type.indexOf("wheel") >= 0 && _addListener(target, "wheel", _onWheel, passive, capture);
+
+        if (type.indexOf("touch") >= 0 && _isTouch || type.indexOf("pointer") >= 0) {
+          _addListener(target, _eventTypes[0], _onPress, passive, capture);
+
+          _addListener(ownerDoc, _eventTypes[2], _onRelease);
+
+          _addListener(ownerDoc, _eventTypes[3], _onRelease);
+
+          allowClicks && _addListener(target, "click", clickCapture, true, true);
+          onClick && _addListener(target, "click", _onClick);
+          onGestureStart && _addListener(ownerDoc, "gesturestart", _onGestureStart);
+          onGestureEnd && _addListener(ownerDoc, "gestureend", _onGestureEnd);
+          onHover && _addListener(target, _pointerType + "enter", _onHover);
+          onHoverEnd && _addListener(target, _pointerType + "leave", _onHoverEnd);
+          onMove && _addListener(target, _pointerType + "move", _onMove);
+        }
+
+        self.isEnabled = true;
+        e && e.type && _onPress(e);
+        onEnable && onEnable(self);
+      }
+
+      return self;
+    };
+
+    self.disable = function () {
+      if (self.isEnabled) {
+        // only remove the _onScroll listener if there aren't any others that rely on the functionality.
+        _observers.filter(function (o) {
+          return o !== self && _isViewport(o.target);
+        }).length || _removeListener(isViewport ? ownerDoc : target, "scroll", _onScroll);
+
+        if (self.isPressed) {
+          self._vx.reset();
+
+          self._vy.reset();
+
+          _removeListener(isNormalizer ? target : ownerDoc, _eventTypes[1], _onDrag, true);
+        }
+
+        _removeListener(isViewport ? ownerDoc : target, "scroll", onScroll, capture);
+
+        _removeListener(target, "wheel", _onWheel, capture);
+
+        _removeListener(target, _eventTypes[0], _onPress, capture);
+
+        _removeListener(ownerDoc, _eventTypes[2], _onRelease);
+
+        _removeListener(ownerDoc, _eventTypes[3], _onRelease);
+
+        _removeListener(target, "click", clickCapture, true);
+
+        _removeListener(target, "click", _onClick);
+
+        _removeListener(ownerDoc, "gesturestart", _onGestureStart);
+
+        _removeListener(ownerDoc, "gestureend", _onGestureEnd);
+
+        _removeListener(target, _pointerType + "enter", _onHover);
+
+        _removeListener(target, _pointerType + "leave", _onHoverEnd);
+
+        _removeListener(target, _pointerType + "move", _onMove);
+
+        self.isEnabled = self.isPressed = self.isDragging = false;
+        onDisable && onDisable(self);
+      }
+    };
+
+    self.kill = self.revert = function () {
+      self.disable();
+
+      var i = _observers.indexOf(self);
+
+      i >= 0 && _observers.splice(i, 1);
+      _normalizer === self && (_normalizer = 0);
+    };
+
+    _observers.push(self);
+
+    isNormalizer && _isViewport(target) && (_normalizer = self);
+    self.enable(event);
+  };
+
+  _createClass(Observer, [{
+    key: "velocityX",
+    get: function get() {
+      return this._vx.getVelocity();
+    }
+  }, {
+    key: "velocityY",
+    get: function get() {
+      return this._vy.getVelocity();
+    }
+  }]);
+
+  return Observer;
+}();
+Observer.version = "3.12.5";
+
+Observer.create = function (vars) {
+  return new Observer(vars);
+};
+
+Observer.register = _initCore;
+
+Observer.getAll = function () {
+  return _observers.slice();
+};
+
+Observer.getById = function (id) {
+  return _observers.filter(function (o) {
+    return o.vars.id === id;
+  })[0];
+};
+
+_getGSAP() && gsap.registerPlugin(Observer);
+
+
+/***/ },
+
+/***/ "./node_modules/gsap/ScrollTrigger.js"
+/*!********************************************!*\
+  !*** ./node_modules/gsap/ScrollTrigger.js ***!
+  \********************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ScrollTrigger: () => (/* binding */ ScrollTrigger),
+/* harmony export */   "default": () => (/* binding */ ScrollTrigger)
+/* harmony export */ });
+/* harmony import */ var _Observer_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Observer.js */ "./node_modules/gsap/Observer.js");
+/*!
+ * ScrollTrigger 3.12.5
+ * https://gsap.com
+ *
+ * @license Copyright 2008-2024, GreenSock. All rights reserved.
+ * Subject to the terms at https://gsap.com/standard-license or for
+ * Club GSAP members, the agreement issued with that membership.
+ * @author: Jack Doyle, jack@greensock.com
+*/
+
+/* eslint-disable */
+
+
+var gsap,
+    _coreInitted,
+    _win,
+    _doc,
+    _docEl,
+    _body,
+    _root,
+    _resizeDelay,
+    _toArray,
+    _clamp,
+    _time2,
+    _syncInterval,
+    _refreshing,
+    _pointerIsDown,
+    _transformProp,
+    _i,
+    _prevWidth,
+    _prevHeight,
+    _autoRefresh,
+    _sort,
+    _suppressOverwrites,
+    _ignoreResize,
+    _normalizer,
+    _ignoreMobileResize,
+    _baseScreenHeight,
+    _baseScreenWidth,
+    _fixIOSBug,
+    _context,
+    _scrollRestoration,
+    _div100vh,
+    _100vh,
+    _isReverted,
+    _clampingMax,
+    _limitCallbacks,
+    // if true, we'll only trigger callbacks if the active state toggles, so if you scroll immediately past both the start and end positions of a ScrollTrigger (thus inactive to inactive), neither its onEnter nor onLeave will be called. This is useful during startup.
+_startup = 1,
+    _getTime = Date.now,
+    _time1 = _getTime(),
+    _lastScrollTime = 0,
+    _enabled = 0,
+    _parseClamp = function _parseClamp(value, type, self) {
+  var clamp = _isString(value) && (value.substr(0, 6) === "clamp(" || value.indexOf("max") > -1);
+  self["_" + type + "Clamp"] = clamp;
+  return clamp ? value.substr(6, value.length - 7) : value;
+},
+    _keepClamp = function _keepClamp(value, clamp) {
+  return clamp && (!_isString(value) || value.substr(0, 6) !== "clamp(") ? "clamp(" + value + ")" : value;
+},
+    _rafBugFix = function _rafBugFix() {
+  return _enabled && requestAnimationFrame(_rafBugFix);
+},
+    // in some browsers (like Firefox), screen repaints weren't consistent unless we had SOMETHING queued up in requestAnimationFrame()! So this just creates a super simple loop to keep it alive and smooth out repaints.
+_pointerDownHandler = function _pointerDownHandler() {
+  return _pointerIsDown = 1;
+},
+    _pointerUpHandler = function _pointerUpHandler() {
+  return _pointerIsDown = 0;
+},
+    _passThrough = function _passThrough(v) {
+  return v;
+},
+    _round = function _round(value) {
+  return Math.round(value * 100000) / 100000 || 0;
+},
+    _windowExists = function _windowExists() {
+  return typeof window !== "undefined";
+},
+    _getGSAP = function _getGSAP() {
+  return gsap || _windowExists() && (gsap = window.gsap) && gsap.registerPlugin && gsap;
+},
+    _isViewport = function _isViewport(e) {
+  return !!~_root.indexOf(e);
+},
+    _getViewportDimension = function _getViewportDimension(dimensionProperty) {
+  return (dimensionProperty === "Height" ? _100vh : _win["inner" + dimensionProperty]) || _docEl["client" + dimensionProperty] || _body["client" + dimensionProperty];
+},
+    _getBoundsFunc = function _getBoundsFunc(element) {
+  return (0,_Observer_js__WEBPACK_IMPORTED_MODULE_0__._getProxyProp)(element, "getBoundingClientRect") || (_isViewport(element) ? function () {
+    _winOffsets.width = _win.innerWidth;
+    _winOffsets.height = _100vh;
+    return _winOffsets;
+  } : function () {
+    return _getBounds(element);
+  });
+},
+    _getSizeFunc = function _getSizeFunc(scroller, isViewport, _ref) {
+  var d = _ref.d,
+      d2 = _ref.d2,
+      a = _ref.a;
+  return (a = (0,_Observer_js__WEBPACK_IMPORTED_MODULE_0__._getProxyProp)(scroller, "getBoundingClientRect")) ? function () {
+    return a()[d];
+  } : function () {
+    return (isViewport ? _getViewportDimension(d2) : scroller["client" + d2]) || 0;
+  };
+},
+    _getOffsetsFunc = function _getOffsetsFunc(element, isViewport) {
+  return !isViewport || ~_Observer_js__WEBPACK_IMPORTED_MODULE_0__._proxies.indexOf(element) ? _getBoundsFunc(element) : function () {
+    return _winOffsets;
+  };
+},
+    _maxScroll = function _maxScroll(element, _ref2) {
+  var s = _ref2.s,
+      d2 = _ref2.d2,
+      d = _ref2.d,
+      a = _ref2.a;
+  return Math.max(0, (s = "scroll" + d2) && (a = (0,_Observer_js__WEBPACK_IMPORTED_MODULE_0__._getProxyProp)(element, s)) ? a() - _getBoundsFunc(element)()[d] : _isViewport(element) ? (_docEl[s] || _body[s]) - _getViewportDimension(d2) : element[s] - element["offset" + d2]);
+},
+    _iterateAutoRefresh = function _iterateAutoRefresh(func, events) {
+  for (var i = 0; i < _autoRefresh.length; i += 3) {
+    (!events || ~events.indexOf(_autoRefresh[i + 1])) && func(_autoRefresh[i], _autoRefresh[i + 1], _autoRefresh[i + 2]);
+  }
+},
+    _isString = function _isString(value) {
+  return typeof value === "string";
+},
+    _isFunction = function _isFunction(value) {
+  return typeof value === "function";
+},
+    _isNumber = function _isNumber(value) {
+  return typeof value === "number";
+},
+    _isObject = function _isObject(value) {
+  return typeof value === "object";
+},
+    _endAnimation = function _endAnimation(animation, reversed, pause) {
+  return animation && animation.progress(reversed ? 0 : 1) && pause && animation.pause();
+},
+    _callback = function _callback(self, func) {
+  if (self.enabled) {
+    var result = self._ctx ? self._ctx.add(function () {
+      return func(self);
+    }) : func(self);
+    result && result.totalTime && (self.callbackAnimation = result);
+  }
+},
+    _abs = Math.abs,
+    _left = "left",
+    _top = "top",
+    _right = "right",
+    _bottom = "bottom",
+    _width = "width",
+    _height = "height",
+    _Right = "Right",
+    _Left = "Left",
+    _Top = "Top",
+    _Bottom = "Bottom",
+    _padding = "padding",
+    _margin = "margin",
+    _Width = "Width",
+    _Height = "Height",
+    _px = "px",
+    _getComputedStyle = function _getComputedStyle(element) {
+  return _win.getComputedStyle(element);
+},
+    _makePositionable = function _makePositionable(element) {
+  // if the element already has position: absolute or fixed, leave that, otherwise make it position: relative
+  var position = _getComputedStyle(element).position;
+
+  element.style.position = position === "absolute" || position === "fixed" ? position : "relative";
+},
+    _setDefaults = function _setDefaults(obj, defaults) {
+  for (var p in defaults) {
+    p in obj || (obj[p] = defaults[p]);
+  }
+
+  return obj;
+},
+    _getBounds = function _getBounds(element, withoutTransforms) {
+  var tween = withoutTransforms && _getComputedStyle(element)[_transformProp] !== "matrix(1, 0, 0, 1, 0, 0)" && gsap.to(element, {
+    x: 0,
+    y: 0,
+    xPercent: 0,
+    yPercent: 0,
+    rotation: 0,
+    rotationX: 0,
+    rotationY: 0,
+    scale: 1,
+    skewX: 0,
+    skewY: 0
+  }).progress(1),
+      bounds = element.getBoundingClientRect();
+  tween && tween.progress(0).kill();
+  return bounds;
+},
+    _getSize = function _getSize(element, _ref3) {
+  var d2 = _ref3.d2;
+  return element["offset" + d2] || element["client" + d2] || 0;
+},
+    _getLabelRatioArray = function _getLabelRatioArray(timeline) {
+  var a = [],
+      labels = timeline.labels,
+      duration = timeline.duration(),
+      p;
+
+  for (p in labels) {
+    a.push(labels[p] / duration);
+  }
+
+  return a;
+},
+    _getClosestLabel = function _getClosestLabel(animation) {
+  return function (value) {
+    return gsap.utils.snap(_getLabelRatioArray(animation), value);
+  };
+},
+    _snapDirectional = function _snapDirectional(snapIncrementOrArray) {
+  var snap = gsap.utils.snap(snapIncrementOrArray),
+      a = Array.isArray(snapIncrementOrArray) && snapIncrementOrArray.slice(0).sort(function (a, b) {
+    return a - b;
+  });
+  return a ? function (value, direction, threshold) {
+    if (threshold === void 0) {
+      threshold = 1e-3;
+    }
+
+    var i;
+
+    if (!direction) {
+      return snap(value);
+    }
+
+    if (direction > 0) {
+      value -= threshold; // to avoid rounding errors. If we're too strict, it might snap forward, then immediately again, and again.
+
+      for (i = 0; i < a.length; i++) {
+        if (a[i] >= value) {
+          return a[i];
+        }
+      }
+
+      return a[i - 1];
+    } else {
+      i = a.length;
+      value += threshold;
+
+      while (i--) {
+        if (a[i] <= value) {
+          return a[i];
+        }
+      }
+    }
+
+    return a[0];
+  } : function (value, direction, threshold) {
+    if (threshold === void 0) {
+      threshold = 1e-3;
+    }
+
+    var snapped = snap(value);
+    return !direction || Math.abs(snapped - value) < threshold || snapped - value < 0 === direction < 0 ? snapped : snap(direction < 0 ? value - snapIncrementOrArray : value + snapIncrementOrArray);
+  };
+},
+    _getLabelAtDirection = function _getLabelAtDirection(timeline) {
+  return function (value, st) {
+    return _snapDirectional(_getLabelRatioArray(timeline))(value, st.direction);
+  };
+},
+    _multiListener = function _multiListener(func, element, types, callback) {
+  return types.split(",").forEach(function (type) {
+    return func(element, type, callback);
+  });
+},
+    _addListener = function _addListener(element, type, func, nonPassive, capture) {
+  return element.addEventListener(type, func, {
+    passive: !nonPassive,
+    capture: !!capture
+  });
+},
+    _removeListener = function _removeListener(element, type, func, capture) {
+  return element.removeEventListener(type, func, !!capture);
+},
+    _wheelListener = function _wheelListener(func, el, scrollFunc) {
+  scrollFunc = scrollFunc && scrollFunc.wheelHandler;
+
+  if (scrollFunc) {
+    func(el, "wheel", scrollFunc);
+    func(el, "touchmove", scrollFunc);
+  }
+},
+    _markerDefaults = {
+  startColor: "green",
+  endColor: "red",
+  indent: 0,
+  fontSize: "16px",
+  fontWeight: "normal"
+},
+    _defaults = {
+  toggleActions: "play",
+  anticipatePin: 0
+},
+    _keywords = {
+  top: 0,
+  left: 0,
+  center: 0.5,
+  bottom: 1,
+  right: 1
+},
+    _offsetToPx = function _offsetToPx(value, size) {
+  if (_isString(value)) {
+    var eqIndex = value.indexOf("="),
+        relative = ~eqIndex ? +(value.charAt(eqIndex - 1) + 1) * parseFloat(value.substr(eqIndex + 1)) : 0;
+
+    if (~eqIndex) {
+      value.indexOf("%") > eqIndex && (relative *= size / 100);
+      value = value.substr(0, eqIndex - 1);
+    }
+
+    value = relative + (value in _keywords ? _keywords[value] * size : ~value.indexOf("%") ? parseFloat(value) * size / 100 : parseFloat(value) || 0);
+  }
+
+  return value;
+},
+    _createMarker = function _createMarker(type, name, container, direction, _ref4, offset, matchWidthEl, containerAnimation) {
+  var startColor = _ref4.startColor,
+      endColor = _ref4.endColor,
+      fontSize = _ref4.fontSize,
+      indent = _ref4.indent,
+      fontWeight = _ref4.fontWeight;
+
+  var e = _doc.createElement("div"),
+      useFixedPosition = _isViewport(container) || (0,_Observer_js__WEBPACK_IMPORTED_MODULE_0__._getProxyProp)(container, "pinType") === "fixed",
+      isScroller = type.indexOf("scroller") !== -1,
+      parent = useFixedPosition ? _body : container,
+      isStart = type.indexOf("start") !== -1,
+      color = isStart ? startColor : endColor,
+      css = "border-color:" + color + ";font-size:" + fontSize + ";color:" + color + ";font-weight:" + fontWeight + ";pointer-events:none;white-space:nowrap;font-family:sans-serif,Arial;z-index:1000;padding:4px 8px;border-width:0;border-style:solid;";
+
+  css += "position:" + ((isScroller || containerAnimation) && useFixedPosition ? "fixed;" : "absolute;");
+  (isScroller || containerAnimation || !useFixedPosition) && (css += (direction === _Observer_js__WEBPACK_IMPORTED_MODULE_0__._vertical ? _right : _bottom) + ":" + (offset + parseFloat(indent)) + "px;");
+  matchWidthEl && (css += "box-sizing:border-box;text-align:left;width:" + matchWidthEl.offsetWidth + "px;");
+  e._isStart = isStart;
+  e.setAttribute("class", "gsap-marker-" + type + (name ? " marker-" + name : ""));
+  e.style.cssText = css;
+  e.innerText = name || name === 0 ? type + "-" + name : type;
+  parent.children[0] ? parent.insertBefore(e, parent.children[0]) : parent.appendChild(e);
+  e._offset = e["offset" + direction.op.d2];
+
+  _positionMarker(e, 0, direction, isStart);
+
+  return e;
+},
+    _positionMarker = function _positionMarker(marker, start, direction, flipped) {
+  var vars = {
+    display: "block"
+  },
+      side = direction[flipped ? "os2" : "p2"],
+      oppositeSide = direction[flipped ? "p2" : "os2"];
+  marker._isFlipped = flipped;
+  vars[direction.a + "Percent"] = flipped ? -100 : 0;
+  vars[direction.a] = flipped ? "1px" : 0;
+  vars["border" + side + _Width] = 1;
+  vars["border" + oppositeSide + _Width] = 0;
+  vars[direction.p] = start + "px";
+  gsap.set(marker, vars);
+},
+    _triggers = [],
+    _ids = {},
+    _rafID,
+    _sync = function _sync() {
+  return _getTime() - _lastScrollTime > 34 && (_rafID || (_rafID = requestAnimationFrame(_updateAll)));
+},
+    _onScroll = function _onScroll() {
+  // previously, we tried to optimize performance by batching/deferring to the next requestAnimationFrame(), but discovered that Safari has a few bugs that make this unworkable (especially on iOS). See https://codepen.io/GreenSock/pen/16c435b12ef09c38125204818e7b45fc?editors=0010 and https://codepen.io/GreenSock/pen/JjOxYpQ/3dd65ccec5a60f1d862c355d84d14562?editors=0010 and https://codepen.io/GreenSock/pen/ExbrPNa/087cef197dc35445a0951e8935c41503?editors=0010
+  if (!_normalizer || !_normalizer.isPressed || _normalizer.startX > _body.clientWidth) {
+    // if the user is dragging the scrollbar, allow it.
+    _Observer_js__WEBPACK_IMPORTED_MODULE_0__._scrollers.cache++;
+
+    if (_normalizer) {
+      _rafID || (_rafID = requestAnimationFrame(_updateAll));
+    } else {
+      _updateAll(); // Safari in particular (on desktop) NEEDS the immediate update rather than waiting for a requestAnimationFrame() whereas iOS seems to benefit from waiting for the requestAnimationFrame() tick, at least when normalizing. See https://codepen.io/GreenSock/pen/qBYozqO?editors=0110
+
+    }
+
+    _lastScrollTime || _dispatch("scrollStart");
+    _lastScrollTime = _getTime();
+  }
+},
+    _setBaseDimensions = function _setBaseDimensions() {
+  _baseScreenWidth = _win.innerWidth;
+  _baseScreenHeight = _win.innerHeight;
+},
+    _onResize = function _onResize() {
+  _Observer_js__WEBPACK_IMPORTED_MODULE_0__._scrollers.cache++;
+  !_refreshing && !_ignoreResize && !_doc.fullscreenElement && !_doc.webkitFullscreenElement && (!_ignoreMobileResize || _baseScreenWidth !== _win.innerWidth || Math.abs(_win.innerHeight - _baseScreenHeight) > _win.innerHeight * 0.25) && _resizeDelay.restart(true);
+},
+    // ignore resizes triggered by refresh()
+_listeners = {},
+    _emptyArray = [],
+    _softRefresh = function _softRefresh() {
+  return _removeListener(ScrollTrigger, "scrollEnd", _softRefresh) || _refreshAll(true);
+},
+    _dispatch = function _dispatch(type) {
+  return _listeners[type] && _listeners[type].map(function (f) {
+    return f();
+  }) || _emptyArray;
+},
+    _savedStyles = [],
+    // when ScrollTrigger.saveStyles() is called, the inline styles are recorded in this Array in a sequential format like [element, cssText, gsCache, media]. This keeps it very memory-efficient and fast to iterate through.
+_revertRecorded = function _revertRecorded(media) {
+  for (var i = 0; i < _savedStyles.length; i += 5) {
+    if (!media || _savedStyles[i + 4] && _savedStyles[i + 4].query === media) {
+      _savedStyles[i].style.cssText = _savedStyles[i + 1];
+      _savedStyles[i].getBBox && _savedStyles[i].setAttribute("transform", _savedStyles[i + 2] || "");
+      _savedStyles[i + 3].uncache = 1;
+    }
+  }
+},
+    _revertAll = function _revertAll(kill, media) {
+  var trigger;
+
+  for (_i = 0; _i < _triggers.length; _i++) {
+    trigger = _triggers[_i];
+
+    if (trigger && (!media || trigger._ctx === media)) {
+      if (kill) {
+        trigger.kill(1);
+      } else {
+        trigger.revert(true, true);
+      }
+    }
+  }
+
+  _isReverted = true;
+  media && _revertRecorded(media);
+  media || _dispatch("revert");
+},
+    _clearScrollMemory = function _clearScrollMemory(scrollRestoration, force) {
+  // zero-out all the recorded scroll positions. Don't use _triggers because if, for example, .matchMedia() is used to create some ScrollTriggers and then the user resizes and it removes ALL ScrollTriggers, and then go back to a size where there are ScrollTriggers, it would have kept the position(s) saved from the initial state.
+  _Observer_js__WEBPACK_IMPORTED_MODULE_0__._scrollers.cache++;
+  (force || !_refreshingAll) && _Observer_js__WEBPACK_IMPORTED_MODULE_0__._scrollers.forEach(function (obj) {
+    return _isFunction(obj) && obj.cacheID++ && (obj.rec = 0);
+  });
+  _isString(scrollRestoration) && (_win.history.scrollRestoration = _scrollRestoration = scrollRestoration);
+},
+    _refreshingAll,
+    _refreshID = 0,
+    _queueRefreshID,
+    _queueRefreshAll = function _queueRefreshAll() {
+  // we don't want to call _refreshAll() every time we create a new ScrollTrigger (for performance reasons) - it's better to batch them. Some frameworks dynamically load content and we can't rely on the window's "load" or "DOMContentLoaded" events to trigger it.
+  if (_queueRefreshID !== _refreshID) {
+    var id = _queueRefreshID = _refreshID;
+    requestAnimationFrame(function () {
+      return id === _refreshID && _refreshAll(true);
+    });
+  }
+},
+    _refresh100vh = function _refresh100vh() {
+  _body.appendChild(_div100vh);
+
+  _100vh = !_normalizer && _div100vh.offsetHeight || _win.innerHeight;
+
+  _body.removeChild(_div100vh);
+},
+    _hideAllMarkers = function _hideAllMarkers(hide) {
+  return _toArray(".gsap-marker-start, .gsap-marker-end, .gsap-marker-scroller-start, .gsap-marker-scroller-end").forEach(function (el) {
+    return el.style.display = hide ? "none" : "block";
+  });
+},
+    _refreshAll = function _refreshAll(force, skipRevert) {
+  if (_lastScrollTime && !force && !_isReverted) {
+    _addListener(ScrollTrigger, "scrollEnd", _softRefresh);
+
+    return;
+  }
+
+  _refresh100vh();
+
+  _refreshingAll = ScrollTrigger.isRefreshing = true;
+
+  _Observer_js__WEBPACK_IMPORTED_MODULE_0__._scrollers.forEach(function (obj) {
+    return _isFunction(obj) && ++obj.cacheID && (obj.rec = obj());
+  }); // force the clearing of the cache because some browsers take a little while to dispatch the "scroll" event and the user may have changed the scroll position and then called ScrollTrigger.refresh() right away
+
+
+  var refreshInits = _dispatch("refreshInit");
+
+  _sort && ScrollTrigger.sort();
+  skipRevert || _revertAll();
+
+  _Observer_js__WEBPACK_IMPORTED_MODULE_0__._scrollers.forEach(function (obj) {
+    if (_isFunction(obj)) {
+      obj.smooth && (obj.target.style.scrollBehavior = "auto"); // smooth scrolling interferes
+
+      obj(0);
+    }
+  });
+
+  _triggers.slice(0).forEach(function (t) {
+    return t.refresh();
+  }); // don't loop with _i because during a refresh() someone could call ScrollTrigger.update() which would iterate through _i resulting in a skip.
+
+
+  _isReverted = false;
+
+  _triggers.forEach(function (t) {
+    // nested pins (pinnedContainer) with pinSpacing may expand the container, so we must accommodate that here.
+    if (t._subPinOffset && t.pin) {
+      var prop = t.vars.horizontal ? "offsetWidth" : "offsetHeight",
+          original = t.pin[prop];
+      t.revert(true, 1);
+      t.adjustPinSpacing(t.pin[prop] - original);
+      t.refresh();
+    }
+  });
+
+  _clampingMax = 1; // pinSpacing might be propping a page open, thus when we .setPositions() to clamp a ScrollTrigger's end we should leave the pinSpacing alone. That's what this flag is for.
+
+  _hideAllMarkers(true);
+
+  _triggers.forEach(function (t) {
+    // the scroller's max scroll position may change after all the ScrollTriggers refreshed (like pinning could push it down), so we need to loop back and correct any with end: "max". Same for anything with a clamped end
+    var max = _maxScroll(t.scroller, t._dir),
+        endClamp = t.vars.end === "max" || t._endClamp && t.end > max,
+        startClamp = t._startClamp && t.start >= max;
+
+    (endClamp || startClamp) && t.setPositions(startClamp ? max - 1 : t.start, endClamp ? Math.max(startClamp ? max : t.start + 1, max) : t.end, true);
+  });
+
+  _hideAllMarkers(false);
+
+  _clampingMax = 0;
+  refreshInits.forEach(function (result) {
+    return result && result.render && result.render(-1);
+  }); // if the onRefreshInit() returns an animation (typically a gsap.set()), revert it. This makes it easy to put things in a certain spot before refreshing for measurement purposes, and then put things back.
+
+  _Observer_js__WEBPACK_IMPORTED_MODULE_0__._scrollers.forEach(function (obj) {
+    if (_isFunction(obj)) {
+      obj.smooth && requestAnimationFrame(function () {
+        return obj.target.style.scrollBehavior = "smooth";
+      });
+      obj.rec && obj(obj.rec);
+    }
+  });
+
+  _clearScrollMemory(_scrollRestoration, 1);
+
+  _resizeDelay.pause();
+
+  _refreshID++;
+  _refreshingAll = 2;
+
+  _updateAll(2);
+
+  _triggers.forEach(function (t) {
+    return _isFunction(t.vars.onRefresh) && t.vars.onRefresh(t);
+  });
+
+  _refreshingAll = ScrollTrigger.isRefreshing = false;
+
+  _dispatch("refresh");
+},
+    _lastScroll = 0,
+    _direction = 1,
+    _primary,
+    _updateAll = function _updateAll(force) {
+  if (force === 2 || !_refreshingAll && !_isReverted) {
+    // _isReverted could be true if, for example, a matchMedia() is in the process of executing. We don't want to update during the time everything is reverted.
+    ScrollTrigger.isUpdating = true;
+    _primary && _primary.update(0); // ScrollSmoother uses refreshPriority -9999 to become the primary that gets updated before all others because it affects the scroll position.
+
+    var l = _triggers.length,
+        time = _getTime(),
+        recordVelocity = time - _time1 >= 50,
+        scroll = l && _triggers[0].scroll();
+
+    _direction = _lastScroll > scroll ? -1 : 1;
+    _refreshingAll || (_lastScroll = scroll);
+
+    if (recordVelocity) {
+      if (_lastScrollTime && !_pointerIsDown && time - _lastScrollTime > 200) {
+        _lastScrollTime = 0;
+
+        _dispatch("scrollEnd");
+      }
+
+      _time2 = _time1;
+      _time1 = time;
+    }
+
+    if (_direction < 0) {
+      _i = l;
+
+      while (_i-- > 0) {
+        _triggers[_i] && _triggers[_i].update(0, recordVelocity);
+      }
+
+      _direction = 1;
+    } else {
+      for (_i = 0; _i < l; _i++) {
+        _triggers[_i] && _triggers[_i].update(0, recordVelocity);
+      }
+    }
+
+    ScrollTrigger.isUpdating = false;
+  }
+
+  _rafID = 0;
+},
+    _propNamesToCopy = [_left, _top, _bottom, _right, _margin + _Bottom, _margin + _Right, _margin + _Top, _margin + _Left, "display", "flexShrink", "float", "zIndex", "gridColumnStart", "gridColumnEnd", "gridRowStart", "gridRowEnd", "gridArea", "justifySelf", "alignSelf", "placeSelf", "order"],
+    _stateProps = _propNamesToCopy.concat([_width, _height, "boxSizing", "max" + _Width, "max" + _Height, "position", _margin, _padding, _padding + _Top, _padding + _Right, _padding + _Bottom, _padding + _Left]),
+    _swapPinOut = function _swapPinOut(pin, spacer, state) {
+  _setState(state);
+
+  var cache = pin._gsap;
+
+  if (cache.spacerIsNative) {
+    _setState(cache.spacerState);
+  } else if (pin._gsap.swappedIn) {
+    var parent = spacer.parentNode;
+
+    if (parent) {
+      parent.insertBefore(pin, spacer);
+      parent.removeChild(spacer);
+    }
+  }
+
+  pin._gsap.swappedIn = false;
+},
+    _swapPinIn = function _swapPinIn(pin, spacer, cs, spacerState) {
+  if (!pin._gsap.swappedIn) {
+    var i = _propNamesToCopy.length,
+        spacerStyle = spacer.style,
+        pinStyle = pin.style,
+        p;
+
+    while (i--) {
+      p = _propNamesToCopy[i];
+      spacerStyle[p] = cs[p];
+    }
+
+    spacerStyle.position = cs.position === "absolute" ? "absolute" : "relative";
+    cs.display === "inline" && (spacerStyle.display = "inline-block");
+    pinStyle[_bottom] = pinStyle[_right] = "auto";
+    spacerStyle.flexBasis = cs.flexBasis || "auto";
+    spacerStyle.overflow = "visible";
+    spacerStyle.boxSizing = "border-box";
+    spacerStyle[_width] = _getSize(pin, _Observer_js__WEBPACK_IMPORTED_MODULE_0__._horizontal) + _px;
+    spacerStyle[_height] = _getSize(pin, _Observer_js__WEBPACK_IMPORTED_MODULE_0__._vertical) + _px;
+    spacerStyle[_padding] = pinStyle[_margin] = pinStyle[_top] = pinStyle[_left] = "0";
+
+    _setState(spacerState);
+
+    pinStyle[_width] = pinStyle["max" + _Width] = cs[_width];
+    pinStyle[_height] = pinStyle["max" + _Height] = cs[_height];
+    pinStyle[_padding] = cs[_padding];
+
+    if (pin.parentNode !== spacer) {
+      pin.parentNode.insertBefore(spacer, pin);
+      spacer.appendChild(pin);
+    }
+
+    pin._gsap.swappedIn = true;
+  }
+},
+    _capsExp = /([A-Z])/g,
+    _setState = function _setState(state) {
+  if (state) {
+    var style = state.t.style,
+        l = state.length,
+        i = 0,
+        p,
+        value;
+    (state.t._gsap || gsap.core.getCache(state.t)).uncache = 1; // otherwise transforms may be off
+
+    for (; i < l; i += 2) {
+      value = state[i + 1];
+      p = state[i];
+
+      if (value) {
+        style[p] = value;
+      } else if (style[p]) {
+        style.removeProperty(p.replace(_capsExp, "-$1").toLowerCase());
+      }
+    }
+  }
+},
+    _getState = function _getState(element) {
+  // returns an Array with alternating values like [property, value, property, value] and a "t" property pointing to the target (element). Makes it fast and cheap.
+  var l = _stateProps.length,
+      style = element.style,
+      state = [],
+      i = 0;
+
+  for (; i < l; i++) {
+    state.push(_stateProps[i], style[_stateProps[i]]);
+  }
+
+  state.t = element;
+  return state;
+},
+    _copyState = function _copyState(state, override, omitOffsets) {
+  var result = [],
+      l = state.length,
+      i = omitOffsets ? 8 : 0,
+      // skip top, left, right, bottom if omitOffsets is true
+  p;
+
+  for (; i < l; i += 2) {
+    p = state[i];
+    result.push(p, p in override ? override[p] : state[i + 1]);
+  }
+
+  result.t = state.t;
+  return result;
+},
+    _winOffsets = {
+  left: 0,
+  top: 0
+},
+    // // potential future feature (?) Allow users to calculate where a trigger hits (scroll position) like getScrollPosition("#id", "top bottom")
+// _getScrollPosition = (trigger, position, {scroller, containerAnimation, horizontal}) => {
+// 	scroller = _getTarget(scroller || _win);
+// 	let direction = horizontal ? _horizontal : _vertical,
+// 		isViewport = _isViewport(scroller);
+// 	_getSizeFunc(scroller, isViewport, direction);
+// 	return _parsePosition(position, _getTarget(trigger), _getSizeFunc(scroller, isViewport, direction)(), direction, _getScrollFunc(scroller, direction)(), 0, 0, 0, _getOffsetsFunc(scroller, isViewport)(), isViewport ? 0 : parseFloat(_getComputedStyle(scroller)["border" + direction.p2 + _Width]) || 0, 0, containerAnimation ? containerAnimation.duration() : _maxScroll(scroller), containerAnimation);
+// },
+_parsePosition = function _parsePosition(value, trigger, scrollerSize, direction, scroll, marker, markerScroller, self, scrollerBounds, borderWidth, useFixedPosition, scrollerMax, containerAnimation, clampZeroProp) {
+  _isFunction(value) && (value = value(self));
+
+  if (_isString(value) && value.substr(0, 3) === "max") {
+    value = scrollerMax + (value.charAt(4) === "=" ? _offsetToPx("0" + value.substr(3), scrollerSize) : 0);
+  }
+
+  var time = containerAnimation ? containerAnimation.time() : 0,
+      p1,
+      p2,
+      element;
+  containerAnimation && containerAnimation.seek(0);
+  isNaN(value) || (value = +value); // convert a string number like "45" to an actual number
+
+  if (!_isNumber(value)) {
+    _isFunction(trigger) && (trigger = trigger(self));
+    var offsets = (value || "0").split(" "),
+        bounds,
+        localOffset,
+        globalOffset,
+        display;
+    element = (0,_Observer_js__WEBPACK_IMPORTED_MODULE_0__._getTarget)(trigger, self) || _body;
+    bounds = _getBounds(element) || {};
+
+    if ((!bounds || !bounds.left && !bounds.top) && _getComputedStyle(element).display === "none") {
+      // if display is "none", it won't report getBoundingClientRect() properly
+      display = element.style.display;
+      element.style.display = "block";
+      bounds = _getBounds(element);
+      display ? element.style.display = display : element.style.removeProperty("display");
+    }
+
+    localOffset = _offsetToPx(offsets[0], bounds[direction.d]);
+    globalOffset = _offsetToPx(offsets[1] || "0", scrollerSize);
+    value = bounds[direction.p] - scrollerBounds[direction.p] - borderWidth + localOffset + scroll - globalOffset;
+    markerScroller && _positionMarker(markerScroller, globalOffset, direction, scrollerSize - globalOffset < 20 || markerScroller._isStart && globalOffset > 20);
+    scrollerSize -= scrollerSize - globalOffset; // adjust for the marker
+  } else {
+    containerAnimation && (value = gsap.utils.mapRange(containerAnimation.scrollTrigger.start, containerAnimation.scrollTrigger.end, 0, scrollerMax, value));
+    markerScroller && _positionMarker(markerScroller, scrollerSize, direction, true);
+  }
+
+  if (clampZeroProp) {
+    self[clampZeroProp] = value || -0.001;
+    value < 0 && (value = 0);
+  }
+
+  if (marker) {
+    var position = value + scrollerSize,
+        isStart = marker._isStart;
+    p1 = "scroll" + direction.d2;
+
+    _positionMarker(marker, position, direction, isStart && position > 20 || !isStart && (useFixedPosition ? Math.max(_body[p1], _docEl[p1]) : marker.parentNode[p1]) <= position + 1);
+
+    if (useFixedPosition) {
+      scrollerBounds = _getBounds(markerScroller);
+      useFixedPosition && (marker.style[direction.op.p] = scrollerBounds[direction.op.p] - direction.op.m - marker._offset + _px);
+    }
+  }
+
+  if (containerAnimation && element) {
+    p1 = _getBounds(element);
+    containerAnimation.seek(scrollerMax);
+    p2 = _getBounds(element);
+    containerAnimation._caScrollDist = p1[direction.p] - p2[direction.p];
+    value = value / containerAnimation._caScrollDist * scrollerMax;
+  }
+
+  containerAnimation && containerAnimation.seek(time);
+  return containerAnimation ? value : Math.round(value);
+},
+    _prefixExp = /(webkit|moz|length|cssText|inset)/i,
+    _reparent = function _reparent(element, parent, top, left) {
+  if (element.parentNode !== parent) {
+    var style = element.style,
+        p,
+        cs;
+
+    if (parent === _body) {
+      element._stOrig = style.cssText; // record original inline styles so we can revert them later
+
+      cs = _getComputedStyle(element);
+
+      for (p in cs) {
+        // must copy all relevant styles to ensure that nothing changes visually when we reparent to the <body>. Skip the vendor prefixed ones.
+        if (!+p && !_prefixExp.test(p) && cs[p] && typeof style[p] === "string" && p !== "0") {
+          style[p] = cs[p];
+        }
+      }
+
+      style.top = top;
+      style.left = left;
+    } else {
+      style.cssText = element._stOrig;
+    }
+
+    gsap.core.getCache(element).uncache = 1;
+    parent.appendChild(element);
+  }
+},
+    _interruptionTracker = function _interruptionTracker(getValueFunc, initialValue, onInterrupt) {
+  var last1 = initialValue,
+      last2 = last1;
+  return function (value) {
+    var current = Math.round(getValueFunc()); // round because in some [very uncommon] Windows environments, scroll can get reported with decimals even though it was set without.
+
+    if (current !== last1 && current !== last2 && Math.abs(current - last1) > 3 && Math.abs(current - last2) > 3) {
+      // if the user scrolls, kill the tween. iOS Safari intermittently misreports the scroll position, it may be the most recently-set one or the one before that! When Safari is zoomed (CMD-+), it often misreports as 1 pixel off too! So if we set the scroll position to 125, for example, it'll actually report it as 124.
+      value = current;
+      onInterrupt && onInterrupt();
+    }
+
+    last2 = last1;
+    last1 = value;
+    return value;
+  };
+},
+    _shiftMarker = function _shiftMarker(marker, direction, value) {
+  var vars = {};
+  vars[direction.p] = "+=" + value;
+  gsap.set(marker, vars);
+},
+    // _mergeAnimations = animations => {
+// 	let tl = gsap.timeline({smoothChildTiming: true}).startTime(Math.min(...animations.map(a => a.globalTime(0))));
+// 	animations.forEach(a => {let time = a.totalTime(); tl.add(a); a.totalTime(time); });
+// 	tl.smoothChildTiming = false;
+// 	return tl;
+// },
+// returns a function that can be used to tween the scroll position in the direction provided, and when doing so it'll add a .tween property to the FUNCTION itself, and remove it when the tween completes or gets killed. This gives us a way to have multiple ScrollTriggers use a central function for any given scroller and see if there's a scroll tween running (which would affect if/how things get updated)
+_getTweenCreator = function _getTweenCreator(scroller, direction) {
+  var getScroll = (0,_Observer_js__WEBPACK_IMPORTED_MODULE_0__._getScrollFunc)(scroller, direction),
+      prop = "_scroll" + direction.p2,
+      // add a tweenable property to the scroller that's a getter/setter function, like _scrollTop or _scrollLeft. This way, if someone does gsap.killTweensOf(scroller) it'll kill the scroll tween.
+  getTween = function getTween(scrollTo, vars, initialValue, change1, change2) {
+    var tween = getTween.tween,
+        onComplete = vars.onComplete,
+        modifiers = {};
+    initialValue = initialValue || getScroll();
+
+    var checkForInterruption = _interruptionTracker(getScroll, initialValue, function () {
+      tween.kill();
+      getTween.tween = 0;
+    });
+
+    change2 = change1 && change2 || 0; // if change1 is 0, we set that to the difference and ignore change2. Otherwise, there would be a compound effect.
+
+    change1 = change1 || scrollTo - initialValue;
+    tween && tween.kill();
+    vars[prop] = scrollTo;
+    vars.inherit = false;
+    vars.modifiers = modifiers;
+
+    modifiers[prop] = function () {
+      return checkForInterruption(initialValue + change1 * tween.ratio + change2 * tween.ratio * tween.ratio);
+    };
+
+    vars.onUpdate = function () {
+      _Observer_js__WEBPACK_IMPORTED_MODULE_0__._scrollers.cache++;
+      getTween.tween && _updateAll(); // if it was interrupted/killed, like in a context.revert(), don't force an updateAll()
+    };
+
+    vars.onComplete = function () {
+      getTween.tween = 0;
+      onComplete && onComplete.call(tween);
+    };
+
+    tween = getTween.tween = gsap.to(scroller, vars);
+    return tween;
+  };
+
+  scroller[prop] = getScroll;
+
+  getScroll.wheelHandler = function () {
+    return getTween.tween && getTween.tween.kill() && (getTween.tween = 0);
+  };
+
+  _addListener(scroller, "wheel", getScroll.wheelHandler); // Windows machines handle mousewheel scrolling in chunks (like "3 lines per scroll") meaning the typical strategy for cancelling the scroll isn't as sensitive. It's much more likely to match one of the previous 2 scroll event positions. So we kill any snapping as soon as there's a wheel event.
+
+
+  ScrollTrigger.isTouch && _addListener(scroller, "touchmove", getScroll.wheelHandler);
+  return getTween;
+};
+
+var ScrollTrigger = /*#__PURE__*/function () {
+  function ScrollTrigger(vars, animation) {
+    _coreInitted || ScrollTrigger.register(gsap) || console.warn("Please gsap.registerPlugin(ScrollTrigger)");
+
+    _context(this);
+
+    this.init(vars, animation);
+  }
+
+  var _proto = ScrollTrigger.prototype;
+
+  _proto.init = function init(vars, animation) {
+    this.progress = this.start = 0;
+    this.vars && this.kill(true, true); // in case it's being initted again
+
+    if (!_enabled) {
+      this.update = this.refresh = this.kill = _passThrough;
+      return;
+    }
+
+    vars = _setDefaults(_isString(vars) || _isNumber(vars) || vars.nodeType ? {
+      trigger: vars
+    } : vars, _defaults);
+
+    var _vars = vars,
+        onUpdate = _vars.onUpdate,
+        toggleClass = _vars.toggleClass,
+        id = _vars.id,
+        onToggle = _vars.onToggle,
+        onRefresh = _vars.onRefresh,
+        scrub = _vars.scrub,
+        trigger = _vars.trigger,
+        pin = _vars.pin,
+        pinSpacing = _vars.pinSpacing,
+        invalidateOnRefresh = _vars.invalidateOnRefresh,
+        anticipatePin = _vars.anticipatePin,
+        onScrubComplete = _vars.onScrubComplete,
+        onSnapComplete = _vars.onSnapComplete,
+        once = _vars.once,
+        snap = _vars.snap,
+        pinReparent = _vars.pinReparent,
+        pinSpacer = _vars.pinSpacer,
+        containerAnimation = _vars.containerAnimation,
+        fastScrollEnd = _vars.fastScrollEnd,
+        preventOverlaps = _vars.preventOverlaps,
+        direction = vars.horizontal || vars.containerAnimation && vars.horizontal !== false ? _Observer_js__WEBPACK_IMPORTED_MODULE_0__._horizontal : _Observer_js__WEBPACK_IMPORTED_MODULE_0__._vertical,
+        isToggle = !scrub && scrub !== 0,
+        scroller = (0,_Observer_js__WEBPACK_IMPORTED_MODULE_0__._getTarget)(vars.scroller || _win),
+        scrollerCache = gsap.core.getCache(scroller),
+        isViewport = _isViewport(scroller),
+        useFixedPosition = ("pinType" in vars ? vars.pinType : (0,_Observer_js__WEBPACK_IMPORTED_MODULE_0__._getProxyProp)(scroller, "pinType") || isViewport && "fixed") === "fixed",
+        callbacks = [vars.onEnter, vars.onLeave, vars.onEnterBack, vars.onLeaveBack],
+        toggleActions = isToggle && vars.toggleActions.split(" "),
+        markers = "markers" in vars ? vars.markers : _defaults.markers,
+        borderWidth = isViewport ? 0 : parseFloat(_getComputedStyle(scroller)["border" + direction.p2 + _Width]) || 0,
+        self = this,
+        onRefreshInit = vars.onRefreshInit && function () {
+      return vars.onRefreshInit(self);
+    },
+        getScrollerSize = _getSizeFunc(scroller, isViewport, direction),
+        getScrollerOffsets = _getOffsetsFunc(scroller, isViewport),
+        lastSnap = 0,
+        lastRefresh = 0,
+        prevProgress = 0,
+        scrollFunc = (0,_Observer_js__WEBPACK_IMPORTED_MODULE_0__._getScrollFunc)(scroller, direction),
+        tweenTo,
+        pinCache,
+        snapFunc,
+        scroll1,
+        scroll2,
+        start,
+        end,
+        markerStart,
+        markerEnd,
+        markerStartTrigger,
+        markerEndTrigger,
+        markerVars,
+        executingOnRefresh,
+        change,
+        pinOriginalState,
+        pinActiveState,
+        pinState,
+        spacer,
+        offset,
+        pinGetter,
+        pinSetter,
+        pinStart,
+        pinChange,
+        spacingStart,
+        spacerState,
+        markerStartSetter,
+        pinMoves,
+        markerEndSetter,
+        cs,
+        snap1,
+        snap2,
+        scrubTween,
+        scrubSmooth,
+        snapDurClamp,
+        snapDelayedCall,
+        prevScroll,
+        prevAnimProgress,
+        caMarkerSetter,
+        customRevertReturn; // for the sake of efficiency, _startClamp/_endClamp serve like a truthy value indicating that clamping was enabled on the start/end, and ALSO store the actual pre-clamped numeric value. We tap into that in ScrollSmoother for speed effects. So for example, if start="clamp(top bottom)" results in a start of -100 naturally, it would get clamped to 0 but -100 would be stored in _startClamp.
+
+
+    self._startClamp = self._endClamp = false;
+    self._dir = direction;
+    anticipatePin *= 45;
+    self.scroller = scroller;
+    self.scroll = containerAnimation ? containerAnimation.time.bind(containerAnimation) : scrollFunc;
+    scroll1 = scrollFunc();
+    self.vars = vars;
+    animation = animation || vars.animation;
+
+    if ("refreshPriority" in vars) {
+      _sort = 1;
+      vars.refreshPriority === -9999 && (_primary = self); // used by ScrollSmoother
+    }
+
+    scrollerCache.tweenScroll = scrollerCache.tweenScroll || {
+      top: _getTweenCreator(scroller, _Observer_js__WEBPACK_IMPORTED_MODULE_0__._vertical),
+      left: _getTweenCreator(scroller, _Observer_js__WEBPACK_IMPORTED_MODULE_0__._horizontal)
+    };
+    self.tweenTo = tweenTo = scrollerCache.tweenScroll[direction.p];
+
+    self.scrubDuration = function (value) {
+      scrubSmooth = _isNumber(value) && value;
+
+      if (!scrubSmooth) {
+        scrubTween && scrubTween.progress(1).kill();
+        scrubTween = 0;
+      } else {
+        scrubTween ? scrubTween.duration(value) : scrubTween = gsap.to(animation, {
+          ease: "expo",
+          totalProgress: "+=0",
+          inherit: false,
+          duration: scrubSmooth,
+          paused: true,
+          onComplete: function onComplete() {
+            return onScrubComplete && onScrubComplete(self);
+          }
+        });
+      }
+    };
+
+    if (animation) {
+      animation.vars.lazy = false;
+      animation._initted && !self.isReverted || animation.vars.immediateRender !== false && vars.immediateRender !== false && animation.duration() && animation.render(0, true, true); // special case: if this ScrollTrigger gets re-initted, a from() tween with a stagger could get initted initially and then reverted on the re-init which means it'll need to get rendered again here to properly display things. Otherwise, See https://gsap.com/forums/topic/36777-scrollsmoother-splittext-nextjs/ and https://codepen.io/GreenSock/pen/eYPyPpd?editors=0010
+
+      self.animation = animation.pause();
+      animation.scrollTrigger = self;
+      self.scrubDuration(scrub);
+      snap1 = 0;
+      id || (id = animation.vars.id);
+    }
+
+    if (snap) {
+      // TODO: potential idea: use legitimate CSS scroll snapping by pushing invisible elements into the DOM that serve as snap positions, and toggle the document.scrollingElement.style.scrollSnapType onToggle. See https://codepen.io/GreenSock/pen/JjLrgWM for a quick proof of concept.
+      if (!_isObject(snap) || snap.push) {
+        snap = {
+          snapTo: snap
+        };
+      }
+
+      "scrollBehavior" in _body.style && gsap.set(isViewport ? [_body, _docEl] : scroller, {
+        scrollBehavior: "auto"
+      }); // smooth scrolling doesn't work with snap.
+
+      _Observer_js__WEBPACK_IMPORTED_MODULE_0__._scrollers.forEach(function (o) {
+        return _isFunction(o) && o.target === (isViewport ? _doc.scrollingElement || _docEl : scroller) && (o.smooth = false);
+      }); // note: set smooth to false on both the vertical and horizontal scroll getters/setters
+
+
+      snapFunc = _isFunction(snap.snapTo) ? snap.snapTo : snap.snapTo === "labels" ? _getClosestLabel(animation) : snap.snapTo === "labelsDirectional" ? _getLabelAtDirection(animation) : snap.directional !== false ? function (value, st) {
+        return _snapDirectional(snap.snapTo)(value, _getTime() - lastRefresh < 500 ? 0 : st.direction);
+      } : gsap.utils.snap(snap.snapTo);
+      snapDurClamp = snap.duration || {
+        min: 0.1,
+        max: 2
+      };
+      snapDurClamp = _isObject(snapDurClamp) ? _clamp(snapDurClamp.min, snapDurClamp.max) : _clamp(snapDurClamp, snapDurClamp);
+      snapDelayedCall = gsap.delayedCall(snap.delay || scrubSmooth / 2 || 0.1, function () {
+        var scroll = scrollFunc(),
+            refreshedRecently = _getTime() - lastRefresh < 500,
+            tween = tweenTo.tween;
+
+        if ((refreshedRecently || Math.abs(self.getVelocity()) < 10) && !tween && !_pointerIsDown && lastSnap !== scroll) {
+          var progress = (scroll - start) / change,
+              totalProgress = animation && !isToggle ? animation.totalProgress() : progress,
+              velocity = refreshedRecently ? 0 : (totalProgress - snap2) / (_getTime() - _time2) * 1000 || 0,
+              change1 = gsap.utils.clamp(-progress, 1 - progress, _abs(velocity / 2) * velocity / 0.185),
+              naturalEnd = progress + (snap.inertia === false ? 0 : change1),
+              endValue,
+              endScroll,
+              _snap = snap,
+              onStart = _snap.onStart,
+              _onInterrupt = _snap.onInterrupt,
+              _onComplete = _snap.onComplete;
+          endValue = snapFunc(naturalEnd, self);
+          _isNumber(endValue) || (endValue = naturalEnd); // in case the function didn't return a number, fall back to using the naturalEnd
+
+          endScroll = Math.round(start + endValue * change);
+
+          if (scroll <= end && scroll >= start && endScroll !== scroll) {
+            if (tween && !tween._initted && tween.data <= _abs(endScroll - scroll)) {
+              // there's an overlapping snap! So we must figure out which one is closer and let that tween live.
+              return;
+            }
+
+            if (snap.inertia === false) {
+              change1 = endValue - progress;
+            }
+
+            tweenTo(endScroll, {
+              duration: snapDurClamp(_abs(Math.max(_abs(naturalEnd - totalProgress), _abs(endValue - totalProgress)) * 0.185 / velocity / 0.05 || 0)),
+              ease: snap.ease || "power3",
+              data: _abs(endScroll - scroll),
+              // record the distance so that if another snap tween occurs (conflict) we can prioritize the closest snap.
+              onInterrupt: function onInterrupt() {
+                return snapDelayedCall.restart(true) && _onInterrupt && _onInterrupt(self);
+              },
+              onComplete: function onComplete() {
+                self.update();
+                lastSnap = scrollFunc();
+
+                if (animation) {
+                  // the resolution of the scrollbar is limited, so we should correct the scrubbed animation's playhead at the end to match EXACTLY where it was supposed to snap
+                  scrubTween ? scrubTween.resetTo("totalProgress", endValue, animation._tTime / animation._tDur) : animation.progress(endValue);
+                }
+
+                snap1 = snap2 = animation && !isToggle ? animation.totalProgress() : self.progress;
+                onSnapComplete && onSnapComplete(self);
+                _onComplete && _onComplete(self);
+              }
+            }, scroll, change1 * change, endScroll - scroll - change1 * change);
+            onStart && onStart(self, tweenTo.tween);
+          }
+        } else if (self.isActive && lastSnap !== scroll) {
+          snapDelayedCall.restart(true);
+        }
+      }).pause();
+    }
+
+    id && (_ids[id] = self);
+    trigger = self.trigger = (0,_Observer_js__WEBPACK_IMPORTED_MODULE_0__._getTarget)(trigger || pin !== true && pin); // if a trigger has some kind of scroll-related effect applied that could contaminate the "y" or "x" position (like a ScrollSmoother effect), we needed a way to temporarily revert it, so we use the stRevert property of the gsCache. It can return another function that we'll call at the end so it can return to its normal state.
+
+    customRevertReturn = trigger && trigger._gsap && trigger._gsap.stRevert;
+    customRevertReturn && (customRevertReturn = customRevertReturn(self));
+    pin = pin === true ? trigger : (0,_Observer_js__WEBPACK_IMPORTED_MODULE_0__._getTarget)(pin);
+    _isString(toggleClass) && (toggleClass = {
+      targets: trigger,
+      className: toggleClass
+    });
+
+    if (pin) {
+      pinSpacing === false || pinSpacing === _margin || (pinSpacing = !pinSpacing && pin.parentNode && pin.parentNode.style && _getComputedStyle(pin.parentNode).display === "flex" ? false : _padding); // if the parent is display: flex, don't apply pinSpacing by default. We should check that pin.parentNode is an element (not shadow dom window)
+
+      self.pin = pin;
+      pinCache = gsap.core.getCache(pin);
+
+      if (!pinCache.spacer) {
+        // record the spacer and pinOriginalState on the cache in case someone tries pinning the same element with MULTIPLE ScrollTriggers - we don't want to have multiple spacers or record the "original" pin state after it has already been affected by another ScrollTrigger.
+        if (pinSpacer) {
+          pinSpacer = (0,_Observer_js__WEBPACK_IMPORTED_MODULE_0__._getTarget)(pinSpacer);
+          pinSpacer && !pinSpacer.nodeType && (pinSpacer = pinSpacer.current || pinSpacer.nativeElement); // for React & Angular
+
+          pinCache.spacerIsNative = !!pinSpacer;
+          pinSpacer && (pinCache.spacerState = _getState(pinSpacer));
+        }
+
+        pinCache.spacer = spacer = pinSpacer || _doc.createElement("div");
+        spacer.classList.add("pin-spacer");
+        id && spacer.classList.add("pin-spacer-" + id);
+        pinCache.pinState = pinOriginalState = _getState(pin);
+      } else {
+        pinOriginalState = pinCache.pinState;
+      }
+
+      vars.force3D !== false && gsap.set(pin, {
+        force3D: true
+      });
+      self.spacer = spacer = pinCache.spacer;
+      cs = _getComputedStyle(pin);
+      spacingStart = cs[pinSpacing + direction.os2];
+      pinGetter = gsap.getProperty(pin);
+      pinSetter = gsap.quickSetter(pin, direction.a, _px); // pin.firstChild && !_maxScroll(pin, direction) && (pin.style.overflow = "hidden"); // protects from collapsing margins, but can have unintended consequences as demonstrated here: https://codepen.io/GreenSock/pen/1e42c7a73bfa409d2cf1e184e7a4248d so it was removed in favor of just telling people to set up their CSS to avoid the collapsing margins (overflow: hidden | auto is just one option. Another is border-top: 1px solid transparent).
+
+      _swapPinIn(pin, spacer, cs);
+
+      pinState = _getState(pin);
+    }
+
+    if (markers) {
+      markerVars = _isObject(markers) ? _setDefaults(markers, _markerDefaults) : _markerDefaults;
+      markerStartTrigger = _createMarker("scroller-start", id, scroller, direction, markerVars, 0);
+      markerEndTrigger = _createMarker("scroller-end", id, scroller, direction, markerVars, 0, markerStartTrigger);
+      offset = markerStartTrigger["offset" + direction.op.d2];
+
+      var content = (0,_Observer_js__WEBPACK_IMPORTED_MODULE_0__._getTarget)((0,_Observer_js__WEBPACK_IMPORTED_MODULE_0__._getProxyProp)(scroller, "content") || scroller);
+
+      markerStart = this.markerStart = _createMarker("start", id, content, direction, markerVars, offset, 0, containerAnimation);
+      markerEnd = this.markerEnd = _createMarker("end", id, content, direction, markerVars, offset, 0, containerAnimation);
+      containerAnimation && (caMarkerSetter = gsap.quickSetter([markerStart, markerEnd], direction.a, _px));
+
+      if (!useFixedPosition && !(_Observer_js__WEBPACK_IMPORTED_MODULE_0__._proxies.length && (0,_Observer_js__WEBPACK_IMPORTED_MODULE_0__._getProxyProp)(scroller, "fixedMarkers") === true)) {
+        _makePositionable(isViewport ? _body : scroller);
+
+        gsap.set([markerStartTrigger, markerEndTrigger], {
+          force3D: true
+        });
+        markerStartSetter = gsap.quickSetter(markerStartTrigger, direction.a, _px);
+        markerEndSetter = gsap.quickSetter(markerEndTrigger, direction.a, _px);
+      }
+    }
+
+    if (containerAnimation) {
+      var oldOnUpdate = containerAnimation.vars.onUpdate,
+          oldParams = containerAnimation.vars.onUpdateParams;
+      containerAnimation.eventCallback("onUpdate", function () {
+        self.update(0, 0, 1);
+        oldOnUpdate && oldOnUpdate.apply(containerAnimation, oldParams || []);
+      });
+    }
+
+    self.previous = function () {
+      return _triggers[_triggers.indexOf(self) - 1];
+    };
+
+    self.next = function () {
+      return _triggers[_triggers.indexOf(self) + 1];
+    };
+
+    self.revert = function (revert, temp) {
+      if (!temp) {
+        return self.kill(true);
+      } // for compatibility with gsap.context() and gsap.matchMedia() which call revert()
+
+
+      var r = revert !== false || !self.enabled,
+          prevRefreshing = _refreshing;
+
+      if (r !== self.isReverted) {
+        if (r) {
+          prevScroll = Math.max(scrollFunc(), self.scroll.rec || 0); // record the scroll so we can revert later (repositioning/pinning things can affect scroll position). In the static refresh() method, we first record all the scroll positions as a reference.
+
+          prevProgress = self.progress;
+          prevAnimProgress = animation && animation.progress();
+        }
+
+        markerStart && [markerStart, markerEnd, markerStartTrigger, markerEndTrigger].forEach(function (m) {
+          return m.style.display = r ? "none" : "block";
+        });
+
+        if (r) {
+          _refreshing = self;
+          self.update(r); // make sure the pin is back in its original position so that all the measurements are correct. do this BEFORE swapping the pin out
+        }
+
+        if (pin && (!pinReparent || !self.isActive)) {
+          if (r) {
+            _swapPinOut(pin, spacer, pinOriginalState);
+          } else {
+            _swapPinIn(pin, spacer, _getComputedStyle(pin), spacerState);
+          }
+        }
+
+        r || self.update(r); // when we're restoring, the update should run AFTER swapping the pin into its pin-spacer.
+
+        _refreshing = prevRefreshing; // restore. We set it to true during the update() so that things fire properly in there.
+
+        self.isReverted = r;
+      }
+    };
+
+    self.refresh = function (soft, force, position, pinOffset) {
+      // position is typically only defined if it's coming from setPositions() - it's a way to skip the normal parsing. pinOffset is also only from setPositions() and is mostly related to fancy stuff we need to do in ScrollSmoother with effects
+      if ((_refreshing || !self.enabled) && !force) {
+        return;
+      }
+
+      if (pin && soft && _lastScrollTime) {
+        _addListener(ScrollTrigger, "scrollEnd", _softRefresh);
+
+        return;
+      }
+
+      !_refreshingAll && onRefreshInit && onRefreshInit(self);
+      _refreshing = self;
+
+      if (tweenTo.tween && !position) {
+        // we skip this if a position is passed in because typically that's from .setPositions() and it's best to allow in-progress snapping to continue.
+        tweenTo.tween.kill();
+        tweenTo.tween = 0;
+      }
+
+      scrubTween && scrubTween.pause();
+      invalidateOnRefresh && animation && animation.revert({
+        kill: false
+      }).invalidate();
+      self.isReverted || self.revert(true, true);
+      self._subPinOffset = false; // we'll set this to true in the sub-pins if we find any
+
+      var size = getScrollerSize(),
+          scrollerBounds = getScrollerOffsets(),
+          max = containerAnimation ? containerAnimation.duration() : _maxScroll(scroller, direction),
+          isFirstRefresh = change <= 0.01,
+          offset = 0,
+          otherPinOffset = pinOffset || 0,
+          parsedEnd = _isObject(position) ? position.end : vars.end,
+          parsedEndTrigger = vars.endTrigger || trigger,
+          parsedStart = _isObject(position) ? position.start : vars.start || (vars.start === 0 || !trigger ? 0 : pin ? "0 0" : "0 100%"),
+          pinnedContainer = self.pinnedContainer = vars.pinnedContainer && (0,_Observer_js__WEBPACK_IMPORTED_MODULE_0__._getTarget)(vars.pinnedContainer, self),
+          triggerIndex = trigger && Math.max(0, _triggers.indexOf(self)) || 0,
+          i = triggerIndex,
+          cs,
+          bounds,
+          scroll,
+          isVertical,
+          override,
+          curTrigger,
+          curPin,
+          oppositeScroll,
+          initted,
+          revertedPins,
+          forcedOverflow,
+          markerStartOffset,
+          markerEndOffset;
+
+      if (markers && _isObject(position)) {
+        // if we alter the start/end positions with .setPositions(), it generally feeds in absolute NUMBERS which don't convey information about where to line up the markers, so to keep it intuitive, we record how far the trigger positions shift after applying the new numbers and then offset by that much in the opposite direction. We do the same to the associated trigger markers too of course.
+        markerStartOffset = gsap.getProperty(markerStartTrigger, direction.p);
+        markerEndOffset = gsap.getProperty(markerEndTrigger, direction.p);
+      }
+
+      while (i--) {
+        // user might try to pin the same element more than once, so we must find any prior triggers with the same pin, revert them, and determine how long they're pinning so that we can offset things appropriately. Make sure we revert from last to first so that things "rewind" properly.
+        curTrigger = _triggers[i];
+        curTrigger.end || curTrigger.refresh(0, 1) || (_refreshing = self); // if it's a timeline-based trigger that hasn't been fully initialized yet because it's waiting for 1 tick, just force the refresh() here, otherwise if it contains a pin that's supposed to affect other ScrollTriggers further down the page, they won't be adjusted properly.
+
+        curPin = curTrigger.pin;
+
+        if (curPin && (curPin === trigger || curPin === pin || curPin === pinnedContainer) && !curTrigger.isReverted) {
+          revertedPins || (revertedPins = []);
+          revertedPins.unshift(curTrigger); // we'll revert from first to last to make sure things reach their end state properly
+
+          curTrigger.revert(true, true);
+        }
+
+        if (curTrigger !== _triggers[i]) {
+          // in case it got removed.
+          triggerIndex--;
+          i--;
+        }
+      }
+
+      _isFunction(parsedStart) && (parsedStart = parsedStart(self));
+      parsedStart = _parseClamp(parsedStart, "start", self);
+      start = _parsePosition(parsedStart, trigger, size, direction, scrollFunc(), markerStart, markerStartTrigger, self, scrollerBounds, borderWidth, useFixedPosition, max, containerAnimation, self._startClamp && "_startClamp") || (pin ? -0.001 : 0);
+      _isFunction(parsedEnd) && (parsedEnd = parsedEnd(self));
+
+      if (_isString(parsedEnd) && !parsedEnd.indexOf("+=")) {
+        if (~parsedEnd.indexOf(" ")) {
+          parsedEnd = (_isString(parsedStart) ? parsedStart.split(" ")[0] : "") + parsedEnd;
+        } else {
+          offset = _offsetToPx(parsedEnd.substr(2), size);
+          parsedEnd = _isString(parsedStart) ? parsedStart : (containerAnimation ? gsap.utils.mapRange(0, containerAnimation.duration(), containerAnimation.scrollTrigger.start, containerAnimation.scrollTrigger.end, start) : start) + offset; // _parsePosition won't factor in the offset if the start is a number, so do it here.
+
+          parsedEndTrigger = trigger;
+        }
+      }
+
+      parsedEnd = _parseClamp(parsedEnd, "end", self);
+      end = Math.max(start, _parsePosition(parsedEnd || (parsedEndTrigger ? "100% 0" : max), parsedEndTrigger, size, direction, scrollFunc() + offset, markerEnd, markerEndTrigger, self, scrollerBounds, borderWidth, useFixedPosition, max, containerAnimation, self._endClamp && "_endClamp")) || -0.001;
+      offset = 0;
+      i = triggerIndex;
+
+      while (i--) {
+        curTrigger = _triggers[i];
+        curPin = curTrigger.pin;
+
+        if (curPin && curTrigger.start - curTrigger._pinPush <= start && !containerAnimation && curTrigger.end > 0) {
+          cs = curTrigger.end - (self._startClamp ? Math.max(0, curTrigger.start) : curTrigger.start);
+
+          if ((curPin === trigger && curTrigger.start - curTrigger._pinPush < start || curPin === pinnedContainer) && isNaN(parsedStart)) {
+            // numeric start values shouldn't be offset at all - treat them as absolute
+            offset += cs * (1 - curTrigger.progress);
+          }
+
+          curPin === pin && (otherPinOffset += cs);
+        }
+      }
+
+      start += offset;
+      end += offset;
+      self._startClamp && (self._startClamp += offset);
+
+      if (self._endClamp && !_refreshingAll) {
+        self._endClamp = end || -0.001;
+        end = Math.min(end, _maxScroll(scroller, direction));
+      }
+
+      change = end - start || (start -= 0.01) && 0.001;
+
+      if (isFirstRefresh) {
+        // on the very first refresh(), the prevProgress couldn't have been accurate yet because the start/end were never calculated, so we set it here. Before 3.11.5, it could lead to an inaccurate scroll position restoration with snapping.
+        prevProgress = gsap.utils.clamp(0, 1, gsap.utils.normalize(start, end, prevScroll));
+      }
+
+      self._pinPush = otherPinOffset;
+
+      if (markerStart && offset) {
+        // offset the markers if necessary
+        cs = {};
+        cs[direction.a] = "+=" + offset;
+        pinnedContainer && (cs[direction.p] = "-=" + scrollFunc());
+        gsap.set([markerStart, markerEnd], cs);
+      }
+
+      if (pin && !(_clampingMax && self.end >= _maxScroll(scroller, direction))) {
+        cs = _getComputedStyle(pin);
+        isVertical = direction === _Observer_js__WEBPACK_IMPORTED_MODULE_0__._vertical;
+        scroll = scrollFunc(); // recalculate because the triggers can affect the scroll
+
+        pinStart = parseFloat(pinGetter(direction.a)) + otherPinOffset;
+
+        if (!max && end > 1) {
+          // makes sure the scroller has a scrollbar, otherwise if something has width: 100%, for example, it would be too big (exclude the scrollbar). See https://gsap.com/forums/topic/25182-scrolltrigger-width-of-page-increase-where-markers-are-set-to-false/
+          forcedOverflow = (isViewport ? _doc.scrollingElement || _docEl : scroller).style;
+          forcedOverflow = {
+            style: forcedOverflow,
+            value: forcedOverflow["overflow" + direction.a.toUpperCase()]
+          };
+
+          if (isViewport && _getComputedStyle(_body)["overflow" + direction.a.toUpperCase()] !== "scroll") {
+            // avoid an extra scrollbar if BOTH <html> and <body> have overflow set to "scroll"
+            forcedOverflow.style["overflow" + direction.a.toUpperCase()] = "scroll";
+          }
+        }
+
+        _swapPinIn(pin, spacer, cs);
+
+        pinState = _getState(pin); // transforms will interfere with the top/left/right/bottom placement, so remove them temporarily. getBoundingClientRect() factors in transforms.
+
+        bounds = _getBounds(pin, true);
+        oppositeScroll = useFixedPosition && (0,_Observer_js__WEBPACK_IMPORTED_MODULE_0__._getScrollFunc)(scroller, isVertical ? _Observer_js__WEBPACK_IMPORTED_MODULE_0__._horizontal : _Observer_js__WEBPACK_IMPORTED_MODULE_0__._vertical)();
+
+        if (pinSpacing) {
+          spacerState = [pinSpacing + direction.os2, change + otherPinOffset + _px];
+          spacerState.t = spacer;
+          i = pinSpacing === _padding ? _getSize(pin, direction) + change + otherPinOffset : 0;
+
+          if (i) {
+            spacerState.push(direction.d, i + _px); // for box-sizing: border-box (must include padding).
+
+            spacer.style.flexBasis !== "auto" && (spacer.style.flexBasis = i + _px);
+          }
+
+          _setState(spacerState);
+
+          if (pinnedContainer) {
+            // in ScrollTrigger.refresh(), we need to re-evaluate the pinContainer's size because this pinSpacing may stretch it out, but we can't just add the exact distance because depending on layout, it may not push things down or it may only do so partially.
+            _triggers.forEach(function (t) {
+              if (t.pin === pinnedContainer && t.vars.pinSpacing !== false) {
+                t._subPinOffset = true;
+              }
+            });
+          }
+
+          useFixedPosition && scrollFunc(prevScroll);
+        } else {
+          i = _getSize(pin, direction);
+          i && spacer.style.flexBasis !== "auto" && (spacer.style.flexBasis = i + _px);
+        }
+
+        if (useFixedPosition) {
+          override = {
+            top: bounds.top + (isVertical ? scroll - start : oppositeScroll) + _px,
+            left: bounds.left + (isVertical ? oppositeScroll : scroll - start) + _px,
+            boxSizing: "border-box",
+            position: "fixed"
+          };
+          override[_width] = override["max" + _Width] = Math.ceil(bounds.width) + _px;
+          override[_height] = override["max" + _Height] = Math.ceil(bounds.height) + _px;
+          override[_margin] = override[_margin + _Top] = override[_margin + _Right] = override[_margin + _Bottom] = override[_margin + _Left] = "0";
+          override[_padding] = cs[_padding];
+          override[_padding + _Top] = cs[_padding + _Top];
+          override[_padding + _Right] = cs[_padding + _Right];
+          override[_padding + _Bottom] = cs[_padding + _Bottom];
+          override[_padding + _Left] = cs[_padding + _Left];
+          pinActiveState = _copyState(pinOriginalState, override, pinReparent);
+          _refreshingAll && scrollFunc(0);
+        }
+
+        if (animation) {
+          // the animation might be affecting the transform, so we must jump to the end, check the value, and compensate accordingly. Otherwise, when it becomes unpinned, the pinSetter() will get set to a value that doesn't include whatever the animation did.
+          initted = animation._initted; // if not, we must invalidate() after this step, otherwise it could lock in starting values prematurely.
+
+          _suppressOverwrites(1);
+
+          animation.render(animation.duration(), true, true);
+          pinChange = pinGetter(direction.a) - pinStart + change + otherPinOffset;
+          pinMoves = Math.abs(change - pinChange) > 1;
+          useFixedPosition && pinMoves && pinActiveState.splice(pinActiveState.length - 2, 2); // transform is the last property/value set in the state Array. Since the animation is controlling that, we should omit it.
+
+          animation.render(0, true, true);
+          initted || animation.invalidate(true);
+          animation.parent || animation.totalTime(animation.totalTime()); // if, for example, a toggleAction called play() and then refresh() happens and when we render(1) above, it would cause the animation to complete and get removed from its parent, so this makes sure it gets put back in.
+
+          _suppressOverwrites(0);
+        } else {
+          pinChange = change;
+        }
+
+        forcedOverflow && (forcedOverflow.value ? forcedOverflow.style["overflow" + direction.a.toUpperCase()] = forcedOverflow.value : forcedOverflow.style.removeProperty("overflow-" + direction.a));
+      } else if (trigger && scrollFunc() && !containerAnimation) {
+        // it may be INSIDE a pinned element, so walk up the tree and look for any elements with _pinOffset to compensate because anything with pinSpacing that's already scrolled would throw off the measurements in getBoundingClientRect()
+        bounds = trigger.parentNode;
+
+        while (bounds && bounds !== _body) {
+          if (bounds._pinOffset) {
+            start -= bounds._pinOffset;
+            end -= bounds._pinOffset;
+          }
+
+          bounds = bounds.parentNode;
+        }
+      }
+
+      revertedPins && revertedPins.forEach(function (t) {
+        return t.revert(false, true);
+      });
+      self.start = start;
+      self.end = end;
+      scroll1 = scroll2 = _refreshingAll ? prevScroll : scrollFunc(); // reset velocity
+
+      if (!containerAnimation && !_refreshingAll) {
+        scroll1 < prevScroll && scrollFunc(prevScroll);
+        self.scroll.rec = 0;
+      }
+
+      self.revert(false, true);
+      lastRefresh = _getTime();
+
+      if (snapDelayedCall) {
+        lastSnap = -1; // just so snapping gets re-enabled, clear out any recorded last value
+        // self.isActive && scrollFunc(start + change * prevProgress); // previously this line was here to ensure that when snapping kicks in, it's from the previous progress but in some cases that's not desirable, like an all-page ScrollTrigger when new content gets added to the page, that'd totally change the progress.
+
+        snapDelayedCall.restart(true);
+      }
+
+      _refreshing = 0;
+      animation && isToggle && (animation._initted || prevAnimProgress) && animation.progress() !== prevAnimProgress && animation.progress(prevAnimProgress || 0, true).render(animation.time(), true, true); // must force a re-render because if saveStyles() was used on the target(s), the styles could have been wiped out during the refresh().
+
+      if (isFirstRefresh || prevProgress !== self.progress || containerAnimation || invalidateOnRefresh) {
+        // ensures that the direction is set properly (when refreshing, progress is set back to 0 initially, then back again to wherever it needs to be) and that callbacks are triggered.
+        animation && !isToggle && animation.totalProgress(containerAnimation && start < -0.001 && !prevProgress ? gsap.utils.normalize(start, end, 0) : prevProgress, true); // to avoid issues where animation callbacks like onStart aren't triggered.
+
+        self.progress = isFirstRefresh || (scroll1 - start) / change === prevProgress ? 0 : prevProgress;
+      }
+
+      pin && pinSpacing && (spacer._pinOffset = Math.round(self.progress * pinChange));
+      scrubTween && scrubTween.invalidate();
+
+      if (!isNaN(markerStartOffset)) {
+        // numbers were passed in for the position which are absolute, so instead of just putting the markers at the very bottom of the viewport, we figure out how far they shifted down (it's safe to assume they were originally positioned in closer relation to the trigger element with values like "top", "center", a percentage or whatever, so we offset that much in the opposite direction to basically revert them to the relative position thy were at previously.
+        markerStartOffset -= gsap.getProperty(markerStartTrigger, direction.p);
+        markerEndOffset -= gsap.getProperty(markerEndTrigger, direction.p);
+
+        _shiftMarker(markerStartTrigger, direction, markerStartOffset);
+
+        _shiftMarker(markerStart, direction, markerStartOffset - (pinOffset || 0));
+
+        _shiftMarker(markerEndTrigger, direction, markerEndOffset);
+
+        _shiftMarker(markerEnd, direction, markerEndOffset - (pinOffset || 0));
+      }
+
+      isFirstRefresh && !_refreshingAll && self.update(); // edge case - when you reload a page when it's already scrolled down, some browsers fire a "scroll" event before DOMContentLoaded, triggering an updateAll(). If we don't update the self.progress as part of refresh(), then when it happens next, it may record prevProgress as 0 when it really shouldn't, potentially causing a callback in an animation to fire again.
+
+      if (onRefresh && !_refreshingAll && !executingOnRefresh) {
+        // when refreshing all, we do extra work to correct pinnedContainer sizes and ensure things don't exceed the maxScroll, so we should do all the refreshes at the end after all that work so that the start/end values are corrected.
+        executingOnRefresh = true;
+        onRefresh(self);
+        executingOnRefresh = false;
+      }
+    };
+
+    self.getVelocity = function () {
+      return (scrollFunc() - scroll2) / (_getTime() - _time2) * 1000 || 0;
+    };
+
+    self.endAnimation = function () {
+      _endAnimation(self.callbackAnimation);
+
+      if (animation) {
+        scrubTween ? scrubTween.progress(1) : !animation.paused() ? _endAnimation(animation, animation.reversed()) : isToggle || _endAnimation(animation, self.direction < 0, 1);
+      }
+    };
+
+    self.labelToScroll = function (label) {
+      return animation && animation.labels && (start || self.refresh() || start) + animation.labels[label] / animation.duration() * change || 0;
+    };
+
+    self.getTrailing = function (name) {
+      var i = _triggers.indexOf(self),
+          a = self.direction > 0 ? _triggers.slice(0, i).reverse() : _triggers.slice(i + 1);
+
+      return (_isString(name) ? a.filter(function (t) {
+        return t.vars.preventOverlaps === name;
+      }) : a).filter(function (t) {
+        return self.direction > 0 ? t.end <= start : t.start >= end;
+      });
+    };
+
+    self.update = function (reset, recordVelocity, forceFake) {
+      if (containerAnimation && !forceFake && !reset) {
+        return;
+      }
+
+      var scroll = _refreshingAll === true ? prevScroll : self.scroll(),
+          p = reset ? 0 : (scroll - start) / change,
+          clipped = p < 0 ? 0 : p > 1 ? 1 : p || 0,
+          prevProgress = self.progress,
+          isActive,
+          wasActive,
+          toggleState,
+          action,
+          stateChanged,
+          toggled,
+          isAtMax,
+          isTakingAction;
+
+      if (recordVelocity) {
+        scroll2 = scroll1;
+        scroll1 = containerAnimation ? scrollFunc() : scroll;
+
+        if (snap) {
+          snap2 = snap1;
+          snap1 = animation && !isToggle ? animation.totalProgress() : clipped;
+        }
+      } // anticipate the pinning a few ticks ahead of time based on velocity to avoid a visual glitch due to the fact that most browsers do scrolling on a separate thread (not synced with requestAnimationFrame).
+
+
+      if (anticipatePin && pin && !_refreshing && !_startup && _lastScrollTime) {
+        if (!clipped && start < scroll + (scroll - scroll2) / (_getTime() - _time2) * anticipatePin) {
+          clipped = 0.0001;
+        } else if (clipped === 1 && end > scroll + (scroll - scroll2) / (_getTime() - _time2) * anticipatePin) {
+          clipped = 0.9999;
+        }
+      }
+
+      if (clipped !== prevProgress && self.enabled) {
+        isActive = self.isActive = !!clipped && clipped < 1;
+        wasActive = !!prevProgress && prevProgress < 1;
+        toggled = isActive !== wasActive;
+        stateChanged = toggled || !!clipped !== !!prevProgress; // could go from start all the way to end, thus it didn't toggle but it did change state in a sense (may need to fire a callback)
+
+        self.direction = clipped > prevProgress ? 1 : -1;
+        self.progress = clipped;
+
+        if (stateChanged && !_refreshing) {
+          toggleState = clipped && !prevProgress ? 0 : clipped === 1 ? 1 : prevProgress === 1 ? 2 : 3; // 0 = enter, 1 = leave, 2 = enterBack, 3 = leaveBack (we prioritize the FIRST encounter, thus if you scroll really fast past the onEnter and onLeave in one tick, it'd prioritize onEnter.
+
+          if (isToggle) {
+            action = !toggled && toggleActions[toggleState + 1] !== "none" && toggleActions[toggleState + 1] || toggleActions[toggleState]; // if it didn't toggle, that means it shot right past and since we prioritize the "enter" action, we should switch to the "leave" in this case (but only if one is defined)
+
+            isTakingAction = animation && (action === "complete" || action === "reset" || action in animation);
+          }
+        }
+
+        preventOverlaps && (toggled || isTakingAction) && (isTakingAction || scrub || !animation) && (_isFunction(preventOverlaps) ? preventOverlaps(self) : self.getTrailing(preventOverlaps).forEach(function (t) {
+          return t.endAnimation();
+        }));
+
+        if (!isToggle) {
+          if (scrubTween && !_refreshing && !_startup) {
+            scrubTween._dp._time - scrubTween._start !== scrubTween._time && scrubTween.render(scrubTween._dp._time - scrubTween._start); // if there's a scrub on both the container animation and this one (or a ScrollSmoother), the update order would cause this one not to have rendered yet, so it wouldn't make any progress before we .restart() it heading toward the new progress so it'd appear stuck thus we force a render here.
+
+            if (scrubTween.resetTo) {
+              scrubTween.resetTo("totalProgress", clipped, animation._tTime / animation._tDur);
+            } else {
+              // legacy support (courtesy), before 3.10.0
+              scrubTween.vars.totalProgress = clipped;
+              scrubTween.invalidate().restart();
+            }
+          } else if (animation) {
+            animation.totalProgress(clipped, !!(_refreshing && (lastRefresh || reset)));
+          }
+        }
+
+        if (pin) {
+          reset && pinSpacing && (spacer.style[pinSpacing + direction.os2] = spacingStart);
+
+          if (!useFixedPosition) {
+            pinSetter(_round(pinStart + pinChange * clipped));
+          } else if (stateChanged) {
+            isAtMax = !reset && clipped > prevProgress && end + 1 > scroll && scroll + 1 >= _maxScroll(scroller, direction); // if it's at the VERY end of the page, don't switch away from position: fixed because it's pointless and it could cause a brief flash when the user scrolls back up (when it gets pinned again)
+
+            if (pinReparent) {
+              if (!reset && (isActive || isAtMax)) {
+                var bounds = _getBounds(pin, true),
+                    _offset = scroll - start;
+
+                _reparent(pin, _body, bounds.top + (direction === _Observer_js__WEBPACK_IMPORTED_MODULE_0__._vertical ? _offset : 0) + _px, bounds.left + (direction === _Observer_js__WEBPACK_IMPORTED_MODULE_0__._vertical ? 0 : _offset) + _px);
+              } else {
+                _reparent(pin, spacer);
+              }
+            }
+
+            _setState(isActive || isAtMax ? pinActiveState : pinState);
+
+            pinMoves && clipped < 1 && isActive || pinSetter(pinStart + (clipped === 1 && !isAtMax ? pinChange : 0));
+          }
+        }
+
+        snap && !tweenTo.tween && !_refreshing && !_startup && snapDelayedCall.restart(true);
+        toggleClass && (toggled || once && clipped && (clipped < 1 || !_limitCallbacks)) && _toArray(toggleClass.targets).forEach(function (el) {
+          return el.classList[isActive || once ? "add" : "remove"](toggleClass.className);
+        }); // classes could affect positioning, so do it even if reset or refreshing is true.
+
+        onUpdate && !isToggle && !reset && onUpdate(self);
+
+        if (stateChanged && !_refreshing) {
+          if (isToggle) {
+            if (isTakingAction) {
+              if (action === "complete") {
+                animation.pause().totalProgress(1);
+              } else if (action === "reset") {
+                animation.restart(true).pause();
+              } else if (action === "restart") {
+                animation.restart(true);
+              } else {
+                animation[action]();
+              }
+            }
+
+            onUpdate && onUpdate(self);
+          }
+
+          if (toggled || !_limitCallbacks) {
+            // on startup, the page could be scrolled and we don't want to fire callbacks that didn't toggle. For example onEnter shouldn't fire if the ScrollTrigger isn't actually entered.
+            onToggle && toggled && _callback(self, onToggle);
+            callbacks[toggleState] && _callback(self, callbacks[toggleState]);
+            once && (clipped === 1 ? self.kill(false, 1) : callbacks[toggleState] = 0); // a callback shouldn't be called again if once is true.
+
+            if (!toggled) {
+              // it's possible to go completely past, like from before the start to after the end (or vice-versa) in which case BOTH callbacks should be fired in that order
+              toggleState = clipped === 1 ? 1 : 3;
+              callbacks[toggleState] && _callback(self, callbacks[toggleState]);
+            }
+          }
+
+          if (fastScrollEnd && !isActive && Math.abs(self.getVelocity()) > (_isNumber(fastScrollEnd) ? fastScrollEnd : 2500)) {
+            _endAnimation(self.callbackAnimation);
+
+            scrubTween ? scrubTween.progress(1) : _endAnimation(animation, action === "reverse" ? 1 : !clipped, 1);
+          }
+        } else if (isToggle && onUpdate && !_refreshing) {
+          onUpdate(self);
+        }
+      } // update absolutely-positioned markers (only if the scroller isn't the viewport)
+
+
+      if (markerEndSetter) {
+        var n = containerAnimation ? scroll / containerAnimation.duration() * (containerAnimation._caScrollDist || 0) : scroll;
+        markerStartSetter(n + (markerStartTrigger._isFlipped ? 1 : 0));
+        markerEndSetter(n);
+      }
+
+      caMarkerSetter && caMarkerSetter(-scroll / containerAnimation.duration() * (containerAnimation._caScrollDist || 0));
+    };
+
+    self.enable = function (reset, refresh) {
+      if (!self.enabled) {
+        self.enabled = true;
+
+        _addListener(scroller, "resize", _onResize);
+
+        isViewport || _addListener(scroller, "scroll", _onScroll);
+        onRefreshInit && _addListener(ScrollTrigger, "refreshInit", onRefreshInit);
+
+        if (reset !== false) {
+          self.progress = prevProgress = 0;
+          scroll1 = scroll2 = lastSnap = scrollFunc();
+        }
+
+        refresh !== false && self.refresh();
+      }
+    };
+
+    self.getTween = function (snap) {
+      return snap && tweenTo ? tweenTo.tween : scrubTween;
+    };
+
+    self.setPositions = function (newStart, newEnd, keepClamp, pinOffset) {
+      // doesn't persist after refresh()! Intended to be a way to override values that were set during refresh(), like you could set it in onRefresh()
+      if (containerAnimation) {
+        // convert ratios into scroll positions. Remember, start/end values on ScrollTriggers that have a containerAnimation refer to the time (in seconds), NOT scroll positions.
+        var st = containerAnimation.scrollTrigger,
+            duration = containerAnimation.duration(),
+            _change = st.end - st.start;
+
+        newStart = st.start + _change * newStart / duration;
+        newEnd = st.start + _change * newEnd / duration;
+      }
+
+      self.refresh(false, false, {
+        start: _keepClamp(newStart, keepClamp && !!self._startClamp),
+        end: _keepClamp(newEnd, keepClamp && !!self._endClamp)
+      }, pinOffset);
+      self.update();
+    };
+
+    self.adjustPinSpacing = function (amount) {
+      if (spacerState && amount) {
+        var i = spacerState.indexOf(direction.d) + 1;
+        spacerState[i] = parseFloat(spacerState[i]) + amount + _px;
+        spacerState[1] = parseFloat(spacerState[1]) + amount + _px;
+
+        _setState(spacerState);
+      }
+    };
+
+    self.disable = function (reset, allowAnimation) {
+      if (self.enabled) {
+        reset !== false && self.revert(true, true);
+        self.enabled = self.isActive = false;
+        allowAnimation || scrubTween && scrubTween.pause();
+        prevScroll = 0;
+        pinCache && (pinCache.uncache = 1);
+        onRefreshInit && _removeListener(ScrollTrigger, "refreshInit", onRefreshInit);
+
+        if (snapDelayedCall) {
+          snapDelayedCall.pause();
+          tweenTo.tween && tweenTo.tween.kill() && (tweenTo.tween = 0);
+        }
+
+        if (!isViewport) {
+          var i = _triggers.length;
+
+          while (i--) {
+            if (_triggers[i].scroller === scroller && _triggers[i] !== self) {
+              return; //don't remove the listeners if there are still other triggers referencing it.
+            }
+          }
+
+          _removeListener(scroller, "resize", _onResize);
+
+          isViewport || _removeListener(scroller, "scroll", _onScroll);
+        }
+      }
+    };
+
+    self.kill = function (revert, allowAnimation) {
+      self.disable(revert, allowAnimation);
+      scrubTween && !allowAnimation && scrubTween.kill();
+      id && delete _ids[id];
+
+      var i = _triggers.indexOf(self);
+
+      i >= 0 && _triggers.splice(i, 1);
+      i === _i && _direction > 0 && _i--; // if we're in the middle of a refresh() or update(), splicing would cause skips in the index, so adjust...
+      // if no other ScrollTrigger instances of the same scroller are found, wipe out any recorded scroll position. Otherwise, in a single page application, for example, it could maintain scroll position when it really shouldn't.
+
+      i = 0;
+
+      _triggers.forEach(function (t) {
+        return t.scroller === self.scroller && (i = 1);
+      });
+
+      i || _refreshingAll || (self.scroll.rec = 0);
+
+      if (animation) {
+        animation.scrollTrigger = null;
+        revert && animation.revert({
+          kill: false
+        });
+        allowAnimation || animation.kill();
+      }
+
+      markerStart && [markerStart, markerEnd, markerStartTrigger, markerEndTrigger].forEach(function (m) {
+        return m.parentNode && m.parentNode.removeChild(m);
+      });
+      _primary === self && (_primary = 0);
+
+      if (pin) {
+        pinCache && (pinCache.uncache = 1);
+        i = 0;
+
+        _triggers.forEach(function (t) {
+          return t.pin === pin && i++;
+        });
+
+        i || (pinCache.spacer = 0); // if there aren't any more ScrollTriggers with the same pin, remove the spacer, otherwise it could be contaminated with old/stale values if the user re-creates a ScrollTrigger for the same element.
+      }
+
+      vars.onKill && vars.onKill(self);
+    };
+
+    _triggers.push(self);
+
+    self.enable(false, false);
+    customRevertReturn && customRevertReturn(self);
+
+    if (animation && animation.add && !change) {
+      // if the animation is a timeline, it may not have been populated yet, so it wouldn't render at the proper place on the first refresh(), thus we should schedule one for the next tick. If "change" is defined, we know it must be re-enabling, thus we can refresh() right away.
+      var updateFunc = self.update; // some browsers may fire a scroll event BEFORE a tick elapses and/or the DOMContentLoaded fires. So there's a chance update() will be called BEFORE a refresh() has happened on a Timeline-attached ScrollTrigger which means the start/end won't be calculated yet. We don't want to add conditional logic inside the update() method (like check to see if end is defined and if not, force a refresh()) because that's a function that gets hit a LOT (performance). So we swap out the real update() method for this one that'll re-attach it the first time it gets called and of course forces a refresh().
+
+      self.update = function () {
+        self.update = updateFunc;
+        start || end || self.refresh();
+      };
+
+      gsap.delayedCall(0.01, self.update);
+      change = 0.01;
+      start = end = 0;
+    } else {
+      self.refresh();
+    }
+
+    pin && _queueRefreshAll(); // pinning could affect the positions of other things, so make sure we queue a full refresh()
+  };
+
+  ScrollTrigger.register = function register(core) {
+    if (!_coreInitted) {
+      gsap = core || _getGSAP();
+      _windowExists() && window.document && ScrollTrigger.enable();
+      _coreInitted = _enabled;
+    }
+
+    return _coreInitted;
+  };
+
+  ScrollTrigger.defaults = function defaults(config) {
+    if (config) {
+      for (var p in config) {
+        _defaults[p] = config[p];
+      }
+    }
+
+    return _defaults;
+  };
+
+  ScrollTrigger.disable = function disable(reset, kill) {
+    _enabled = 0;
+
+    _triggers.forEach(function (trigger) {
+      return trigger[kill ? "kill" : "disable"](reset);
+    });
+
+    _removeListener(_win, "wheel", _onScroll);
+
+    _removeListener(_doc, "scroll", _onScroll);
+
+    clearInterval(_syncInterval);
+
+    _removeListener(_doc, "touchcancel", _passThrough);
+
+    _removeListener(_body, "touchstart", _passThrough);
+
+    _multiListener(_removeListener, _doc, "pointerdown,touchstart,mousedown", _pointerDownHandler);
+
+    _multiListener(_removeListener, _doc, "pointerup,touchend,mouseup", _pointerUpHandler);
+
+    _resizeDelay.kill();
+
+    _iterateAutoRefresh(_removeListener);
+
+    for (var i = 0; i < _Observer_js__WEBPACK_IMPORTED_MODULE_0__._scrollers.length; i += 3) {
+      _wheelListener(_removeListener, _Observer_js__WEBPACK_IMPORTED_MODULE_0__._scrollers[i], _Observer_js__WEBPACK_IMPORTED_MODULE_0__._scrollers[i + 1]);
+
+      _wheelListener(_removeListener, _Observer_js__WEBPACK_IMPORTED_MODULE_0__._scrollers[i], _Observer_js__WEBPACK_IMPORTED_MODULE_0__._scrollers[i + 2]);
+    }
+  };
+
+  ScrollTrigger.enable = function enable() {
+    _win = window;
+    _doc = document;
+    _docEl = _doc.documentElement;
+    _body = _doc.body;
+
+    if (gsap) {
+      _toArray = gsap.utils.toArray;
+      _clamp = gsap.utils.clamp;
+      _context = gsap.core.context || _passThrough;
+      _suppressOverwrites = gsap.core.suppressOverwrites || _passThrough;
+      _scrollRestoration = _win.history.scrollRestoration || "auto";
+      _lastScroll = _win.pageYOffset;
+      gsap.core.globals("ScrollTrigger", ScrollTrigger); // must register the global manually because in Internet Explorer, functions (classes) don't have a "name" property.
+
+      if (_body) {
+        _enabled = 1;
+        _div100vh = document.createElement("div"); // to solve mobile browser address bar show/hide resizing, we shouldn't rely on window.innerHeight. Instead, use a <div> with its height set to 100vh and measure that since that's what the scrolling is based on anyway and it's not affected by address bar showing/hiding.
+
+        _div100vh.style.height = "100vh";
+        _div100vh.style.position = "absolute";
+
+        _refresh100vh();
+
+        _rafBugFix();
+
+        _Observer_js__WEBPACK_IMPORTED_MODULE_0__.Observer.register(gsap); // isTouch is 0 if no touch, 1 if ONLY touch, and 2 if it can accommodate touch but also other types like mouse/pointer.
+
+        ScrollTrigger.isTouch = _Observer_js__WEBPACK_IMPORTED_MODULE_0__.Observer.isTouch;
+        _fixIOSBug = _Observer_js__WEBPACK_IMPORTED_MODULE_0__.Observer.isTouch && /(iPad|iPhone|iPod|Mac)/g.test(navigator.userAgent); // since 2017, iOS has had a bug that causes event.clientX/Y to be inaccurate when a scroll occurs, thus we must alternate ignoring every other touchmove event to work around it. See https://bugs.webkit.org/show_bug.cgi?id=181954 and https://codepen.io/GreenSock/pen/ExbrPNa/087cef197dc35445a0951e8935c41503
+
+        _ignoreMobileResize = _Observer_js__WEBPACK_IMPORTED_MODULE_0__.Observer.isTouch === 1;
+
+        _addListener(_win, "wheel", _onScroll); // mostly for 3rd party smooth scrolling libraries.
+
+
+        _root = [_win, _doc, _docEl, _body];
+
+        if (gsap.matchMedia) {
+          ScrollTrigger.matchMedia = function (vars) {
+            var mm = gsap.matchMedia(),
+                p;
+
+            for (p in vars) {
+              mm.add(p, vars[p]);
+            }
+
+            return mm;
+          };
+
+          gsap.addEventListener("matchMediaInit", function () {
+            return _revertAll();
+          });
+          gsap.addEventListener("matchMediaRevert", function () {
+            return _revertRecorded();
+          });
+          gsap.addEventListener("matchMedia", function () {
+            _refreshAll(0, 1);
+
+            _dispatch("matchMedia");
+          });
+          gsap.matchMedia("(orientation: portrait)", function () {
+            // when orientation changes, we should take new base measurements for the ignoreMobileResize feature.
+            _setBaseDimensions();
+
+            return _setBaseDimensions;
+          });
+        } else {
+          console.warn("Requires GSAP 3.11.0 or later");
+        }
+
+        _setBaseDimensions();
+
+        _addListener(_doc, "scroll", _onScroll); // some browsers (like Chrome), the window stops dispatching scroll events on the window if you scroll really fast, but it's consistent on the document!
+
+
+        var bodyStyle = _body.style,
+            border = bodyStyle.borderTopStyle,
+            AnimationProto = gsap.core.Animation.prototype,
+            bounds,
+            i;
+        AnimationProto.revert || Object.defineProperty(AnimationProto, "revert", {
+          value: function value() {
+            return this.time(-0.01, true);
+          }
+        }); // only for backwards compatibility (Animation.revert() was added after 3.10.4)
+
+        bodyStyle.borderTopStyle = "solid"; // works around an issue where a margin of a child element could throw off the bounds of the _body, making it seem like there's a margin when there actually isn't. The border ensures that the bounds are accurate.
+
+        bounds = _getBounds(_body);
+        _Observer_js__WEBPACK_IMPORTED_MODULE_0__._vertical.m = Math.round(bounds.top + _Observer_js__WEBPACK_IMPORTED_MODULE_0__._vertical.sc()) || 0; // accommodate the offset of the <body> caused by margins and/or padding
+
+        _Observer_js__WEBPACK_IMPORTED_MODULE_0__._horizontal.m = Math.round(bounds.left + _Observer_js__WEBPACK_IMPORTED_MODULE_0__._horizontal.sc()) || 0;
+        border ? bodyStyle.borderTopStyle = border : bodyStyle.removeProperty("border-top-style"); // TODO: (?) maybe move to leveraging the velocity mechanism in Observer and skip intervals.
+
+        _syncInterval = setInterval(_sync, 250);
+        gsap.delayedCall(0.5, function () {
+          return _startup = 0;
+        });
+
+        _addListener(_doc, "touchcancel", _passThrough); // some older Android devices intermittently stop dispatching "touchmove" events if we don't listen for "touchcancel" on the document.
+
+
+        _addListener(_body, "touchstart", _passThrough); //works around Safari bug: https://gsap.com/forums/topic/21450-draggable-in-iframe-on-mobile-is-buggy/
+
+
+        _multiListener(_addListener, _doc, "pointerdown,touchstart,mousedown", _pointerDownHandler);
+
+        _multiListener(_addListener, _doc, "pointerup,touchend,mouseup", _pointerUpHandler);
+
+        _transformProp = gsap.utils.checkPrefix("transform");
+
+        _stateProps.push(_transformProp);
+
+        _coreInitted = _getTime();
+        _resizeDelay = gsap.delayedCall(0.2, _refreshAll).pause();
+        _autoRefresh = [_doc, "visibilitychange", function () {
+          var w = _win.innerWidth,
+              h = _win.innerHeight;
+
+          if (_doc.hidden) {
+            _prevWidth = w;
+            _prevHeight = h;
+          } else if (_prevWidth !== w || _prevHeight !== h) {
+            _onResize();
+          }
+        }, _doc, "DOMContentLoaded", _refreshAll, _win, "load", _refreshAll, _win, "resize", _onResize];
+
+        _iterateAutoRefresh(_addListener);
+
+        _triggers.forEach(function (trigger) {
+          return trigger.enable(0, 1);
+        });
+
+        for (i = 0; i < _Observer_js__WEBPACK_IMPORTED_MODULE_0__._scrollers.length; i += 3) {
+          _wheelListener(_removeListener, _Observer_js__WEBPACK_IMPORTED_MODULE_0__._scrollers[i], _Observer_js__WEBPACK_IMPORTED_MODULE_0__._scrollers[i + 1]);
+
+          _wheelListener(_removeListener, _Observer_js__WEBPACK_IMPORTED_MODULE_0__._scrollers[i], _Observer_js__WEBPACK_IMPORTED_MODULE_0__._scrollers[i + 2]);
+        }
+      }
+    }
+  };
+
+  ScrollTrigger.config = function config(vars) {
+    "limitCallbacks" in vars && (_limitCallbacks = !!vars.limitCallbacks);
+    var ms = vars.syncInterval;
+    ms && clearInterval(_syncInterval) || (_syncInterval = ms) && setInterval(_sync, ms);
+    "ignoreMobileResize" in vars && (_ignoreMobileResize = ScrollTrigger.isTouch === 1 && vars.ignoreMobileResize);
+
+    if ("autoRefreshEvents" in vars) {
+      _iterateAutoRefresh(_removeListener) || _iterateAutoRefresh(_addListener, vars.autoRefreshEvents || "none");
+      _ignoreResize = (vars.autoRefreshEvents + "").indexOf("resize") === -1;
+    }
+  };
+
+  ScrollTrigger.scrollerProxy = function scrollerProxy(target, vars) {
+    var t = (0,_Observer_js__WEBPACK_IMPORTED_MODULE_0__._getTarget)(target),
+        i = _Observer_js__WEBPACK_IMPORTED_MODULE_0__._scrollers.indexOf(t),
+        isViewport = _isViewport(t);
+
+    if (~i) {
+      _Observer_js__WEBPACK_IMPORTED_MODULE_0__._scrollers.splice(i, isViewport ? 6 : 2);
+    }
+
+    if (vars) {
+      isViewport ? _Observer_js__WEBPACK_IMPORTED_MODULE_0__._proxies.unshift(_win, vars, _body, vars, _docEl, vars) : _Observer_js__WEBPACK_IMPORTED_MODULE_0__._proxies.unshift(t, vars);
+    }
+  };
+
+  ScrollTrigger.clearMatchMedia = function clearMatchMedia(query) {
+    _triggers.forEach(function (t) {
+      return t._ctx && t._ctx.query === query && t._ctx.kill(true, true);
+    });
+  };
+
+  ScrollTrigger.isInViewport = function isInViewport(element, ratio, horizontal) {
+    var bounds = (_isString(element) ? (0,_Observer_js__WEBPACK_IMPORTED_MODULE_0__._getTarget)(element) : element).getBoundingClientRect(),
+        offset = bounds[horizontal ? _width : _height] * ratio || 0;
+    return horizontal ? bounds.right - offset > 0 && bounds.left + offset < _win.innerWidth : bounds.bottom - offset > 0 && bounds.top + offset < _win.innerHeight;
+  };
+
+  ScrollTrigger.positionInViewport = function positionInViewport(element, referencePoint, horizontal) {
+    _isString(element) && (element = (0,_Observer_js__WEBPACK_IMPORTED_MODULE_0__._getTarget)(element));
+    var bounds = element.getBoundingClientRect(),
+        size = bounds[horizontal ? _width : _height],
+        offset = referencePoint == null ? size / 2 : referencePoint in _keywords ? _keywords[referencePoint] * size : ~referencePoint.indexOf("%") ? parseFloat(referencePoint) * size / 100 : parseFloat(referencePoint) || 0;
+    return horizontal ? (bounds.left + offset) / _win.innerWidth : (bounds.top + offset) / _win.innerHeight;
+  };
+
+  ScrollTrigger.killAll = function killAll(allowListeners) {
+    _triggers.slice(0).forEach(function (t) {
+      return t.vars.id !== "ScrollSmoother" && t.kill();
+    });
+
+    if (allowListeners !== true) {
+      var listeners = _listeners.killAll || [];
+      _listeners = {};
+      listeners.forEach(function (f) {
+        return f();
+      });
+    }
+  };
+
+  return ScrollTrigger;
+}();
+ScrollTrigger.version = "3.12.5";
+
+ScrollTrigger.saveStyles = function (targets) {
+  return targets ? _toArray(targets).forEach(function (target) {
+    // saved styles are recorded in a consecutive alternating Array, like [element, cssText, transform attribute, cache, matchMedia, ...]
+    if (target && target.style) {
+      var i = _savedStyles.indexOf(target);
+
+      i >= 0 && _savedStyles.splice(i, 5);
+
+      _savedStyles.push(target, target.style.cssText, target.getBBox && target.getAttribute("transform"), gsap.core.getCache(target), _context());
+    }
+  }) : _savedStyles;
+};
+
+ScrollTrigger.revert = function (soft, media) {
+  return _revertAll(!soft, media);
+};
+
+ScrollTrigger.create = function (vars, animation) {
+  return new ScrollTrigger(vars, animation);
+};
+
+ScrollTrigger.refresh = function (safe) {
+  return safe ? _onResize() : (_coreInitted || ScrollTrigger.register()) && _refreshAll(true);
+};
+
+ScrollTrigger.update = function (force) {
+  return ++_Observer_js__WEBPACK_IMPORTED_MODULE_0__._scrollers.cache && _updateAll(force === true ? 2 : 0);
+};
+
+ScrollTrigger.clearScrollMemory = _clearScrollMemory;
+
+ScrollTrigger.maxScroll = function (element, horizontal) {
+  return _maxScroll(element, horizontal ? _Observer_js__WEBPACK_IMPORTED_MODULE_0__._horizontal : _Observer_js__WEBPACK_IMPORTED_MODULE_0__._vertical);
+};
+
+ScrollTrigger.getScrollFunc = function (element, horizontal) {
+  return (0,_Observer_js__WEBPACK_IMPORTED_MODULE_0__._getScrollFunc)((0,_Observer_js__WEBPACK_IMPORTED_MODULE_0__._getTarget)(element), horizontal ? _Observer_js__WEBPACK_IMPORTED_MODULE_0__._horizontal : _Observer_js__WEBPACK_IMPORTED_MODULE_0__._vertical);
+};
+
+ScrollTrigger.getById = function (id) {
+  return _ids[id];
+};
+
+ScrollTrigger.getAll = function () {
+  return _triggers.filter(function (t) {
+    return t.vars.id !== "ScrollSmoother";
+  });
+}; // it's common for people to ScrollTrigger.getAll(t => t.kill()) on page routes, for example, and we don't want it to ruin smooth scrolling by killing the main ScrollSmoother one.
+
+
+ScrollTrigger.isScrolling = function () {
+  return !!_lastScrollTime;
+};
+
+ScrollTrigger.snapDirectional = _snapDirectional;
+
+ScrollTrigger.addEventListener = function (type, callback) {
+  var a = _listeners[type] || (_listeners[type] = []);
+  ~a.indexOf(callback) || a.push(callback);
+};
+
+ScrollTrigger.removeEventListener = function (type, callback) {
+  var a = _listeners[type],
+      i = a && a.indexOf(callback);
+  i >= 0 && a.splice(i, 1);
+};
+
+ScrollTrigger.batch = function (targets, vars) {
+  var result = [],
+      varsCopy = {},
+      interval = vars.interval || 0.016,
+      batchMax = vars.batchMax || 1e9,
+      proxyCallback = function proxyCallback(type, callback) {
+    var elements = [],
+        triggers = [],
+        delay = gsap.delayedCall(interval, function () {
+      callback(elements, triggers);
+      elements = [];
+      triggers = [];
+    }).pause();
+    return function (self) {
+      elements.length || delay.restart(true);
+      elements.push(self.trigger);
+      triggers.push(self);
+      batchMax <= elements.length && delay.progress(1);
+    };
+  },
+      p;
+
+  for (p in vars) {
+    varsCopy[p] = p.substr(0, 2) === "on" && _isFunction(vars[p]) && p !== "onRefreshInit" ? proxyCallback(p, vars[p]) : vars[p];
+  }
+
+  if (_isFunction(batchMax)) {
+    batchMax = batchMax();
+
+    _addListener(ScrollTrigger, "refresh", function () {
+      return batchMax = vars.batchMax();
+    });
+  }
+
+  _toArray(targets).forEach(function (target) {
+    var config = {};
+
+    for (p in varsCopy) {
+      config[p] = varsCopy[p];
+    }
+
+    config.trigger = target;
+    result.push(ScrollTrigger.create(config));
+  });
+
+  return result;
+}; // to reduce file size. clamps the scroll and also returns a duration multiplier so that if the scroll gets chopped shorter, the duration gets curtailed as well (otherwise if you're very close to the top of the page, for example, and swipe up really fast, it'll suddenly slow down and take a long time to reach the top).
+
+
+var _clampScrollAndGetDurationMultiplier = function _clampScrollAndGetDurationMultiplier(scrollFunc, current, end, max) {
+  current > max ? scrollFunc(max) : current < 0 && scrollFunc(0);
+  return end > max ? (max - current) / (end - current) : end < 0 ? current / (current - end) : 1;
+},
+    _allowNativePanning = function _allowNativePanning(target, direction) {
+  if (direction === true) {
+    target.style.removeProperty("touch-action");
+  } else {
+    target.style.touchAction = direction === true ? "auto" : direction ? "pan-" + direction + (_Observer_js__WEBPACK_IMPORTED_MODULE_0__.Observer.isTouch ? " pinch-zoom" : "") : "none"; // note: Firefox doesn't support it pinch-zoom properly, at least in addition to a pan-x or pan-y.
+  }
+
+  target === _docEl && _allowNativePanning(_body, direction);
+},
+    _overflow = {
+  auto: 1,
+  scroll: 1
+},
+    _nestedScroll = function _nestedScroll(_ref5) {
+  var event = _ref5.event,
+      target = _ref5.target,
+      axis = _ref5.axis;
+
+  var node = (event.changedTouches ? event.changedTouches[0] : event).target,
+      cache = node._gsap || gsap.core.getCache(node),
+      time = _getTime(),
+      cs;
+
+  if (!cache._isScrollT || time - cache._isScrollT > 2000) {
+    // cache for 2 seconds to improve performance.
+    while (node && node !== _body && (node.scrollHeight <= node.clientHeight && node.scrollWidth <= node.clientWidth || !(_overflow[(cs = _getComputedStyle(node)).overflowY] || _overflow[cs.overflowX]))) {
+      node = node.parentNode;
+    }
+
+    cache._isScroll = node && node !== target && !_isViewport(node) && (_overflow[(cs = _getComputedStyle(node)).overflowY] || _overflow[cs.overflowX]);
+    cache._isScrollT = time;
+  }
+
+  if (cache._isScroll || axis === "x") {
+    event.stopPropagation();
+    event._gsapAllow = true;
+  }
+},
+    // capture events on scrollable elements INSIDE the <body> and allow those by calling stopPropagation() when we find a scrollable ancestor
+_inputObserver = function _inputObserver(target, type, inputs, nested) {
+  return _Observer_js__WEBPACK_IMPORTED_MODULE_0__.Observer.create({
+    target: target,
+    capture: true,
+    debounce: false,
+    lockAxis: true,
+    type: type,
+    onWheel: nested = nested && _nestedScroll,
+    onPress: nested,
+    onDrag: nested,
+    onScroll: nested,
+    onEnable: function onEnable() {
+      return inputs && _addListener(_doc, _Observer_js__WEBPACK_IMPORTED_MODULE_0__.Observer.eventTypes[0], _captureInputs, false, true);
+    },
+    onDisable: function onDisable() {
+      return _removeListener(_doc, _Observer_js__WEBPACK_IMPORTED_MODULE_0__.Observer.eventTypes[0], _captureInputs, true);
+    }
+  });
+},
+    _inputExp = /(input|label|select|textarea)/i,
+    _inputIsFocused,
+    _captureInputs = function _captureInputs(e) {
+  var isInput = _inputExp.test(e.target.tagName);
+
+  if (isInput || _inputIsFocused) {
+    e._gsapAllow = true;
+    _inputIsFocused = isInput;
+  }
+},
+    _getScrollNormalizer = function _getScrollNormalizer(vars) {
+  _isObject(vars) || (vars = {});
+  vars.preventDefault = vars.isNormalizer = vars.allowClicks = true;
+  vars.type || (vars.type = "wheel,touch");
+  vars.debounce = !!vars.debounce;
+  vars.id = vars.id || "normalizer";
+
+  var _vars2 = vars,
+      normalizeScrollX = _vars2.normalizeScrollX,
+      momentum = _vars2.momentum,
+      allowNestedScroll = _vars2.allowNestedScroll,
+      onRelease = _vars2.onRelease,
+      self,
+      maxY,
+      target = (0,_Observer_js__WEBPACK_IMPORTED_MODULE_0__._getTarget)(vars.target) || _docEl,
+      smoother = gsap.core.globals().ScrollSmoother,
+      smootherInstance = smoother && smoother.get(),
+      content = _fixIOSBug && (vars.content && (0,_Observer_js__WEBPACK_IMPORTED_MODULE_0__._getTarget)(vars.content) || smootherInstance && vars.content !== false && !smootherInstance.smooth() && smootherInstance.content()),
+      scrollFuncY = (0,_Observer_js__WEBPACK_IMPORTED_MODULE_0__._getScrollFunc)(target, _Observer_js__WEBPACK_IMPORTED_MODULE_0__._vertical),
+      scrollFuncX = (0,_Observer_js__WEBPACK_IMPORTED_MODULE_0__._getScrollFunc)(target, _Observer_js__WEBPACK_IMPORTED_MODULE_0__._horizontal),
+      scale = 1,
+      initialScale = (_Observer_js__WEBPACK_IMPORTED_MODULE_0__.Observer.isTouch && _win.visualViewport ? _win.visualViewport.scale * _win.visualViewport.width : _win.outerWidth) / _win.innerWidth,
+      wheelRefresh = 0,
+      resolveMomentumDuration = _isFunction(momentum) ? function () {
+    return momentum(self);
+  } : function () {
+    return momentum || 2.8;
+  },
+      lastRefreshID,
+      skipTouchMove,
+      inputObserver = _inputObserver(target, vars.type, true, allowNestedScroll),
+      resumeTouchMove = function resumeTouchMove() {
+    return skipTouchMove = false;
+  },
+      scrollClampX = _passThrough,
+      scrollClampY = _passThrough,
+      updateClamps = function updateClamps() {
+    maxY = _maxScroll(target, _Observer_js__WEBPACK_IMPORTED_MODULE_0__._vertical);
+    scrollClampY = _clamp(_fixIOSBug ? 1 : 0, maxY);
+    normalizeScrollX && (scrollClampX = _clamp(0, _maxScroll(target, _Observer_js__WEBPACK_IMPORTED_MODULE_0__._horizontal)));
+    lastRefreshID = _refreshID;
+  },
+      removeContentOffset = function removeContentOffset() {
+    content._gsap.y = _round(parseFloat(content._gsap.y) + scrollFuncY.offset) + "px";
+    content.style.transform = "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, " + parseFloat(content._gsap.y) + ", 0, 1)";
+    scrollFuncY.offset = scrollFuncY.cacheID = 0;
+  },
+      ignoreDrag = function ignoreDrag() {
+    if (skipTouchMove) {
+      requestAnimationFrame(resumeTouchMove);
+
+      var offset = _round(self.deltaY / 2),
+          scroll = scrollClampY(scrollFuncY.v - offset);
+
+      if (content && scroll !== scrollFuncY.v + scrollFuncY.offset) {
+        scrollFuncY.offset = scroll - scrollFuncY.v;
+
+        var y = _round((parseFloat(content && content._gsap.y) || 0) - scrollFuncY.offset);
+
+        content.style.transform = "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, " + y + ", 0, 1)";
+        content._gsap.y = y + "px";
+        scrollFuncY.cacheID = _Observer_js__WEBPACK_IMPORTED_MODULE_0__._scrollers.cache;
+
+        _updateAll();
+      }
+
+      return true;
+    }
+
+    scrollFuncY.offset && removeContentOffset();
+    skipTouchMove = true;
+  },
+      tween,
+      startScrollX,
+      startScrollY,
+      onStopDelayedCall,
+      onResize = function onResize() {
+    // if the window resizes, like on an iPhone which Apple FORCES the address bar to show/hide even if we event.preventDefault(), it may be scrolling too far now that the address bar is showing, so we must dynamically adjust the momentum tween.
+    updateClamps();
+
+    if (tween.isActive() && tween.vars.scrollY > maxY) {
+      scrollFuncY() > maxY ? tween.progress(1) && scrollFuncY(maxY) : tween.resetTo("scrollY", maxY);
+    }
+  };
+
+  content && gsap.set(content, {
+    y: "+=0"
+  }); // to ensure there's a cache (element._gsap)
+
+  vars.ignoreCheck = function (e) {
+    return _fixIOSBug && e.type === "touchmove" && ignoreDrag(e) || scale > 1.05 && e.type !== "touchstart" || self.isGesturing || e.touches && e.touches.length > 1;
+  };
+
+  vars.onPress = function () {
+    skipTouchMove = false;
+    var prevScale = scale;
+    scale = _round((_win.visualViewport && _win.visualViewport.scale || 1) / initialScale);
+    tween.pause();
+    prevScale !== scale && _allowNativePanning(target, scale > 1.01 ? true : normalizeScrollX ? false : "x");
+    startScrollX = scrollFuncX();
+    startScrollY = scrollFuncY();
+    updateClamps();
+    lastRefreshID = _refreshID;
+  };
+
+  vars.onRelease = vars.onGestureStart = function (self, wasDragging) {
+    scrollFuncY.offset && removeContentOffset();
+
+    if (!wasDragging) {
+      onStopDelayedCall.restart(true);
+    } else {
+      _Observer_js__WEBPACK_IMPORTED_MODULE_0__._scrollers.cache++; // make sure we're pulling the non-cached value
+      // alternate algorithm: durX = Math.min(6, Math.abs(self.velocityX / 800)),	dur = Math.max(durX, Math.min(6, Math.abs(self.velocityY / 800))); dur = dur * (0.4 + (1 - _power4In(dur / 6)) * 0.6)) * (momentumSpeed || 1)
+
+      var dur = resolveMomentumDuration(),
+          currentScroll,
+          endScroll;
+
+      if (normalizeScrollX) {
+        currentScroll = scrollFuncX();
+        endScroll = currentScroll + dur * 0.05 * -self.velocityX / 0.227; // the constant .227 is from power4(0.05). velocity is inverted because scrolling goes in the opposite direction.
+
+        dur *= _clampScrollAndGetDurationMultiplier(scrollFuncX, currentScroll, endScroll, _maxScroll(target, _Observer_js__WEBPACK_IMPORTED_MODULE_0__._horizontal));
+        tween.vars.scrollX = scrollClampX(endScroll);
+      }
+
+      currentScroll = scrollFuncY();
+      endScroll = currentScroll + dur * 0.05 * -self.velocityY / 0.227; // the constant .227 is from power4(0.05)
+
+      dur *= _clampScrollAndGetDurationMultiplier(scrollFuncY, currentScroll, endScroll, _maxScroll(target, _Observer_js__WEBPACK_IMPORTED_MODULE_0__._vertical));
+      tween.vars.scrollY = scrollClampY(endScroll);
+      tween.invalidate().duration(dur).play(0.01);
+
+      if (_fixIOSBug && tween.vars.scrollY >= maxY || currentScroll >= maxY - 1) {
+        // iOS bug: it'll show the address bar but NOT fire the window "resize" event until the animation is done but we must protect against overshoot so we leverage an onUpdate to do so.
+        gsap.to({}, {
+          onUpdate: onResize,
+          duration: dur
+        });
+      }
+    }
+
+    onRelease && onRelease(self);
+  };
+
+  vars.onWheel = function () {
+    tween._ts && tween.pause();
+
+    if (_getTime() - wheelRefresh > 1000) {
+      // after 1 second, refresh the clamps otherwise that'll only happen when ScrollTrigger.refresh() is called or for touch-scrolling.
+      lastRefreshID = 0;
+      wheelRefresh = _getTime();
+    }
+  };
+
+  vars.onChange = function (self, dx, dy, xArray, yArray) {
+    _refreshID !== lastRefreshID && updateClamps();
+    dx && normalizeScrollX && scrollFuncX(scrollClampX(xArray[2] === dx ? startScrollX + (self.startX - self.x) : scrollFuncX() + dx - xArray[1])); // for more precision, we track pointer/touch movement from the start, otherwise it'll drift.
+
+    if (dy) {
+      scrollFuncY.offset && removeContentOffset();
+      var isTouch = yArray[2] === dy,
+          y = isTouch ? startScrollY + self.startY - self.y : scrollFuncY() + dy - yArray[1],
+          yClamped = scrollClampY(y);
+      isTouch && y !== yClamped && (startScrollY += yClamped - y);
+      scrollFuncY(yClamped);
+    }
+
+    (dy || dx) && _updateAll();
+  };
+
+  vars.onEnable = function () {
+    _allowNativePanning(target, normalizeScrollX ? false : "x");
+
+    ScrollTrigger.addEventListener("refresh", onResize);
+
+    _addListener(_win, "resize", onResize);
+
+    if (scrollFuncY.smooth) {
+      scrollFuncY.target.style.scrollBehavior = "auto";
+      scrollFuncY.smooth = scrollFuncX.smooth = false;
+    }
+
+    inputObserver.enable();
+  };
+
+  vars.onDisable = function () {
+    _allowNativePanning(target, true);
+
+    _removeListener(_win, "resize", onResize);
+
+    ScrollTrigger.removeEventListener("refresh", onResize);
+    inputObserver.kill();
+  };
+
+  vars.lockAxis = vars.lockAxis !== false;
+  self = new _Observer_js__WEBPACK_IMPORTED_MODULE_0__.Observer(vars);
+  self.iOS = _fixIOSBug; // used in the Observer getCachedScroll() function to work around an iOS bug that wreaks havoc with TouchEvent.clientY if we allow scroll to go all the way back to 0.
+
+  _fixIOSBug && !scrollFuncY() && scrollFuncY(1); // iOS bug causes event.clientY values to freak out (wildly inaccurate) if the scroll position is exactly 0.
+
+  _fixIOSBug && gsap.ticker.add(_passThrough); // prevent the ticker from sleeping
+
+  onStopDelayedCall = self._dc;
+  tween = gsap.to(self, {
+    ease: "power4",
+    paused: true,
+    inherit: false,
+    scrollX: normalizeScrollX ? "+=0.1" : "+=0",
+    scrollY: "+=0.1",
+    modifiers: {
+      scrollY: _interruptionTracker(scrollFuncY, scrollFuncY(), function () {
+        return tween.pause();
+      })
+    },
+    onUpdate: _updateAll,
+    onComplete: onStopDelayedCall.vars.onComplete
+  }); // we need the modifier to sense if the scroll position is altered outside of the momentum tween (like with a scrollTo tween) so we can pause() it to prevent conflicts.
+
+  return self;
+};
+
+ScrollTrigger.sort = function (func) {
+  return _triggers.sort(func || function (a, b) {
+    return (a.vars.refreshPriority || 0) * -1e6 + a.start - (b.start + (b.vars.refreshPriority || 0) * -1e6);
+  });
+};
+
+ScrollTrigger.observe = function (vars) {
+  return new _Observer_js__WEBPACK_IMPORTED_MODULE_0__.Observer(vars);
+};
+
+ScrollTrigger.normalizeScroll = function (vars) {
+  if (typeof vars === "undefined") {
+    return _normalizer;
+  }
+
+  if (vars === true && _normalizer) {
+    return _normalizer.enable();
+  }
+
+  if (vars === false) {
+    _normalizer && _normalizer.kill();
+    _normalizer = vars;
+    return;
+  }
+
+  var normalizer = vars instanceof _Observer_js__WEBPACK_IMPORTED_MODULE_0__.Observer ? vars : _getScrollNormalizer(vars);
+  _normalizer && _normalizer.target === normalizer.target && _normalizer.kill();
+  _isViewport(normalizer.target) && (_normalizer = normalizer);
+  return normalizer;
+};
+
+ScrollTrigger.core = {
+  // smaller file size way to leverage in ScrollSmoother and Observer
+  _getVelocityProp: _Observer_js__WEBPACK_IMPORTED_MODULE_0__._getVelocityProp,
+  _inputObserver: _inputObserver,
+  _scrollers: _Observer_js__WEBPACK_IMPORTED_MODULE_0__._scrollers,
+  _proxies: _Observer_js__WEBPACK_IMPORTED_MODULE_0__._proxies,
+  bridge: {
+    // when normalizeScroll sets the scroll position (ss = setScroll)
+    ss: function ss() {
+      _lastScrollTime || _dispatch("scrollStart");
+      _lastScrollTime = _getTime();
+    },
+    // a way to get the _refreshing value in Observer
+    ref: function ref() {
+      return _refreshing;
+    }
+  }
+};
+_getGSAP() && gsap.registerPlugin(ScrollTrigger);
+
+
+/***/ },
+
+/***/ "./node_modules/gsap/TextPlugin.js"
+/*!*****************************************!*\
+  !*** ./node_modules/gsap/TextPlugin.js ***!
+  \*****************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   TextPlugin: () => (/* binding */ TextPlugin),
+/* harmony export */   "default": () => (/* binding */ TextPlugin)
+/* harmony export */ });
+/* harmony import */ var _utils_strings_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils/strings.js */ "./node_modules/gsap/utils/strings.js");
+/*!
+ * TextPlugin 3.12.5
+ * https://gsap.com
+ *
+ * @license Copyright 2008-2024, GreenSock. All rights reserved.
+ * Subject to the terms at https://gsap.com/standard-license or for
+ * Club GSAP members, the agreement issued with that membership.
+ * @author: Jack Doyle, jack@greensock.com
+*/
+
+/* eslint-disable */
+
+
+var gsap,
+    _tempDiv,
+    _getGSAP = function _getGSAP() {
+  return gsap || typeof window !== "undefined" && (gsap = window.gsap) && gsap.registerPlugin && gsap;
+};
+
+var TextPlugin = {
+  version: "3.12.5",
+  name: "text",
+  init: function init(target, value, tween) {
+    typeof value !== "object" && (value = {
+      value: value
+    });
+
+    var i = target.nodeName.toUpperCase(),
+        data = this,
+        _value = value,
+        newClass = _value.newClass,
+        oldClass = _value.oldClass,
+        preserveSpaces = _value.preserveSpaces,
+        rtl = _value.rtl,
+        delimiter = data.delimiter = value.delimiter || "",
+        fillChar = data.fillChar = value.fillChar || (value.padSpace ? "&nbsp;" : ""),
+        _short,
+        text,
+        original,
+        j,
+        condensedText,
+        condensedOriginal,
+        aggregate,
+        s;
+
+    data.svg = target.getBBox && (i === "TEXT" || i === "TSPAN");
+
+    if (!("innerHTML" in target) && !data.svg) {
+      return false;
+    }
+
+    data.target = target;
+
+    if (!("value" in value)) {
+      data.text = data.original = [""];
+      return;
+    }
+
+    original = (0,_utils_strings_js__WEBPACK_IMPORTED_MODULE_0__.splitInnerHTML)(target, delimiter, false, preserveSpaces);
+    _tempDiv || (_tempDiv = document.createElement("div"));
+    _tempDiv.innerHTML = value.value;
+    text = (0,_utils_strings_js__WEBPACK_IMPORTED_MODULE_0__.splitInnerHTML)(_tempDiv, delimiter, false, preserveSpaces);
+    data.from = tween._from;
+
+    if ((data.from || rtl) && !(rtl && data.from)) {
+      // right-to-left or "from()" tweens should invert things (but if it's BOTH .from() and rtl, inverting twice equals not inverting at all :)
+      i = original;
+      original = text;
+      text = i;
+    }
+
+    data.hasClass = !!(newClass || oldClass);
+    data.newClass = rtl ? oldClass : newClass;
+    data.oldClass = rtl ? newClass : oldClass;
+    i = original.length - text.length;
+    _short = i < 0 ? original : text;
+
+    if (i < 0) {
+      i = -i;
+    }
+
+    while (--i > -1) {
+      _short.push(fillChar);
+    }
+
+    if (value.type === "diff") {
+      j = 0;
+      condensedText = [];
+      condensedOriginal = [];
+      aggregate = "";
+
+      for (i = 0; i < text.length; i++) {
+        s = text[i];
+
+        if (s === original[i]) {
+          aggregate += s;
+        } else {
+          condensedText[j] = aggregate + s;
+          condensedOriginal[j++] = aggregate + original[i];
+          aggregate = "";
+        }
+      }
+
+      text = condensedText;
+      original = condensedOriginal;
+
+      if (aggregate) {
+        text.push(aggregate);
+        original.push(aggregate);
+      }
+    }
+
+    value.speed && tween.duration(Math.min(0.05 / value.speed * _short.length, value.maxDuration || 9999));
+    data.rtl = rtl;
+    data.original = original;
+    data.text = text;
+
+    data._props.push("text");
+  },
+  render: function render(ratio, data) {
+    if (ratio > 1) {
+      ratio = 1;
+    } else if (ratio < 0) {
+      ratio = 0;
+    }
+
+    if (data.from) {
+      ratio = 1 - ratio;
+    }
+
+    var text = data.text,
+        hasClass = data.hasClass,
+        newClass = data.newClass,
+        oldClass = data.oldClass,
+        delimiter = data.delimiter,
+        target = data.target,
+        fillChar = data.fillChar,
+        original = data.original,
+        rtl = data.rtl,
+        l = text.length,
+        i = (rtl ? 1 - ratio : ratio) * l + 0.5 | 0,
+        applyNew,
+        applyOld,
+        str;
+
+    if (hasClass && ratio) {
+      applyNew = newClass && i;
+      applyOld = oldClass && i !== l;
+      str = (applyNew ? "<span class='" + newClass + "'>" : "") + text.slice(0, i).join(delimiter) + (applyNew ? "</span>" : "") + (applyOld ? "<span class='" + oldClass + "'>" : "") + delimiter + original.slice(i).join(delimiter) + (applyOld ? "</span>" : "");
+    } else {
+      str = text.slice(0, i).join(delimiter) + delimiter + original.slice(i).join(delimiter);
+    }
+
+    if (data.svg) {
+      //SVG text elements don't have an "innerHTML" in Microsoft browsers.
+      target.textContent = str;
+    } else {
+      target.innerHTML = fillChar === "&nbsp;" && ~str.indexOf("  ") ? str.split("  ").join("&nbsp;&nbsp;") : str;
+    }
+  }
+};
+TextPlugin.splitInnerHTML = _utils_strings_js__WEBPACK_IMPORTED_MODULE_0__.splitInnerHTML;
+TextPlugin.emojiSafeSplit = _utils_strings_js__WEBPACK_IMPORTED_MODULE_0__.emojiSafeSplit;
+TextPlugin.getText = _utils_strings_js__WEBPACK_IMPORTED_MODULE_0__.getText;
+_getGSAP() && gsap.registerPlugin(TextPlugin);
+
+
+/***/ },
+
+/***/ "./node_modules/gsap/gsap-core.js"
+/*!****************************************!*\
+  !*** ./node_modules/gsap/gsap-core.js ***!
+  \****************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   Animation: () => (/* binding */ Animation),
+/* harmony export */   Back: () => (/* binding */ Back),
+/* harmony export */   Bounce: () => (/* binding */ Bounce),
+/* harmony export */   Circ: () => (/* binding */ Circ),
+/* harmony export */   Cubic: () => (/* binding */ Cubic),
+/* harmony export */   Elastic: () => (/* binding */ Elastic),
+/* harmony export */   Expo: () => (/* binding */ Expo),
+/* harmony export */   GSCache: () => (/* binding */ GSCache),
+/* harmony export */   Linear: () => (/* binding */ Linear),
+/* harmony export */   Power0: () => (/* binding */ Power0),
+/* harmony export */   Power1: () => (/* binding */ Power1),
+/* harmony export */   Power2: () => (/* binding */ Power2),
+/* harmony export */   Power3: () => (/* binding */ Power3),
+/* harmony export */   Power4: () => (/* binding */ Power4),
+/* harmony export */   PropTween: () => (/* binding */ PropTween),
+/* harmony export */   Quad: () => (/* binding */ Quad),
+/* harmony export */   Quart: () => (/* binding */ Quart),
+/* harmony export */   Quint: () => (/* binding */ Quint),
+/* harmony export */   Sine: () => (/* binding */ Sine),
+/* harmony export */   SteppedEase: () => (/* binding */ SteppedEase),
+/* harmony export */   Strong: () => (/* binding */ Strong),
+/* harmony export */   Timeline: () => (/* binding */ Timeline),
+/* harmony export */   TimelineLite: () => (/* binding */ Timeline),
+/* harmony export */   TimelineMax: () => (/* binding */ Timeline),
+/* harmony export */   Tween: () => (/* binding */ Tween),
+/* harmony export */   TweenLite: () => (/* binding */ Tween),
+/* harmony export */   TweenMax: () => (/* binding */ Tween),
+/* harmony export */   _checkPlugin: () => (/* binding */ _checkPlugin),
+/* harmony export */   _colorExp: () => (/* binding */ _colorExp),
+/* harmony export */   _colorStringFilter: () => (/* binding */ _colorStringFilter),
+/* harmony export */   _config: () => (/* binding */ _config),
+/* harmony export */   _forEachName: () => (/* binding */ _forEachName),
+/* harmony export */   _getCache: () => (/* binding */ _getCache),
+/* harmony export */   _getProperty: () => (/* binding */ _getProperty),
+/* harmony export */   _getSetter: () => (/* binding */ _getSetter),
+/* harmony export */   _isString: () => (/* binding */ _isString),
+/* harmony export */   _isUndefined: () => (/* binding */ _isUndefined),
+/* harmony export */   _missingPlugin: () => (/* binding */ _missingPlugin),
+/* harmony export */   _numExp: () => (/* binding */ _numExp),
+/* harmony export */   _numWithUnitExp: () => (/* binding */ _numWithUnitExp),
+/* harmony export */   _parseRelative: () => (/* binding */ _parseRelative),
+/* harmony export */   _plugins: () => (/* binding */ _plugins),
+/* harmony export */   _relExp: () => (/* binding */ _relExp),
+/* harmony export */   _removeLinkedListItem: () => (/* binding */ _removeLinkedListItem),
+/* harmony export */   _renderComplexString: () => (/* binding */ _renderComplexString),
+/* harmony export */   _replaceRandom: () => (/* binding */ _replaceRandom),
+/* harmony export */   _round: () => (/* binding */ _round),
+/* harmony export */   _roundModifier: () => (/* binding */ _roundModifier),
+/* harmony export */   _setDefaults: () => (/* binding */ _setDefaults),
+/* harmony export */   _sortPropTweensByPriority: () => (/* binding */ _sortPropTweensByPriority),
+/* harmony export */   _ticker: () => (/* binding */ _ticker),
+/* harmony export */   clamp: () => (/* binding */ clamp),
+/* harmony export */   "default": () => (/* binding */ gsap),
+/* harmony export */   distribute: () => (/* binding */ distribute),
+/* harmony export */   getUnit: () => (/* binding */ getUnit),
+/* harmony export */   gsap: () => (/* binding */ gsap),
+/* harmony export */   interpolate: () => (/* binding */ interpolate),
+/* harmony export */   mapRange: () => (/* binding */ mapRange),
+/* harmony export */   normalize: () => (/* binding */ normalize),
+/* harmony export */   pipe: () => (/* binding */ pipe),
+/* harmony export */   random: () => (/* binding */ random),
+/* harmony export */   selector: () => (/* binding */ selector),
+/* harmony export */   shuffle: () => (/* binding */ shuffle),
+/* harmony export */   snap: () => (/* binding */ snap),
+/* harmony export */   splitColor: () => (/* binding */ splitColor),
+/* harmony export */   toArray: () => (/* binding */ toArray),
+/* harmony export */   unitize: () => (/* binding */ unitize),
+/* harmony export */   wrap: () => (/* binding */ wrap),
+/* harmony export */   wrapYoyo: () => (/* binding */ wrapYoyo)
+/* harmony export */ });
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.create(superClass.prototype); subClass.prototype.constructor = subClass; subClass.__proto__ = superClass; }
+
+/*!
+ * GSAP 3.12.5
+ * https://gsap.com
+ *
+ * @license Copyright 2008-2024, GreenSock. All rights reserved.
+ * Subject to the terms at https://gsap.com/standard-license or for
+ * Club GSAP members, the agreement issued with that membership.
+ * @author: Jack Doyle, jack@greensock.com
+*/
+
+/* eslint-disable */
+var _config = {
+  autoSleep: 120,
+  force3D: "auto",
+  nullTargetWarn: 1,
+  units: {
+    lineHeight: ""
+  }
+},
+    _defaults = {
+  duration: .5,
+  overwrite: false,
+  delay: 0
+},
+    _suppressOverwrites,
+    _reverting,
+    _context,
+    _bigNum = 1e8,
+    _tinyNum = 1 / _bigNum,
+    _2PI = Math.PI * 2,
+    _HALF_PI = _2PI / 4,
+    _gsID = 0,
+    _sqrt = Math.sqrt,
+    _cos = Math.cos,
+    _sin = Math.sin,
+    _isString = function _isString(value) {
+  return typeof value === "string";
+},
+    _isFunction = function _isFunction(value) {
+  return typeof value === "function";
+},
+    _isNumber = function _isNumber(value) {
+  return typeof value === "number";
+},
+    _isUndefined = function _isUndefined(value) {
+  return typeof value === "undefined";
+},
+    _isObject = function _isObject(value) {
+  return typeof value === "object";
+},
+    _isNotFalse = function _isNotFalse(value) {
+  return value !== false;
+},
+    _windowExists = function _windowExists() {
+  return typeof window !== "undefined";
+},
+    _isFuncOrString = function _isFuncOrString(value) {
+  return _isFunction(value) || _isString(value);
+},
+    _isTypedArray = typeof ArrayBuffer === "function" && ArrayBuffer.isView || function () {},
+    // note: IE10 has ArrayBuffer, but NOT ArrayBuffer.isView().
+_isArray = Array.isArray,
+    _strictNumExp = /(?:-?\.?\d|\.)+/gi,
+    //only numbers (including negatives and decimals) but NOT relative values.
+_numExp = /[-+=.]*\d+[.e\-+]*\d*[e\-+]*\d*/g,
+    //finds any numbers, including ones that start with += or -=, negative numbers, and ones in scientific notation like 1e-8.
+_numWithUnitExp = /[-+=.]*\d+[.e-]*\d*[a-z%]*/g,
+    _complexStringNumExp = /[-+=.]*\d+\.?\d*(?:e-|e\+)?\d*/gi,
+    //duplicate so that while we're looping through matches from exec(), it doesn't contaminate the lastIndex of _numExp which we use to search for colors too.
+_relExp = /[+-]=-?[.\d]+/,
+    _delimitedValueExp = /[^,'"\[\]\s]+/gi,
+    // previously /[#\-+.]*\b[a-z\d\-=+%.]+/gi but didn't catch special characters.
+_unitExp = /^[+\-=e\s\d]*\d+[.\d]*([a-z]*|%)\s*$/i,
+    _globalTimeline,
+    _win,
+    _coreInitted,
+    _doc,
+    _globals = {},
+    _installScope = {},
+    _coreReady,
+    _install = function _install(scope) {
+  return (_installScope = _merge(scope, _globals)) && gsap;
+},
+    _missingPlugin = function _missingPlugin(property, value) {
+  return console.warn("Invalid property", property, "set to", value, "Missing plugin? gsap.registerPlugin()");
+},
+    _warn = function _warn(message, suppress) {
+  return !suppress && console.warn(message);
+},
+    _addGlobal = function _addGlobal(name, obj) {
+  return name && (_globals[name] = obj) && _installScope && (_installScope[name] = obj) || _globals;
+},
+    _emptyFunc = function _emptyFunc() {
+  return 0;
+},
+    _startAtRevertConfig = {
+  suppressEvents: true,
+  isStart: true,
+  kill: false
+},
+    _revertConfigNoKill = {
+  suppressEvents: true,
+  kill: false
+},
+    _revertConfig = {
+  suppressEvents: true
+},
+    _reservedProps = {},
+    _lazyTweens = [],
+    _lazyLookup = {},
+    _lastRenderedFrame,
+    _plugins = {},
+    _effects = {},
+    _nextGCFrame = 30,
+    _harnessPlugins = [],
+    _callbackNames = "",
+    _harness = function _harness(targets) {
+  var target = targets[0],
+      harnessPlugin,
+      i;
+  _isObject(target) || _isFunction(target) || (targets = [targets]);
+
+  if (!(harnessPlugin = (target._gsap || {}).harness)) {
+    // find the first target with a harness. We assume targets passed into an animation will be of similar type, meaning the same kind of harness can be used for them all (performance optimization)
+    i = _harnessPlugins.length;
+
+    while (i-- && !_harnessPlugins[i].targetTest(target)) {}
+
+    harnessPlugin = _harnessPlugins[i];
+  }
+
+  i = targets.length;
+
+  while (i--) {
+    targets[i] && (targets[i]._gsap || (targets[i]._gsap = new GSCache(targets[i], harnessPlugin))) || targets.splice(i, 1);
+  }
+
+  return targets;
+},
+    _getCache = function _getCache(target) {
+  return target._gsap || _harness(toArray(target))[0]._gsap;
+},
+    _getProperty = function _getProperty(target, property, v) {
+  return (v = target[property]) && _isFunction(v) ? target[property]() : _isUndefined(v) && target.getAttribute && target.getAttribute(property) || v;
+},
+    _forEachName = function _forEachName(names, func) {
+  return (names = names.split(",")).forEach(func) || names;
+},
+    //split a comma-delimited list of names into an array, then run a forEach() function and return the split array (this is just a way to consolidate/shorten some code).
+_round = function _round(value) {
+  return Math.round(value * 100000) / 100000 || 0;
+},
+    _roundPrecise = function _roundPrecise(value) {
+  return Math.round(value * 10000000) / 10000000 || 0;
+},
+    // increased precision mostly for timing values.
+_parseRelative = function _parseRelative(start, value) {
+  var operator = value.charAt(0),
+      end = parseFloat(value.substr(2));
+  start = parseFloat(start);
+  return operator === "+" ? start + end : operator === "-" ? start - end : operator === "*" ? start * end : start / end;
+},
+    _arrayContainsAny = function _arrayContainsAny(toSearch, toFind) {
+  //searches one array to find matches for any of the items in the toFind array. As soon as one is found, it returns true. It does NOT return all the matches; it's simply a boolean search.
+  var l = toFind.length,
+      i = 0;
+
+  for (; toSearch.indexOf(toFind[i]) < 0 && ++i < l;) {}
+
+  return i < l;
+},
+    _lazyRender = function _lazyRender() {
+  var l = _lazyTweens.length,
+      a = _lazyTweens.slice(0),
+      i,
+      tween;
+
+  _lazyLookup = {};
+  _lazyTweens.length = 0;
+
+  for (i = 0; i < l; i++) {
+    tween = a[i];
+    tween && tween._lazy && (tween.render(tween._lazy[0], tween._lazy[1], true)._lazy = 0);
+  }
+},
+    _lazySafeRender = function _lazySafeRender(animation, time, suppressEvents, force) {
+  _lazyTweens.length && !_reverting && _lazyRender();
+  animation.render(time, suppressEvents, force || _reverting && time < 0 && (animation._initted || animation._startAt));
+  _lazyTweens.length && !_reverting && _lazyRender(); //in case rendering caused any tweens to lazy-init, we should render them because typically when someone calls seek() or time() or progress(), they expect an immediate render.
+},
+    _numericIfPossible = function _numericIfPossible(value) {
+  var n = parseFloat(value);
+  return (n || n === 0) && (value + "").match(_delimitedValueExp).length < 2 ? n : _isString(value) ? value.trim() : value;
+},
+    _passThrough = function _passThrough(p) {
+  return p;
+},
+    _setDefaults = function _setDefaults(obj, defaults) {
+  for (var p in defaults) {
+    p in obj || (obj[p] = defaults[p]);
+  }
+
+  return obj;
+},
+    _setKeyframeDefaults = function _setKeyframeDefaults(excludeDuration) {
+  return function (obj, defaults) {
+    for (var p in defaults) {
+      p in obj || p === "duration" && excludeDuration || p === "ease" || (obj[p] = defaults[p]);
+    }
+  };
+},
+    _merge = function _merge(base, toMerge) {
+  for (var p in toMerge) {
+    base[p] = toMerge[p];
+  }
+
+  return base;
+},
+    _mergeDeep = function _mergeDeep(base, toMerge) {
+  for (var p in toMerge) {
+    p !== "__proto__" && p !== "constructor" && p !== "prototype" && (base[p] = _isObject(toMerge[p]) ? _mergeDeep(base[p] || (base[p] = {}), toMerge[p]) : toMerge[p]);
+  }
+
+  return base;
+},
+    _copyExcluding = function _copyExcluding(obj, excluding) {
+  var copy = {},
+      p;
+
+  for (p in obj) {
+    p in excluding || (copy[p] = obj[p]);
+  }
+
+  return copy;
+},
+    _inheritDefaults = function _inheritDefaults(vars) {
+  var parent = vars.parent || _globalTimeline,
+      func = vars.keyframes ? _setKeyframeDefaults(_isArray(vars.keyframes)) : _setDefaults;
+
+  if (_isNotFalse(vars.inherit)) {
+    while (parent) {
+      func(vars, parent.vars.defaults);
+      parent = parent.parent || parent._dp;
+    }
+  }
+
+  return vars;
+},
+    _arraysMatch = function _arraysMatch(a1, a2) {
+  var i = a1.length,
+      match = i === a2.length;
+
+  while (match && i-- && a1[i] === a2[i]) {}
+
+  return i < 0;
+},
+    _addLinkedListItem = function _addLinkedListItem(parent, child, firstProp, lastProp, sortBy) {
+  if (firstProp === void 0) {
+    firstProp = "_first";
+  }
+
+  if (lastProp === void 0) {
+    lastProp = "_last";
+  }
+
+  var prev = parent[lastProp],
+      t;
+
+  if (sortBy) {
+    t = child[sortBy];
+
+    while (prev && prev[sortBy] > t) {
+      prev = prev._prev;
+    }
+  }
+
+  if (prev) {
+    child._next = prev._next;
+    prev._next = child;
+  } else {
+    child._next = parent[firstProp];
+    parent[firstProp] = child;
+  }
+
+  if (child._next) {
+    child._next._prev = child;
+  } else {
+    parent[lastProp] = child;
+  }
+
+  child._prev = prev;
+  child.parent = child._dp = parent;
+  return child;
+},
+    _removeLinkedListItem = function _removeLinkedListItem(parent, child, firstProp, lastProp) {
+  if (firstProp === void 0) {
+    firstProp = "_first";
+  }
+
+  if (lastProp === void 0) {
+    lastProp = "_last";
+  }
+
+  var prev = child._prev,
+      next = child._next;
+
+  if (prev) {
+    prev._next = next;
+  } else if (parent[firstProp] === child) {
+    parent[firstProp] = next;
+  }
+
+  if (next) {
+    next._prev = prev;
+  } else if (parent[lastProp] === child) {
+    parent[lastProp] = prev;
+  }
+
+  child._next = child._prev = child.parent = null; // don't delete the _dp just so we can revert if necessary. But parent should be null to indicate the item isn't in a linked list.
+},
+    _removeFromParent = function _removeFromParent(child, onlyIfParentHasAutoRemove) {
+  child.parent && (!onlyIfParentHasAutoRemove || child.parent.autoRemoveChildren) && child.parent.remove && child.parent.remove(child);
+  child._act = 0;
+},
+    _uncache = function _uncache(animation, child) {
+  if (animation && (!child || child._end > animation._dur || child._start < 0)) {
+    // performance optimization: if a child animation is passed in we should only uncache if that child EXTENDS the animation (its end time is beyond the end)
+    var a = animation;
+
+    while (a) {
+      a._dirty = 1;
+      a = a.parent;
+    }
+  }
+
+  return animation;
+},
+    _recacheAncestors = function _recacheAncestors(animation) {
+  var parent = animation.parent;
+
+  while (parent && parent.parent) {
+    //sometimes we must force a re-sort of all children and update the duration/totalDuration of all ancestor timelines immediately in case, for example, in the middle of a render loop, one tween alters another tween's timeScale which shoves its startTime before 0, forcing the parent timeline to shift around and shiftChildren() which could affect that next tween's render (startTime). Doesn't matter for the root timeline though.
+    parent._dirty = 1;
+    parent.totalDuration();
+    parent = parent.parent;
+  }
+
+  return animation;
+},
+    _rewindStartAt = function _rewindStartAt(tween, totalTime, suppressEvents, force) {
+  return tween._startAt && (_reverting ? tween._startAt.revert(_revertConfigNoKill) : tween.vars.immediateRender && !tween.vars.autoRevert || tween._startAt.render(totalTime, true, force));
+},
+    _hasNoPausedAncestors = function _hasNoPausedAncestors(animation) {
+  return !animation || animation._ts && _hasNoPausedAncestors(animation.parent);
+},
+    _elapsedCycleDuration = function _elapsedCycleDuration(animation) {
+  return animation._repeat ? _animationCycle(animation._tTime, animation = animation.duration() + animation._rDelay) * animation : 0;
+},
+    // feed in the totalTime and cycleDuration and it'll return the cycle (iteration minus 1) and if the playhead is exactly at the very END, it will NOT bump up to the next cycle.
+_animationCycle = function _animationCycle(tTime, cycleDuration) {
+  var whole = Math.floor(tTime /= cycleDuration);
+  return tTime && whole === tTime ? whole - 1 : whole;
+},
+    _parentToChildTotalTime = function _parentToChildTotalTime(parentTime, child) {
+  return (parentTime - child._start) * child._ts + (child._ts >= 0 ? 0 : child._dirty ? child.totalDuration() : child._tDur);
+},
+    _setEnd = function _setEnd(animation) {
+  return animation._end = _roundPrecise(animation._start + (animation._tDur / Math.abs(animation._ts || animation._rts || _tinyNum) || 0));
+},
+    _alignPlayhead = function _alignPlayhead(animation, totalTime) {
+  // adjusts the animation's _start and _end according to the provided totalTime (only if the parent's smoothChildTiming is true and the animation isn't paused). It doesn't do any rendering or forcing things back into parent timelines, etc. - that's what totalTime() is for.
+  var parent = animation._dp;
+
+  if (parent && parent.smoothChildTiming && animation._ts) {
+    animation._start = _roundPrecise(parent._time - (animation._ts > 0 ? totalTime / animation._ts : ((animation._dirty ? animation.totalDuration() : animation._tDur) - totalTime) / -animation._ts));
+
+    _setEnd(animation);
+
+    parent._dirty || _uncache(parent, animation); //for performance improvement. If the parent's cache is already dirty, it already took care of marking the ancestors as dirty too, so skip the function call here.
+  }
+
+  return animation;
+},
+
+/*
+_totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
+	let cycleDuration = duration + repeatDelay,
+		time = _round(clampedTotalTime % cycleDuration);
+	if (time > duration) {
+		time = duration;
+	}
+	return (yoyo && (~~(clampedTotalTime / cycleDuration) & 1)) ? duration - time : time;
+},
+*/
+_postAddChecks = function _postAddChecks(timeline, child) {
+  var t;
+
+  if (child._time || !child._dur && child._initted || child._start < timeline._time && (child._dur || !child.add)) {
+    // in case, for example, the _start is moved on a tween that has already rendered, or if it's being inserted into a timeline BEFORE where the playhead is currently. Imagine it's at its end state, then the startTime is moved WAY later (after the end of this timeline), it should render at its beginning. Special case: if it's a timeline (has .add() method) and no duration, we can skip rendering because the user may be populating it AFTER adding it to a parent timeline (unconventional, but possible, and we wouldn't want it to get removed if the parent's autoRemoveChildren is true).
+    t = _parentToChildTotalTime(timeline.rawTime(), child);
+
+    if (!child._dur || _clamp(0, child.totalDuration(), t) - child._tTime > _tinyNum) {
+      child.render(t, true);
+    }
+  } //if the timeline has already ended but the inserted tween/timeline extends the duration, we should enable this timeline again so that it renders properly. We should also align the playhead with the parent timeline's when appropriate.
+
+
+  if (_uncache(timeline, child)._dp && timeline._initted && timeline._time >= timeline._dur && timeline._ts) {
+    //in case any of the ancestors had completed but should now be enabled...
+    if (timeline._dur < timeline.duration()) {
+      t = timeline;
+
+      while (t._dp) {
+        t.rawTime() >= 0 && t.totalTime(t._tTime); //moves the timeline (shifts its startTime) if necessary, and also enables it. If it's currently zero, though, it may not be scheduled to render until later so there's no need to force it to align with the current playhead position. Only move to catch up with the playhead.
+
+        t = t._dp;
+      }
+    }
+
+    timeline._zTime = -_tinyNum; // helps ensure that the next render() will be forced (crossingStart = true in render()), even if the duration hasn't changed (we're adding a child which would need to get rendered). Definitely an edge case. Note: we MUST do this AFTER the loop above where the totalTime() might trigger a render() because this _addToTimeline() method gets called from the Animation constructor, BEFORE tweens even record their targets, etc. so we wouldn't want things to get triggered in the wrong order.
+  }
+},
+    _addToTimeline = function _addToTimeline(timeline, child, position, skipChecks) {
+  child.parent && _removeFromParent(child);
+  child._start = _roundPrecise((_isNumber(position) ? position : position || timeline !== _globalTimeline ? _parsePosition(timeline, position, child) : timeline._time) + child._delay);
+  child._end = _roundPrecise(child._start + (child.totalDuration() / Math.abs(child.timeScale()) || 0));
+
+  _addLinkedListItem(timeline, child, "_first", "_last", timeline._sort ? "_start" : 0);
+
+  _isFromOrFromStart(child) || (timeline._recent = child);
+  skipChecks || _postAddChecks(timeline, child);
+  timeline._ts < 0 && _alignPlayhead(timeline, timeline._tTime); // if the timeline is reversed and the new child makes it longer, we may need to adjust the parent's _start (push it back)
+
+  return timeline;
+},
+    _scrollTrigger = function _scrollTrigger(animation, trigger) {
+  return (_globals.ScrollTrigger || _missingPlugin("scrollTrigger", trigger)) && _globals.ScrollTrigger.create(trigger, animation);
+},
+    _attemptInitTween = function _attemptInitTween(tween, time, force, suppressEvents, tTime) {
+  _initTween(tween, time, tTime);
+
+  if (!tween._initted) {
+    return 1;
+  }
+
+  if (!force && tween._pt && !_reverting && (tween._dur && tween.vars.lazy !== false || !tween._dur && tween.vars.lazy) && _lastRenderedFrame !== _ticker.frame) {
+    _lazyTweens.push(tween);
+
+    tween._lazy = [tTime, suppressEvents];
+    return 1;
+  }
+},
+    _parentPlayheadIsBeforeStart = function _parentPlayheadIsBeforeStart(_ref) {
+  var parent = _ref.parent;
+  return parent && parent._ts && parent._initted && !parent._lock && (parent.rawTime() < 0 || _parentPlayheadIsBeforeStart(parent));
+},
+    // check parent's _lock because when a timeline repeats/yoyos and does its artificial wrapping, we shouldn't force the ratio back to 0
+_isFromOrFromStart = function _isFromOrFromStart(_ref2) {
+  var data = _ref2.data;
+  return data === "isFromStart" || data === "isStart";
+},
+    _renderZeroDurationTween = function _renderZeroDurationTween(tween, totalTime, suppressEvents, force) {
+  var prevRatio = tween.ratio,
+      ratio = totalTime < 0 || !totalTime && (!tween._start && _parentPlayheadIsBeforeStart(tween) && !(!tween._initted && _isFromOrFromStart(tween)) || (tween._ts < 0 || tween._dp._ts < 0) && !_isFromOrFromStart(tween)) ? 0 : 1,
+      // if the tween or its parent is reversed and the totalTime is 0, we should go to a ratio of 0. Edge case: if a from() or fromTo() stagger tween is placed later in a timeline, the "startAt" zero-duration tween could initially render at a time when the parent timeline's playhead is technically BEFORE where this tween is, so make sure that any "from" and "fromTo" startAt tweens are rendered the first time at a ratio of 1.
+  repeatDelay = tween._rDelay,
+      tTime = 0,
+      pt,
+      iteration,
+      prevIteration;
+
+  if (repeatDelay && tween._repeat) {
+    // in case there's a zero-duration tween that has a repeat with a repeatDelay
+    tTime = _clamp(0, tween._tDur, totalTime);
+    iteration = _animationCycle(tTime, repeatDelay);
+    tween._yoyo && iteration & 1 && (ratio = 1 - ratio);
+
+    if (iteration !== _animationCycle(tween._tTime, repeatDelay)) {
+      // if iteration changed
+      prevRatio = 1 - ratio;
+      tween.vars.repeatRefresh && tween._initted && tween.invalidate();
+    }
+  }
+
+  if (ratio !== prevRatio || _reverting || force || tween._zTime === _tinyNum || !totalTime && tween._zTime) {
+    if (!tween._initted && _attemptInitTween(tween, totalTime, force, suppressEvents, tTime)) {
+      // if we render the very beginning (time == 0) of a fromTo(), we must force the render (normal tweens wouldn't need to render at a time of 0 when the prevTime was also 0). This is also mandatory to make sure overwriting kicks in immediately.
+      return;
+    }
+
+    prevIteration = tween._zTime;
+    tween._zTime = totalTime || (suppressEvents ? _tinyNum : 0); // when the playhead arrives at EXACTLY time 0 (right on top) of a zero-duration tween, we need to discern if events are suppressed so that when the playhead moves again (next time), it'll trigger the callback. If events are NOT suppressed, obviously the callback would be triggered in this render. Basically, the callback should fire either when the playhead ARRIVES or LEAVES this exact spot, not both. Imagine doing a timeline.seek(0) and there's a callback that sits at 0. Since events are suppressed on that seek() by default, nothing will fire, but when the playhead moves off of that position, the callback should fire. This behavior is what people intuitively expect.
+
+    suppressEvents || (suppressEvents = totalTime && !prevIteration); // if it was rendered previously at exactly 0 (_zTime) and now the playhead is moving away, DON'T fire callbacks otherwise they'll seem like duplicates.
+
+    tween.ratio = ratio;
+    tween._from && (ratio = 1 - ratio);
+    tween._time = 0;
+    tween._tTime = tTime;
+    pt = tween._pt;
+
+    while (pt) {
+      pt.r(ratio, pt.d);
+      pt = pt._next;
+    }
+
+    totalTime < 0 && _rewindStartAt(tween, totalTime, suppressEvents, true);
+    tween._onUpdate && !suppressEvents && _callback(tween, "onUpdate");
+    tTime && tween._repeat && !suppressEvents && tween.parent && _callback(tween, "onRepeat");
+
+    if ((totalTime >= tween._tDur || totalTime < 0) && tween.ratio === ratio) {
+      ratio && _removeFromParent(tween, 1);
+
+      if (!suppressEvents && !_reverting) {
+        _callback(tween, ratio ? "onComplete" : "onReverseComplete", true);
+
+        tween._prom && tween._prom();
+      }
+    }
+  } else if (!tween._zTime) {
+    tween._zTime = totalTime;
+  }
+},
+    _findNextPauseTween = function _findNextPauseTween(animation, prevTime, time) {
+  var child;
+
+  if (time > prevTime) {
+    child = animation._first;
+
+    while (child && child._start <= time) {
+      if (child.data === "isPause" && child._start > prevTime) {
+        return child;
+      }
+
+      child = child._next;
+    }
+  } else {
+    child = animation._last;
+
+    while (child && child._start >= time) {
+      if (child.data === "isPause" && child._start < prevTime) {
+        return child;
+      }
+
+      child = child._prev;
+    }
+  }
+},
+    _setDuration = function _setDuration(animation, duration, skipUncache, leavePlayhead) {
+  var repeat = animation._repeat,
+      dur = _roundPrecise(duration) || 0,
+      totalProgress = animation._tTime / animation._tDur;
+  totalProgress && !leavePlayhead && (animation._time *= dur / animation._dur);
+  animation._dur = dur;
+  animation._tDur = !repeat ? dur : repeat < 0 ? 1e10 : _roundPrecise(dur * (repeat + 1) + animation._rDelay * repeat);
+  totalProgress > 0 && !leavePlayhead && _alignPlayhead(animation, animation._tTime = animation._tDur * totalProgress);
+  animation.parent && _setEnd(animation);
+  skipUncache || _uncache(animation.parent, animation);
+  return animation;
+},
+    _onUpdateTotalDuration = function _onUpdateTotalDuration(animation) {
+  return animation instanceof Timeline ? _uncache(animation) : _setDuration(animation, animation._dur);
+},
+    _zeroPosition = {
+  _start: 0,
+  endTime: _emptyFunc,
+  totalDuration: _emptyFunc
+},
+    _parsePosition = function _parsePosition(animation, position, percentAnimation) {
+  var labels = animation.labels,
+      recent = animation._recent || _zeroPosition,
+      clippedDuration = animation.duration() >= _bigNum ? recent.endTime(false) : animation._dur,
+      //in case there's a child that infinitely repeats, users almost never intend for the insertion point of a new child to be based on a SUPER long value like that so we clip it and assume the most recently-added child's endTime should be used instead.
+  i,
+      offset,
+      isPercent;
+
+  if (_isString(position) && (isNaN(position) || position in labels)) {
+    //if the string is a number like "1", check to see if there's a label with that name, otherwise interpret it as a number (absolute value).
+    offset = position.charAt(0);
+    isPercent = position.substr(-1) === "%";
+    i = position.indexOf("=");
+
+    if (offset === "<" || offset === ">") {
+      i >= 0 && (position = position.replace(/=/, ""));
+      return (offset === "<" ? recent._start : recent.endTime(recent._repeat >= 0)) + (parseFloat(position.substr(1)) || 0) * (isPercent ? (i < 0 ? recent : percentAnimation).totalDuration() / 100 : 1);
+    }
+
+    if (i < 0) {
+      position in labels || (labels[position] = clippedDuration);
+      return labels[position];
+    }
+
+    offset = parseFloat(position.charAt(i - 1) + position.substr(i + 1));
+
+    if (isPercent && percentAnimation) {
+      offset = offset / 100 * (_isArray(percentAnimation) ? percentAnimation[0] : percentAnimation).totalDuration();
+    }
+
+    return i > 1 ? _parsePosition(animation, position.substr(0, i - 1), percentAnimation) + offset : clippedDuration + offset;
+  }
+
+  return position == null ? clippedDuration : +position;
+},
+    _createTweenType = function _createTweenType(type, params, timeline) {
+  var isLegacy = _isNumber(params[1]),
+      varsIndex = (isLegacy ? 2 : 1) + (type < 2 ? 0 : 1),
+      vars = params[varsIndex],
+      irVars,
+      parent;
+
+  isLegacy && (vars.duration = params[1]);
+  vars.parent = timeline;
+
+  if (type) {
+    irVars = vars;
+    parent = timeline;
+
+    while (parent && !("immediateRender" in irVars)) {
+      // inheritance hasn't happened yet, but someone may have set a default in an ancestor timeline. We could do vars.immediateRender = _isNotFalse(_inheritDefaults(vars).immediateRender) but that'd exact a slight performance penalty because _inheritDefaults() also runs in the Tween constructor. We're paying a small kb price here to gain speed.
+      irVars = parent.vars.defaults || {};
+      parent = _isNotFalse(parent.vars.inherit) && parent.parent;
+    }
+
+    vars.immediateRender = _isNotFalse(irVars.immediateRender);
+    type < 2 ? vars.runBackwards = 1 : vars.startAt = params[varsIndex - 1]; // "from" vars
+  }
+
+  return new Tween(params[0], vars, params[varsIndex + 1]);
+},
+    _conditionalReturn = function _conditionalReturn(value, func) {
+  return value || value === 0 ? func(value) : func;
+},
+    _clamp = function _clamp(min, max, value) {
+  return value < min ? min : value > max ? max : value;
+},
+    getUnit = function getUnit(value, v) {
+  return !_isString(value) || !(v = _unitExp.exec(value)) ? "" : v[1];
+},
+    // note: protect against padded numbers as strings, like "100.100". That shouldn't return "00" as the unit. If it's numeric, return no unit.
+clamp = function clamp(min, max, value) {
+  return _conditionalReturn(value, function (v) {
+    return _clamp(min, max, v);
+  });
+},
+    _slice = [].slice,
+    _isArrayLike = function _isArrayLike(value, nonEmpty) {
+  return value && _isObject(value) && "length" in value && (!nonEmpty && !value.length || value.length - 1 in value && _isObject(value[0])) && !value.nodeType && value !== _win;
+},
+    _flatten = function _flatten(ar, leaveStrings, accumulator) {
+  if (accumulator === void 0) {
+    accumulator = [];
+  }
+
+  return ar.forEach(function (value) {
+    var _accumulator;
+
+    return _isString(value) && !leaveStrings || _isArrayLike(value, 1) ? (_accumulator = accumulator).push.apply(_accumulator, toArray(value)) : accumulator.push(value);
+  }) || accumulator;
+},
+    //takes any value and returns an array. If it's a string (and leaveStrings isn't true), it'll use document.querySelectorAll() and convert that to an array. It'll also accept iterables like jQuery objects.
+toArray = function toArray(value, scope, leaveStrings) {
+  return _context && !scope && _context.selector ? _context.selector(value) : _isString(value) && !leaveStrings && (_coreInitted || !_wake()) ? _slice.call((scope || _doc).querySelectorAll(value), 0) : _isArray(value) ? _flatten(value, leaveStrings) : _isArrayLike(value) ? _slice.call(value, 0) : value ? [value] : [];
+},
+    selector = function selector(value) {
+  value = toArray(value)[0] || _warn("Invalid scope") || {};
+  return function (v) {
+    var el = value.current || value.nativeElement || value;
+    return toArray(v, el.querySelectorAll ? el : el === value ? _warn("Invalid scope") || _doc.createElement("div") : value);
+  };
+},
+    shuffle = function shuffle(a) {
+  return a.sort(function () {
+    return .5 - Math.random();
+  });
+},
+    // alternative that's a bit faster and more reliably diverse but bigger:   for (let j, v, i = a.length; i; j = Math.floor(Math.random() * i), v = a[--i], a[i] = a[j], a[j] = v); return a;
+//for distributing values across an array. Can accept a number, a function or (most commonly) a function which can contain the following properties: {base, amount, from, ease, grid, axis, length, each}. Returns a function that expects the following parameters: index, target, array. Recognizes the following
+distribute = function distribute(v) {
+  if (_isFunction(v)) {
+    return v;
+  }
+
+  var vars = _isObject(v) ? v : {
+    each: v
+  },
+      //n:1 is just to indicate v was a number; we leverage that later to set v according to the length we get. If a number is passed in, we treat it like the old stagger value where 0.1, for example, would mean that things would be distributed with 0.1 between each element in the array rather than a total "amount" that's chunked out among them all.
+  ease = _parseEase(vars.ease),
+      from = vars.from || 0,
+      base = parseFloat(vars.base) || 0,
+      cache = {},
+      isDecimal = from > 0 && from < 1,
+      ratios = isNaN(from) || isDecimal,
+      axis = vars.axis,
+      ratioX = from,
+      ratioY = from;
+
+  if (_isString(from)) {
+    ratioX = ratioY = {
+      center: .5,
+      edges: .5,
+      end: 1
+    }[from] || 0;
+  } else if (!isDecimal && ratios) {
+    ratioX = from[0];
+    ratioY = from[1];
+  }
+
+  return function (i, target, a) {
+    var l = (a || vars).length,
+        distances = cache[l],
+        originX,
+        originY,
+        x,
+        y,
+        d,
+        j,
+        max,
+        min,
+        wrapAt;
+
+    if (!distances) {
+      wrapAt = vars.grid === "auto" ? 0 : (vars.grid || [1, _bigNum])[1];
+
+      if (!wrapAt) {
+        max = -_bigNum;
+
+        while (max < (max = a[wrapAt++].getBoundingClientRect().left) && wrapAt < l) {}
+
+        wrapAt < l && wrapAt--;
+      }
+
+      distances = cache[l] = [];
+      originX = ratios ? Math.min(wrapAt, l) * ratioX - .5 : from % wrapAt;
+      originY = wrapAt === _bigNum ? 0 : ratios ? l * ratioY / wrapAt - .5 : from / wrapAt | 0;
+      max = 0;
+      min = _bigNum;
+
+      for (j = 0; j < l; j++) {
+        x = j % wrapAt - originX;
+        y = originY - (j / wrapAt | 0);
+        distances[j] = d = !axis ? _sqrt(x * x + y * y) : Math.abs(axis === "y" ? y : x);
+        d > max && (max = d);
+        d < min && (min = d);
+      }
+
+      from === "random" && shuffle(distances);
+      distances.max = max - min;
+      distances.min = min;
+      distances.v = l = (parseFloat(vars.amount) || parseFloat(vars.each) * (wrapAt > l ? l - 1 : !axis ? Math.max(wrapAt, l / wrapAt) : axis === "y" ? l / wrapAt : wrapAt) || 0) * (from === "edges" ? -1 : 1);
+      distances.b = l < 0 ? base - l : base;
+      distances.u = getUnit(vars.amount || vars.each) || 0; //unit
+
+      ease = ease && l < 0 ? _invertEase(ease) : ease;
+    }
+
+    l = (distances[i] - distances.min) / distances.max || 0;
+    return _roundPrecise(distances.b + (ease ? ease(l) : l) * distances.v) + distances.u; //round in order to work around floating point errors
+  };
+},
+    _roundModifier = function _roundModifier(v) {
+  //pass in 0.1 get a function that'll round to the nearest tenth, or 5 to round to the closest 5, or 0.001 to the closest 1000th, etc.
+  var p = Math.pow(10, ((v + "").split(".")[1] || "").length); //to avoid floating point math errors (like 24 * 0.1 == 2.4000000000000004), we chop off at a specific number of decimal places (much faster than toFixed())
+
+  return function (raw) {
+    var n = _roundPrecise(Math.round(parseFloat(raw) / v) * v * p);
+
+    return (n - n % 1) / p + (_isNumber(raw) ? 0 : getUnit(raw)); // n - n % 1 replaces Math.floor() in order to handle negative values properly. For example, Math.floor(-150.00000000000003) is 151!
+  };
+},
+    snap = function snap(snapTo, value) {
+  var isArray = _isArray(snapTo),
+      radius,
+      is2D;
+
+  if (!isArray && _isObject(snapTo)) {
+    radius = isArray = snapTo.radius || _bigNum;
+
+    if (snapTo.values) {
+      snapTo = toArray(snapTo.values);
+
+      if (is2D = !_isNumber(snapTo[0])) {
+        radius *= radius; //performance optimization so we don't have to Math.sqrt() in the loop.
+      }
+    } else {
+      snapTo = _roundModifier(snapTo.increment);
+    }
+  }
+
+  return _conditionalReturn(value, !isArray ? _roundModifier(snapTo) : _isFunction(snapTo) ? function (raw) {
+    is2D = snapTo(raw);
+    return Math.abs(is2D - raw) <= radius ? is2D : raw;
+  } : function (raw) {
+    var x = parseFloat(is2D ? raw.x : raw),
+        y = parseFloat(is2D ? raw.y : 0),
+        min = _bigNum,
+        closest = 0,
+        i = snapTo.length,
+        dx,
+        dy;
+
+    while (i--) {
+      if (is2D) {
+        dx = snapTo[i].x - x;
+        dy = snapTo[i].y - y;
+        dx = dx * dx + dy * dy;
+      } else {
+        dx = Math.abs(snapTo[i] - x);
+      }
+
+      if (dx < min) {
+        min = dx;
+        closest = i;
+      }
+    }
+
+    closest = !radius || min <= radius ? snapTo[closest] : raw;
+    return is2D || closest === raw || _isNumber(raw) ? closest : closest + getUnit(raw);
+  });
+},
+    random = function random(min, max, roundingIncrement, returnFunction) {
+  return _conditionalReturn(_isArray(min) ? !max : roundingIncrement === true ? !!(roundingIncrement = 0) : !returnFunction, function () {
+    return _isArray(min) ? min[~~(Math.random() * min.length)] : (roundingIncrement = roundingIncrement || 1e-5) && (returnFunction = roundingIncrement < 1 ? Math.pow(10, (roundingIncrement + "").length - 2) : 1) && Math.floor(Math.round((min - roundingIncrement / 2 + Math.random() * (max - min + roundingIncrement * .99)) / roundingIncrement) * roundingIncrement * returnFunction) / returnFunction;
+  });
+},
+    pipe = function pipe() {
+  for (var _len = arguments.length, functions = new Array(_len), _key = 0; _key < _len; _key++) {
+    functions[_key] = arguments[_key];
+  }
+
+  return function (value) {
+    return functions.reduce(function (v, f) {
+      return f(v);
+    }, value);
+  };
+},
+    unitize = function unitize(func, unit) {
+  return function (value) {
+    return func(parseFloat(value)) + (unit || getUnit(value));
+  };
+},
+    normalize = function normalize(min, max, value) {
+  return mapRange(min, max, 0, 1, value);
+},
+    _wrapArray = function _wrapArray(a, wrapper, value) {
+  return _conditionalReturn(value, function (index) {
+    return a[~~wrapper(index)];
+  });
+},
+    wrap = function wrap(min, max, value) {
+  // NOTE: wrap() CANNOT be an arrow function! A very odd compiling bug causes problems (unrelated to GSAP).
+  var range = max - min;
+  return _isArray(min) ? _wrapArray(min, wrap(0, min.length), max) : _conditionalReturn(value, function (value) {
+    return (range + (value - min) % range) % range + min;
+  });
+},
+    wrapYoyo = function wrapYoyo(min, max, value) {
+  var range = max - min,
+      total = range * 2;
+  return _isArray(min) ? _wrapArray(min, wrapYoyo(0, min.length - 1), max) : _conditionalReturn(value, function (value) {
+    value = (total + (value - min) % total) % total || 0;
+    return min + (value > range ? total - value : value);
+  });
+},
+    _replaceRandom = function _replaceRandom(value) {
+  //replaces all occurrences of random(...) in a string with the calculated random value. can be a range like random(-100, 100, 5) or an array like random([0, 100, 500])
+  var prev = 0,
+      s = "",
+      i,
+      nums,
+      end,
+      isArray;
+
+  while (~(i = value.indexOf("random(", prev))) {
+    end = value.indexOf(")", i);
+    isArray = value.charAt(i + 7) === "[";
+    nums = value.substr(i + 7, end - i - 7).match(isArray ? _delimitedValueExp : _strictNumExp);
+    s += value.substr(prev, i - prev) + random(isArray ? nums : +nums[0], isArray ? 0 : +nums[1], +nums[2] || 1e-5);
+    prev = end + 1;
+  }
+
+  return s + value.substr(prev, value.length - prev);
+},
+    mapRange = function mapRange(inMin, inMax, outMin, outMax, value) {
+  var inRange = inMax - inMin,
+      outRange = outMax - outMin;
+  return _conditionalReturn(value, function (value) {
+    return outMin + ((value - inMin) / inRange * outRange || 0);
+  });
+},
+    interpolate = function interpolate(start, end, progress, mutate) {
+  var func = isNaN(start + end) ? 0 : function (p) {
+    return (1 - p) * start + p * end;
+  };
+
+  if (!func) {
+    var isString = _isString(start),
+        master = {},
+        p,
+        i,
+        interpolators,
+        l,
+        il;
+
+    progress === true && (mutate = 1) && (progress = null);
+
+    if (isString) {
+      start = {
+        p: start
+      };
+      end = {
+        p: end
+      };
+    } else if (_isArray(start) && !_isArray(end)) {
+      interpolators = [];
+      l = start.length;
+      il = l - 2;
+
+      for (i = 1; i < l; i++) {
+        interpolators.push(interpolate(start[i - 1], start[i])); //build the interpolators up front as a performance optimization so that when the function is called many times, it can just reuse them.
+      }
+
+      l--;
+
+      func = function func(p) {
+        p *= l;
+        var i = Math.min(il, ~~p);
+        return interpolators[i](p - i);
+      };
+
+      progress = end;
+    } else if (!mutate) {
+      start = _merge(_isArray(start) ? [] : {}, start);
+    }
+
+    if (!interpolators) {
+      for (p in end) {
+        _addPropTween.call(master, start, p, "get", end[p]);
+      }
+
+      func = function func(p) {
+        return _renderPropTweens(p, master) || (isString ? start.p : start);
+      };
+    }
+  }
+
+  return _conditionalReturn(progress, func);
+},
+    _getLabelInDirection = function _getLabelInDirection(timeline, fromTime, backward) {
+  //used for nextLabel() and previousLabel()
+  var labels = timeline.labels,
+      min = _bigNum,
+      p,
+      distance,
+      label;
+
+  for (p in labels) {
+    distance = labels[p] - fromTime;
+
+    if (distance < 0 === !!backward && distance && min > (distance = Math.abs(distance))) {
+      label = p;
+      min = distance;
+    }
+  }
+
+  return label;
+},
+    _callback = function _callback(animation, type, executeLazyFirst) {
+  var v = animation.vars,
+      callback = v[type],
+      prevContext = _context,
+      context = animation._ctx,
+      params,
+      scope,
+      result;
+
+  if (!callback) {
+    return;
+  }
+
+  params = v[type + "Params"];
+  scope = v.callbackScope || animation;
+  executeLazyFirst && _lazyTweens.length && _lazyRender(); //in case rendering caused any tweens to lazy-init, we should render them because typically when a timeline finishes, users expect things to have rendered fully. Imagine an onUpdate on a timeline that reports/checks tweened values.
+
+  context && (_context = context);
+  result = params ? callback.apply(scope, params) : callback.call(scope);
+  _context = prevContext;
+  return result;
+},
+    _interrupt = function _interrupt(animation) {
+  _removeFromParent(animation);
+
+  animation.scrollTrigger && animation.scrollTrigger.kill(!!_reverting);
+  animation.progress() < 1 && _callback(animation, "onInterrupt");
+  return animation;
+},
+    _quickTween,
+    _registerPluginQueue = [],
+    _createPlugin = function _createPlugin(config) {
+  if (!config) return;
+  config = !config.name && config["default"] || config; // UMD packaging wraps things oddly, so for example MotionPathHelper becomes {MotionPathHelper:MotionPathHelper, default:MotionPathHelper}.
+
+  if (_windowExists() || config.headless) {
+    // edge case: some build tools may pass in a null/undefined value
+    var name = config.name,
+        isFunc = _isFunction(config),
+        Plugin = name && !isFunc && config.init ? function () {
+      this._props = [];
+    } : config,
+        //in case someone passes in an object that's not a plugin, like CustomEase
+    instanceDefaults = {
+      init: _emptyFunc,
+      render: _renderPropTweens,
+      add: _addPropTween,
+      kill: _killPropTweensOf,
+      modifier: _addPluginModifier,
+      rawVars: 0
+    },
+        statics = {
+      targetTest: 0,
+      get: 0,
+      getSetter: _getSetter,
+      aliases: {},
+      register: 0
+    };
+
+    _wake();
+
+    if (config !== Plugin) {
+      if (_plugins[name]) {
+        return;
+      }
+
+      _setDefaults(Plugin, _setDefaults(_copyExcluding(config, instanceDefaults), statics)); //static methods
+
+
+      _merge(Plugin.prototype, _merge(instanceDefaults, _copyExcluding(config, statics))); //instance methods
+
+
+      _plugins[Plugin.prop = name] = Plugin;
+
+      if (config.targetTest) {
+        _harnessPlugins.push(Plugin);
+
+        _reservedProps[name] = 1;
+      }
+
+      name = (name === "css" ? "CSS" : name.charAt(0).toUpperCase() + name.substr(1)) + "Plugin"; //for the global name. "motionPath" should become MotionPathPlugin
+    }
+
+    _addGlobal(name, Plugin);
+
+    config.register && config.register(gsap, Plugin, PropTween);
+  } else {
+    _registerPluginQueue.push(config);
+  }
+},
+
+/*
+ * --------------------------------------------------------------------------------------
+ * COLORS
+ * --------------------------------------------------------------------------------------
+ */
+_255 = 255,
+    _colorLookup = {
+  aqua: [0, _255, _255],
+  lime: [0, _255, 0],
+  silver: [192, 192, 192],
+  black: [0, 0, 0],
+  maroon: [128, 0, 0],
+  teal: [0, 128, 128],
+  blue: [0, 0, _255],
+  navy: [0, 0, 128],
+  white: [_255, _255, _255],
+  olive: [128, 128, 0],
+  yellow: [_255, _255, 0],
+  orange: [_255, 165, 0],
+  gray: [128, 128, 128],
+  purple: [128, 0, 128],
+  green: [0, 128, 0],
+  red: [_255, 0, 0],
+  pink: [_255, 192, 203],
+  cyan: [0, _255, _255],
+  transparent: [_255, _255, _255, 0]
+},
+    // possible future idea to replace the hard-coded color name values - put this in the ticker.wake() where we set the _doc:
+// let ctx = _doc.createElement("canvas").getContext("2d");
+// _forEachName("aqua,lime,silver,black,maroon,teal,blue,navy,white,olive,yellow,orange,gray,purple,green,red,pink,cyan", color => {ctx.fillStyle = color; _colorLookup[color] = splitColor(ctx.fillStyle)});
+_hue = function _hue(h, m1, m2) {
+  h += h < 0 ? 1 : h > 1 ? -1 : 0;
+  return (h * 6 < 1 ? m1 + (m2 - m1) * h * 6 : h < .5 ? m2 : h * 3 < 2 ? m1 + (m2 - m1) * (2 / 3 - h) * 6 : m1) * _255 + .5 | 0;
+},
+    splitColor = function splitColor(v, toHSL, forceAlpha) {
+  var a = !v ? _colorLookup.black : _isNumber(v) ? [v >> 16, v >> 8 & _255, v & _255] : 0,
+      r,
+      g,
+      b,
+      h,
+      s,
+      l,
+      max,
+      min,
+      d,
+      wasHSL;
+
+  if (!a) {
+    if (v.substr(-1) === ",") {
+      //sometimes a trailing comma is included and we should chop it off (typically from a comma-delimited list of values like a textShadow:"2px 2px 2px blue, 5px 5px 5px rgb(255,0,0)" - in this example "blue," has a trailing comma. We could strip it out inside parseComplex() but we'd need to do it to the beginning and ending values plus it wouldn't provide protection from other potential scenarios like if the user passes in a similar value.
+      v = v.substr(0, v.length - 1);
+    }
+
+    if (_colorLookup[v]) {
+      a = _colorLookup[v];
+    } else if (v.charAt(0) === "#") {
+      if (v.length < 6) {
+        //for shorthand like #9F0 or #9F0F (could have alpha)
+        r = v.charAt(1);
+        g = v.charAt(2);
+        b = v.charAt(3);
+        v = "#" + r + r + g + g + b + b + (v.length === 5 ? v.charAt(4) + v.charAt(4) : "");
+      }
+
+      if (v.length === 9) {
+        // hex with alpha, like #fd5e53ff
+        a = parseInt(v.substr(1, 6), 16);
+        return [a >> 16, a >> 8 & _255, a & _255, parseInt(v.substr(7), 16) / 255];
+      }
+
+      v = parseInt(v.substr(1), 16);
+      a = [v >> 16, v >> 8 & _255, v & _255];
+    } else if (v.substr(0, 3) === "hsl") {
+      a = wasHSL = v.match(_strictNumExp);
+
+      if (!toHSL) {
+        h = +a[0] % 360 / 360;
+        s = +a[1] / 100;
+        l = +a[2] / 100;
+        g = l <= .5 ? l * (s + 1) : l + s - l * s;
+        r = l * 2 - g;
+        a.length > 3 && (a[3] *= 1); //cast as number
+
+        a[0] = _hue(h + 1 / 3, r, g);
+        a[1] = _hue(h, r, g);
+        a[2] = _hue(h - 1 / 3, r, g);
+      } else if (~v.indexOf("=")) {
+        //if relative values are found, just return the raw strings with the relative prefixes in place.
+        a = v.match(_numExp);
+        forceAlpha && a.length < 4 && (a[3] = 1);
+        return a;
+      }
+    } else {
+      a = v.match(_strictNumExp) || _colorLookup.transparent;
+    }
+
+    a = a.map(Number);
+  }
+
+  if (toHSL && !wasHSL) {
+    r = a[0] / _255;
+    g = a[1] / _255;
+    b = a[2] / _255;
+    max = Math.max(r, g, b);
+    min = Math.min(r, g, b);
+    l = (max + min) / 2;
+
+    if (max === min) {
+      h = s = 0;
+    } else {
+      d = max - min;
+      s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+      h = max === r ? (g - b) / d + (g < b ? 6 : 0) : max === g ? (b - r) / d + 2 : (r - g) / d + 4;
+      h *= 60;
+    }
+
+    a[0] = ~~(h + .5);
+    a[1] = ~~(s * 100 + .5);
+    a[2] = ~~(l * 100 + .5);
+  }
+
+  forceAlpha && a.length < 4 && (a[3] = 1);
+  return a;
+},
+    _colorOrderData = function _colorOrderData(v) {
+  // strips out the colors from the string, finds all the numeric slots (with units) and returns an array of those. The Array also has a "c" property which is an Array of the index values where the colors belong. This is to help work around issues where there's a mis-matched order of color/numeric data like drop-shadow(#f00 0px 1px 2px) and drop-shadow(0x 1px 2px #f00). This is basically a helper function used in _formatColors()
+  var values = [],
+      c = [],
+      i = -1;
+  v.split(_colorExp).forEach(function (v) {
+    var a = v.match(_numWithUnitExp) || [];
+    values.push.apply(values, a);
+    c.push(i += a.length + 1);
+  });
+  values.c = c;
+  return values;
+},
+    _formatColors = function _formatColors(s, toHSL, orderMatchData) {
+  var result = "",
+      colors = (s + result).match(_colorExp),
+      type = toHSL ? "hsla(" : "rgba(",
+      i = 0,
+      c,
+      shell,
+      d,
+      l;
+
+  if (!colors) {
+    return s;
+  }
+
+  colors = colors.map(function (color) {
+    return (color = splitColor(color, toHSL, 1)) && type + (toHSL ? color[0] + "," + color[1] + "%," + color[2] + "%," + color[3] : color.join(",")) + ")";
+  });
+
+  if (orderMatchData) {
+    d = _colorOrderData(s);
+    c = orderMatchData.c;
+
+    if (c.join(result) !== d.c.join(result)) {
+      shell = s.replace(_colorExp, "1").split(_numWithUnitExp);
+      l = shell.length - 1;
+
+      for (; i < l; i++) {
+        result += shell[i] + (~c.indexOf(i) ? colors.shift() || type + "0,0,0,0)" : (d.length ? d : colors.length ? colors : orderMatchData).shift());
+      }
+    }
+  }
+
+  if (!shell) {
+    shell = s.split(_colorExp);
+    l = shell.length - 1;
+
+    for (; i < l; i++) {
+      result += shell[i] + colors[i];
+    }
+  }
+
+  return result + shell[l];
+},
+    _colorExp = function () {
+  var s = "(?:\\b(?:(?:rgb|rgba|hsl|hsla)\\(.+?\\))|\\B#(?:[0-9a-f]{3,4}){1,2}\\b",
+      //we'll dynamically build this Regular Expression to conserve file size. After building it, it will be able to find rgb(), rgba(), # (hexadecimal), and named color values like red, blue, purple, etc.,
+  p;
+
+  for (p in _colorLookup) {
+    s += "|" + p + "\\b";
+  }
+
+  return new RegExp(s + ")", "gi");
+}(),
+    _hslExp = /hsl[a]?\(/,
+    _colorStringFilter = function _colorStringFilter(a) {
+  var combined = a.join(" "),
+      toHSL;
+  _colorExp.lastIndex = 0;
+
+  if (_colorExp.test(combined)) {
+    toHSL = _hslExp.test(combined);
+    a[1] = _formatColors(a[1], toHSL);
+    a[0] = _formatColors(a[0], toHSL, _colorOrderData(a[1])); // make sure the order of numbers/colors match with the END value.
+
+    return true;
+  }
+},
+
+/*
+ * --------------------------------------------------------------------------------------
+ * TICKER
+ * --------------------------------------------------------------------------------------
+ */
+_tickerActive,
+    _ticker = function () {
+  var _getTime = Date.now,
+      _lagThreshold = 500,
+      _adjustedLag = 33,
+      _startTime = _getTime(),
+      _lastUpdate = _startTime,
+      _gap = 1000 / 240,
+      _nextTime = _gap,
+      _listeners = [],
+      _id,
+      _req,
+      _raf,
+      _self,
+      _delta,
+      _i,
+      _tick = function _tick(v) {
+    var elapsed = _getTime() - _lastUpdate,
+        manual = v === true,
+        overlap,
+        dispatch,
+        time,
+        frame;
+
+    (elapsed > _lagThreshold || elapsed < 0) && (_startTime += elapsed - _adjustedLag);
+    _lastUpdate += elapsed;
+    time = _lastUpdate - _startTime;
+    overlap = time - _nextTime;
+
+    if (overlap > 0 || manual) {
+      frame = ++_self.frame;
+      _delta = time - _self.time * 1000;
+      _self.time = time = time / 1000;
+      _nextTime += overlap + (overlap >= _gap ? 4 : _gap - overlap);
+      dispatch = 1;
+    }
+
+    manual || (_id = _req(_tick)); //make sure the request is made before we dispatch the "tick" event so that timing is maintained. Otherwise, if processing the "tick" requires a bunch of time (like 15ms) and we're using a setTimeout() that's based on 16.7ms, it'd technically take 31.7ms between frames otherwise.
+
+    if (dispatch) {
+      for (_i = 0; _i < _listeners.length; _i++) {
+        // use _i and check _listeners.length instead of a variable because a listener could get removed during the loop, and if that happens to an element less than the current index, it'd throw things off in the loop.
+        _listeners[_i](time, _delta, frame, v);
+      }
+    }
+  };
+
+  _self = {
+    time: 0,
+    frame: 0,
+    tick: function tick() {
+      _tick(true);
+    },
+    deltaRatio: function deltaRatio(fps) {
+      return _delta / (1000 / (fps || 60));
+    },
+    wake: function wake() {
+      if (_coreReady) {
+        if (!_coreInitted && _windowExists()) {
+          _win = _coreInitted = window;
+          _doc = _win.document || {};
+          _globals.gsap = gsap;
+          (_win.gsapVersions || (_win.gsapVersions = [])).push(gsap.version);
+
+          _install(_installScope || _win.GreenSockGlobals || !_win.gsap && _win || {});
+
+          _registerPluginQueue.forEach(_createPlugin);
+        }
+
+        _raf = typeof requestAnimationFrame !== "undefined" && requestAnimationFrame;
+        _id && _self.sleep();
+
+        _req = _raf || function (f) {
+          return setTimeout(f, _nextTime - _self.time * 1000 + 1 | 0);
+        };
+
+        _tickerActive = 1;
+
+        _tick(2);
+      }
+    },
+    sleep: function sleep() {
+      (_raf ? cancelAnimationFrame : clearTimeout)(_id);
+      _tickerActive = 0;
+      _req = _emptyFunc;
+    },
+    lagSmoothing: function lagSmoothing(threshold, adjustedLag) {
+      _lagThreshold = threshold || Infinity; // zero should be interpreted as basically unlimited
+
+      _adjustedLag = Math.min(adjustedLag || 33, _lagThreshold);
+    },
+    fps: function fps(_fps) {
+      _gap = 1000 / (_fps || 240);
+      _nextTime = _self.time * 1000 + _gap;
+    },
+    add: function add(callback, once, prioritize) {
+      var func = once ? function (t, d, f, v) {
+        callback(t, d, f, v);
+
+        _self.remove(func);
+      } : callback;
+
+      _self.remove(callback);
+
+      _listeners[prioritize ? "unshift" : "push"](func);
+
+      _wake();
+
+      return func;
+    },
+    remove: function remove(callback, i) {
+      ~(i = _listeners.indexOf(callback)) && _listeners.splice(i, 1) && _i >= i && _i--;
+    },
+    _listeners: _listeners
+  };
+  return _self;
+}(),
+    _wake = function _wake() {
+  return !_tickerActive && _ticker.wake();
+},
+    //also ensures the core classes are initialized.
+
+/*
+* -------------------------------------------------
+* EASING
+* -------------------------------------------------
+*/
+_easeMap = {},
+    _customEaseExp = /^[\d.\-M][\d.\-,\s]/,
+    _quotesExp = /["']/g,
+    _parseObjectInString = function _parseObjectInString(value) {
+  //takes a string like "{wiggles:10, type:anticipate})" and turns it into a real object. Notice it ends in ")" and includes the {} wrappers. This is because we only use this function for parsing ease configs and prioritized optimization rather than reusability.
+  var obj = {},
+      split = value.substr(1, value.length - 3).split(":"),
+      key = split[0],
+      i = 1,
+      l = split.length,
+      index,
+      val,
+      parsedVal;
+
+  for (; i < l; i++) {
+    val = split[i];
+    index = i !== l - 1 ? val.lastIndexOf(",") : val.length;
+    parsedVal = val.substr(0, index);
+    obj[key] = isNaN(parsedVal) ? parsedVal.replace(_quotesExp, "").trim() : +parsedVal;
+    key = val.substr(index + 1).trim();
+  }
+
+  return obj;
+},
+    _valueInParentheses = function _valueInParentheses(value) {
+  var open = value.indexOf("(") + 1,
+      close = value.indexOf(")"),
+      nested = value.indexOf("(", open);
+  return value.substring(open, ~nested && nested < close ? value.indexOf(")", close + 1) : close);
+},
+    _configEaseFromString = function _configEaseFromString(name) {
+  //name can be a string like "elastic.out(1,0.5)", and pass in _easeMap as obj and it'll parse it out and call the actual function like _easeMap.Elastic.easeOut.config(1,0.5). It will also parse custom ease strings as long as CustomEase is loaded and registered (internally as _easeMap._CE).
+  var split = (name + "").split("("),
+      ease = _easeMap[split[0]];
+  return ease && split.length > 1 && ease.config ? ease.config.apply(null, ~name.indexOf("{") ? [_parseObjectInString(split[1])] : _valueInParentheses(name).split(",").map(_numericIfPossible)) : _easeMap._CE && _customEaseExp.test(name) ? _easeMap._CE("", name) : ease;
+},
+    _invertEase = function _invertEase(ease) {
+  return function (p) {
+    return 1 - ease(1 - p);
+  };
+},
+    // allow yoyoEase to be set in children and have those affected when the parent/ancestor timeline yoyos.
+_propagateYoyoEase = function _propagateYoyoEase(timeline, isYoyo) {
+  var child = timeline._first,
+      ease;
+
+  while (child) {
+    if (child instanceof Timeline) {
+      _propagateYoyoEase(child, isYoyo);
+    } else if (child.vars.yoyoEase && (!child._yoyo || !child._repeat) && child._yoyo !== isYoyo) {
+      if (child.timeline) {
+        _propagateYoyoEase(child.timeline, isYoyo);
+      } else {
+        ease = child._ease;
+        child._ease = child._yEase;
+        child._yEase = ease;
+        child._yoyo = isYoyo;
+      }
+    }
+
+    child = child._next;
+  }
+},
+    _parseEase = function _parseEase(ease, defaultEase) {
+  return !ease ? defaultEase : (_isFunction(ease) ? ease : _easeMap[ease] || _configEaseFromString(ease)) || defaultEase;
+},
+    _insertEase = function _insertEase(names, easeIn, easeOut, easeInOut) {
+  if (easeOut === void 0) {
+    easeOut = function easeOut(p) {
+      return 1 - easeIn(1 - p);
+    };
+  }
+
+  if (easeInOut === void 0) {
+    easeInOut = function easeInOut(p) {
+      return p < .5 ? easeIn(p * 2) / 2 : 1 - easeIn((1 - p) * 2) / 2;
+    };
+  }
+
+  var ease = {
+    easeIn: easeIn,
+    easeOut: easeOut,
+    easeInOut: easeInOut
+  },
+      lowercaseName;
+
+  _forEachName(names, function (name) {
+    _easeMap[name] = _globals[name] = ease;
+    _easeMap[lowercaseName = name.toLowerCase()] = easeOut;
+
+    for (var p in ease) {
+      _easeMap[lowercaseName + (p === "easeIn" ? ".in" : p === "easeOut" ? ".out" : ".inOut")] = _easeMap[name + "." + p] = ease[p];
+    }
+  });
+
+  return ease;
+},
+    _easeInOutFromOut = function _easeInOutFromOut(easeOut) {
+  return function (p) {
+    return p < .5 ? (1 - easeOut(1 - p * 2)) / 2 : .5 + easeOut((p - .5) * 2) / 2;
+  };
+},
+    _configElastic = function _configElastic(type, amplitude, period) {
+  var p1 = amplitude >= 1 ? amplitude : 1,
+      //note: if amplitude is < 1, we simply adjust the period for a more natural feel. Otherwise the math doesn't work right and the curve starts at 1.
+  p2 = (period || (type ? .3 : .45)) / (amplitude < 1 ? amplitude : 1),
+      p3 = p2 / _2PI * (Math.asin(1 / p1) || 0),
+      easeOut = function easeOut(p) {
+    return p === 1 ? 1 : p1 * Math.pow(2, -10 * p) * _sin((p - p3) * p2) + 1;
+  },
+      ease = type === "out" ? easeOut : type === "in" ? function (p) {
+    return 1 - easeOut(1 - p);
+  } : _easeInOutFromOut(easeOut);
+
+  p2 = _2PI / p2; //precalculate to optimize
+
+  ease.config = function (amplitude, period) {
+    return _configElastic(type, amplitude, period);
+  };
+
+  return ease;
+},
+    _configBack = function _configBack(type, overshoot) {
+  if (overshoot === void 0) {
+    overshoot = 1.70158;
+  }
+
+  var easeOut = function easeOut(p) {
+    return p ? --p * p * ((overshoot + 1) * p + overshoot) + 1 : 0;
+  },
+      ease = type === "out" ? easeOut : type === "in" ? function (p) {
+    return 1 - easeOut(1 - p);
+  } : _easeInOutFromOut(easeOut);
+
+  ease.config = function (overshoot) {
+    return _configBack(type, overshoot);
+  };
+
+  return ease;
+}; // a cheaper (kb and cpu) but more mild way to get a parameterized weighted ease by feeding in a value between -1 (easeIn) and 1 (easeOut) where 0 is linear.
+// _weightedEase = ratio => {
+// 	let y = 0.5 + ratio / 2;
+// 	return p => (2 * (1 - p) * p * y + p * p);
+// },
+// a stronger (but more expensive kb/cpu) parameterized weighted ease that lets you feed in a value between -1 (easeIn) and 1 (easeOut) where 0 is linear.
+// _weightedEaseStrong = ratio => {
+// 	ratio = .5 + ratio / 2;
+// 	let o = 1 / 3 * (ratio < .5 ? ratio : 1 - ratio),
+// 		b = ratio - o,
+// 		c = ratio + o;
+// 	return p => p === 1 ? p : 3 * b * (1 - p) * (1 - p) * p + 3 * c * (1 - p) * p * p + p * p * p;
+// };
+
+
+_forEachName("Linear,Quad,Cubic,Quart,Quint,Strong", function (name, i) {
+  var power = i < 5 ? i + 1 : i;
+
+  _insertEase(name + ",Power" + (power - 1), i ? function (p) {
+    return Math.pow(p, power);
+  } : function (p) {
+    return p;
+  }, function (p) {
+    return 1 - Math.pow(1 - p, power);
+  }, function (p) {
+    return p < .5 ? Math.pow(p * 2, power) / 2 : 1 - Math.pow((1 - p) * 2, power) / 2;
+  });
+});
+
+_easeMap.Linear.easeNone = _easeMap.none = _easeMap.Linear.easeIn;
+
+_insertEase("Elastic", _configElastic("in"), _configElastic("out"), _configElastic());
+
+(function (n, c) {
+  var n1 = 1 / c,
+      n2 = 2 * n1,
+      n3 = 2.5 * n1,
+      easeOut = function easeOut(p) {
+    return p < n1 ? n * p * p : p < n2 ? n * Math.pow(p - 1.5 / c, 2) + .75 : p < n3 ? n * (p -= 2.25 / c) * p + .9375 : n * Math.pow(p - 2.625 / c, 2) + .984375;
+  };
+
+  _insertEase("Bounce", function (p) {
+    return 1 - easeOut(1 - p);
+  }, easeOut);
+})(7.5625, 2.75);
+
+_insertEase("Expo", function (p) {
+  return p ? Math.pow(2, 10 * (p - 1)) : 0;
+});
+
+_insertEase("Circ", function (p) {
+  return -(_sqrt(1 - p * p) - 1);
+});
+
+_insertEase("Sine", function (p) {
+  return p === 1 ? 1 : -_cos(p * _HALF_PI) + 1;
+});
+
+_insertEase("Back", _configBack("in"), _configBack("out"), _configBack());
+
+_easeMap.SteppedEase = _easeMap.steps = _globals.SteppedEase = {
+  config: function config(steps, immediateStart) {
+    if (steps === void 0) {
+      steps = 1;
+    }
+
+    var p1 = 1 / steps,
+        p2 = steps + (immediateStart ? 0 : 1),
+        p3 = immediateStart ? 1 : 0,
+        max = 1 - _tinyNum;
+    return function (p) {
+      return ((p2 * _clamp(0, max, p) | 0) + p3) * p1;
+    };
+  }
+};
+_defaults.ease = _easeMap["quad.out"];
+
+_forEachName("onComplete,onUpdate,onStart,onRepeat,onReverseComplete,onInterrupt", function (name) {
+  return _callbackNames += name + "," + name + "Params,";
+});
+/*
+ * --------------------------------------------------------------------------------------
+ * CACHE
+ * --------------------------------------------------------------------------------------
+ */
+
+
+var GSCache = function GSCache(target, harness) {
+  this.id = _gsID++;
+  target._gsap = this;
+  this.target = target;
+  this.harness = harness;
+  this.get = harness ? harness.get : _getProperty;
+  this.set = harness ? harness.getSetter : _getSetter;
+};
+/*
+ * --------------------------------------------------------------------------------------
+ * ANIMATION
+ * --------------------------------------------------------------------------------------
+ */
+
+var Animation = /*#__PURE__*/function () {
+  function Animation(vars) {
+    this.vars = vars;
+    this._delay = +vars.delay || 0;
+
+    if (this._repeat = vars.repeat === Infinity ? -2 : vars.repeat || 0) {
+      // TODO: repeat: Infinity on a timeline's children must flag that timeline internally and affect its totalDuration, otherwise it'll stop in the negative direction when reaching the start.
+      this._rDelay = vars.repeatDelay || 0;
+      this._yoyo = !!vars.yoyo || !!vars.yoyoEase;
+    }
+
+    this._ts = 1;
+
+    _setDuration(this, +vars.duration, 1, 1);
+
+    this.data = vars.data;
+
+    if (_context) {
+      this._ctx = _context;
+
+      _context.data.push(this);
+    }
+
+    _tickerActive || _ticker.wake();
+  }
+
+  var _proto = Animation.prototype;
+
+  _proto.delay = function delay(value) {
+    if (value || value === 0) {
+      this.parent && this.parent.smoothChildTiming && this.startTime(this._start + value - this._delay);
+      this._delay = value;
+      return this;
+    }
+
+    return this._delay;
+  };
+
+  _proto.duration = function duration(value) {
+    return arguments.length ? this.totalDuration(this._repeat > 0 ? value + (value + this._rDelay) * this._repeat : value) : this.totalDuration() && this._dur;
+  };
+
+  _proto.totalDuration = function totalDuration(value) {
+    if (!arguments.length) {
+      return this._tDur;
+    }
+
+    this._dirty = 0;
+    return _setDuration(this, this._repeat < 0 ? value : (value - this._repeat * this._rDelay) / (this._repeat + 1));
+  };
+
+  _proto.totalTime = function totalTime(_totalTime, suppressEvents) {
+    _wake();
+
+    if (!arguments.length) {
+      return this._tTime;
+    }
+
+    var parent = this._dp;
+
+    if (parent && parent.smoothChildTiming && this._ts) {
+      _alignPlayhead(this, _totalTime);
+
+      !parent._dp || parent.parent || _postAddChecks(parent, this); // edge case: if this is a child of a timeline that already completed, for example, we must re-activate the parent.
+      //in case any of the ancestor timelines had completed but should now be enabled, we should reset their totalTime() which will also ensure that they're lined up properly and enabled. Skip for animations that are on the root (wasteful). Example: a TimelineLite.exportRoot() is performed when there's a paused tween on the root, the export will not complete until that tween is unpaused, but imagine a child gets restarted later, after all [unpaused] tweens have completed. The start of that child would get pushed out, but one of the ancestors may have completed.
+
+      while (parent && parent.parent) {
+        if (parent.parent._time !== parent._start + (parent._ts >= 0 ? parent._tTime / parent._ts : (parent.totalDuration() - parent._tTime) / -parent._ts)) {
+          parent.totalTime(parent._tTime, true);
+        }
+
+        parent = parent.parent;
+      }
+
+      if (!this.parent && this._dp.autoRemoveChildren && (this._ts > 0 && _totalTime < this._tDur || this._ts < 0 && _totalTime > 0 || !this._tDur && !_totalTime)) {
+        //if the animation doesn't have a parent, put it back into its last parent (recorded as _dp for exactly cases like this). Limit to parents with autoRemoveChildren (like globalTimeline) so that if the user manually removes an animation from a timeline and then alters its playhead, it doesn't get added back in.
+        _addToTimeline(this._dp, this, this._start - this._delay);
+      }
+    }
+
+    if (this._tTime !== _totalTime || !this._dur && !suppressEvents || this._initted && Math.abs(this._zTime) === _tinyNum || !_totalTime && !this._initted && (this.add || this._ptLookup)) {
+      // check for _ptLookup on a Tween instance to ensure it has actually finished being instantiated, otherwise if this.reverse() gets called in the Animation constructor, it could trigger a render() here even though the _targets weren't populated, thus when _init() is called there won't be any PropTweens (it'll act like the tween is non-functional)
+      this._ts || (this._pTime = _totalTime); // otherwise, if an animation is paused, then the playhead is moved back to zero, then resumed, it'd revert back to the original time at the pause
+      //if (!this._lock) { // avoid endless recursion (not sure we need this yet or if it's worth the performance hit)
+      //   this._lock = 1;
+
+      _lazySafeRender(this, _totalTime, suppressEvents); //   this._lock = 0;
+      //}
+
+    }
+
+    return this;
+  };
+
+  _proto.time = function time(value, suppressEvents) {
+    return arguments.length ? this.totalTime(Math.min(this.totalDuration(), value + _elapsedCycleDuration(this)) % (this._dur + this._rDelay) || (value ? this._dur : 0), suppressEvents) : this._time; // note: if the modulus results in 0, the playhead could be exactly at the end or the beginning, and we always defer to the END with a non-zero value, otherwise if you set the time() to the very end (duration()), it would render at the START!
+  };
+
+  _proto.totalProgress = function totalProgress(value, suppressEvents) {
+    return arguments.length ? this.totalTime(this.totalDuration() * value, suppressEvents) : this.totalDuration() ? Math.min(1, this._tTime / this._tDur) : this.rawTime() > 0 ? 1 : 0;
+  };
+
+  _proto.progress = function progress(value, suppressEvents) {
+    return arguments.length ? this.totalTime(this.duration() * (this._yoyo && !(this.iteration() & 1) ? 1 - value : value) + _elapsedCycleDuration(this), suppressEvents) : this.duration() ? Math.min(1, this._time / this._dur) : this.rawTime() > 0 ? 1 : 0;
+  };
+
+  _proto.iteration = function iteration(value, suppressEvents) {
+    var cycleDuration = this.duration() + this._rDelay;
+
+    return arguments.length ? this.totalTime(this._time + (value - 1) * cycleDuration, suppressEvents) : this._repeat ? _animationCycle(this._tTime, cycleDuration) + 1 : 1;
+  } // potential future addition:
+  // isPlayingBackwards() {
+  // 	let animation = this,
+  // 		orientation = 1; // 1 = forward, -1 = backward
+  // 	while (animation) {
+  // 		orientation *= animation.reversed() || (animation.repeat() && !(animation.iteration() & 1)) ? -1 : 1;
+  // 		animation = animation.parent;
+  // 	}
+  // 	return orientation < 0;
+  // }
+  ;
+
+  _proto.timeScale = function timeScale(value, suppressEvents) {
+    if (!arguments.length) {
+      return this._rts === -_tinyNum ? 0 : this._rts; // recorded timeScale. Special case: if someone calls reverse() on an animation with timeScale of 0, we assign it -_tinyNum to remember it's reversed.
+    }
+
+    if (this._rts === value) {
+      return this;
+    }
+
+    var tTime = this.parent && this._ts ? _parentToChildTotalTime(this.parent._time, this) : this._tTime; // make sure to do the parentToChildTotalTime() BEFORE setting the new _ts because the old one must be used in that calculation.
+    // future addition? Up side: fast and minimal file size. Down side: only works on this animation; if a timeline is reversed, for example, its childrens' onReverse wouldn't get called.
+    //(+value < 0 && this._rts >= 0) && _callback(this, "onReverse", true);
+    // prioritize rendering where the parent's playhead lines up instead of this._tTime because there could be a tween that's animating another tween's timeScale in the same rendering loop (same parent), thus if the timeScale tween renders first, it would alter _start BEFORE _tTime was set on that tick (in the rendering loop), effectively freezing it until the timeScale tween finishes.
+
+    this._rts = +value || 0;
+    this._ts = this._ps || value === -_tinyNum ? 0 : this._rts; // _ts is the functional timeScale which would be 0 if the animation is paused.
+
+    this.totalTime(_clamp(-Math.abs(this._delay), this._tDur, tTime), suppressEvents !== false);
+
+    _setEnd(this); // if parent.smoothChildTiming was false, the end time didn't get updated in the _alignPlayhead() method, so do it here.
+
+
+    return _recacheAncestors(this);
+  };
+
+  _proto.paused = function paused(value) {
+    if (!arguments.length) {
+      return this._ps;
+    }
+
+    if (this._ps !== value) {
+      this._ps = value;
+
+      if (value) {
+        this._pTime = this._tTime || Math.max(-this._delay, this.rawTime()); // if the pause occurs during the delay phase, make sure that's factored in when resuming.
+
+        this._ts = this._act = 0; // _ts is the functional timeScale, so a paused tween would effectively have a timeScale of 0. We record the "real" timeScale as _rts (recorded time scale)
+      } else {
+        _wake();
+
+        this._ts = this._rts; //only defer to _pTime (pauseTime) if tTime is zero. Remember, someone could pause() an animation, then scrub the playhead and resume(). If the parent doesn't have smoothChildTiming, we render at the rawTime() because the startTime won't get updated.
+
+        this.totalTime(this.parent && !this.parent.smoothChildTiming ? this.rawTime() : this._tTime || this._pTime, this.progress() === 1 && Math.abs(this._zTime) !== _tinyNum && (this._tTime -= _tinyNum)); // edge case: animation.progress(1).pause().play() wouldn't render again because the playhead is already at the end, but the call to totalTime() below will add it back to its parent...and not remove it again (since removing only happens upon rendering at a new time). Offsetting the _tTime slightly is done simply to cause the final render in totalTime() that'll pop it off its timeline (if autoRemoveChildren is true, of course). Check to make sure _zTime isn't -_tinyNum to avoid an edge case where the playhead is pushed to the end but INSIDE a tween/callback, the timeline itself is paused thus halting rendering and leaving a few unrendered. When resuming, it wouldn't render those otherwise.
+      }
+    }
+
+    return this;
+  };
+
+  _proto.startTime = function startTime(value) {
+    if (arguments.length) {
+      this._start = value;
+      var parent = this.parent || this._dp;
+      parent && (parent._sort || !this.parent) && _addToTimeline(parent, this, value - this._delay);
+      return this;
+    }
+
+    return this._start;
+  };
+
+  _proto.endTime = function endTime(includeRepeats) {
+    return this._start + (_isNotFalse(includeRepeats) ? this.totalDuration() : this.duration()) / Math.abs(this._ts || 1);
+  };
+
+  _proto.rawTime = function rawTime(wrapRepeats) {
+    var parent = this.parent || this._dp; // _dp = detached parent
+
+    return !parent ? this._tTime : wrapRepeats && (!this._ts || this._repeat && this._time && this.totalProgress() < 1) ? this._tTime % (this._dur + this._rDelay) : !this._ts ? this._tTime : _parentToChildTotalTime(parent.rawTime(wrapRepeats), this);
+  };
+
+  _proto.revert = function revert(config) {
+    if (config === void 0) {
+      config = _revertConfig;
+    }
+
+    var prevIsReverting = _reverting;
+    _reverting = config;
+
+    if (this._initted || this._startAt) {
+      this.timeline && this.timeline.revert(config);
+      this.totalTime(-0.01, config.suppressEvents);
+    }
+
+    this.data !== "nested" && config.kill !== false && this.kill();
+    _reverting = prevIsReverting;
+    return this;
+  };
+
+  _proto.globalTime = function globalTime(rawTime) {
+    var animation = this,
+        time = arguments.length ? rawTime : animation.rawTime();
+
+    while (animation) {
+      time = animation._start + time / (Math.abs(animation._ts) || 1);
+      animation = animation._dp;
+    }
+
+    return !this.parent && this._sat ? this._sat.globalTime(rawTime) : time; // the _startAt tweens for .fromTo() and .from() that have immediateRender should always be FIRST in the timeline (important for context.revert()). "_sat" stands for _startAtTween, referring to the parent tween that created the _startAt. We must discern if that tween had immediateRender so that we can know whether or not to prioritize it in revert().
+  };
+
+  _proto.repeat = function repeat(value) {
+    if (arguments.length) {
+      this._repeat = value === Infinity ? -2 : value;
+      return _onUpdateTotalDuration(this);
+    }
+
+    return this._repeat === -2 ? Infinity : this._repeat;
+  };
+
+  _proto.repeatDelay = function repeatDelay(value) {
+    if (arguments.length) {
+      var time = this._time;
+      this._rDelay = value;
+
+      _onUpdateTotalDuration(this);
+
+      return time ? this.time(time) : this;
+    }
+
+    return this._rDelay;
+  };
+
+  _proto.yoyo = function yoyo(value) {
+    if (arguments.length) {
+      this._yoyo = value;
+      return this;
+    }
+
+    return this._yoyo;
+  };
+
+  _proto.seek = function seek(position, suppressEvents) {
+    return this.totalTime(_parsePosition(this, position), _isNotFalse(suppressEvents));
+  };
+
+  _proto.restart = function restart(includeDelay, suppressEvents) {
+    return this.play().totalTime(includeDelay ? -this._delay : 0, _isNotFalse(suppressEvents));
+  };
+
+  _proto.play = function play(from, suppressEvents) {
+    from != null && this.seek(from, suppressEvents);
+    return this.reversed(false).paused(false);
+  };
+
+  _proto.reverse = function reverse(from, suppressEvents) {
+    from != null && this.seek(from || this.totalDuration(), suppressEvents);
+    return this.reversed(true).paused(false);
+  };
+
+  _proto.pause = function pause(atTime, suppressEvents) {
+    atTime != null && this.seek(atTime, suppressEvents);
+    return this.paused(true);
+  };
+
+  _proto.resume = function resume() {
+    return this.paused(false);
+  };
+
+  _proto.reversed = function reversed(value) {
+    if (arguments.length) {
+      !!value !== this.reversed() && this.timeScale(-this._rts || (value ? -_tinyNum : 0)); // in case timeScale is zero, reversing would have no effect so we use _tinyNum.
+
+      return this;
+    }
+
+    return this._rts < 0;
+  };
+
+  _proto.invalidate = function invalidate() {
+    this._initted = this._act = 0;
+    this._zTime = -_tinyNum;
+    return this;
+  };
+
+  _proto.isActive = function isActive() {
+    var parent = this.parent || this._dp,
+        start = this._start,
+        rawTime;
+    return !!(!parent || this._ts && this._initted && parent.isActive() && (rawTime = parent.rawTime(true)) >= start && rawTime < this.endTime(true) - _tinyNum);
+  };
+
+  _proto.eventCallback = function eventCallback(type, callback, params) {
+    var vars = this.vars;
+
+    if (arguments.length > 1) {
+      if (!callback) {
+        delete vars[type];
+      } else {
+        vars[type] = callback;
+        params && (vars[type + "Params"] = params);
+        type === "onUpdate" && (this._onUpdate = callback);
+      }
+
+      return this;
+    }
+
+    return vars[type];
+  };
+
+  _proto.then = function then(onFulfilled) {
+    var self = this;
+    return new Promise(function (resolve) {
+      var f = _isFunction(onFulfilled) ? onFulfilled : _passThrough,
+          _resolve = function _resolve() {
+        var _then = self.then;
+        self.then = null; // temporarily null the then() method to avoid an infinite loop (see https://github.com/greensock/GSAP/issues/322)
+
+        _isFunction(f) && (f = f(self)) && (f.then || f === self) && (self.then = _then);
+        resolve(f);
+        self.then = _then;
+      };
+
+      if (self._initted && self.totalProgress() === 1 && self._ts >= 0 || !self._tTime && self._ts < 0) {
+        _resolve();
+      } else {
+        self._prom = _resolve;
+      }
+    });
+  };
+
+  _proto.kill = function kill() {
+    _interrupt(this);
+  };
+
+  return Animation;
+}();
+
+_setDefaults(Animation.prototype, {
+  _time: 0,
+  _start: 0,
+  _end: 0,
+  _tTime: 0,
+  _tDur: 0,
+  _dirty: 0,
+  _repeat: 0,
+  _yoyo: false,
+  parent: null,
+  _initted: false,
+  _rDelay: 0,
+  _ts: 1,
+  _dp: 0,
+  ratio: 0,
+  _zTime: -_tinyNum,
+  _prom: 0,
+  _ps: false,
+  _rts: 1
+});
+/*
+ * -------------------------------------------------
+ * TIMELINE
+ * -------------------------------------------------
+ */
+
+
+var Timeline = /*#__PURE__*/function (_Animation) {
+  _inheritsLoose(Timeline, _Animation);
+
+  function Timeline(vars, position) {
+    var _this;
+
+    if (vars === void 0) {
+      vars = {};
+    }
+
+    _this = _Animation.call(this, vars) || this;
+    _this.labels = {};
+    _this.smoothChildTiming = !!vars.smoothChildTiming;
+    _this.autoRemoveChildren = !!vars.autoRemoveChildren;
+    _this._sort = _isNotFalse(vars.sortChildren);
+    _globalTimeline && _addToTimeline(vars.parent || _globalTimeline, _assertThisInitialized(_this), position);
+    vars.reversed && _this.reverse();
+    vars.paused && _this.paused(true);
+    vars.scrollTrigger && _scrollTrigger(_assertThisInitialized(_this), vars.scrollTrigger);
+    return _this;
+  }
+
+  var _proto2 = Timeline.prototype;
+
+  _proto2.to = function to(targets, vars, position) {
+    _createTweenType(0, arguments, this);
+
+    return this;
+  };
+
+  _proto2.from = function from(targets, vars, position) {
+    _createTweenType(1, arguments, this);
+
+    return this;
+  };
+
+  _proto2.fromTo = function fromTo(targets, fromVars, toVars, position) {
+    _createTweenType(2, arguments, this);
+
+    return this;
+  };
+
+  _proto2.set = function set(targets, vars, position) {
+    vars.duration = 0;
+    vars.parent = this;
+    _inheritDefaults(vars).repeatDelay || (vars.repeat = 0);
+    vars.immediateRender = !!vars.immediateRender;
+    new Tween(targets, vars, _parsePosition(this, position), 1);
+    return this;
+  };
+
+  _proto2.call = function call(callback, params, position) {
+    return _addToTimeline(this, Tween.delayedCall(0, callback, params), position);
+  } //ONLY for backward compatibility! Maybe delete?
+  ;
+
+  _proto2.staggerTo = function staggerTo(targets, duration, vars, stagger, position, onCompleteAll, onCompleteAllParams) {
+    vars.duration = duration;
+    vars.stagger = vars.stagger || stagger;
+    vars.onComplete = onCompleteAll;
+    vars.onCompleteParams = onCompleteAllParams;
+    vars.parent = this;
+    new Tween(targets, vars, _parsePosition(this, position));
+    return this;
+  };
+
+  _proto2.staggerFrom = function staggerFrom(targets, duration, vars, stagger, position, onCompleteAll, onCompleteAllParams) {
+    vars.runBackwards = 1;
+    _inheritDefaults(vars).immediateRender = _isNotFalse(vars.immediateRender);
+    return this.staggerTo(targets, duration, vars, stagger, position, onCompleteAll, onCompleteAllParams);
+  };
+
+  _proto2.staggerFromTo = function staggerFromTo(targets, duration, fromVars, toVars, stagger, position, onCompleteAll, onCompleteAllParams) {
+    toVars.startAt = fromVars;
+    _inheritDefaults(toVars).immediateRender = _isNotFalse(toVars.immediateRender);
+    return this.staggerTo(targets, duration, toVars, stagger, position, onCompleteAll, onCompleteAllParams);
+  };
+
+  _proto2.render = function render(totalTime, suppressEvents, force) {
+    var prevTime = this._time,
+        tDur = this._dirty ? this.totalDuration() : this._tDur,
+        dur = this._dur,
+        tTime = totalTime <= 0 ? 0 : _roundPrecise(totalTime),
+        // if a paused timeline is resumed (or its _start is updated for another reason...which rounds it), that could result in the playhead shifting a **tiny** amount and a zero-duration child at that spot may get rendered at a different ratio, like its totalTime in render() may be 1e-17 instead of 0, for example.
+    crossingStart = this._zTime < 0 !== totalTime < 0 && (this._initted || !dur),
+        time,
+        child,
+        next,
+        iteration,
+        cycleDuration,
+        prevPaused,
+        pauseTween,
+        timeScale,
+        prevStart,
+        prevIteration,
+        yoyo,
+        isYoyo;
+    this !== _globalTimeline && tTime > tDur && totalTime >= 0 && (tTime = tDur);
+
+    if (tTime !== this._tTime || force || crossingStart) {
+      if (prevTime !== this._time && dur) {
+        //if totalDuration() finds a child with a negative startTime and smoothChildTiming is true, things get shifted around internally so we need to adjust the time accordingly. For example, if a tween starts at -30 we must shift EVERYTHING forward 30 seconds and move this timeline's startTime backward by 30 seconds so that things align with the playhead (no jump).
+        tTime += this._time - prevTime;
+        totalTime += this._time - prevTime;
+      }
+
+      time = tTime;
+      prevStart = this._start;
+      timeScale = this._ts;
+      prevPaused = !timeScale;
+
+      if (crossingStart) {
+        dur || (prevTime = this._zTime); //when the playhead arrives at EXACTLY time 0 (right on top) of a zero-duration timeline, we need to discern if events are suppressed so that when the playhead moves again (next time), it'll trigger the callback. If events are NOT suppressed, obviously the callback would be triggered in this render. Basically, the callback should fire either when the playhead ARRIVES or LEAVES this exact spot, not both. Imagine doing a timeline.seek(0) and there's a callback that sits at 0. Since events are suppressed on that seek() by default, nothing will fire, but when the playhead moves off of that position, the callback should fire. This behavior is what people intuitively expect.
+
+        (totalTime || !suppressEvents) && (this._zTime = totalTime);
+      }
+
+      if (this._repeat) {
+        //adjust the time for repeats and yoyos
+        yoyo = this._yoyo;
+        cycleDuration = dur + this._rDelay;
+
+        if (this._repeat < -1 && totalTime < 0) {
+          return this.totalTime(cycleDuration * 100 + totalTime, suppressEvents, force);
+        }
+
+        time = _roundPrecise(tTime % cycleDuration); //round to avoid floating point errors. (4 % 0.8 should be 0 but some browsers report it as 0.79999999!)
+
+        if (tTime === tDur) {
+          // the tDur === tTime is for edge cases where there's a lengthy decimal on the duration and it may reach the very end but the time is rendered as not-quite-there (remember, tDur is rounded to 4 decimals whereas dur isn't)
+          iteration = this._repeat;
+          time = dur;
+        } else {
+          iteration = ~~(tTime / cycleDuration);
+
+          if (iteration && iteration === tTime / cycleDuration) {
+            time = dur;
+            iteration--;
+          }
+
+          time > dur && (time = dur);
+        }
+
+        prevIteration = _animationCycle(this._tTime, cycleDuration);
+        !prevTime && this._tTime && prevIteration !== iteration && this._tTime - prevIteration * cycleDuration - this._dur <= 0 && (prevIteration = iteration); // edge case - if someone does addPause() at the very beginning of a repeating timeline, that pause is technically at the same spot as the end which causes this._time to get set to 0 when the totalTime would normally place the playhead at the end. See https://gsap.com/forums/topic/23823-closing-nav-animation-not-working-on-ie-and-iphone-6-maybe-other-older-browser/?tab=comments#comment-113005 also, this._tTime - prevIteration * cycleDuration - this._dur <= 0 just checks to make sure it wasn't previously in the "repeatDelay" portion
+
+        if (yoyo && iteration & 1) {
+          time = dur - time;
+          isYoyo = 1;
+        }
+        /*
+        make sure children at the end/beginning of the timeline are rendered properly. If, for example,
+        a 3-second long timeline rendered at 2.9 seconds previously, and now renders at 3.2 seconds (which
+        would get translated to 2.8 seconds if the timeline yoyos or 0.2 seconds if it just repeats), there
+        could be a callback or a short tween that's at 2.95 or 3 seconds in which wouldn't render. So
+        we need to push the timeline to the end (and/or beginning depending on its yoyo value). Also we must
+        ensure that zero-duration tweens at the very beginning or end of the Timeline work.
+        */
+
+
+        if (iteration !== prevIteration && !this._lock) {
+          var rewinding = yoyo && prevIteration & 1,
+              doesWrap = rewinding === (yoyo && iteration & 1);
+          iteration < prevIteration && (rewinding = !rewinding);
+          prevTime = rewinding ? 0 : tTime % dur ? dur : tTime; // if the playhead is landing exactly at the end of an iteration, use that totalTime rather than only the duration, otherwise it'll skip the 2nd render since it's effectively at the same time.
+
+          this._lock = 1;
+          this.render(prevTime || (isYoyo ? 0 : _roundPrecise(iteration * cycleDuration)), suppressEvents, !dur)._lock = 0;
+          this._tTime = tTime; // if a user gets the iteration() inside the onRepeat, for example, it should be accurate.
+
+          !suppressEvents && this.parent && _callback(this, "onRepeat");
+          this.vars.repeatRefresh && !isYoyo && (this.invalidate()._lock = 1);
+
+          if (prevTime && prevTime !== this._time || prevPaused !== !this._ts || this.vars.onRepeat && !this.parent && !this._act) {
+            // if prevTime is 0 and we render at the very end, _time will be the end, thus won't match. So in this edge case, prevTime won't match _time but that's okay. If it gets killed in the onRepeat, eject as well.
+            return this;
+          }
+
+          dur = this._dur; // in case the duration changed in the onRepeat
+
+          tDur = this._tDur;
+
+          if (doesWrap) {
+            this._lock = 2;
+            prevTime = rewinding ? dur : -0.0001;
+            this.render(prevTime, true);
+            this.vars.repeatRefresh && !isYoyo && this.invalidate();
+          }
+
+          this._lock = 0;
+
+          if (!this._ts && !prevPaused) {
+            return this;
+          } //in order for yoyoEase to work properly when there's a stagger, we must swap out the ease in each sub-tween.
+
+
+          _propagateYoyoEase(this, isYoyo);
+        }
+      }
+
+      if (this._hasPause && !this._forcing && this._lock < 2) {
+        pauseTween = _findNextPauseTween(this, _roundPrecise(prevTime), _roundPrecise(time));
+
+        if (pauseTween) {
+          tTime -= time - (time = pauseTween._start);
+        }
+      }
+
+      this._tTime = tTime;
+      this._time = time;
+      this._act = !timeScale; //as long as it's not paused, force it to be active so that if the user renders independent of the parent timeline, it'll be forced to re-render on the next tick.
+
+      if (!this._initted) {
+        this._onUpdate = this.vars.onUpdate;
+        this._initted = 1;
+        this._zTime = totalTime;
+        prevTime = 0; // upon init, the playhead should always go forward; someone could invalidate() a completed timeline and then if they restart(), that would make child tweens render in reverse order which could lock in the wrong starting values if they build on each other, like tl.to(obj, {x: 100}).to(obj, {x: 0}).
+      }
+
+      if (!prevTime && time && !suppressEvents && !iteration) {
+        _callback(this, "onStart");
+
+        if (this._tTime !== tTime) {
+          // in case the onStart triggered a render at a different spot, eject. Like if someone did animation.pause(0.5) or something inside the onStart.
+          return this;
+        }
+      }
+
+      if (time >= prevTime && totalTime >= 0) {
+        child = this._first;
+
+        while (child) {
+          next = child._next;
+
+          if ((child._act || time >= child._start) && child._ts && pauseTween !== child) {
+            if (child.parent !== this) {
+              // an extreme edge case - the child's render could do something like kill() the "next" one in the linked list, or reparent it. In that case we must re-initiate the whole render to be safe.
+              return this.render(totalTime, suppressEvents, force);
+            }
+
+            child.render(child._ts > 0 ? (time - child._start) * child._ts : (child._dirty ? child.totalDuration() : child._tDur) + (time - child._start) * child._ts, suppressEvents, force);
+
+            if (time !== this._time || !this._ts && !prevPaused) {
+              //in case a tween pauses or seeks the timeline when rendering, like inside of an onUpdate/onComplete
+              pauseTween = 0;
+              next && (tTime += this._zTime = -_tinyNum); // it didn't finish rendering, so flag zTime as negative so that so that the next time render() is called it'll be forced (to render any remaining children)
+
+              break;
+            }
+          }
+
+          child = next;
+        }
+      } else {
+        child = this._last;
+        var adjustedTime = totalTime < 0 ? totalTime : time; //when the playhead goes backward beyond the start of this timeline, we must pass that information down to the child animations so that zero-duration tweens know whether to render their starting or ending values.
+
+        while (child) {
+          next = child._prev;
+
+          if ((child._act || adjustedTime <= child._end) && child._ts && pauseTween !== child) {
+            if (child.parent !== this) {
+              // an extreme edge case - the child's render could do something like kill() the "next" one in the linked list, or reparent it. In that case we must re-initiate the whole render to be safe.
+              return this.render(totalTime, suppressEvents, force);
+            }
+
+            child.render(child._ts > 0 ? (adjustedTime - child._start) * child._ts : (child._dirty ? child.totalDuration() : child._tDur) + (adjustedTime - child._start) * child._ts, suppressEvents, force || _reverting && (child._initted || child._startAt)); // if reverting, we should always force renders of initted tweens (but remember that .fromTo() or .from() may have a _startAt but not _initted yet). If, for example, a .fromTo() tween with a stagger (which creates an internal timeline) gets reverted BEFORE some of its child tweens render for the first time, it may not properly trigger them to revert.
+
+            if (time !== this._time || !this._ts && !prevPaused) {
+              //in case a tween pauses or seeks the timeline when rendering, like inside of an onUpdate/onComplete
+              pauseTween = 0;
+              next && (tTime += this._zTime = adjustedTime ? -_tinyNum : _tinyNum); // it didn't finish rendering, so adjust zTime so that so that the next time render() is called it'll be forced (to render any remaining children)
+
+              break;
+            }
+          }
+
+          child = next;
+        }
+      }
+
+      if (pauseTween && !suppressEvents) {
+        this.pause();
+        pauseTween.render(time >= prevTime ? 0 : -_tinyNum)._zTime = time >= prevTime ? 1 : -1;
+
+        if (this._ts) {
+          //the callback resumed playback! So since we may have held back the playhead due to where the pause is positioned, go ahead and jump to where it's SUPPOSED to be (if no pause happened).
+          this._start = prevStart; //if the pause was at an earlier time and the user resumed in the callback, it could reposition the timeline (changing its startTime), throwing things off slightly, so we make sure the _start doesn't shift.
+
+          _setEnd(this);
+
+          return this.render(totalTime, suppressEvents, force);
+        }
+      }
+
+      this._onUpdate && !suppressEvents && _callback(this, "onUpdate", true);
+      if (tTime === tDur && this._tTime >= this.totalDuration() || !tTime && prevTime) if (prevStart === this._start || Math.abs(timeScale) !== Math.abs(this._ts)) if (!this._lock) {
+        // remember, a child's callback may alter this timeline's playhead or timeScale which is why we need to add some of these checks.
+        (totalTime || !dur) && (tTime === tDur && this._ts > 0 || !tTime && this._ts < 0) && _removeFromParent(this, 1); // don't remove if the timeline is reversed and the playhead isn't at 0, otherwise tl.progress(1).reverse() won't work. Only remove if the playhead is at the end and timeScale is positive, or if the playhead is at 0 and the timeScale is negative.
+
+        if (!suppressEvents && !(totalTime < 0 && !prevTime) && (tTime || prevTime || !tDur)) {
+          _callback(this, tTime === tDur && totalTime >= 0 ? "onComplete" : "onReverseComplete", true);
+
+          this._prom && !(tTime < tDur && this.timeScale() > 0) && this._prom();
+        }
+      }
+    }
+
+    return this;
+  };
+
+  _proto2.add = function add(child, position) {
+    var _this2 = this;
+
+    _isNumber(position) || (position = _parsePosition(this, position, child));
+
+    if (!(child instanceof Animation)) {
+      if (_isArray(child)) {
+        child.forEach(function (obj) {
+          return _this2.add(obj, position);
+        });
+        return this;
+      }
+
+      if (_isString(child)) {
+        return this.addLabel(child, position);
+      }
+
+      if (_isFunction(child)) {
+        child = Tween.delayedCall(0, child);
+      } else {
+        return this;
+      }
+    }
+
+    return this !== child ? _addToTimeline(this, child, position) : this; //don't allow a timeline to be added to itself as a child!
+  };
+
+  _proto2.getChildren = function getChildren(nested, tweens, timelines, ignoreBeforeTime) {
+    if (nested === void 0) {
+      nested = true;
+    }
+
+    if (tweens === void 0) {
+      tweens = true;
+    }
+
+    if (timelines === void 0) {
+      timelines = true;
+    }
+
+    if (ignoreBeforeTime === void 0) {
+      ignoreBeforeTime = -_bigNum;
+    }
+
+    var a = [],
+        child = this._first;
+
+    while (child) {
+      if (child._start >= ignoreBeforeTime) {
+        if (child instanceof Tween) {
+          tweens && a.push(child);
+        } else {
+          timelines && a.push(child);
+          nested && a.push.apply(a, child.getChildren(true, tweens, timelines));
+        }
+      }
+
+      child = child._next;
+    }
+
+    return a;
+  };
+
+  _proto2.getById = function getById(id) {
+    var animations = this.getChildren(1, 1, 1),
+        i = animations.length;
+
+    while (i--) {
+      if (animations[i].vars.id === id) {
+        return animations[i];
+      }
+    }
+  };
+
+  _proto2.remove = function remove(child) {
+    if (_isString(child)) {
+      return this.removeLabel(child);
+    }
+
+    if (_isFunction(child)) {
+      return this.killTweensOf(child);
+    }
+
+    _removeLinkedListItem(this, child);
+
+    if (child === this._recent) {
+      this._recent = this._last;
+    }
+
+    return _uncache(this);
+  };
+
+  _proto2.totalTime = function totalTime(_totalTime2, suppressEvents) {
+    if (!arguments.length) {
+      return this._tTime;
+    }
+
+    this._forcing = 1;
+
+    if (!this._dp && this._ts) {
+      //special case for the global timeline (or any other that has no parent or detached parent).
+      this._start = _roundPrecise(_ticker.time - (this._ts > 0 ? _totalTime2 / this._ts : (this.totalDuration() - _totalTime2) / -this._ts));
+    }
+
+    _Animation.prototype.totalTime.call(this, _totalTime2, suppressEvents);
+
+    this._forcing = 0;
+    return this;
+  };
+
+  _proto2.addLabel = function addLabel(label, position) {
+    this.labels[label] = _parsePosition(this, position);
+    return this;
+  };
+
+  _proto2.removeLabel = function removeLabel(label) {
+    delete this.labels[label];
+    return this;
+  };
+
+  _proto2.addPause = function addPause(position, callback, params) {
+    var t = Tween.delayedCall(0, callback || _emptyFunc, params);
+    t.data = "isPause";
+    this._hasPause = 1;
+    return _addToTimeline(this, t, _parsePosition(this, position));
+  };
+
+  _proto2.removePause = function removePause(position) {
+    var child = this._first;
+    position = _parsePosition(this, position);
+
+    while (child) {
+      if (child._start === position && child.data === "isPause") {
+        _removeFromParent(child);
+      }
+
+      child = child._next;
+    }
+  };
+
+  _proto2.killTweensOf = function killTweensOf(targets, props, onlyActive) {
+    var tweens = this.getTweensOf(targets, onlyActive),
+        i = tweens.length;
+
+    while (i--) {
+      _overwritingTween !== tweens[i] && tweens[i].kill(targets, props);
+    }
+
+    return this;
+  };
+
+  _proto2.getTweensOf = function getTweensOf(targets, onlyActive) {
+    var a = [],
+        parsedTargets = toArray(targets),
+        child = this._first,
+        isGlobalTime = _isNumber(onlyActive),
+        // a number is interpreted as a global time. If the animation spans
+    children;
+
+    while (child) {
+      if (child instanceof Tween) {
+        if (_arrayContainsAny(child._targets, parsedTargets) && (isGlobalTime ? (!_overwritingTween || child._initted && child._ts) && child.globalTime(0) <= onlyActive && child.globalTime(child.totalDuration()) > onlyActive : !onlyActive || child.isActive())) {
+          // note: if this is for overwriting, it should only be for tweens that aren't paused and are initted.
+          a.push(child);
+        }
+      } else if ((children = child.getTweensOf(parsedTargets, onlyActive)).length) {
+        a.push.apply(a, children);
+      }
+
+      child = child._next;
+    }
+
+    return a;
+  } // potential future feature - targets() on timelines
+  // targets() {
+  // 	let result = [];
+  // 	this.getChildren(true, true, false).forEach(t => result.push(...t.targets()));
+  // 	return result.filter((v, i) => result.indexOf(v) === i);
+  // }
+  ;
+
+  _proto2.tweenTo = function tweenTo(position, vars) {
+    vars = vars || {};
+
+    var tl = this,
+        endTime = _parsePosition(tl, position),
+        _vars = vars,
+        startAt = _vars.startAt,
+        _onStart = _vars.onStart,
+        onStartParams = _vars.onStartParams,
+        immediateRender = _vars.immediateRender,
+        initted,
+        tween = Tween.to(tl, _setDefaults({
+      ease: vars.ease || "none",
+      lazy: false,
+      immediateRender: false,
+      time: endTime,
+      overwrite: "auto",
+      duration: vars.duration || Math.abs((endTime - (startAt && "time" in startAt ? startAt.time : tl._time)) / tl.timeScale()) || _tinyNum,
+      onStart: function onStart() {
+        tl.pause();
+
+        if (!initted) {
+          var duration = vars.duration || Math.abs((endTime - (startAt && "time" in startAt ? startAt.time : tl._time)) / tl.timeScale());
+          tween._dur !== duration && _setDuration(tween, duration, 0, 1).render(tween._time, true, true);
+          initted = 1;
+        }
+
+        _onStart && _onStart.apply(tween, onStartParams || []); //in case the user had an onStart in the vars - we don't want to overwrite it.
+      }
+    }, vars));
+
+    return immediateRender ? tween.render(0) : tween;
+  };
+
+  _proto2.tweenFromTo = function tweenFromTo(fromPosition, toPosition, vars) {
+    return this.tweenTo(toPosition, _setDefaults({
+      startAt: {
+        time: _parsePosition(this, fromPosition)
+      }
+    }, vars));
+  };
+
+  _proto2.recent = function recent() {
+    return this._recent;
+  };
+
+  _proto2.nextLabel = function nextLabel(afterTime) {
+    if (afterTime === void 0) {
+      afterTime = this._time;
+    }
+
+    return _getLabelInDirection(this, _parsePosition(this, afterTime));
+  };
+
+  _proto2.previousLabel = function previousLabel(beforeTime) {
+    if (beforeTime === void 0) {
+      beforeTime = this._time;
+    }
+
+    return _getLabelInDirection(this, _parsePosition(this, beforeTime), 1);
+  };
+
+  _proto2.currentLabel = function currentLabel(value) {
+    return arguments.length ? this.seek(value, true) : this.previousLabel(this._time + _tinyNum);
+  };
+
+  _proto2.shiftChildren = function shiftChildren(amount, adjustLabels, ignoreBeforeTime) {
+    if (ignoreBeforeTime === void 0) {
+      ignoreBeforeTime = 0;
+    }
+
+    var child = this._first,
+        labels = this.labels,
+        p;
+
+    while (child) {
+      if (child._start >= ignoreBeforeTime) {
+        child._start += amount;
+        child._end += amount;
+      }
+
+      child = child._next;
+    }
+
+    if (adjustLabels) {
+      for (p in labels) {
+        if (labels[p] >= ignoreBeforeTime) {
+          labels[p] += amount;
+        }
+      }
+    }
+
+    return _uncache(this);
+  };
+
+  _proto2.invalidate = function invalidate(soft) {
+    var child = this._first;
+    this._lock = 0;
+
+    while (child) {
+      child.invalidate(soft);
+      child = child._next;
+    }
+
+    return _Animation.prototype.invalidate.call(this, soft);
+  };
+
+  _proto2.clear = function clear(includeLabels) {
+    if (includeLabels === void 0) {
+      includeLabels = true;
+    }
+
+    var child = this._first,
+        next;
+
+    while (child) {
+      next = child._next;
+      this.remove(child);
+      child = next;
+    }
+
+    this._dp && (this._time = this._tTime = this._pTime = 0);
+    includeLabels && (this.labels = {});
+    return _uncache(this);
+  };
+
+  _proto2.totalDuration = function totalDuration(value) {
+    var max = 0,
+        self = this,
+        child = self._last,
+        prevStart = _bigNum,
+        prev,
+        start,
+        parent;
+
+    if (arguments.length) {
+      return self.timeScale((self._repeat < 0 ? self.duration() : self.totalDuration()) / (self.reversed() ? -value : value));
+    }
+
+    if (self._dirty) {
+      parent = self.parent;
+
+      while (child) {
+        prev = child._prev; //record it here in case the tween changes position in the sequence...
+
+        child._dirty && child.totalDuration(); //could change the tween._startTime, so make sure the animation's cache is clean before analyzing it.
+
+        start = child._start;
+
+        if (start > prevStart && self._sort && child._ts && !self._lock) {
+          //in case one of the tweens shifted out of order, it needs to be re-inserted into the correct position in the sequence
+          self._lock = 1; //prevent endless recursive calls - there are methods that get triggered that check duration/totalDuration when we add().
+
+          _addToTimeline(self, child, start - child._delay, 1)._lock = 0;
+        } else {
+          prevStart = start;
+        }
+
+        if (start < 0 && child._ts) {
+          //children aren't allowed to have negative startTimes unless smoothChildTiming is true, so adjust here if one is found.
+          max -= start;
+
+          if (!parent && !self._dp || parent && parent.smoothChildTiming) {
+            self._start += start / self._ts;
+            self._time -= start;
+            self._tTime -= start;
+          }
+
+          self.shiftChildren(-start, false, -1e999);
+          prevStart = 0;
+        }
+
+        child._end > max && child._ts && (max = child._end);
+        child = prev;
+      }
+
+      _setDuration(self, self === _globalTimeline && self._time > max ? self._time : max, 1, 1);
+
+      self._dirty = 0;
+    }
+
+    return self._tDur;
+  };
+
+  Timeline.updateRoot = function updateRoot(time) {
+    if (_globalTimeline._ts) {
+      _lazySafeRender(_globalTimeline, _parentToChildTotalTime(time, _globalTimeline));
+
+      _lastRenderedFrame = _ticker.frame;
+    }
+
+    if (_ticker.frame >= _nextGCFrame) {
+      _nextGCFrame += _config.autoSleep || 120;
+      var child = _globalTimeline._first;
+      if (!child || !child._ts) if (_config.autoSleep && _ticker._listeners.length < 2) {
+        while (child && !child._ts) {
+          child = child._next;
+        }
+
+        child || _ticker.sleep();
+      }
+    }
+  };
+
+  return Timeline;
+}(Animation);
+
+_setDefaults(Timeline.prototype, {
+  _lock: 0,
+  _hasPause: 0,
+  _forcing: 0
+});
+
+var _addComplexStringPropTween = function _addComplexStringPropTween(target, prop, start, end, setter, stringFilter, funcParam) {
+  //note: we call _addComplexStringPropTween.call(tweenInstance...) to ensure that it's scoped properly. We may call it from within a plugin too, thus "this" would refer to the plugin.
+  var pt = new PropTween(this._pt, target, prop, 0, 1, _renderComplexString, null, setter),
+      index = 0,
+      matchIndex = 0,
+      result,
+      startNums,
+      color,
+      endNum,
+      chunk,
+      startNum,
+      hasRandom,
+      a;
+  pt.b = start;
+  pt.e = end;
+  start += ""; //ensure values are strings
+
+  end += "";
+
+  if (hasRandom = ~end.indexOf("random(")) {
+    end = _replaceRandom(end);
+  }
+
+  if (stringFilter) {
+    a = [start, end];
+    stringFilter(a, target, prop); //pass an array with the starting and ending values and let the filter do whatever it needs to the values.
+
+    start = a[0];
+    end = a[1];
+  }
+
+  startNums = start.match(_complexStringNumExp) || [];
+
+  while (result = _complexStringNumExp.exec(end)) {
+    endNum = result[0];
+    chunk = end.substring(index, result.index);
+
+    if (color) {
+      color = (color + 1) % 5;
+    } else if (chunk.substr(-5) === "rgba(") {
+      color = 1;
+    }
+
+    if (endNum !== startNums[matchIndex++]) {
+      startNum = parseFloat(startNums[matchIndex - 1]) || 0; //these nested PropTweens are handled in a special way - we'll never actually call a render or setter method on them. We'll just loop through them in the parent complex string PropTween's render method.
+
+      pt._pt = {
+        _next: pt._pt,
+        p: chunk || matchIndex === 1 ? chunk : ",",
+        //note: SVG spec allows omission of comma/space when a negative sign is wedged between two numbers, like 2.5-5.3 instead of 2.5,-5.3 but when tweening, the negative value may switch to positive, so we insert the comma just in case.
+        s: startNum,
+        c: endNum.charAt(1) === "=" ? _parseRelative(startNum, endNum) - startNum : parseFloat(endNum) - startNum,
+        m: color && color < 4 ? Math.round : 0
+      };
+      index = _complexStringNumExp.lastIndex;
+    }
+  }
+
+  pt.c = index < end.length ? end.substring(index, end.length) : ""; //we use the "c" of the PropTween to store the final part of the string (after the last number)
+
+  pt.fp = funcParam;
+
+  if (_relExp.test(end) || hasRandom) {
+    pt.e = 0; //if the end string contains relative values or dynamic random(...) values, delete the end it so that on the final render we don't actually set it to the string with += or -= characters (forces it to use the calculated value).
+  }
+
+  this._pt = pt; //start the linked list with this new PropTween. Remember, we call _addComplexStringPropTween.call(tweenInstance...) to ensure that it's scoped properly. We may call it from within a plugin too, thus "this" would refer to the plugin.
+
+  return pt;
+},
+    _addPropTween = function _addPropTween(target, prop, start, end, index, targets, modifier, stringFilter, funcParam, optional) {
+  _isFunction(end) && (end = end(index || 0, target, targets));
+  var currentValue = target[prop],
+      parsedStart = start !== "get" ? start : !_isFunction(currentValue) ? currentValue : funcParam ? target[prop.indexOf("set") || !_isFunction(target["get" + prop.substr(3)]) ? prop : "get" + prop.substr(3)](funcParam) : target[prop](),
+      setter = !_isFunction(currentValue) ? _setterPlain : funcParam ? _setterFuncWithParam : _setterFunc,
+      pt;
+
+  if (_isString(end)) {
+    if (~end.indexOf("random(")) {
+      end = _replaceRandom(end);
+    }
+
+    if (end.charAt(1) === "=") {
+      pt = _parseRelative(parsedStart, end) + (getUnit(parsedStart) || 0);
+
+      if (pt || pt === 0) {
+        // to avoid isNaN, like if someone passes in a value like "!= whatever"
+        end = pt;
+      }
+    }
+  }
+
+  if (!optional || parsedStart !== end || _forceAllPropTweens) {
+    if (!isNaN(parsedStart * end) && end !== "") {
+      // fun fact: any number multiplied by "" is evaluated as the number 0!
+      pt = new PropTween(this._pt, target, prop, +parsedStart || 0, end - (parsedStart || 0), typeof currentValue === "boolean" ? _renderBoolean : _renderPlain, 0, setter);
+      funcParam && (pt.fp = funcParam);
+      modifier && pt.modifier(modifier, this, target);
+      return this._pt = pt;
+    }
+
+    !currentValue && !(prop in target) && _missingPlugin(prop, end);
+    return _addComplexStringPropTween.call(this, target, prop, parsedStart, end, setter, stringFilter || _config.stringFilter, funcParam);
+  }
+},
+    //creates a copy of the vars object and processes any function-based values (putting the resulting values directly into the copy) as well as strings with "random()" in them. It does NOT process relative values.
+_processVars = function _processVars(vars, index, target, targets, tween) {
+  _isFunction(vars) && (vars = _parseFuncOrString(vars, tween, index, target, targets));
+
+  if (!_isObject(vars) || vars.style && vars.nodeType || _isArray(vars) || _isTypedArray(vars)) {
+    return _isString(vars) ? _parseFuncOrString(vars, tween, index, target, targets) : vars;
+  }
+
+  var copy = {},
+      p;
+
+  for (p in vars) {
+    copy[p] = _parseFuncOrString(vars[p], tween, index, target, targets);
+  }
+
+  return copy;
+},
+    _checkPlugin = function _checkPlugin(property, vars, tween, index, target, targets) {
+  var plugin, pt, ptLookup, i;
+
+  if (_plugins[property] && (plugin = new _plugins[property]()).init(target, plugin.rawVars ? vars[property] : _processVars(vars[property], index, target, targets, tween), tween, index, targets) !== false) {
+    tween._pt = pt = new PropTween(tween._pt, target, property, 0, 1, plugin.render, plugin, 0, plugin.priority);
+
+    if (tween !== _quickTween) {
+      ptLookup = tween._ptLookup[tween._targets.indexOf(target)]; //note: we can't use tween._ptLookup[index] because for staggered tweens, the index from the fullTargets array won't match what it is in each individual tween that spawns from the stagger.
+
+      i = plugin._props.length;
+
+      while (i--) {
+        ptLookup[plugin._props[i]] = pt;
+      }
+    }
+  }
+
+  return plugin;
+},
+    _overwritingTween,
+    //store a reference temporarily so we can avoid overwriting itself.
+_forceAllPropTweens,
+    _initTween = function _initTween(tween, time, tTime) {
+  var vars = tween.vars,
+      ease = vars.ease,
+      startAt = vars.startAt,
+      immediateRender = vars.immediateRender,
+      lazy = vars.lazy,
+      onUpdate = vars.onUpdate,
+      runBackwards = vars.runBackwards,
+      yoyoEase = vars.yoyoEase,
+      keyframes = vars.keyframes,
+      autoRevert = vars.autoRevert,
+      dur = tween._dur,
+      prevStartAt = tween._startAt,
+      targets = tween._targets,
+      parent = tween.parent,
+      fullTargets = parent && parent.data === "nested" ? parent.vars.targets : targets,
+      autoOverwrite = tween._overwrite === "auto" && !_suppressOverwrites,
+      tl = tween.timeline,
+      cleanVars,
+      i,
+      p,
+      pt,
+      target,
+      hasPriority,
+      gsData,
+      harness,
+      plugin,
+      ptLookup,
+      index,
+      harnessVars,
+      overwritten;
+  tl && (!keyframes || !ease) && (ease = "none");
+  tween._ease = _parseEase(ease, _defaults.ease);
+  tween._yEase = yoyoEase ? _invertEase(_parseEase(yoyoEase === true ? ease : yoyoEase, _defaults.ease)) : 0;
+
+  if (yoyoEase && tween._yoyo && !tween._repeat) {
+    //there must have been a parent timeline with yoyo:true that is currently in its yoyo phase, so flip the eases.
+    yoyoEase = tween._yEase;
+    tween._yEase = tween._ease;
+    tween._ease = yoyoEase;
+  }
+
+  tween._from = !tl && !!vars.runBackwards; //nested timelines should never run backwards - the backwards-ness is in the child tweens.
+
+  if (!tl || keyframes && !vars.stagger) {
+    //if there's an internal timeline, skip all the parsing because we passed that task down the chain.
+    harness = targets[0] ? _getCache(targets[0]).harness : 0;
+    harnessVars = harness && vars[harness.prop]; //someone may need to specify CSS-specific values AND non-CSS values, like if the element has an "x" property plus it's a standard DOM element. We allow people to distinguish by wrapping plugin-specific stuff in a css:{} object for example.
+
+    cleanVars = _copyExcluding(vars, _reservedProps);
+
+    if (prevStartAt) {
+      prevStartAt._zTime < 0 && prevStartAt.progress(1); // in case it's a lazy startAt that hasn't rendered yet.
+
+      time < 0 && runBackwards && immediateRender && !autoRevert ? prevStartAt.render(-1, true) : prevStartAt.revert(runBackwards && dur ? _revertConfigNoKill : _startAtRevertConfig); // if it's a "startAt" (not "from()" or runBackwards: true), we only need to do a shallow revert (keep transforms cached in CSSPlugin)
+      // don't just _removeFromParent(prevStartAt.render(-1, true)) because that'll leave inline styles. We're creating a new _startAt for "startAt" tweens that re-capture things to ensure that if the pre-tween values changed since the tween was created, they're recorded.
+
+      prevStartAt._lazy = 0;
+    }
+
+    if (startAt) {
+      _removeFromParent(tween._startAt = Tween.set(targets, _setDefaults({
+        data: "isStart",
+        overwrite: false,
+        parent: parent,
+        immediateRender: true,
+        lazy: !prevStartAt && _isNotFalse(lazy),
+        startAt: null,
+        delay: 0,
+        onUpdate: onUpdate && function () {
+          return _callback(tween, "onUpdate");
+        },
+        stagger: 0
+      }, startAt))); //copy the properties/values into a new object to avoid collisions, like var to = {x:0}, from = {x:500}; timeline.fromTo(e, from, to).fromTo(e, to, from);
+
+
+      tween._startAt._dp = 0; // don't allow it to get put back into root timeline! Like when revert() is called and totalTime() gets set.
+
+      tween._startAt._sat = tween; // used in globalTime(). _sat stands for _startAtTween
+
+      time < 0 && (_reverting || !immediateRender && !autoRevert) && tween._startAt.revert(_revertConfigNoKill); // rare edge case, like if a render is forced in the negative direction of a non-initted tween.
+
+      if (immediateRender) {
+        if (dur && time <= 0 && tTime <= 0) {
+          // check tTime here because in the case of a yoyo tween whose playhead gets pushed to the end like tween.progress(1), we should allow it through so that the onComplete gets fired properly.
+          time && (tween._zTime = time);
+          return; //we skip initialization here so that overwriting doesn't occur until the tween actually begins. Otherwise, if you create several immediateRender:true tweens of the same target/properties to drop into a Timeline, the last one created would overwrite the first ones because they didn't get placed into the timeline yet before the first render occurs and kicks in overwriting.
+        }
+      }
+    } else if (runBackwards && dur) {
+      //from() tweens must be handled uniquely: their beginning values must be rendered but we don't want overwriting to occur yet (when time is still 0). Wait until the tween actually begins before doing all the routines like overwriting. At that time, we should render at the END of the tween to ensure that things initialize correctly (remember, from() tweens go backwards)
+      if (!prevStartAt) {
+        time && (immediateRender = false); //in rare cases (like if a from() tween runs and then is invalidate()-ed), immediateRender could be true but the initial forced-render gets skipped, so there's no need to force the render in this context when the _time is greater than 0
+
+        p = _setDefaults({
+          overwrite: false,
+          data: "isFromStart",
+          //we tag the tween with as "isFromStart" so that if [inside a plugin] we need to only do something at the very END of a tween, we have a way of identifying this tween as merely the one that's setting the beginning values for a "from()" tween. For example, clearProps in CSSPlugin should only get applied at the very END of a tween and without this tag, from(...{height:100, clearProps:"height", delay:1}) would wipe the height at the beginning of the tween and after 1 second, it'd kick back in.
+          lazy: immediateRender && !prevStartAt && _isNotFalse(lazy),
+          immediateRender: immediateRender,
+          //zero-duration tweens render immediately by default, but if we're not specifically instructed to render this tween immediately, we should skip this and merely _init() to record the starting values (rendering them immediately would push them to completion which is wasteful in that case - we'd have to render(-1) immediately after)
+          stagger: 0,
+          parent: parent //ensures that nested tweens that had a stagger are handled properly, like gsap.from(".class", {y: gsap.utils.wrap([-100,100]), stagger: 0.5})
+
+        }, cleanVars);
+        harnessVars && (p[harness.prop] = harnessVars); // in case someone does something like .from(..., {css:{}})
+
+        _removeFromParent(tween._startAt = Tween.set(targets, p));
+
+        tween._startAt._dp = 0; // don't allow it to get put back into root timeline!
+
+        tween._startAt._sat = tween; // used in globalTime()
+
+        time < 0 && (_reverting ? tween._startAt.revert(_revertConfigNoKill) : tween._startAt.render(-1, true));
+        tween._zTime = time;
+
+        if (!immediateRender) {
+          _initTween(tween._startAt, _tinyNum, _tinyNum); //ensures that the initial values are recorded
+
+        } else if (!time) {
+          return;
+        }
+      }
+    }
+
+    tween._pt = tween._ptCache = 0;
+    lazy = dur && _isNotFalse(lazy) || lazy && !dur;
+
+    for (i = 0; i < targets.length; i++) {
+      target = targets[i];
+      gsData = target._gsap || _harness(targets)[i]._gsap;
+      tween._ptLookup[i] = ptLookup = {};
+      _lazyLookup[gsData.id] && _lazyTweens.length && _lazyRender(); //if other tweens of the same target have recently initted but haven't rendered yet, we've got to force the render so that the starting values are correct (imagine populating a timeline with a bunch of sequential tweens and then jumping to the end)
+
+      index = fullTargets === targets ? i : fullTargets.indexOf(target);
+
+      if (harness && (plugin = new harness()).init(target, harnessVars || cleanVars, tween, index, fullTargets) !== false) {
+        tween._pt = pt = new PropTween(tween._pt, target, plugin.name, 0, 1, plugin.render, plugin, 0, plugin.priority);
+
+        plugin._props.forEach(function (name) {
+          ptLookup[name] = pt;
+        });
+
+        plugin.priority && (hasPriority = 1);
+      }
+
+      if (!harness || harnessVars) {
+        for (p in cleanVars) {
+          if (_plugins[p] && (plugin = _checkPlugin(p, cleanVars, tween, index, target, fullTargets))) {
+            plugin.priority && (hasPriority = 1);
+          } else {
+            ptLookup[p] = pt = _addPropTween.call(tween, target, p, "get", cleanVars[p], index, fullTargets, 0, vars.stringFilter);
+          }
+        }
+      }
+
+      tween._op && tween._op[i] && tween.kill(target, tween._op[i]);
+
+      if (autoOverwrite && tween._pt) {
+        _overwritingTween = tween;
+
+        _globalTimeline.killTweensOf(target, ptLookup, tween.globalTime(time)); // make sure the overwriting doesn't overwrite THIS tween!!!
+
+
+        overwritten = !tween.parent;
+        _overwritingTween = 0;
+      }
+
+      tween._pt && lazy && (_lazyLookup[gsData.id] = 1);
+    }
+
+    hasPriority && _sortPropTweensByPriority(tween);
+    tween._onInit && tween._onInit(tween); //plugins like RoundProps must wait until ALL of the PropTweens are instantiated. In the plugin's init() function, it sets the _onInit on the tween instance. May not be pretty/intuitive, but it's fast and keeps file size down.
+  }
+
+  tween._onUpdate = onUpdate;
+  tween._initted = (!tween._op || tween._pt) && !overwritten; // if overwrittenProps resulted in the entire tween being killed, do NOT flag it as initted or else it may render for one tick.
+
+  keyframes && time <= 0 && tl.render(_bigNum, true, true); // if there's a 0% keyframe, it'll render in the "before" state for any staggered/delayed animations thus when the following tween initializes, it'll use the "before" state instead of the "after" state as the initial values.
+},
+    _updatePropTweens = function _updatePropTweens(tween, property, value, start, startIsRelative, ratio, time, skipRecursion) {
+  var ptCache = (tween._pt && tween._ptCache || (tween._ptCache = {}))[property],
+      pt,
+      rootPT,
+      lookup,
+      i;
+
+  if (!ptCache) {
+    ptCache = tween._ptCache[property] = [];
+    lookup = tween._ptLookup;
+    i = tween._targets.length;
+
+    while (i--) {
+      pt = lookup[i][property];
+
+      if (pt && pt.d && pt.d._pt) {
+        // it's a plugin, so find the nested PropTween
+        pt = pt.d._pt;
+
+        while (pt && pt.p !== property && pt.fp !== property) {
+          // "fp" is functionParam for things like setting CSS variables which require .setProperty("--var-name", value)
+          pt = pt._next;
+        }
+      }
+
+      if (!pt) {
+        // there is no PropTween associated with that property, so we must FORCE one to be created and ditch out of this
+        // if the tween has other properties that already rendered at new positions, we'd normally have to rewind to put them back like tween.render(0, true) before forcing an _initTween(), but that can create another edge case like tweening a timeline's progress would trigger onUpdates to fire which could move other things around. It's better to just inform users that .resetTo() should ONLY be used for tweens that already have that property. For example, you can't gsap.to(...{ y: 0 }) and then tween.restTo("x", 200) for example.
+        _forceAllPropTweens = 1; // otherwise, when we _addPropTween() and it finds no change between the start and end values, it skips creating a PropTween (for efficiency...why tween when there's no difference?) but in this case we NEED that PropTween created so we can edit it.
+
+        tween.vars[property] = "+=0";
+
+        _initTween(tween, time);
+
+        _forceAllPropTweens = 0;
+        return skipRecursion ? _warn(property + " not eligible for reset") : 1; // if someone tries to do a quickTo() on a special property like borderRadius which must get split into 4 different properties, that's not eligible for .resetTo().
+      }
+
+      ptCache.push(pt);
+    }
+  }
+
+  i = ptCache.length;
+
+  while (i--) {
+    rootPT = ptCache[i];
+    pt = rootPT._pt || rootPT; // complex values may have nested PropTweens. We only accommodate the FIRST value.
+
+    pt.s = (start || start === 0) && !startIsRelative ? start : pt.s + (start || 0) + ratio * pt.c;
+    pt.c = value - pt.s;
+    rootPT.e && (rootPT.e = _round(value) + getUnit(rootPT.e)); // mainly for CSSPlugin (end value)
+
+    rootPT.b && (rootPT.b = pt.s + getUnit(rootPT.b)); // (beginning value)
+  }
+},
+    _addAliasesToVars = function _addAliasesToVars(targets, vars) {
+  var harness = targets[0] ? _getCache(targets[0]).harness : 0,
+      propertyAliases = harness && harness.aliases,
+      copy,
+      p,
+      i,
+      aliases;
+
+  if (!propertyAliases) {
+    return vars;
+  }
+
+  copy = _merge({}, vars);
+
+  for (p in propertyAliases) {
+    if (p in copy) {
+      aliases = propertyAliases[p].split(",");
+      i = aliases.length;
+
+      while (i--) {
+        copy[aliases[i]] = copy[p];
+      }
+    }
+  }
+
+  return copy;
+},
+    // parses multiple formats, like {"0%": {x: 100}, {"50%": {x: -20}} and { x: {"0%": 100, "50%": -20} }, and an "ease" can be set on any object. We populate an "allProps" object with an Array for each property, like {x: [{}, {}], y:[{}, {}]} with data for each property tween. The objects have a "t" (time), "v", (value), and "e" (ease) property. This allows us to piece together a timeline later.
+_parseKeyframe = function _parseKeyframe(prop, obj, allProps, easeEach) {
+  var ease = obj.ease || easeEach || "power1.inOut",
+      p,
+      a;
+
+  if (_isArray(obj)) {
+    a = allProps[prop] || (allProps[prop] = []); // t = time (out of 100), v = value, e = ease
+
+    obj.forEach(function (value, i) {
+      return a.push({
+        t: i / (obj.length - 1) * 100,
+        v: value,
+        e: ease
+      });
+    });
+  } else {
+    for (p in obj) {
+      a = allProps[p] || (allProps[p] = []);
+      p === "ease" || a.push({
+        t: parseFloat(prop),
+        v: obj[p],
+        e: ease
+      });
+    }
+  }
+},
+    _parseFuncOrString = function _parseFuncOrString(value, tween, i, target, targets) {
+  return _isFunction(value) ? value.call(tween, i, target, targets) : _isString(value) && ~value.indexOf("random(") ? _replaceRandom(value) : value;
+},
+    _staggerTweenProps = _callbackNames + "repeat,repeatDelay,yoyo,repeatRefresh,yoyoEase,autoRevert",
+    _staggerPropsToSkip = {};
+
+_forEachName(_staggerTweenProps + ",id,stagger,delay,duration,paused,scrollTrigger", function (name) {
+  return _staggerPropsToSkip[name] = 1;
+});
+/*
+ * --------------------------------------------------------------------------------------
+ * TWEEN
+ * --------------------------------------------------------------------------------------
+ */
+
+
+var Tween = /*#__PURE__*/function (_Animation2) {
+  _inheritsLoose(Tween, _Animation2);
+
+  function Tween(targets, vars, position, skipInherit) {
+    var _this3;
+
+    if (typeof vars === "number") {
+      position.duration = vars;
+      vars = position;
+      position = null;
+    }
+
+    _this3 = _Animation2.call(this, skipInherit ? vars : _inheritDefaults(vars)) || this;
+    var _this3$vars = _this3.vars,
+        duration = _this3$vars.duration,
+        delay = _this3$vars.delay,
+        immediateRender = _this3$vars.immediateRender,
+        stagger = _this3$vars.stagger,
+        overwrite = _this3$vars.overwrite,
+        keyframes = _this3$vars.keyframes,
+        defaults = _this3$vars.defaults,
+        scrollTrigger = _this3$vars.scrollTrigger,
+        yoyoEase = _this3$vars.yoyoEase,
+        parent = vars.parent || _globalTimeline,
+        parsedTargets = (_isArray(targets) || _isTypedArray(targets) ? _isNumber(targets[0]) : "length" in vars) ? [targets] : toArray(targets),
+        tl,
+        i,
+        copy,
+        l,
+        p,
+        curTarget,
+        staggerFunc,
+        staggerVarsToMerge;
+    _this3._targets = parsedTargets.length ? _harness(parsedTargets) : _warn("GSAP target " + targets + " not found. https://gsap.com", !_config.nullTargetWarn) || [];
+    _this3._ptLookup = []; //PropTween lookup. An array containing an object for each target, having keys for each tweening property
+
+    _this3._overwrite = overwrite;
+
+    if (keyframes || stagger || _isFuncOrString(duration) || _isFuncOrString(delay)) {
+      vars = _this3.vars;
+      tl = _this3.timeline = new Timeline({
+        data: "nested",
+        defaults: defaults || {},
+        targets: parent && parent.data === "nested" ? parent.vars.targets : parsedTargets
+      }); // we need to store the targets because for staggers and keyframes, we end up creating an individual tween for each but function-based values need to know the index and the whole Array of targets.
+
+      tl.kill();
+      tl.parent = tl._dp = _assertThisInitialized(_this3);
+      tl._start = 0;
+
+      if (stagger || _isFuncOrString(duration) || _isFuncOrString(delay)) {
+        l = parsedTargets.length;
+        staggerFunc = stagger && distribute(stagger);
+
+        if (_isObject(stagger)) {
+          //users can pass in callbacks like onStart/onComplete in the stagger object. These should fire with each individual tween.
+          for (p in stagger) {
+            if (~_staggerTweenProps.indexOf(p)) {
+              staggerVarsToMerge || (staggerVarsToMerge = {});
+              staggerVarsToMerge[p] = stagger[p];
+            }
+          }
+        }
+
+        for (i = 0; i < l; i++) {
+          copy = _copyExcluding(vars, _staggerPropsToSkip);
+          copy.stagger = 0;
+          yoyoEase && (copy.yoyoEase = yoyoEase);
+          staggerVarsToMerge && _merge(copy, staggerVarsToMerge);
+          curTarget = parsedTargets[i]; //don't just copy duration or delay because if they're a string or function, we'd end up in an infinite loop because _isFuncOrString() would evaluate as true in the child tweens, entering this loop, etc. So we parse the value straight from vars and default to 0.
+
+          copy.duration = +_parseFuncOrString(duration, _assertThisInitialized(_this3), i, curTarget, parsedTargets);
+          copy.delay = (+_parseFuncOrString(delay, _assertThisInitialized(_this3), i, curTarget, parsedTargets) || 0) - _this3._delay;
+
+          if (!stagger && l === 1 && copy.delay) {
+            // if someone does delay:"random(1, 5)", repeat:-1, for example, the delay shouldn't be inside the repeat.
+            _this3._delay = delay = copy.delay;
+            _this3._start += delay;
+            copy.delay = 0;
+          }
+
+          tl.to(curTarget, copy, staggerFunc ? staggerFunc(i, curTarget, parsedTargets) : 0);
+          tl._ease = _easeMap.none;
+        }
+
+        tl.duration() ? duration = delay = 0 : _this3.timeline = 0; // if the timeline's duration is 0, we don't need a timeline internally!
+      } else if (keyframes) {
+        _inheritDefaults(_setDefaults(tl.vars.defaults, {
+          ease: "none"
+        }));
+
+        tl._ease = _parseEase(keyframes.ease || vars.ease || "none");
+        var time = 0,
+            a,
+            kf,
+            v;
+
+        if (_isArray(keyframes)) {
+          keyframes.forEach(function (frame) {
+            return tl.to(parsedTargets, frame, ">");
+          });
+          tl.duration(); // to ensure tl._dur is cached because we tap into it for performance purposes in the render() method.
+        } else {
+          copy = {};
+
+          for (p in keyframes) {
+            p === "ease" || p === "easeEach" || _parseKeyframe(p, keyframes[p], copy, keyframes.easeEach);
+          }
+
+          for (p in copy) {
+            a = copy[p].sort(function (a, b) {
+              return a.t - b.t;
+            });
+            time = 0;
+
+            for (i = 0; i < a.length; i++) {
+              kf = a[i];
+              v = {
+                ease: kf.e,
+                duration: (kf.t - (i ? a[i - 1].t : 0)) / 100 * duration
+              };
+              v[p] = kf.v;
+              tl.to(parsedTargets, v, time);
+              time += v.duration;
+            }
+          }
+
+          tl.duration() < duration && tl.to({}, {
+            duration: duration - tl.duration()
+          }); // in case keyframes didn't go to 100%
+        }
+      }
+
+      duration || _this3.duration(duration = tl.duration());
+    } else {
+      _this3.timeline = 0; //speed optimization, faster lookups (no going up the prototype chain)
+    }
+
+    if (overwrite === true && !_suppressOverwrites) {
+      _overwritingTween = _assertThisInitialized(_this3);
+
+      _globalTimeline.killTweensOf(parsedTargets);
+
+      _overwritingTween = 0;
+    }
+
+    _addToTimeline(parent, _assertThisInitialized(_this3), position);
+
+    vars.reversed && _this3.reverse();
+    vars.paused && _this3.paused(true);
+
+    if (immediateRender || !duration && !keyframes && _this3._start === _roundPrecise(parent._time) && _isNotFalse(immediateRender) && _hasNoPausedAncestors(_assertThisInitialized(_this3)) && parent.data !== "nested") {
+      _this3._tTime = -_tinyNum; //forces a render without having to set the render() "force" parameter to true because we want to allow lazying by default (using the "force" parameter always forces an immediate full render)
+
+      _this3.render(Math.max(0, -delay) || 0); //in case delay is negative
+
+    }
+
+    scrollTrigger && _scrollTrigger(_assertThisInitialized(_this3), scrollTrigger);
+    return _this3;
+  }
+
+  var _proto3 = Tween.prototype;
+
+  _proto3.render = function render(totalTime, suppressEvents, force) {
+    var prevTime = this._time,
+        tDur = this._tDur,
+        dur = this._dur,
+        isNegative = totalTime < 0,
+        tTime = totalTime > tDur - _tinyNum && !isNegative ? tDur : totalTime < _tinyNum ? 0 : totalTime,
+        time,
+        pt,
+        iteration,
+        cycleDuration,
+        prevIteration,
+        isYoyo,
+        ratio,
+        timeline,
+        yoyoEase;
+
+    if (!dur) {
+      _renderZeroDurationTween(this, totalTime, suppressEvents, force);
+    } else if (tTime !== this._tTime || !totalTime || force || !this._initted && this._tTime || this._startAt && this._zTime < 0 !== isNegative) {
+      //this senses if we're crossing over the start time, in which case we must record _zTime and force the render, but we do it in this lengthy conditional way for performance reasons (usually we can skip the calculations): this._initted && (this._zTime < 0) !== (totalTime < 0)
+      time = tTime;
+      timeline = this.timeline;
+
+      if (this._repeat) {
+        //adjust the time for repeats and yoyos
+        cycleDuration = dur + this._rDelay;
+
+        if (this._repeat < -1 && isNegative) {
+          return this.totalTime(cycleDuration * 100 + totalTime, suppressEvents, force);
+        }
+
+        time = _roundPrecise(tTime % cycleDuration); //round to avoid floating point errors. (4 % 0.8 should be 0 but some browsers report it as 0.79999999!)
+
+        if (tTime === tDur) {
+          // the tDur === tTime is for edge cases where there's a lengthy decimal on the duration and it may reach the very end but the time is rendered as not-quite-there (remember, tDur is rounded to 4 decimals whereas dur isn't)
+          iteration = this._repeat;
+          time = dur;
+        } else {
+          iteration = ~~(tTime / cycleDuration);
+
+          if (iteration && iteration === _roundPrecise(tTime / cycleDuration)) {
+            time = dur;
+            iteration--;
+          }
+
+          time > dur && (time = dur);
+        }
+
+        isYoyo = this._yoyo && iteration & 1;
+
+        if (isYoyo) {
+          yoyoEase = this._yEase;
+          time = dur - time;
+        }
+
+        prevIteration = _animationCycle(this._tTime, cycleDuration);
+
+        if (time === prevTime && !force && this._initted && iteration === prevIteration) {
+          //could be during the repeatDelay part. No need to render and fire callbacks.
+          this._tTime = tTime;
+          return this;
+        }
+
+        if (iteration !== prevIteration) {
+          timeline && this._yEase && _propagateYoyoEase(timeline, isYoyo); //repeatRefresh functionality
+
+          if (this.vars.repeatRefresh && !isYoyo && !this._lock && this._time !== cycleDuration && this._initted) {
+            // this._time will === cycleDuration when we render at EXACTLY the end of an iteration. Without this condition, it'd often do the repeatRefresh render TWICE (again on the very next tick).
+            this._lock = force = 1; //force, otherwise if lazy is true, the _attemptInitTween() will return and we'll jump out and get caught bouncing on each tick.
+
+            this.render(_roundPrecise(cycleDuration * iteration), true).invalidate()._lock = 0;
+          }
+        }
+      }
+
+      if (!this._initted) {
+        if (_attemptInitTween(this, isNegative ? totalTime : time, force, suppressEvents, tTime)) {
+          this._tTime = 0; // in constructor if immediateRender is true, we set _tTime to -_tinyNum to have the playhead cross the starting point but we can't leave _tTime as a negative number.
+
+          return this;
+        }
+
+        if (prevTime !== this._time && !(force && this.vars.repeatRefresh && iteration !== prevIteration)) {
+          // rare edge case - during initialization, an onUpdate in the _startAt (.fromTo()) might force this tween to render at a different spot in which case we should ditch this render() call so that it doesn't revert the values. But we also don't want to dump if we're doing a repeatRefresh render!
+          return this;
+        }
+
+        if (dur !== this._dur) {
+          // while initting, a plugin like InertiaPlugin might alter the duration, so rerun from the start to ensure everything renders as it should.
+          return this.render(totalTime, suppressEvents, force);
+        }
+      }
+
+      this._tTime = tTime;
+      this._time = time;
+
+      if (!this._act && this._ts) {
+        this._act = 1; //as long as it's not paused, force it to be active so that if the user renders independent of the parent timeline, it'll be forced to re-render on the next tick.
+
+        this._lazy = 0;
+      }
+
+      this.ratio = ratio = (yoyoEase || this._ease)(time / dur);
+
+      if (this._from) {
+        this.ratio = ratio = 1 - ratio;
+      }
+
+      if (time && !prevTime && !suppressEvents && !iteration) {
+        _callback(this, "onStart");
+
+        if (this._tTime !== tTime) {
+          // in case the onStart triggered a render at a different spot, eject. Like if someone did animation.pause(0.5) or something inside the onStart.
+          return this;
+        }
+      }
+
+      pt = this._pt;
+
+      while (pt) {
+        pt.r(ratio, pt.d);
+        pt = pt._next;
+      }
+
+      timeline && timeline.render(totalTime < 0 ? totalTime : timeline._dur * timeline._ease(time / this._dur), suppressEvents, force) || this._startAt && (this._zTime = totalTime);
+
+      if (this._onUpdate && !suppressEvents) {
+        isNegative && _rewindStartAt(this, totalTime, suppressEvents, force); //note: for performance reasons, we tuck this conditional logic inside less traveled areas (most tweens don't have an onUpdate). We'd just have it at the end before the onComplete, but the values should be updated before any onUpdate is called, so we ALSO put it here and then if it's not called, we do so later near the onComplete.
+
+        _callback(this, "onUpdate");
+      }
+
+      this._repeat && iteration !== prevIteration && this.vars.onRepeat && !suppressEvents && this.parent && _callback(this, "onRepeat");
+
+      if ((tTime === this._tDur || !tTime) && this._tTime === tTime) {
+        isNegative && !this._onUpdate && _rewindStartAt(this, totalTime, true, true);
+        (totalTime || !dur) && (tTime === this._tDur && this._ts > 0 || !tTime && this._ts < 0) && _removeFromParent(this, 1); // don't remove if we're rendering at exactly a time of 0, as there could be autoRevert values that should get set on the next tick (if the playhead goes backward beyond the startTime, negative totalTime). Don't remove if the timeline is reversed and the playhead isn't at 0, otherwise tl.progress(1).reverse() won't work. Only remove if the playhead is at the end and timeScale is positive, or if the playhead is at 0 and the timeScale is negative.
+
+        if (!suppressEvents && !(isNegative && !prevTime) && (tTime || prevTime || isYoyo)) {
+          // if prevTime and tTime are zero, we shouldn't fire the onReverseComplete. This could happen if you gsap.to(... {paused:true}).play();
+          _callback(this, tTime === tDur ? "onComplete" : "onReverseComplete", true);
+
+          this._prom && !(tTime < tDur && this.timeScale() > 0) && this._prom();
+        }
+      }
+    }
+
+    return this;
+  };
+
+  _proto3.targets = function targets() {
+    return this._targets;
+  };
+
+  _proto3.invalidate = function invalidate(soft) {
+    // "soft" gives us a way to clear out everything EXCEPT the recorded pre-"from" portion of from() tweens. Otherwise, for example, if you tween.progress(1).render(0, true true).invalidate(), the "from" values would persist and then on the next render, the from() tweens would initialize and the current value would match the "from" values, thus animate from the same value to the same value (no animation). We tap into this in ScrollTrigger's refresh() where we must push a tween to completion and then back again but honor its init state in case the tween is dependent on another tween further up on the page.
+    (!soft || !this.vars.runBackwards) && (this._startAt = 0);
+    this._pt = this._op = this._onUpdate = this._lazy = this.ratio = 0;
+    this._ptLookup = [];
+    this.timeline && this.timeline.invalidate(soft);
+    return _Animation2.prototype.invalidate.call(this, soft);
+  };
+
+  _proto3.resetTo = function resetTo(property, value, start, startIsRelative, skipRecursion) {
+    _tickerActive || _ticker.wake();
+    this._ts || this.play();
+    var time = Math.min(this._dur, (this._dp._time - this._start) * this._ts),
+        ratio;
+    this._initted || _initTween(this, time);
+    ratio = this._ease(time / this._dur); // don't just get tween.ratio because it may not have rendered yet.
+    // possible future addition to allow an object with multiple values to update, like tween.resetTo({x: 100, y: 200}); At this point, it doesn't seem worth the added kb given the fact that most users will likely opt for the convenient gsap.quickTo() way of interacting with this method.
+    // if (_isObject(property)) { // performance optimization
+    // 	for (p in property) {
+    // 		if (_updatePropTweens(this, p, property[p], value ? value[p] : null, start, ratio, time)) {
+    // 			return this.resetTo(property, value, start, startIsRelative); // if a PropTween wasn't found for the property, it'll get forced with a re-initialization so we need to jump out and start over again.
+    // 		}
+    // 	}
+    // } else {
+
+    if (_updatePropTweens(this, property, value, start, startIsRelative, ratio, time, skipRecursion)) {
+      return this.resetTo(property, value, start, startIsRelative, 1); // if a PropTween wasn't found for the property, it'll get forced with a re-initialization so we need to jump out and start over again.
+    } //}
+
+
+    _alignPlayhead(this, 0);
+
+    this.parent || _addLinkedListItem(this._dp, this, "_first", "_last", this._dp._sort ? "_start" : 0);
+    return this.render(0);
+  };
+
+  _proto3.kill = function kill(targets, vars) {
+    if (vars === void 0) {
+      vars = "all";
+    }
+
+    if (!targets && (!vars || vars === "all")) {
+      this._lazy = this._pt = 0;
+      return this.parent ? _interrupt(this) : this;
+    }
+
+    if (this.timeline) {
+      var tDur = this.timeline.totalDuration();
+      this.timeline.killTweensOf(targets, vars, _overwritingTween && _overwritingTween.vars.overwrite !== true)._first || _interrupt(this); // if nothing is left tweening, interrupt.
+
+      this.parent && tDur !== this.timeline.totalDuration() && _setDuration(this, this._dur * this.timeline._tDur / tDur, 0, 1); // if a nested tween is killed that changes the duration, it should affect this tween's duration. We must use the ratio, though, because sometimes the internal timeline is stretched like for keyframes where they don't all add up to whatever the parent tween's duration was set to.
+
+      return this;
+    }
+
+    var parsedTargets = this._targets,
+        killingTargets = targets ? toArray(targets) : parsedTargets,
+        propTweenLookup = this._ptLookup,
+        firstPT = this._pt,
+        overwrittenProps,
+        curLookup,
+        curOverwriteProps,
+        props,
+        p,
+        pt,
+        i;
+
+    if ((!vars || vars === "all") && _arraysMatch(parsedTargets, killingTargets)) {
+      vars === "all" && (this._pt = 0);
+      return _interrupt(this);
+    }
+
+    overwrittenProps = this._op = this._op || [];
+
+    if (vars !== "all") {
+      //so people can pass in a comma-delimited list of property names
+      if (_isString(vars)) {
+        p = {};
+
+        _forEachName(vars, function (name) {
+          return p[name] = 1;
+        });
+
+        vars = p;
+      }
+
+      vars = _addAliasesToVars(parsedTargets, vars);
+    }
+
+    i = parsedTargets.length;
+
+    while (i--) {
+      if (~killingTargets.indexOf(parsedTargets[i])) {
+        curLookup = propTweenLookup[i];
+
+        if (vars === "all") {
+          overwrittenProps[i] = vars;
+          props = curLookup;
+          curOverwriteProps = {};
+        } else {
+          curOverwriteProps = overwrittenProps[i] = overwrittenProps[i] || {};
+          props = vars;
+        }
+
+        for (p in props) {
+          pt = curLookup && curLookup[p];
+
+          if (pt) {
+            if (!("kill" in pt.d) || pt.d.kill(p) === true) {
+              _removeLinkedListItem(this, pt, "_pt");
+            }
+
+            delete curLookup[p];
+          }
+
+          if (curOverwriteProps !== "all") {
+            curOverwriteProps[p] = 1;
+          }
+        }
+      }
+    }
+
+    this._initted && !this._pt && firstPT && _interrupt(this); //if all tweening properties are killed, kill the tween. Without this line, if there's a tween with multiple targets and then you killTweensOf() each target individually, the tween would technically still remain active and fire its onComplete even though there aren't any more properties tweening.
+
+    return this;
+  };
+
+  Tween.to = function to(targets, vars) {
+    return new Tween(targets, vars, arguments[2]);
+  };
+
+  Tween.from = function from(targets, vars) {
+    return _createTweenType(1, arguments);
+  };
+
+  Tween.delayedCall = function delayedCall(delay, callback, params, scope) {
+    return new Tween(callback, 0, {
+      immediateRender: false,
+      lazy: false,
+      overwrite: false,
+      delay: delay,
+      onComplete: callback,
+      onReverseComplete: callback,
+      onCompleteParams: params,
+      onReverseCompleteParams: params,
+      callbackScope: scope
+    }); // we must use onReverseComplete too for things like timeline.add(() => {...}) which should be triggered in BOTH directions (forward and reverse)
+  };
+
+  Tween.fromTo = function fromTo(targets, fromVars, toVars) {
+    return _createTweenType(2, arguments);
+  };
+
+  Tween.set = function set(targets, vars) {
+    vars.duration = 0;
+    vars.repeatDelay || (vars.repeat = 0);
+    return new Tween(targets, vars);
+  };
+
+  Tween.killTweensOf = function killTweensOf(targets, props, onlyActive) {
+    return _globalTimeline.killTweensOf(targets, props, onlyActive);
+  };
+
+  return Tween;
+}(Animation);
+
+_setDefaults(Tween.prototype, {
+  _targets: [],
+  _lazy: 0,
+  _startAt: 0,
+  _op: 0,
+  _onInit: 0
+}); //add the pertinent timeline methods to Tween instances so that users can chain conveniently and create a timeline automatically. (removed due to concerns that it'd ultimately add to more confusion especially for beginners)
+// _forEachName("to,from,fromTo,set,call,add,addLabel,addPause", name => {
+// 	Tween.prototype[name] = function() {
+// 		let tl = new Timeline();
+// 		return _addToTimeline(tl, this)[name].apply(tl, toArray(arguments));
+// 	}
+// });
+//for backward compatibility. Leverage the timeline calls.
+
+
+_forEachName("staggerTo,staggerFrom,staggerFromTo", function (name) {
+  Tween[name] = function () {
+    var tl = new Timeline(),
+        params = _slice.call(arguments, 0);
+
+    params.splice(name === "staggerFromTo" ? 5 : 4, 0, 0);
+    return tl[name].apply(tl, params);
+  };
+});
+/*
+ * --------------------------------------------------------------------------------------
+ * PROPTWEEN
+ * --------------------------------------------------------------------------------------
+ */
+
+
+var _setterPlain = function _setterPlain(target, property, value) {
+  return target[property] = value;
+},
+    _setterFunc = function _setterFunc(target, property, value) {
+  return target[property](value);
+},
+    _setterFuncWithParam = function _setterFuncWithParam(target, property, value, data) {
+  return target[property](data.fp, value);
+},
+    _setterAttribute = function _setterAttribute(target, property, value) {
+  return target.setAttribute(property, value);
+},
+    _getSetter = function _getSetter(target, property) {
+  return _isFunction(target[property]) ? _setterFunc : _isUndefined(target[property]) && target.setAttribute ? _setterAttribute : _setterPlain;
+},
+    _renderPlain = function _renderPlain(ratio, data) {
+  return data.set(data.t, data.p, Math.round((data.s + data.c * ratio) * 1000000) / 1000000, data);
+},
+    _renderBoolean = function _renderBoolean(ratio, data) {
+  return data.set(data.t, data.p, !!(data.s + data.c * ratio), data);
+},
+    _renderComplexString = function _renderComplexString(ratio, data) {
+  var pt = data._pt,
+      s = "";
+
+  if (!ratio && data.b) {
+    //b = beginning string
+    s = data.b;
+  } else if (ratio === 1 && data.e) {
+    //e = ending string
+    s = data.e;
+  } else {
+    while (pt) {
+      s = pt.p + (pt.m ? pt.m(pt.s + pt.c * ratio) : Math.round((pt.s + pt.c * ratio) * 10000) / 10000) + s; //we use the "p" property for the text inbetween (like a suffix). And in the context of a complex string, the modifier (m) is typically just Math.round(), like for RGB colors.
+
+      pt = pt._next;
+    }
+
+    s += data.c; //we use the "c" of the PropTween to store the final chunk of non-numeric text.
+  }
+
+  data.set(data.t, data.p, s, data);
+},
+    _renderPropTweens = function _renderPropTweens(ratio, data) {
+  var pt = data._pt;
+
+  while (pt) {
+    pt.r(ratio, pt.d);
+    pt = pt._next;
+  }
+},
+    _addPluginModifier = function _addPluginModifier(modifier, tween, target, property) {
+  var pt = this._pt,
+      next;
+
+  while (pt) {
+    next = pt._next;
+    pt.p === property && pt.modifier(modifier, tween, target);
+    pt = next;
+  }
+},
+    _killPropTweensOf = function _killPropTweensOf(property) {
+  var pt = this._pt,
+      hasNonDependentRemaining,
+      next;
+
+  while (pt) {
+    next = pt._next;
+
+    if (pt.p === property && !pt.op || pt.op === property) {
+      _removeLinkedListItem(this, pt, "_pt");
+    } else if (!pt.dep) {
+      hasNonDependentRemaining = 1;
+    }
+
+    pt = next;
+  }
+
+  return !hasNonDependentRemaining;
+},
+    _setterWithModifier = function _setterWithModifier(target, property, value, data) {
+  data.mSet(target, property, data.m.call(data.tween, value, data.mt), data);
+},
+    _sortPropTweensByPriority = function _sortPropTweensByPriority(parent) {
+  var pt = parent._pt,
+      next,
+      pt2,
+      first,
+      last; //sorts the PropTween linked list in order of priority because some plugins need to do their work after ALL of the PropTweens were created (like RoundPropsPlugin and ModifiersPlugin)
+
+  while (pt) {
+    next = pt._next;
+    pt2 = first;
+
+    while (pt2 && pt2.pr > pt.pr) {
+      pt2 = pt2._next;
+    }
+
+    if (pt._prev = pt2 ? pt2._prev : last) {
+      pt._prev._next = pt;
+    } else {
+      first = pt;
+    }
+
+    if (pt._next = pt2) {
+      pt2._prev = pt;
+    } else {
+      last = pt;
+    }
+
+    pt = next;
+  }
+
+  parent._pt = first;
+}; //PropTween key: t = target, p = prop, r = renderer, d = data, s = start, c = change, op = overwriteProperty (ONLY populated when it's different than p), pr = priority, _next/_prev for the linked list siblings, set = setter, m = modifier, mSet = modifierSetter (the original setter, before a modifier was added)
+
+
+var PropTween = /*#__PURE__*/function () {
+  function PropTween(next, target, prop, start, change, renderer, data, setter, priority) {
+    this.t = target;
+    this.s = start;
+    this.c = change;
+    this.p = prop;
+    this.r = renderer || _renderPlain;
+    this.d = data || this;
+    this.set = setter || _setterPlain;
+    this.pr = priority || 0;
+    this._next = next;
+
+    if (next) {
+      next._prev = this;
+    }
+  }
+
+  var _proto4 = PropTween.prototype;
+
+  _proto4.modifier = function modifier(func, tween, target) {
+    this.mSet = this.mSet || this.set; //in case it was already set (a PropTween can only have one modifier)
+
+    this.set = _setterWithModifier;
+    this.m = func;
+    this.mt = target; //modifier target
+
+    this.tween = tween;
+  };
+
+  return PropTween;
+}(); //Initialization tasks
+
+_forEachName(_callbackNames + "parent,duration,ease,delay,overwrite,runBackwards,startAt,yoyo,immediateRender,repeat,repeatDelay,data,paused,reversed,lazy,callbackScope,stringFilter,id,yoyoEase,stagger,inherit,repeatRefresh,keyframes,autoRevert,scrollTrigger", function (name) {
+  return _reservedProps[name] = 1;
+});
+
+_globals.TweenMax = _globals.TweenLite = Tween;
+_globals.TimelineLite = _globals.TimelineMax = Timeline;
+_globalTimeline = new Timeline({
+  sortChildren: false,
+  defaults: _defaults,
+  autoRemoveChildren: true,
+  id: "root",
+  smoothChildTiming: true
+});
+_config.stringFilter = _colorStringFilter;
+
+var _media = [],
+    _listeners = {},
+    _emptyArray = [],
+    _lastMediaTime = 0,
+    _contextID = 0,
+    _dispatch = function _dispatch(type) {
+  return (_listeners[type] || _emptyArray).map(function (f) {
+    return f();
+  });
+},
+    _onMediaChange = function _onMediaChange() {
+  var time = Date.now(),
+      matches = [];
+
+  if (time - _lastMediaTime > 2) {
+    _dispatch("matchMediaInit");
+
+    _media.forEach(function (c) {
+      var queries = c.queries,
+          conditions = c.conditions,
+          match,
+          p,
+          anyMatch,
+          toggled;
+
+      for (p in queries) {
+        match = _win.matchMedia(queries[p]).matches; // Firefox doesn't update the "matches" property of the MediaQueryList object correctly - it only does so as it calls its change handler - so we must re-create a media query here to ensure it's accurate.
+
+        match && (anyMatch = 1);
+
+        if (match !== conditions[p]) {
+          conditions[p] = match;
+          toggled = 1;
+        }
+      }
+
+      if (toggled) {
+        c.revert();
+        anyMatch && matches.push(c);
+      }
+    });
+
+    _dispatch("matchMediaRevert");
+
+    matches.forEach(function (c) {
+      return c.onMatch(c, function (func) {
+        return c.add(null, func);
+      });
+    });
+    _lastMediaTime = time;
+
+    _dispatch("matchMedia");
+  }
+};
+
+var Context = /*#__PURE__*/function () {
+  function Context(func, scope) {
+    this.selector = scope && selector(scope);
+    this.data = [];
+    this._r = []; // returned/cleanup functions
+
+    this.isReverted = false;
+    this.id = _contextID++; // to work around issues that frameworks like Vue cause by making things into Proxies which make it impossible to do something like _media.indexOf(this) because "this" would no longer refer to the Context instance itself - it'd refer to a Proxy! We needed a way to identify the context uniquely
+
+    func && this.add(func);
+  }
+
+  var _proto5 = Context.prototype;
+
+  _proto5.add = function add(name, func, scope) {
+    // possible future addition if we need the ability to add() an animation to a context and for whatever reason cannot create that animation inside of a context.add(() => {...}) function.
+    // if (name && _isFunction(name.revert)) {
+    // 	this.data.push(name);
+    // 	return (name._ctx = this);
+    // }
+    if (_isFunction(name)) {
+      scope = func;
+      func = name;
+      name = _isFunction;
+    }
+
+    var self = this,
+        f = function f() {
+      var prev = _context,
+          prevSelector = self.selector,
+          result;
+      prev && prev !== self && prev.data.push(self);
+      scope && (self.selector = selector(scope));
+      _context = self;
+      result = func.apply(self, arguments);
+      _isFunction(result) && self._r.push(result);
+      _context = prev;
+      self.selector = prevSelector;
+      self.isReverted = false;
+      return result;
+    };
+
+    self.last = f;
+    return name === _isFunction ? f(self, function (func) {
+      return self.add(null, func);
+    }) : name ? self[name] = f : f;
+  };
+
+  _proto5.ignore = function ignore(func) {
+    var prev = _context;
+    _context = null;
+    func(this);
+    _context = prev;
+  };
+
+  _proto5.getTweens = function getTweens() {
+    var a = [];
+    this.data.forEach(function (e) {
+      return e instanceof Context ? a.push.apply(a, e.getTweens()) : e instanceof Tween && !(e.parent && e.parent.data === "nested") && a.push(e);
+    });
+    return a;
+  };
+
+  _proto5.clear = function clear() {
+    this._r.length = this.data.length = 0;
+  };
+
+  _proto5.kill = function kill(revert, matchMedia) {
+    var _this4 = this;
+
+    if (revert) {
+      (function () {
+        var tweens = _this4.getTweens(),
+            i = _this4.data.length,
+            t;
+
+        while (i--) {
+          // Flip plugin tweens are very different in that they should actually be pushed to their end. The plugin replaces the timeline's .revert() method to do exactly that. But we also need to remove any of those nested tweens inside the flip timeline so that they don't get individually reverted.
+          t = _this4.data[i];
+
+          if (t.data === "isFlip") {
+            t.revert();
+            t.getChildren(true, true, false).forEach(function (tween) {
+              return tweens.splice(tweens.indexOf(tween), 1);
+            });
+          }
+        } // save as an object so that we can cache the globalTime for each tween to optimize performance during the sort
+
+
+        tweens.map(function (t) {
+          return {
+            g: t._dur || t._delay || t._sat && !t._sat.vars.immediateRender ? t.globalTime(0) : -Infinity,
+            t: t
+          };
+        }).sort(function (a, b) {
+          return b.g - a.g || -Infinity;
+        }).forEach(function (o) {
+          return o.t.revert(revert);
+        }); // note: all of the _startAt tweens should be reverted in reverse order that they were created, and they'll all have the same globalTime (-1) so the " || -1" in the sort keeps the order properly.
+
+        i = _this4.data.length;
+
+        while (i--) {
+          // make sure we loop backwards so that, for example, SplitTexts that were created later on the same element get reverted first
+          t = _this4.data[i];
+
+          if (t instanceof Timeline) {
+            if (t.data !== "nested") {
+              t.scrollTrigger && t.scrollTrigger.revert();
+              t.kill(); // don't revert() the timeline because that's duplicating efforts since we already reverted all the tweens
+            }
+          } else {
+            !(t instanceof Tween) && t.revert && t.revert(revert);
+          }
+        }
+
+        _this4._r.forEach(function (f) {
+          return f(revert, _this4);
+        });
+
+        _this4.isReverted = true;
+      })();
+    } else {
+      this.data.forEach(function (e) {
+        return e.kill && e.kill();
+      });
+    }
+
+    this.clear();
+
+    if (matchMedia) {
+      var i = _media.length;
+
+      while (i--) {
+        // previously, we checked _media.indexOf(this), but some frameworks like Vue enforce Proxy objects that make it impossible to get the proper result that way, so we must use a unique ID number instead.
+        _media[i].id === this.id && _media.splice(i, 1);
+      }
+    }
+  };
+
+  _proto5.revert = function revert(config) {
+    this.kill(config || {});
+  };
+
+  return Context;
+}();
+
+var MatchMedia = /*#__PURE__*/function () {
+  function MatchMedia(scope) {
+    this.contexts = [];
+    this.scope = scope;
+    _context && _context.data.push(this);
+  }
+
+  var _proto6 = MatchMedia.prototype;
+
+  _proto6.add = function add(conditions, func, scope) {
+    _isObject(conditions) || (conditions = {
+      matches: conditions
+    });
+    var context = new Context(0, scope || this.scope),
+        cond = context.conditions = {},
+        mq,
+        p,
+        active;
+    _context && !context.selector && (context.selector = _context.selector); // in case a context is created inside a context. Like a gsap.matchMedia() that's inside a scoped gsap.context()
+
+    this.contexts.push(context);
+    func = context.add("onMatch", func);
+    context.queries = conditions;
+
+    for (p in conditions) {
+      if (p === "all") {
+        active = 1;
+      } else {
+        mq = _win.matchMedia(conditions[p]);
+
+        if (mq) {
+          _media.indexOf(context) < 0 && _media.push(context);
+          (cond[p] = mq.matches) && (active = 1);
+          mq.addListener ? mq.addListener(_onMediaChange) : mq.addEventListener("change", _onMediaChange);
+        }
+      }
+    }
+
+    active && func(context, function (f) {
+      return context.add(null, f);
+    });
+    return this;
+  } // refresh() {
+  // 	let time = _lastMediaTime,
+  // 		media = _media;
+  // 	_lastMediaTime = -1;
+  // 	_media = this.contexts;
+  // 	_onMediaChange();
+  // 	_lastMediaTime = time;
+  // 	_media = media;
+  // }
+  ;
+
+  _proto6.revert = function revert(config) {
+    this.kill(config || {});
+  };
+
+  _proto6.kill = function kill(revert) {
+    this.contexts.forEach(function (c) {
+      return c.kill(revert, true);
+    });
+  };
+
+  return MatchMedia;
+}();
+/*
+ * --------------------------------------------------------------------------------------
+ * GSAP
+ * --------------------------------------------------------------------------------------
+ */
+
+
+var _gsap = {
+  registerPlugin: function registerPlugin() {
+    for (var _len2 = arguments.length, args = new Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
+      args[_key2] = arguments[_key2];
+    }
+
+    args.forEach(function (config) {
+      return _createPlugin(config);
+    });
+  },
+  timeline: function timeline(vars) {
+    return new Timeline(vars);
+  },
+  getTweensOf: function getTweensOf(targets, onlyActive) {
+    return _globalTimeline.getTweensOf(targets, onlyActive);
+  },
+  getProperty: function getProperty(target, property, unit, uncache) {
+    _isString(target) && (target = toArray(target)[0]); //in case selector text or an array is passed in
+
+    var getter = _getCache(target || {}).get,
+        format = unit ? _passThrough : _numericIfPossible;
+
+    unit === "native" && (unit = "");
+    return !target ? target : !property ? function (property, unit, uncache) {
+      return format((_plugins[property] && _plugins[property].get || getter)(target, property, unit, uncache));
+    } : format((_plugins[property] && _plugins[property].get || getter)(target, property, unit, uncache));
+  },
+  quickSetter: function quickSetter(target, property, unit) {
+    target = toArray(target);
+
+    if (target.length > 1) {
+      var setters = target.map(function (t) {
+        return gsap.quickSetter(t, property, unit);
+      }),
+          l = setters.length;
+      return function (value) {
+        var i = l;
+
+        while (i--) {
+          setters[i](value);
+        }
+      };
+    }
+
+    target = target[0] || {};
+
+    var Plugin = _plugins[property],
+        cache = _getCache(target),
+        p = cache.harness && (cache.harness.aliases || {})[property] || property,
+        // in case it's an alias, like "rotate" for "rotation".
+    setter = Plugin ? function (value) {
+      var p = new Plugin();
+      _quickTween._pt = 0;
+      p.init(target, unit ? value + unit : value, _quickTween, 0, [target]);
+      p.render(1, p);
+      _quickTween._pt && _renderPropTweens(1, _quickTween);
+    } : cache.set(target, p);
+
+    return Plugin ? setter : function (value) {
+      return setter(target, p, unit ? value + unit : value, cache, 1);
+    };
+  },
+  quickTo: function quickTo(target, property, vars) {
+    var _merge2;
+
+    var tween = gsap.to(target, _merge((_merge2 = {}, _merge2[property] = "+=0.1", _merge2.paused = true, _merge2), vars || {})),
+        func = function func(value, start, startIsRelative) {
+      return tween.resetTo(property, value, start, startIsRelative);
+    };
+
+    func.tween = tween;
+    return func;
+  },
+  isTweening: function isTweening(targets) {
+    return _globalTimeline.getTweensOf(targets, true).length > 0;
+  },
+  defaults: function defaults(value) {
+    value && value.ease && (value.ease = _parseEase(value.ease, _defaults.ease));
+    return _mergeDeep(_defaults, value || {});
+  },
+  config: function config(value) {
+    return _mergeDeep(_config, value || {});
+  },
+  registerEffect: function registerEffect(_ref3) {
+    var name = _ref3.name,
+        effect = _ref3.effect,
+        plugins = _ref3.plugins,
+        defaults = _ref3.defaults,
+        extendTimeline = _ref3.extendTimeline;
+    (plugins || "").split(",").forEach(function (pluginName) {
+      return pluginName && !_plugins[pluginName] && !_globals[pluginName] && _warn(name + " effect requires " + pluginName + " plugin.");
+    });
+
+    _effects[name] = function (targets, vars, tl) {
+      return effect(toArray(targets), _setDefaults(vars || {}, defaults), tl);
+    };
+
+    if (extendTimeline) {
+      Timeline.prototype[name] = function (targets, vars, position) {
+        return this.add(_effects[name](targets, _isObject(vars) ? vars : (position = vars) && {}, this), position);
+      };
+    }
+  },
+  registerEase: function registerEase(name, ease) {
+    _easeMap[name] = _parseEase(ease);
+  },
+  parseEase: function parseEase(ease, defaultEase) {
+    return arguments.length ? _parseEase(ease, defaultEase) : _easeMap;
+  },
+  getById: function getById(id) {
+    return _globalTimeline.getById(id);
+  },
+  exportRoot: function exportRoot(vars, includeDelayedCalls) {
+    if (vars === void 0) {
+      vars = {};
+    }
+
+    var tl = new Timeline(vars),
+        child,
+        next;
+    tl.smoothChildTiming = _isNotFalse(vars.smoothChildTiming);
+
+    _globalTimeline.remove(tl);
+
+    tl._dp = 0; //otherwise it'll get re-activated when adding children and be re-introduced into _globalTimeline's linked list (then added to itself).
+
+    tl._time = tl._tTime = _globalTimeline._time;
+    child = _globalTimeline._first;
+
+    while (child) {
+      next = child._next;
+
+      if (includeDelayedCalls || !(!child._dur && child instanceof Tween && child.vars.onComplete === child._targets[0])) {
+        _addToTimeline(tl, child, child._start - child._delay);
+      }
+
+      child = next;
+    }
+
+    _addToTimeline(_globalTimeline, tl, 0);
+
+    return tl;
+  },
+  context: function context(func, scope) {
+    return func ? new Context(func, scope) : _context;
+  },
+  matchMedia: function matchMedia(scope) {
+    return new MatchMedia(scope);
+  },
+  matchMediaRefresh: function matchMediaRefresh() {
+    return _media.forEach(function (c) {
+      var cond = c.conditions,
+          found,
+          p;
+
+      for (p in cond) {
+        if (cond[p]) {
+          cond[p] = false;
+          found = 1;
+        }
+      }
+
+      found && c.revert();
+    }) || _onMediaChange();
+  },
+  addEventListener: function addEventListener(type, callback) {
+    var a = _listeners[type] || (_listeners[type] = []);
+    ~a.indexOf(callback) || a.push(callback);
+  },
+  removeEventListener: function removeEventListener(type, callback) {
+    var a = _listeners[type],
+        i = a && a.indexOf(callback);
+    i >= 0 && a.splice(i, 1);
+  },
+  utils: {
+    wrap: wrap,
+    wrapYoyo: wrapYoyo,
+    distribute: distribute,
+    random: random,
+    snap: snap,
+    normalize: normalize,
+    getUnit: getUnit,
+    clamp: clamp,
+    splitColor: splitColor,
+    toArray: toArray,
+    selector: selector,
+    mapRange: mapRange,
+    pipe: pipe,
+    unitize: unitize,
+    interpolate: interpolate,
+    shuffle: shuffle
+  },
+  install: _install,
+  effects: _effects,
+  ticker: _ticker,
+  updateRoot: Timeline.updateRoot,
+  plugins: _plugins,
+  globalTimeline: _globalTimeline,
+  core: {
+    PropTween: PropTween,
+    globals: _addGlobal,
+    Tween: Tween,
+    Timeline: Timeline,
+    Animation: Animation,
+    getCache: _getCache,
+    _removeLinkedListItem: _removeLinkedListItem,
+    reverting: function reverting() {
+      return _reverting;
+    },
+    context: function context(toAdd) {
+      if (toAdd && _context) {
+        _context.data.push(toAdd);
+
+        toAdd._ctx = _context;
+      }
+
+      return _context;
+    },
+    suppressOverwrites: function suppressOverwrites(value) {
+      return _suppressOverwrites = value;
+    }
+  }
+};
+
+_forEachName("to,from,fromTo,delayedCall,set,killTweensOf", function (name) {
+  return _gsap[name] = Tween[name];
+});
+
+_ticker.add(Timeline.updateRoot);
+
+_quickTween = _gsap.to({}, {
+  duration: 0
+}); // ---- EXTRA PLUGINS --------------------------------------------------------
+
+var _getPluginPropTween = function _getPluginPropTween(plugin, prop) {
+  var pt = plugin._pt;
+
+  while (pt && pt.p !== prop && pt.op !== prop && pt.fp !== prop) {
+    pt = pt._next;
+  }
+
+  return pt;
+},
+    _addModifiers = function _addModifiers(tween, modifiers) {
+  var targets = tween._targets,
+      p,
+      i,
+      pt;
+
+  for (p in modifiers) {
+    i = targets.length;
+
+    while (i--) {
+      pt = tween._ptLookup[i][p];
+
+      if (pt && (pt = pt.d)) {
+        if (pt._pt) {
+          // is a plugin
+          pt = _getPluginPropTween(pt, p);
+        }
+
+        pt && pt.modifier && pt.modifier(modifiers[p], tween, targets[i], p);
+      }
+    }
+  }
+},
+    _buildModifierPlugin = function _buildModifierPlugin(name, modifier) {
+  return {
+    name: name,
+    rawVars: 1,
+    //don't pre-process function-based values or "random()" strings.
+    init: function init(target, vars, tween) {
+      tween._onInit = function (tween) {
+        var temp, p;
+
+        if (_isString(vars)) {
+          temp = {};
+
+          _forEachName(vars, function (name) {
+            return temp[name] = 1;
+          }); //if the user passes in a comma-delimited list of property names to roundProps, like "x,y", we round to whole numbers.
+
+
+          vars = temp;
+        }
+
+        if (modifier) {
+          temp = {};
+
+          for (p in vars) {
+            temp[p] = modifier(vars[p]);
+          }
+
+          vars = temp;
+        }
+
+        _addModifiers(tween, vars);
+      };
+    }
+  };
+}; //register core plugins
+
+
+var gsap = _gsap.registerPlugin({
+  name: "attr",
+  init: function init(target, vars, tween, index, targets) {
+    var p, pt, v;
+    this.tween = tween;
+
+    for (p in vars) {
+      v = target.getAttribute(p) || "";
+      pt = this.add(target, "setAttribute", (v || 0) + "", vars[p], index, targets, 0, 0, p);
+      pt.op = p;
+      pt.b = v; // record the beginning value so we can revert()
+
+      this._props.push(p);
+    }
+  },
+  render: function render(ratio, data) {
+    var pt = data._pt;
+
+    while (pt) {
+      _reverting ? pt.set(pt.t, pt.p, pt.b, pt) : pt.r(ratio, pt.d); // if reverting, go back to the original (pt.b)
+
+      pt = pt._next;
+    }
+  }
+}, {
+  name: "endArray",
+  init: function init(target, value) {
+    var i = value.length;
+
+    while (i--) {
+      this.add(target, i, target[i] || 0, value[i], 0, 0, 0, 0, 0, 1);
+    }
+  }
+}, _buildModifierPlugin("roundProps", _roundModifier), _buildModifierPlugin("modifiers"), _buildModifierPlugin("snap", snap)) || _gsap; //to prevent the core plugins from being dropped via aggressive tree shaking, we must include them in the variable declaration in this way.
+
+Tween.version = Timeline.version = gsap.version = "3.12.5";
+_coreReady = 1;
+_windowExists() && _wake();
+var Power0 = _easeMap.Power0,
+    Power1 = _easeMap.Power1,
+    Power2 = _easeMap.Power2,
+    Power3 = _easeMap.Power3,
+    Power4 = _easeMap.Power4,
+    Linear = _easeMap.Linear,
+    Quad = _easeMap.Quad,
+    Cubic = _easeMap.Cubic,
+    Quart = _easeMap.Quart,
+    Quint = _easeMap.Quint,
+    Strong = _easeMap.Strong,
+    Elastic = _easeMap.Elastic,
+    Back = _easeMap.Back,
+    SteppedEase = _easeMap.SteppedEase,
+    Bounce = _easeMap.Bounce,
+    Sine = _easeMap.Sine,
+    Expo = _easeMap.Expo,
+    Circ = _easeMap.Circ;
+
+ //export some internal methods/orojects for use in CSSPlugin so that we can externalize that file and allow custom builds that exclude it.
+
+
+
+/***/ },
+
+/***/ "./node_modules/gsap/index.js"
+/*!************************************!*\
+  !*** ./node_modules/gsap/index.js ***!
+  \************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   Back: () => (/* reexport safe */ _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.Back),
+/* harmony export */   Bounce: () => (/* reexport safe */ _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.Bounce),
+/* harmony export */   CSSPlugin: () => (/* reexport safe */ _CSSPlugin_js__WEBPACK_IMPORTED_MODULE_1__.CSSPlugin),
+/* harmony export */   Circ: () => (/* reexport safe */ _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.Circ),
+/* harmony export */   Cubic: () => (/* reexport safe */ _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.Cubic),
+/* harmony export */   Elastic: () => (/* reexport safe */ _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.Elastic),
+/* harmony export */   Expo: () => (/* reexport safe */ _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.Expo),
+/* harmony export */   Linear: () => (/* reexport safe */ _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.Linear),
+/* harmony export */   Power0: () => (/* reexport safe */ _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.Power0),
+/* harmony export */   Power1: () => (/* reexport safe */ _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.Power1),
+/* harmony export */   Power2: () => (/* reexport safe */ _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.Power2),
+/* harmony export */   Power3: () => (/* reexport safe */ _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.Power3),
+/* harmony export */   Power4: () => (/* reexport safe */ _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.Power4),
+/* harmony export */   Quad: () => (/* reexport safe */ _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.Quad),
+/* harmony export */   Quart: () => (/* reexport safe */ _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.Quart),
+/* harmony export */   Quint: () => (/* reexport safe */ _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.Quint),
+/* harmony export */   Sine: () => (/* reexport safe */ _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.Sine),
+/* harmony export */   SteppedEase: () => (/* reexport safe */ _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.SteppedEase),
+/* harmony export */   Strong: () => (/* reexport safe */ _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.Strong),
+/* harmony export */   TimelineLite: () => (/* reexport safe */ _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.TimelineLite),
+/* harmony export */   TimelineMax: () => (/* reexport safe */ _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.TimelineMax),
+/* harmony export */   TweenLite: () => (/* reexport safe */ _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.TweenLite),
+/* harmony export */   TweenMax: () => (/* binding */ TweenMaxWithCSS),
+/* harmony export */   "default": () => (/* binding */ gsapWithCSS),
+/* harmony export */   gsap: () => (/* binding */ gsapWithCSS)
+/* harmony export */ });
+/* harmony import */ var _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./gsap-core.js */ "./node_modules/gsap/gsap-core.js");
+/* harmony import */ var _CSSPlugin_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CSSPlugin.js */ "./node_modules/gsap/CSSPlugin.js");
+
+
+var gsapWithCSS = _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.gsap.registerPlugin(_CSSPlugin_js__WEBPACK_IMPORTED_MODULE_1__.CSSPlugin) || _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.gsap,
+    // to protect from tree shaking
+TweenMaxWithCSS = gsapWithCSS.core.Tween;
+
+
+/***/ },
+
+/***/ "./node_modules/gsap/utils/strings.js"
+/*!********************************************!*\
+  !*** ./node_modules/gsap/utils/strings.js ***!
+  \********************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   emojiExp: () => (/* binding */ emojiExp),
+/* harmony export */   emojiSafeSplit: () => (/* binding */ emojiSafeSplit),
+/* harmony export */   getText: () => (/* binding */ getText),
+/* harmony export */   splitInnerHTML: () => (/* binding */ splitInnerHTML)
+/* harmony export */ });
+/*!
+ * strings: 3.12.5
+ * https://gsap.com
+ *
+ * Copyright 2008-2024, GreenSock. All rights reserved.
+ * Subject to the terms at https://gsap.com/standard-license or for
+ * Club GSAP members, the agreement issued with that membership.
+ * @author: Jack Doyle, jack@greensock.com
+*/
+
+/* eslint-disable */
+var _trimExp = /(?:^\s+|\s+$)/g;
+var emojiExp = /([\uD800-\uDBFF][\uDC00-\uDFFF](?:[\u200D\uFE0F][\uD800-\uDBFF][\uDC00-\uDFFF]){2,}|\uD83D\uDC69(?:\u200D(?:(?:\uD83D\uDC69\u200D)?\uD83D\uDC67|(?:\uD83D\uDC69\u200D)?\uD83D\uDC66)|\uD83C[\uDFFB-\uDFFF])|\uD83D\uDC69\u200D(?:\uD83D\uDC69\u200D)?\uD83D\uDC66\u200D\uD83D\uDC66|\uD83D\uDC69\u200D(?:\uD83D\uDC69\u200D)?\uD83D\uDC67\u200D(?:\uD83D[\uDC66\uDC67])|\uD83C\uDFF3\uFE0F\u200D\uD83C\uDF08|(?:\uD83C[\uDFC3\uDFC4\uDFCA]|\uD83D[\uDC6E\uDC71\uDC73\uDC77\uDC81\uDC82\uDC86\uDC87\uDE45-\uDE47\uDE4B\uDE4D\uDE4E\uDEA3\uDEB4-\uDEB6]|\uD83E[\uDD26\uDD37-\uDD39\uDD3D\uDD3E\uDDD6-\uDDDD])(?:\uD83C[\uDFFB-\uDFFF])\u200D[\u2640\u2642]\uFE0F|\uD83D\uDC69(?:\uD83C[\uDFFB-\uDFFF])\u200D(?:\uD83C[\uDF3E\uDF73\uDF93\uDFA4\uDFA8\uDFEB\uDFED]|\uD83D[\uDCBB\uDCBC\uDD27\uDD2C\uDE80\uDE92])|(?:\uD83C[\uDFC3\uDFC4\uDFCA]|\uD83D[\uDC6E\uDC6F\uDC71\uDC73\uDC77\uDC81\uDC82\uDC86\uDC87\uDE45-\uDE47\uDE4B\uDE4D\uDE4E\uDEA3\uDEB4-\uDEB6]|\uD83E[\uDD26\uDD37-\uDD39\uDD3C-\uDD3E\uDDD6-\uDDDF])\u200D[\u2640\u2642]\uFE0F|\uD83C\uDDFD\uD83C\uDDF0|\uD83C\uDDF6\uD83C\uDDE6|\uD83C\uDDF4\uD83C\uDDF2|\uD83C\uDDE9(?:\uD83C[\uDDEA\uDDEC\uDDEF\uDDF0\uDDF2\uDDF4\uDDFF])|\uD83C\uDDF7(?:\uD83C[\uDDEA\uDDF4\uDDF8\uDDFA\uDDFC])|\uD83C\uDDE8(?:\uD83C[\uDDE6\uDDE8\uDDE9\uDDEB-\uDDEE\uDDF0-\uDDF5\uDDF7\uDDFA-\uDDFF])|(?:\u26F9|\uD83C[\uDFCB\uDFCC]|\uD83D\uDD75)(?:\uFE0F\u200D[\u2640\u2642]|(?:\uD83C[\uDFFB-\uDFFF])\u200D[\u2640\u2642])\uFE0F|(?:\uD83D\uDC41\uFE0F\u200D\uD83D\uDDE8|\uD83D\uDC69(?:\uD83C[\uDFFB-\uDFFF])\u200D[\u2695\u2696\u2708]|\uD83D\uDC69\u200D[\u2695\u2696\u2708]|\uD83D\uDC68(?:(?:\uD83C[\uDFFB-\uDFFF])\u200D[\u2695\u2696\u2708]|\u200D[\u2695\u2696\u2708]))\uFE0F|\uD83C\uDDF2(?:\uD83C[\uDDE6\uDDE8-\uDDED\uDDF0-\uDDFF])|\uD83D\uDC69\u200D(?:\uD83C[\uDF3E\uDF73\uDF93\uDFA4\uDFA8\uDFEB\uDFED]|\uD83D[\uDCBB\uDCBC\uDD27\uDD2C\uDE80\uDE92]|\u2764\uFE0F\u200D(?:\uD83D\uDC8B\u200D(?:\uD83D[\uDC68\uDC69])|\uD83D[\uDC68\uDC69]))|\uD83C\uDDF1(?:\uD83C[\uDDE6-\uDDE8\uDDEE\uDDF0\uDDF7-\uDDFB\uDDFE])|\uD83C\uDDEF(?:\uD83C[\uDDEA\uDDF2\uDDF4\uDDF5])|\uD83C\uDDED(?:\uD83C[\uDDF0\uDDF2\uDDF3\uDDF7\uDDF9\uDDFA])|\uD83C\uDDEB(?:\uD83C[\uDDEE-\uDDF0\uDDF2\uDDF4\uDDF7])|[#\*0-9]\uFE0F\u20E3|\uD83C\uDDE7(?:\uD83C[\uDDE6\uDDE7\uDDE9-\uDDEF\uDDF1-\uDDF4\uDDF6-\uDDF9\uDDFB\uDDFC\uDDFE\uDDFF])|\uD83C\uDDE6(?:\uD83C[\uDDE8-\uDDEC\uDDEE\uDDF1\uDDF2\uDDF4\uDDF6-\uDDFA\uDDFC\uDDFD\uDDFF])|\uD83C\uDDFF(?:\uD83C[\uDDE6\uDDF2\uDDFC])|\uD83C\uDDF5(?:\uD83C[\uDDE6\uDDEA-\uDDED\uDDF0-\uDDF3\uDDF7-\uDDF9\uDDFC\uDDFE])|\uD83C\uDDFB(?:\uD83C[\uDDE6\uDDE8\uDDEA\uDDEC\uDDEE\uDDF3\uDDFA])|\uD83C\uDDF3(?:\uD83C[\uDDE6\uDDE8\uDDEA-\uDDEC\uDDEE\uDDF1\uDDF4\uDDF5\uDDF7\uDDFA\uDDFF])|\uD83C\uDFF4\uDB40\uDC67\uDB40\uDC62(?:\uDB40\uDC77\uDB40\uDC6C\uDB40\uDC73|\uDB40\uDC73\uDB40\uDC63\uDB40\uDC74|\uDB40\uDC65\uDB40\uDC6E\uDB40\uDC67)\uDB40\uDC7F|\uD83D\uDC68(?:\u200D(?:\u2764\uFE0F\u200D(?:\uD83D\uDC8B\u200D)?\uD83D\uDC68|(?:(?:\uD83D[\uDC68\uDC69])\u200D)?\uD83D\uDC66\u200D\uD83D\uDC66|(?:(?:\uD83D[\uDC68\uDC69])\u200D)?\uD83D\uDC67\u200D(?:\uD83D[\uDC66\uDC67])|\uD83C[\uDF3E\uDF73\uDF93\uDFA4\uDFA8\uDFEB\uDFED]|\uD83D[\uDCBB\uDCBC\uDD27\uDD2C\uDE80\uDE92])|(?:\uD83C[\uDFFB-\uDFFF])\u200D(?:\uD83C[\uDF3E\uDF73\uDF93\uDFA4\uDFA8\uDFEB\uDFED]|\uD83D[\uDCBB\uDCBC\uDD27\uDD2C\uDE80\uDE92]))|\uD83C\uDDF8(?:\uD83C[\uDDE6-\uDDEA\uDDEC-\uDDF4\uDDF7-\uDDF9\uDDFB\uDDFD-\uDDFF])|\uD83C\uDDF0(?:\uD83C[\uDDEA\uDDEC-\uDDEE\uDDF2\uDDF3\uDDF5\uDDF7\uDDFC\uDDFE\uDDFF])|\uD83C\uDDFE(?:\uD83C[\uDDEA\uDDF9])|\uD83C\uDDEE(?:\uD83C[\uDDE8-\uDDEA\uDDF1-\uDDF4\uDDF6-\uDDF9])|\uD83C\uDDF9(?:\uD83C[\uDDE6\uDDE8\uDDE9\uDDEB-\uDDED\uDDEF-\uDDF4\uDDF7\uDDF9\uDDFB\uDDFC\uDDFF])|\uD83C\uDDEC(?:\uD83C[\uDDE6\uDDE7\uDDE9-\uDDEE\uDDF1-\uDDF3\uDDF5-\uDDFA\uDDFC\uDDFE])|\uD83C\uDDFA(?:\uD83C[\uDDE6\uDDEC\uDDF2\uDDF3\uDDF8\uDDFE\uDDFF])|\uD83C\uDDEA(?:\uD83C[\uDDE6\uDDE8\uDDEA\uDDEC\uDDED\uDDF7-\uDDFA])|\uD83C\uDDFC(?:\uD83C[\uDDEB\uDDF8])|(?:\u26F9|\uD83C[\uDFCB\uDFCC]|\uD83D\uDD75)(?:\uD83C[\uDFFB-\uDFFF])|(?:\uD83C[\uDFC3\uDFC4\uDFCA]|\uD83D[\uDC6E\uDC71\uDC73\uDC77\uDC81\uDC82\uDC86\uDC87\uDE45-\uDE47\uDE4B\uDE4D\uDE4E\uDEA3\uDEB4-\uDEB6]|\uD83E[\uDD26\uDD37-\uDD39\uDD3D\uDD3E\uDDD6-\uDDDD])(?:\uD83C[\uDFFB-\uDFFF])|(?:[\u261D\u270A-\u270D]|\uD83C[\uDF85\uDFC2\uDFC7]|\uD83D[\uDC42\uDC43\uDC46-\uDC50\uDC66\uDC67\uDC70\uDC72\uDC74-\uDC76\uDC78\uDC7C\uDC83\uDC85\uDCAA\uDD74\uDD7A\uDD90\uDD95\uDD96\uDE4C\uDE4F\uDEC0\uDECC]|\uD83E[\uDD18-\uDD1C\uDD1E\uDD1F\uDD30-\uDD36\uDDD1-\uDDD5])(?:\uD83C[\uDFFB-\uDFFF])|\uD83D\uDC68(?:\u200D(?:(?:(?:\uD83D[\uDC68\uDC69])\u200D)?\uD83D\uDC67|(?:(?:\uD83D[\uDC68\uDC69])\u200D)?\uD83D\uDC66)|\uD83C[\uDFFB-\uDFFF])|(?:[\u261D\u26F9\u270A-\u270D]|\uD83C[\uDF85\uDFC2-\uDFC4\uDFC7\uDFCA-\uDFCC]|\uD83D[\uDC42\uDC43\uDC46-\uDC50\uDC66-\uDC69\uDC6E\uDC70-\uDC78\uDC7C\uDC81-\uDC83\uDC85-\uDC87\uDCAA\uDD74\uDD75\uDD7A\uDD90\uDD95\uDD96\uDE45-\uDE47\uDE4B-\uDE4F\uDEA3\uDEB4-\uDEB6\uDEC0\uDECC]|\uD83E[\uDD18-\uDD1C\uDD1E\uDD1F\uDD26\uDD30-\uDD39\uDD3D\uDD3E\uDDD1-\uDDDD])(?:\uD83C[\uDFFB-\uDFFF])?|(?:[\u231A\u231B\u23E9-\u23EC\u23F0\u23F3\u25FD\u25FE\u2614\u2615\u2648-\u2653\u267F\u2693\u26A1\u26AA\u26AB\u26BD\u26BE\u26C4\u26C5\u26CE\u26D4\u26EA\u26F2\u26F3\u26F5\u26FA\u26FD\u2705\u270A\u270B\u2728\u274C\u274E\u2753-\u2755\u2757\u2795-\u2797\u27B0\u27BF\u2B1B\u2B1C\u2B50\u2B55]|\uD83C[\uDC04\uDCCF\uDD8E\uDD91-\uDD9A\uDDE6-\uDDFF\uDE01\uDE1A\uDE2F\uDE32-\uDE36\uDE38-\uDE3A\uDE50\uDE51\uDF00-\uDF20\uDF2D-\uDF35\uDF37-\uDF7C\uDF7E-\uDF93\uDFA0-\uDFCA\uDFCF-\uDFD3\uDFE0-\uDFF0\uDFF4\uDFF8-\uDFFF]|\uD83D[\uDC00-\uDC3E\uDC40\uDC42-\uDCFC\uDCFF-\uDD3D\uDD4B-\uDD4E\uDD50-\uDD67\uDD7A\uDD95\uDD96\uDDA4\uDDFB-\uDE4F\uDE80-\uDEC5\uDECC\uDED0-\uDED2\uDEEB\uDEEC\uDEF4-\uDEF8]|\uD83E[\uDD10-\uDD3A\uDD3C-\uDD3E\uDD40-\uDD45\uDD47-\uDD4C\uDD50-\uDD6B\uDD80-\uDD97\uDDC0\uDDD0-\uDDE6])|(?:[#\*0-9\xA9\xAE\u203C\u2049\u2122\u2139\u2194-\u2199\u21A9\u21AA\u231A\u231B\u2328\u23CF\u23E9-\u23F3\u23F8-\u23FA\u24C2\u25AA\u25AB\u25B6\u25C0\u25FB-\u25FE\u2600-\u2604\u260E\u2611\u2614\u2615\u2618\u261D\u2620\u2622\u2623\u2626\u262A\u262E\u262F\u2638-\u263A\u2640\u2642\u2648-\u2653\u2660\u2663\u2665\u2666\u2668\u267B\u267F\u2692-\u2697\u2699\u269B\u269C\u26A0\u26A1\u26AA\u26AB\u26B0\u26B1\u26BD\u26BE\u26C4\u26C5\u26C8\u26CE\u26CF\u26D1\u26D3\u26D4\u26E9\u26EA\u26F0-\u26F5\u26F7-\u26FA\u26FD\u2702\u2705\u2708-\u270D\u270F\u2712\u2714\u2716\u271D\u2721\u2728\u2733\u2734\u2744\u2747\u274C\u274E\u2753-\u2755\u2757\u2763\u2764\u2795-\u2797\u27A1\u27B0\u27BF\u2934\u2935\u2B05-\u2B07\u2B1B\u2B1C\u2B50\u2B55\u3030\u303D\u3297\u3299]|\uD83C[\uDC04\uDCCF\uDD70\uDD71\uDD7E\uDD7F\uDD8E\uDD91-\uDD9A\uDDE6-\uDDFF\uDE01\uDE02\uDE1A\uDE2F\uDE32-\uDE3A\uDE50\uDE51\uDF00-\uDF21\uDF24-\uDF93\uDF96\uDF97\uDF99-\uDF9B\uDF9E-\uDFF0\uDFF3-\uDFF5\uDFF7-\uDFFF]|\uD83D[\uDC00-\uDCFD\uDCFF-\uDD3D\uDD49-\uDD4E\uDD50-\uDD67\uDD6F\uDD70\uDD73-\uDD7A\uDD87\uDD8A-\uDD8D\uDD90\uDD95\uDD96\uDDA4\uDDA5\uDDA8\uDDB1\uDDB2\uDDBC\uDDC2-\uDDC4\uDDD1-\uDDD3\uDDDC-\uDDDE\uDDE1\uDDE3\uDDE8\uDDEF\uDDF3\uDDFA-\uDE4F\uDE80-\uDEC5\uDECB-\uDED2\uDEE0-\uDEE5\uDEE9\uDEEB\uDEEC\uDEF0\uDEF3-\uDEF8]|\uD83E[\uDD10-\uDD3A\uDD3C-\uDD3E\uDD40-\uDD45\uDD47-\uDD4C\uDD50-\uDD6B\uDD80-\uDD97\uDDC0\uDDD0-\uDDE6])\uFE0F)/;
+function getText(e) {
+  var type = e.nodeType,
+      result = "";
+
+  if (type === 1 || type === 9 || type === 11) {
+    if (typeof e.textContent === "string") {
+      return e.textContent;
+    } else {
+      for (e = e.firstChild; e; e = e.nextSibling) {
+        result += getText(e);
+      }
+    }
+  } else if (type === 3 || type === 4) {
+    return e.nodeValue;
+  }
+
+  return result;
+}
+function splitInnerHTML(element, delimiter, trim, preserveSpaces) {
+  var node = element.firstChild,
+      result = [],
+      s;
+
+  while (node) {
+    if (node.nodeType === 3) {
+      s = (node.nodeValue + "").replace(/^\n+/g, "");
+
+      if (!preserveSpaces) {
+        s = s.replace(/\s+/g, " ");
+      }
+
+      result.push.apply(result, emojiSafeSplit(s, delimiter, trim, preserveSpaces));
+    } else if ((node.nodeName + "").toLowerCase() === "br") {
+      result[result.length - 1] += "<br>";
+    } else {
+      result.push(node.outerHTML);
+    }
+
+    node = node.nextSibling;
+  }
+
+  s = result.length;
+
+  while (s--) {
+    result[s] === "&" && result.splice(s, 1, "&amp;");
+  }
+
+  return result;
+}
+/*
+//smaller kb version that only handles the simpler emoji's, which is often perfectly adequate.
+
+let _emoji = "[\uE000-\uF8FF]|\uD83C[\uDC00-\uDFFF]|\uD83D[\uDC00-\uDFFF]|[\u2694-\u2697]|\uD83E[\uDD10-\uDD5D]|[\uD800-\uDBFF][\uDC00-\uDFFF]",
+	_emojiExp = new RegExp(_emoji),
+	_emojiAndCharsExp = new RegExp(_emoji + "|.", "g"),
+	_emojiSafeSplit = (text, delimiter, trim) => {
+		if (trim) {
+			text = text.replace(_trimExp, "");
+		}
+		return ((delimiter === "" || !delimiter) && _emojiExp.test(text)) ? text.match(_emojiAndCharsExp) : text.split(delimiter || "");
+	};
+ */
+
+function emojiSafeSplit(text, delimiter, trim, preserveSpaces) {
+  text += ""; // make sure it's cast as a string. Someone may pass in a number.
+
+  trim && (text = text.trim ? text.trim() : text.replace(_trimExp, "")); // IE9 and earlier compatibility
+
+  if (delimiter && delimiter !== "") {
+    return text.replace(/>/g, "&gt;").replace(/</g, "&lt;").split(delimiter);
+  }
+
+  var result = [],
+      l = text.length,
+      i = 0,
+      j,
+      character;
+
+  for (; i < l; i++) {
+    character = text.charAt(i);
+
+    if (character.charCodeAt(0) >= 0xD800 && character.charCodeAt(0) <= 0xDBFF || text.charCodeAt(i + 1) >= 0xFE00 && text.charCodeAt(i + 1) <= 0xFE0F) {
+      //special emoji characters use 2 or 4 unicode characters that we must keep together.
+      j = ((text.substr(i, 12).split(emojiExp) || [])[1] || "").length || 2;
+      character = text.substr(i, j);
+      result.emoji = 1;
+      i += j - 1;
+    }
+
+    result.push(character === ">" ? "&gt;" : character === "<" ? "&lt;" : preserveSpaces && character === " " && (text.charAt(i - 1) === " " || text.charAt(i + 1) === " ") ? "&nbsp;" : character);
+  }
+
+  return result;
+}
+
+/***/ },
+
+/***/ "./assets/sass/main.sass"
+/*!*******************************!*\
+  !*** ./assets/sass/main.sass ***!
+  \*******************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ },
+
+/***/ "./assets/sass/admin-login.sass"
+/*!**************************************!*\
+  !*** ./assets/sass/admin-login.sass ***!
+  \**************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ },
+
+/***/ "./node_modules/lenis/dist/lenis.mjs"
+/*!*******************************************!*\
+  !*** ./node_modules/lenis/dist/lenis.mjs ***!
+  \*******************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Lenis)
+/* harmony export */ });
+// package.json
+var version = "1.1.14";
+
+// packages/core/src/maths.ts
+function clamp(min, input, max) {
+  return Math.max(min, Math.min(input, max));
+}
+function lerp(x, y, t) {
+  return (1 - t) * x + t * y;
+}
+function damp(x, y, lambda, deltaTime) {
+  return lerp(x, y, 1 - Math.exp(-lambda * deltaTime));
+}
+function modulo(n, d) {
+  return (n % d + d) % d;
+}
+
+// packages/core/src/animate.ts
+var Animate = class {
+  isRunning = false;
+  value = 0;
+  from = 0;
+  to = 0;
+  currentTime = 0;
+  // These are instanciated in the fromTo method
+  lerp;
+  duration;
+  easing;
+  onUpdate;
+  /**
+   * Advance the animation by the given delta time
+   *
+   * @param deltaTime - The time in seconds to advance the animation
+   */
+  advance(deltaTime) {
+    if (!this.isRunning) return;
+    let completed = false;
+    if (this.duration && this.easing) {
+      this.currentTime += deltaTime;
+      const linearProgress = clamp(0, this.currentTime / this.duration, 1);
+      completed = linearProgress >= 1;
+      const easedProgress = completed ? 1 : this.easing(linearProgress);
+      this.value = this.from + (this.to - this.from) * easedProgress;
+    } else if (this.lerp) {
+      this.value = damp(this.value, this.to, this.lerp * 60, deltaTime);
+      if (Math.round(this.value) === this.to) {
+        this.value = this.to;
+        completed = true;
+      }
+    } else {
+      this.value = this.to;
+      completed = true;
+    }
+    if (completed) {
+      this.stop();
+    }
+    this.onUpdate?.(this.value, completed);
+  }
+  /** Stop the animation */
+  stop() {
+    this.isRunning = false;
+  }
+  /**
+   * Set up the animation from a starting value to an ending value
+   * with optional parameters for lerping, duration, easing, and onUpdate callback
+   *
+   * @param from - The starting value
+   * @param to - The ending value
+   * @param options - Options for the animation
+   */
+  fromTo(from, to, { lerp: lerp2, duration, easing, onStart, onUpdate }) {
+    this.from = this.value = from;
+    this.to = to;
+    this.lerp = lerp2;
+    this.duration = duration;
+    this.easing = easing;
+    this.currentTime = 0;
+    this.isRunning = true;
+    onStart?.();
+    this.onUpdate = onUpdate;
+  }
+};
+
+// packages/core/src/debounce.ts
+function debounce(callback, delay) {
+  let timer;
+  return function(...args) {
+    let context = this;
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      timer = void 0;
+      callback.apply(context, args);
+    }, delay);
+  };
+}
+
+// packages/core/src/dimensions.ts
+var Dimensions = class {
+  constructor(wrapper, content, { autoResize = true, debounce: debounceValue = 250 } = {}) {
+    this.wrapper = wrapper;
+    this.content = content;
+    if (autoResize) {
+      this.debouncedResize = debounce(this.resize, debounceValue);
+      if (this.wrapper instanceof Window) {
+        window.addEventListener("resize", this.debouncedResize, false);
+      } else {
+        this.wrapperResizeObserver = new ResizeObserver(this.debouncedResize);
+        this.wrapperResizeObserver.observe(this.wrapper);
+      }
+      this.contentResizeObserver = new ResizeObserver(this.debouncedResize);
+      this.contentResizeObserver.observe(this.content);
+    }
+    this.resize();
+  }
+  width = 0;
+  height = 0;
+  scrollHeight = 0;
+  scrollWidth = 0;
+  // These are instanciated in the constructor as they need information from the options
+  debouncedResize;
+  wrapperResizeObserver;
+  contentResizeObserver;
+  destroy() {
+    this.wrapperResizeObserver?.disconnect();
+    this.contentResizeObserver?.disconnect();
+    if (this.wrapper === window && this.debouncedResize) {
+      window.removeEventListener("resize", this.debouncedResize, false);
+    }
+  }
+  resize = () => {
+    this.onWrapperResize();
+    this.onContentResize();
+  };
+  onWrapperResize = () => {
+    if (this.wrapper instanceof Window) {
+      this.width = window.innerWidth;
+      this.height = window.innerHeight;
+    } else {
+      this.width = this.wrapper.clientWidth;
+      this.height = this.wrapper.clientHeight;
+    }
+  };
+  onContentResize = () => {
+    if (this.wrapper instanceof Window) {
+      this.scrollHeight = this.content.scrollHeight;
+      this.scrollWidth = this.content.scrollWidth;
+    } else {
+      this.scrollHeight = this.wrapper.scrollHeight;
+      this.scrollWidth = this.wrapper.scrollWidth;
+    }
+  };
+  get limit() {
+    return {
+      x: this.scrollWidth - this.width,
+      y: this.scrollHeight - this.height
+    };
+  }
+};
+
+// packages/core/src/emitter.ts
+var Emitter = class {
+  events = {};
+  /**
+   * Emit an event with the given data
+   * @param event Event name
+   * @param args Data to pass to the event handlers
+   */
+  emit(event, ...args) {
+    let callbacks = this.events[event] || [];
+    for (let i = 0, length = callbacks.length; i < length; i++) {
+      callbacks[i]?.(...args);
+    }
+  }
+  /**
+   * Add a callback to the event
+   * @param event Event name
+   * @param cb Callback function
+   * @returns Unsubscribe function
+   */
+  on(event, cb) {
+    this.events[event]?.push(cb) || (this.events[event] = [cb]);
+    return () => {
+      this.events[event] = this.events[event]?.filter((i) => cb !== i);
+    };
+  }
+  /**
+   * Remove a callback from the event
+   * @param event Event name
+   * @param callback Callback function
+   */
+  off(event, callback) {
+    this.events[event] = this.events[event]?.filter((i) => callback !== i);
+  }
+  /**
+   * Remove all event listeners and clean up
+   */
+  destroy() {
+    this.events = {};
+  }
+};
+
+// packages/core/src/virtual-scroll.ts
+var LINE_HEIGHT = 100 / 6;
+var listenerOptions = { passive: false };
+var VirtualScroll = class {
+  constructor(element, options = { wheelMultiplier: 1, touchMultiplier: 1 }) {
+    this.element = element;
+    this.options = options;
+    window.addEventListener("resize", this.onWindowResize, false);
+    this.onWindowResize();
+    this.element.addEventListener("wheel", this.onWheel, listenerOptions);
+    this.element.addEventListener(
+      "touchstart",
+      this.onTouchStart,
+      listenerOptions
+    );
+    this.element.addEventListener(
+      "touchmove",
+      this.onTouchMove,
+      listenerOptions
+    );
+    this.element.addEventListener("touchend", this.onTouchEnd, listenerOptions);
+  }
+  touchStart = {
+    x: 0,
+    y: 0
+  };
+  lastDelta = {
+    x: 0,
+    y: 0
+  };
+  window = {
+    width: 0,
+    height: 0
+  };
+  emitter = new Emitter();
+  /**
+   * Add an event listener for the given event and callback
+   *
+   * @param event Event name
+   * @param callback Callback function
+   */
+  on(event, callback) {
+    return this.emitter.on(event, callback);
+  }
+  /** Remove all event listeners and clean up */
+  destroy() {
+    this.emitter.destroy();
+    window.removeEventListener("resize", this.onWindowResize, false);
+    this.element.removeEventListener("wheel", this.onWheel, listenerOptions);
+    this.element.removeEventListener(
+      "touchstart",
+      this.onTouchStart,
+      listenerOptions
+    );
+    this.element.removeEventListener(
+      "touchmove",
+      this.onTouchMove,
+      listenerOptions
+    );
+    this.element.removeEventListener(
+      "touchend",
+      this.onTouchEnd,
+      listenerOptions
+    );
+  }
+  /**
+   * Event handler for 'touchstart' event
+   *
+   * @param event Touch event
+   */
+  onTouchStart = (event) => {
+    const { clientX, clientY } = event.targetTouches ? event.targetTouches[0] : event;
+    this.touchStart.x = clientX;
+    this.touchStart.y = clientY;
+    this.lastDelta = {
+      x: 0,
+      y: 0
+    };
+    this.emitter.emit("scroll", {
+      deltaX: 0,
+      deltaY: 0,
+      event
+    });
+  };
+  /** Event handler for 'touchmove' event */
+  onTouchMove = (event) => {
+    const { clientX, clientY } = event.targetTouches ? event.targetTouches[0] : event;
+    const deltaX = -(clientX - this.touchStart.x) * this.options.touchMultiplier;
+    const deltaY = -(clientY - this.touchStart.y) * this.options.touchMultiplier;
+    this.touchStart.x = clientX;
+    this.touchStart.y = clientY;
+    this.lastDelta = {
+      x: deltaX,
+      y: deltaY
+    };
+    this.emitter.emit("scroll", {
+      deltaX,
+      deltaY,
+      event
+    });
+  };
+  onTouchEnd = (event) => {
+    this.emitter.emit("scroll", {
+      deltaX: this.lastDelta.x,
+      deltaY: this.lastDelta.y,
+      event
+    });
+  };
+  /** Event handler for 'wheel' event */
+  onWheel = (event) => {
+    let { deltaX, deltaY, deltaMode } = event;
+    const multiplierX = deltaMode === 1 ? LINE_HEIGHT : deltaMode === 2 ? this.window.width : 1;
+    const multiplierY = deltaMode === 1 ? LINE_HEIGHT : deltaMode === 2 ? this.window.height : 1;
+    deltaX *= multiplierX;
+    deltaY *= multiplierY;
+    deltaX *= this.options.wheelMultiplier;
+    deltaY *= this.options.wheelMultiplier;
+    this.emitter.emit("scroll", { deltaX, deltaY, event });
+  };
+  onWindowResize = () => {
+    this.window = {
+      width: window.innerWidth,
+      height: window.innerHeight
+    };
+  };
+};
+
+// packages/core/src/lenis.ts
+var Lenis = class {
+  _isScrolling = false;
+  // true when scroll is animating
+  _isStopped = false;
+  // true if user should not be able to scroll - enable/disable programmatically
+  _isLocked = false;
+  // same as isStopped but enabled/disabled when scroll reaches target
+  _preventNextNativeScrollEvent = false;
+  _resetVelocityTimeout = null;
+  /**
+   * Whether or not the user is touching the screen
+   */
+  isTouching;
+  /**
+   * The time in ms since the lenis instance was created
+   */
+  time = 0;
+  /**
+   * User data that will be forwarded through the scroll event
+   *
+   * @example
+   * lenis.scrollTo(100, {
+   *   userData: {
+   *     foo: 'bar'
+   *   }
+   * })
+   */
+  userData = {};
+  /**
+   * The last velocity of the scroll
+   */
+  lastVelocity = 0;
+  /**
+   * The current velocity of the scroll
+   */
+  velocity = 0;
+  /**
+   * The direction of the scroll
+   */
+  direction = 0;
+  /**
+   * The options passed to the lenis instance
+   */
+  options;
+  /**
+   * The target scroll value
+   */
+  targetScroll;
+  /**
+   * The animated scroll value
+   */
+  animatedScroll;
+  // These are instanciated here as they don't need information from the options
+  animate = new Animate();
+  emitter = new Emitter();
+  // These are instanciated in the constructor as they need information from the options
+  dimensions;
+  // This is not private because it's used in the Snap class
+  virtualScroll;
+  constructor({
+    wrapper = window,
+    content = document.documentElement,
+    eventsTarget = wrapper,
+    smoothWheel = true,
+    syncTouch = false,
+    syncTouchLerp = 0.075,
+    touchInertiaMultiplier = 35,
+    duration,
+    // in seconds
+    easing = (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    lerp: lerp2 = 0.1,
+    infinite = false,
+    orientation = "vertical",
+    // vertical, horizontal
+    gestureOrientation = "vertical",
+    // vertical, horizontal, both
+    touchMultiplier = 1,
+    wheelMultiplier = 1,
+    autoResize = true,
+    prevent,
+    virtualScroll,
+    overscroll = true,
+    __experimental__naiveDimensions = false
+  } = {}) {
+    window.lenisVersion = version;
+    if (!wrapper || wrapper === document.documentElement || wrapper === document.body) {
+      wrapper = window;
+    }
+    this.options = {
+      wrapper,
+      content,
+      eventsTarget,
+      smoothWheel,
+      syncTouch,
+      syncTouchLerp,
+      touchInertiaMultiplier,
+      duration,
+      easing,
+      lerp: lerp2,
+      infinite,
+      gestureOrientation,
+      orientation,
+      touchMultiplier,
+      wheelMultiplier,
+      autoResize,
+      prevent,
+      virtualScroll,
+      overscroll,
+      __experimental__naiveDimensions
+    };
+    this.dimensions = new Dimensions(wrapper, content, { autoResize });
+    this.updateClassName();
+    this.targetScroll = this.animatedScroll = this.actualScroll;
+    this.options.wrapper.addEventListener("scroll", this.onNativeScroll, false);
+    this.options.wrapper.addEventListener(
+      "pointerdown",
+      this.onPointerDown,
+      false
+    );
+    this.virtualScroll = new VirtualScroll(eventsTarget, {
+      touchMultiplier,
+      wheelMultiplier
+    });
+    this.virtualScroll.on("scroll", this.onVirtualScroll);
+  }
+  /**
+   * Destroy the lenis instance, remove all event listeners and clean up the class name
+   */
+  destroy() {
+    this.emitter.destroy();
+    this.options.wrapper.removeEventListener(
+      "scroll",
+      this.onNativeScroll,
+      false
+    );
+    this.options.wrapper.removeEventListener(
+      "pointerdown",
+      this.onPointerDown,
+      false
+    );
+    this.virtualScroll.destroy();
+    this.dimensions.destroy();
+    this.cleanUpClassName();
+  }
+  on(event, callback) {
+    return this.emitter.on(event, callback);
+  }
+  off(event, callback) {
+    return this.emitter.off(event, callback);
+  }
+  setScroll(scroll) {
+    if (this.isHorizontal) {
+      this.rootElement.scrollLeft = scroll;
+    } else {
+      this.rootElement.scrollTop = scroll;
+    }
+  }
+  onPointerDown = (event) => {
+    if (event.button === 1) {
+      this.reset();
+    }
+  };
+  onVirtualScroll = (data) => {
+    if (typeof this.options.virtualScroll === "function" && this.options.virtualScroll(data) === false)
+      return;
+    const { deltaX, deltaY, event } = data;
+    this.emitter.emit("virtual-scroll", { deltaX, deltaY, event });
+    if (event.ctrlKey) return;
+    if (event.lenisStopPropagation) return;
+    const isTouch = event.type.includes("touch");
+    const isWheel = event.type.includes("wheel");
+    this.isTouching = event.type === "touchstart" || event.type === "touchmove";
+    const isTapToStop = this.options.syncTouch && isTouch && event.type === "touchstart" && !this.isStopped && !this.isLocked;
+    if (isTapToStop) {
+      this.reset();
+      return;
+    }
+    const isClick = deltaX === 0 && deltaY === 0;
+    const isUnknownGesture = this.options.gestureOrientation === "vertical" && deltaY === 0 || this.options.gestureOrientation === "horizontal" && deltaX === 0;
+    if (isClick || isUnknownGesture) {
+      return;
+    }
+    let composedPath = event.composedPath();
+    composedPath = composedPath.slice(0, composedPath.indexOf(this.rootElement));
+    const prevent = this.options.prevent;
+    if (!!composedPath.find(
+      (node) => node instanceof HTMLElement && (typeof prevent === "function" && prevent?.(node) || node.hasAttribute?.("data-lenis-prevent") || isTouch && node.hasAttribute?.("data-lenis-prevent-touch") || isWheel && node.hasAttribute?.("data-lenis-prevent-wheel"))
+    ))
+      return;
+    if (this.isStopped || this.isLocked) {
+      event.preventDefault();
+      return;
+    }
+    const isSmooth = this.options.syncTouch && isTouch || this.options.smoothWheel && isWheel;
+    if (!isSmooth) {
+      this.isScrolling = "native";
+      this.animate.stop();
+      event.lenisStopPropagation = true;
+      return;
+    }
+    let delta = deltaY;
+    if (this.options.gestureOrientation === "both") {
+      delta = Math.abs(deltaY) > Math.abs(deltaX) ? deltaY : deltaX;
+    } else if (this.options.gestureOrientation === "horizontal") {
+      delta = deltaX;
+    }
+    if (!this.options.overscroll || this.options.infinite || this.options.wrapper !== window && (this.animatedScroll > 0 && this.animatedScroll < this.limit || this.animatedScroll === 0 && deltaY > 0 || this.animatedScroll === this.limit && deltaY < 0)) {
+      event.lenisStopPropagation = true;
+    }
+    event.preventDefault();
+    const syncTouch = isTouch && this.options.syncTouch;
+    const isTouchEnd = isTouch && event.type === "touchend";
+    const hasTouchInertia = isTouchEnd && Math.abs(delta) > 5;
+    if (hasTouchInertia) {
+      delta = this.velocity * this.options.touchInertiaMultiplier;
+    }
+    this.scrollTo(this.targetScroll + delta, {
+      programmatic: false,
+      ...syncTouch ? {
+        lerp: hasTouchInertia ? this.options.syncTouchLerp : 1
+      } : {
+        lerp: this.options.lerp,
+        duration: this.options.duration,
+        easing: this.options.easing
+      }
+    });
+  };
+  /**
+   * Force lenis to recalculate the dimensions
+   */
+  resize() {
+    this.dimensions.resize();
+    this.animatedScroll = this.targetScroll = this.actualScroll;
+    this.emit();
+  }
+  emit() {
+    this.emitter.emit("scroll", this);
+  }
+  onNativeScroll = () => {
+    if (this._resetVelocityTimeout !== null) {
+      clearTimeout(this._resetVelocityTimeout);
+      this._resetVelocityTimeout = null;
+    }
+    if (this._preventNextNativeScrollEvent) {
+      this._preventNextNativeScrollEvent = false;
+      return;
+    }
+    if (this.isScrolling === false || this.isScrolling === "native") {
+      const lastScroll = this.animatedScroll;
+      this.animatedScroll = this.targetScroll = this.actualScroll;
+      this.lastVelocity = this.velocity;
+      this.velocity = this.animatedScroll - lastScroll;
+      this.direction = Math.sign(
+        this.animatedScroll - lastScroll
+      );
+      this.isScrolling = "native";
+      this.emit();
+      if (this.velocity !== 0) {
+        this._resetVelocityTimeout = setTimeout(() => {
+          this.lastVelocity = this.velocity;
+          this.velocity = 0;
+          this.isScrolling = false;
+          this.emit();
+        }, 400);
+      }
+    }
+  };
+  reset() {
+    this.isLocked = false;
+    this.isScrolling = false;
+    this.animatedScroll = this.targetScroll = this.actualScroll;
+    this.lastVelocity = this.velocity = 0;
+    this.animate.stop();
+  }
+  /**
+   * Start lenis scroll after it has been stopped
+   */
+  start() {
+    if (!this.isStopped) return;
+    this.isStopped = false;
+    this.reset();
+  }
+  /**
+   * Stop lenis scroll
+   */
+  stop() {
+    if (this.isStopped) return;
+    this.isStopped = true;
+    this.animate.stop();
+    this.reset();
+  }
+  /**
+   * RequestAnimationFrame for lenis
+   *
+   * @param time The time in ms from an external clock like `requestAnimationFrame` or Tempus
+   */
+  raf(time) {
+    const deltaTime = time - (this.time || time);
+    this.time = time;
+    this.animate.advance(deltaTime * 1e-3);
+  }
+  /**
+   * Scroll to a target value
+   *
+   * @param target The target value to scroll to
+   * @param options The options for the scroll
+   *
+   * @example
+   * lenis.scrollTo(100, {
+   *   offset: 100,
+   *   duration: 1,
+   *   easing: (t) => 1 - Math.cos((t * Math.PI) / 2),
+   *   lerp: 0.1,
+   *   onStart: () => {
+   *     console.log('onStart')
+   *   },
+   *   onComplete: () => {
+   *     console.log('onComplete')
+   *   },
+   * })
+   */
+  scrollTo(target, {
+    offset = 0,
+    immediate = false,
+    lock = false,
+    duration = this.options.duration,
+    easing = this.options.easing,
+    lerp: lerp2 = this.options.lerp,
+    onStart,
+    onComplete,
+    force = false,
+    // scroll even if stopped
+    programmatic = true,
+    // called from outside of the class
+    userData
+  } = {}) {
+    if ((this.isStopped || this.isLocked) && !force) return;
+    if (typeof target === "string" && ["top", "left", "start"].includes(target)) {
+      target = 0;
+    } else if (typeof target === "string" && ["bottom", "right", "end"].includes(target)) {
+      target = this.limit;
+    } else {
+      let node;
+      if (typeof target === "string") {
+        node = document.querySelector(target);
+      } else if (target instanceof HTMLElement && target?.nodeType) {
+        node = target;
+      }
+      if (node) {
+        if (this.options.wrapper !== window) {
+          const wrapperRect = this.rootElement.getBoundingClientRect();
+          offset -= this.isHorizontal ? wrapperRect.left : wrapperRect.top;
+        }
+        const rect = node.getBoundingClientRect();
+        target = (this.isHorizontal ? rect.left : rect.top) + this.animatedScroll;
+      }
+    }
+    if (typeof target !== "number") return;
+    target += offset;
+    target = Math.round(target);
+    if (this.options.infinite) {
+      if (programmatic) {
+        this.targetScroll = this.animatedScroll = this.scroll;
+      }
+    } else {
+      target = clamp(0, target, this.limit);
+    }
+    if (target === this.targetScroll) {
+      onStart?.(this);
+      onComplete?.(this);
+      return;
+    }
+    this.userData = userData ?? {};
+    if (immediate) {
+      this.animatedScroll = this.targetScroll = target;
+      this.setScroll(this.scroll);
+      this.reset();
+      this.preventNextNativeScrollEvent();
+      this.emit();
+      onComplete?.(this);
+      this.userData = {};
+      return;
+    }
+    if (!programmatic) {
+      this.targetScroll = target;
+    }
+    this.animate.fromTo(this.animatedScroll, target, {
+      duration,
+      easing,
+      lerp: lerp2,
+      onStart: () => {
+        if (lock) this.isLocked = true;
+        this.isScrolling = "smooth";
+        onStart?.(this);
+      },
+      onUpdate: (value, completed) => {
+        this.isScrolling = "smooth";
+        this.lastVelocity = this.velocity;
+        this.velocity = value - this.animatedScroll;
+        this.direction = Math.sign(this.velocity);
+        this.animatedScroll = value;
+        this.setScroll(this.scroll);
+        if (programmatic) {
+          this.targetScroll = value;
+        }
+        if (!completed) this.emit();
+        if (completed) {
+          this.reset();
+          this.emit();
+          onComplete?.(this);
+          this.userData = {};
+          this.preventNextNativeScrollEvent();
+        }
+      }
+    });
+  }
+  preventNextNativeScrollEvent() {
+    this._preventNextNativeScrollEvent = true;
+    requestAnimationFrame(() => {
+      this._preventNextNativeScrollEvent = false;
+    });
+  }
+  /**
+   * The root element on which lenis is instanced
+   */
+  get rootElement() {
+    return this.options.wrapper === window ? document.documentElement : this.options.wrapper;
+  }
+  /**
+   * The limit which is the maximum scroll value
+   */
+  get limit() {
+    if (this.options.__experimental__naiveDimensions) {
+      if (this.isHorizontal) {
+        return this.rootElement.scrollWidth - this.rootElement.clientWidth;
+      } else {
+        return this.rootElement.scrollHeight - this.rootElement.clientHeight;
+      }
+    } else {
+      return this.dimensions.limit[this.isHorizontal ? "x" : "y"];
+    }
+  }
+  /**
+   * Whether or not the scroll is horizontal
+   */
+  get isHorizontal() {
+    return this.options.orientation === "horizontal";
+  }
+  /**
+   * The actual scroll value
+   */
+  get actualScroll() {
+    return this.isHorizontal ? this.rootElement.scrollLeft : this.rootElement.scrollTop;
+  }
+  /**
+   * The current scroll value
+   */
+  get scroll() {
+    return this.options.infinite ? modulo(this.animatedScroll, this.limit) : this.animatedScroll;
+  }
+  /**
+   * The progress of the scroll relative to the limit
+   */
+  get progress() {
+    return this.limit === 0 ? 1 : this.scroll / this.limit;
+  }
+  /**
+   * Current scroll state
+   */
+  get isScrolling() {
+    return this._isScrolling;
+  }
+  set isScrolling(value) {
+    if (this._isScrolling !== value) {
+      this._isScrolling = value;
+      this.updateClassName();
+    }
+  }
+  /**
+   * Check if lenis is stopped
+   */
+  get isStopped() {
+    return this._isStopped;
+  }
+  set isStopped(value) {
+    if (this._isStopped !== value) {
+      this._isStopped = value;
+      this.updateClassName();
+    }
+  }
+  /**
+   * Check if lenis is locked
+   */
+  get isLocked() {
+    return this._isLocked;
+  }
+  set isLocked(value) {
+    if (this._isLocked !== value) {
+      this._isLocked = value;
+      this.updateClassName();
+    }
+  }
+  /**
+   * Check if lenis is smooth scrolling
+   */
+  get isSmooth() {
+    return this.isScrolling === "smooth";
+  }
+  /**
+   * The class name applied to the wrapper element
+   */
+  get className() {
+    let className = "lenis";
+    if (this.isStopped) className += " lenis-stopped";
+    if (this.isLocked) className += " lenis-locked";
+    if (this.isScrolling) className += " lenis-scrolling";
+    if (this.isScrolling === "smooth") className += " lenis-smooth";
+    return className;
+  }
+  updateClassName() {
+    this.cleanUpClassName();
+    this.rootElement.className = `${this.rootElement.className} ${this.className}`.trim();
+  }
+  cleanUpClassName() {
+    this.rootElement.className = this.rootElement.className.replace(/lenis(-\w+)?/g, "").trim();
+  }
+};
+
+//# sourceMappingURL=lenis.mjs.map
+
+/***/ }
+
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		if (!(moduleId in __webpack_modules__)) {
+/******/ 			delete __webpack_module_cache__[moduleId];
+/******/ 			var e = new Error("Cannot find module '" + moduleId + "'");
+/******/ 			e.code = 'MODULE_NOT_FOUND';
+/******/ 			throw e;
+/******/ 		}
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = __webpack_modules__;
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/chunk loaded */
+/******/ 	(() => {
+/******/ 		var deferred = [];
+/******/ 		__webpack_require__.O = (result, chunkIds, fn, priority) => {
+/******/ 			if(chunkIds) {
+/******/ 				priority = priority || 0;
+/******/ 				for(var i = deferred.length; i > 0 && deferred[i - 1][2] > priority; i--) deferred[i] = deferred[i - 1];
+/******/ 				deferred[i] = [chunkIds, fn, priority];
+/******/ 				return;
+/******/ 			}
+/******/ 			var notFulfilled = Infinity;
+/******/ 			for (var i = 0; i < deferred.length; i++) {
+/******/ 				var [chunkIds, fn, priority] = deferred[i];
+/******/ 				var fulfilled = true;
+/******/ 				for (var j = 0; j < chunkIds.length; j++) {
+/******/ 					if ((priority & 1 === 0 || notFulfilled >= priority) && Object.keys(__webpack_require__.O).every((key) => (__webpack_require__.O[key](chunkIds[j])))) {
+/******/ 						chunkIds.splice(j--, 1);
+/******/ 					} else {
+/******/ 						fulfilled = false;
+/******/ 						if(priority < notFulfilled) notFulfilled = priority;
+/******/ 					}
+/******/ 				}
+/******/ 				if(fulfilled) {
+/******/ 					deferred.splice(i--, 1)
+/******/ 					var r = fn();
+/******/ 					if (r !== undefined) result = r;
+/******/ 				}
+/******/ 			}
+/******/ 			return result;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/jsonp chunk loading */
+/******/ 	(() => {
+/******/ 		// no baseURI
+/******/ 		
+/******/ 		// object to store loaded and loading chunks
+/******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
+/******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
+/******/ 		var installedChunks = {
+/******/ 			"/js/main": 0,
+/******/ 			"css/admin-login": 0,
+/******/ 			"css/main": 0
+/******/ 		};
+/******/ 		
+/******/ 		// no chunk on demand loading
+/******/ 		
+/******/ 		// no prefetching
+/******/ 		
+/******/ 		// no preloaded
+/******/ 		
+/******/ 		// no HMR
+/******/ 		
+/******/ 		// no HMR manifest
+/******/ 		
+/******/ 		__webpack_require__.O.j = (chunkId) => (installedChunks[chunkId] === 0);
+/******/ 		
+/******/ 		// install a JSONP callback for chunk loading
+/******/ 		var webpackJsonpCallback = (parentChunkLoadingFunction, data) => {
+/******/ 			var [chunkIds, moreModules, runtime] = data;
+/******/ 			// add "moreModules" to the modules object,
+/******/ 			// then flag all "chunkIds" as loaded and fire callback
+/******/ 			var moduleId, chunkId, i = 0;
+/******/ 			if(chunkIds.some((id) => (installedChunks[id] !== 0))) {
+/******/ 				for(moduleId in moreModules) {
+/******/ 					if(__webpack_require__.o(moreModules, moduleId)) {
+/******/ 						__webpack_require__.m[moduleId] = moreModules[moduleId];
+/******/ 					}
+/******/ 				}
+/******/ 				if(runtime) var result = runtime(__webpack_require__);
+/******/ 			}
+/******/ 			if(parentChunkLoadingFunction) parentChunkLoadingFunction(data);
+/******/ 			for(;i < chunkIds.length; i++) {
+/******/ 				chunkId = chunkIds[i];
+/******/ 				if(__webpack_require__.o(installedChunks, chunkId) && installedChunks[chunkId]) {
+/******/ 					installedChunks[chunkId][0]();
+/******/ 				}
+/******/ 				installedChunks[chunkId] = 0;
+/******/ 			}
+/******/ 			return __webpack_require__.O(result);
+/******/ 		}
+/******/ 		
+/******/ 		var chunkLoadingGlobal = self["webpackChunkstarter_theme"] = self["webpackChunkstarter_theme"] || [];
+/******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
+/******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
+/******/ 	})();
+/******/ 	
+/************************************************************************/
+/******/ 	
+/******/ 	// startup
+/******/ 	// Load entry module and return exports
+/******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
+/******/ 	__webpack_require__.O(undefined, ["css/admin-login","css/main"], () => (__webpack_require__("./assets/js/main.js")))
+/******/ 	__webpack_require__.O(undefined, ["css/admin-login","css/main"], () => (__webpack_require__("./assets/sass/main.sass")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/admin-login","css/main"], () => (__webpack_require__("./assets/sass/admin-login.sass")))
+/******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
+/******/ 	
+/******/ })()
+;
+//# sourceMappingURL=main.js.map

@@ -1,12 +1,12 @@
 .btn
   @apply inline-flex items-center justify-center relative text-[13px] font-semibold tracking-[0.12em] uppercase no-underline cursor-pointer
-  font-family: var(--font-primary)
+  font-family: font-openSans
   transition: background-color var(--transition-base), color var(--transition-base)
 
 .btn-primary
   // Border is rendered by the SVG path injected via JS (initPrimaryButtons).
   // Default state: line drawn. Hover: line un-draws (reverse). Leave: redraws.
-  @apply px-9 py-1 bg-transparent text-off-white border-none rounded text-[13px] font-bold
+  @apply px-9 py-1 bg-transparent text-off-white border-none rounded text-[13px] font-bold font-openSans
   transition: background-color 2.5s cubic-bezier(0.16, 1, 0.3, 1), color 2.5s cubic-bezier(0.16, 1, 0.3, 1)
   &:hover
     @apply bg-wine text-off-white
