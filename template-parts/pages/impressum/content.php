@@ -15,12 +15,12 @@
 				<?php the_title(); ?>
 			</h1>
 
-			<div class="impressum-block col-start-1 col-span-1 md:col-start-2 md:col-span-2 xl:col-start-6 xl:col-span-2">
+			<div class="impressum-block flex flex-col col-start-1 col-span-1 md:col-start-2 md:col-span-2 xl:col-start-6 xl:col-span-2 min-h-[125px] md:min-h-[150px] xl:min-h-[160px]">
 				<h2 class="impressum-block__title"><?php the_field( 'inhaber_title' ); ?></h2>
-				<div class="impressum-block__content"><?php the_field( 'inhaber_content' ); ?></div>
+				<div class="impressum-block__content mt-auto"><?php the_field( 'inhaber_content' ); ?></div>
 			</div>
 
-			<div class="impressum-block col-start-2 col-span-1 md:col-start-4 md:col-span-3 xl:col-start-9 xl:col-span-5">
+			<div class="impressum-block col-start-2 col-span-1 md:col-start-4 md:col-span-3 xl:col-start-9 xl:col-span-5 min-h-[125px] md:min-h-[150px] xl:min-h-[160px]">
 				<h2 class="impressum-block__title"><?php the_field( 'contact_phone_title' ); ?></h2>
 				<p class="impressum-block__value"><?php the_field( 'contact_phone_value' ); ?></p>
 
