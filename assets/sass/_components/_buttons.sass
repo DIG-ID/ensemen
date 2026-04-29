@@ -20,14 +20,12 @@
     white-space: nowrap
 
 .btn-form
-  // Border is rendered by the SVG path injected via JS (initPrimaryButtons).
-  // Default state: line drawn. Hover: line un-draws (reverse). Leave: redraws.
-  @apply px-9 py-1 bg-transparent text-off-white border-none rounded text-[13px] font-bold font-openSans
+  @apply px-9 py-1 bg-transparent text-wine border-none rounded text-[13px] font-bold font-openSans
   transition: background-color 2.5s cubic-bezier(0.16, 1, 0.3, 1), color 2.5s cubic-bezier(0.16, 1, 0.3, 1)
-  &:hover
-    @apply bg-wine text-off-white
+  svg path
+    stroke-width: 4
   &:active
-    @apply bg-off-white text-wine
+    @apply text-wine
     transition: background-color 1.5s cubic-bezier(0.16, 1, 0.3, 1), color 1.5s cubic-bezier(0.16, 1, 0.3, 1)
 
 .btn-header

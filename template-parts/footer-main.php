@@ -96,15 +96,7 @@ $copyright_positions = array(
 					</nav>
 				<?php endif; ?>
 
-				<div class="footer-main__newsletter col-span-2 pt-[50px] md:pt-[60px] md:col-span-6 xl:hidden">
-					<?php if ( ! empty( $newsletter['title'] ) ) : ?>
-						<h3 class="footer-title pb-10"><?php echo esc_html( $newsletter['title'] ); ?></h3>
-					<?php endif; ?>
-
-					<?php if ( ! empty( $newsletter['newletter_shortcode'] ) ) : ?>
-						<?php echo do_shortcode( $newsletter['newletter_shortcode'] ); ?>
-					<?php endif; ?>
-				</div>
+				
 
 				<!-- Desktop -->
 				<div class="footer-main__kontakt hidden xl:block xl:col-start-2 xl:col-span-2">
@@ -146,7 +138,7 @@ $copyright_positions = array(
 					</nav>
 				<?php endif; ?>
 
-				<div class="footer-main__newsletter hidden xl:block xl:col-start-9 xl:col-span-4">
+				<div class="footer-main__newsletter col-span-2 md:col-span-6 xl:col-start-9 xl:col-span-4 pt-32 xl:pt-0 relative">
 					<?php if ( ! empty( $newsletter['title'] ) ) : ?>
 						<h3 class="footer-title pb-10"><?php echo esc_html( $newsletter['title'] ); ?></h3>
 					<?php endif; ?>

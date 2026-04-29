@@ -3,7 +3,7 @@
 // Mailchimp newsletter form (rendered by MC4WP with class .mc4wp-form)
 .mc4wp-form
   .mc4wp-form-fields
-    @apply flex flex-col gap-12 relative
+    @apply flex flex-col gap-12 last:gap-0 relative
 
   .form-field
     @apply relative m-0 w-full md:w-1/2 xl:w-full
@@ -34,10 +34,13 @@
 
     button[type="submit"]
       @apply relative overflow-hidden inline-block py-2.5 px-9 bg-transparent border-2 border-wine rounded text-wine font-openSans text-[15px] font-bold leading-8 tracking-[0.5px] uppercase no-underline cursor-pointer
-      @apply transition-colors duration-[600ms] ease-out-expo
 
       &:hover
-        @apply text-off-white
+        @apply text-wine
 
         &::before
           @apply scale-x-100
+
+  @media (min-width: 768px) and (max-width: 1279px)
+    .form-submit
+      @apply absolute right-0 bottom-0

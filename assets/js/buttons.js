@@ -123,7 +123,7 @@ function initPrimaryButtons() {
 }
 
 function initFormButtons() {
-	initAnimatedButton( '.btn-form', '#F1F2ED', '#874644', true );
+	initAnimatedButton( '.btn-form', '#874644', '#F1F2ED', true );
 }
 
 function initHeaderButtons() {
