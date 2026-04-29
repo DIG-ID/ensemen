@@ -93,6 +93,35 @@ function ensemen_logo_white() {
 
 add_action( 'theme_logo_white', 'ensemen_logo_white' );
 
+
+/**
+ * Outputs the wine site logo from the ACF `theme_logo_wine` options field.
+ */
+function ensemen_logo_wine() {
+	$general = get_field( 'general', 'option' );
+	$logo_id = $general['theme_logo_wine'] ?? null;
+	if ( ! $logo_id ) {
+		return;
+	}
+	?>
+	<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="site-logo site-logo--wine" rel="home">
+		<?php
+		echo wp_get_attachment_image(
+			$logo_id,
+			'full',
+			false,
+			array(
+				'class'   => 'w-full h-auto',
+				'loading' => 'eager',
+			)
+		);
+		?>
+	</a>
+	<?php
+}
+
+add_action( 'theme_logo_wine', 'ensemen_logo_wine' );
+
 /**
  * Outputs the Yoast breadcrumbs.
  */

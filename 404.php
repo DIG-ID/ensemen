@@ -27,7 +27,7 @@ do_action( 'before_main_content' );
 
 		</div>
 
-		<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="btn btn-primary">
+		<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="btn btn-primary--reversed">
 			<?php esc_html_e( 'zur startseite', 'ensemen' ); ?>
 		</a>
 	

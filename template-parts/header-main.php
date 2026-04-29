@@ -20,7 +20,11 @@ $reservation = $general['header_reservation_button'] ?? null;
 	<div class="theme-container">
 		<div class="theme-grid items-center py-[20px] md:py-[26px] xl:py-7">
 			<div class="header-main__logo col-start-1 col-span-1 md:col-start-1 md:col-span-1 xl:col-start-2 xl:col-span-3 max-w-[115px] md:max-w-[261px]">
-				<?php do_action( 'theme_logo_white' ); ?>
+				<?php if ( is_404() ) : ?>
+					<?php do_action( 'theme_logo_wine' ); ?>
+				<?php else : ?>
+					<?php do_action( 'theme_logo_white' ); ?>
+				<?php endif; ?>
 			</div>
 
 			<?php if ( ! empty( $menu_items ) ) : ?>

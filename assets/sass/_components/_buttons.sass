@@ -56,3 +56,15 @@
 
 .btn-footer
   @apply relative inline-block px-[26px] py-2 bg-transparent text-wine border-none rounded font-openSans text-[20px] font-bold leading-8 tracking-[0.5px] text-center normal-case no-underline whitespace-nowrap
+
+
+.btn-primary--reversed
+  // Border is rendered by the SVG path injected via JS (initPrimaryButtons).
+  // Default state: line drawn. Hover: line un-draws (reverse). Leave: redraws.
+  @apply px-9 py-1 bg-transparent text-wine border-none rounded text-[13px] font-bold font-openSans
+  transition: background-color 2.5s cubic-bezier(0.16, 1, 0.3, 1), color 2.5s cubic-bezier(0.16, 1, 0.3, 1)
+  &:hover
+    @apply bg-off-white text-wine
+  &:active
+    @apply bg-wine text-off-white
+    transition: background-color 1.5s cubic-bezier(0.16, 1, 0.3, 1), color 1.5s cubic-bezier(0.16, 1, 0.3, 1)

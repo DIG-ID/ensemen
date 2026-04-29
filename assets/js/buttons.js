@@ -122,12 +122,22 @@ function initPrimaryButtons() {
 	initAnimatedButton( '.btn-primary', '#F1F2ED', '#874644', true );
 }
 
+function initPrimaryButtonsReversed() {
+	initAnimatedButton( '.btn-primary--reversed', '#874644', '#F1F2ED', true );
+}
+
 function initFormButtons() {
 	initAnimatedButton( '.btn-form', '#874644', '#F1F2ED', true );
 }
 
 function initHeaderButtons() {
-	initAnimatedButton( '.btn-header', '#F1F2ED', '#874644' );
+
+  const isError404 = document.body.classList.contains( 'error404' );
+  const stroke = isError404 ? '#874644' : '#F1F2ED';
+  const pressed = isError404 ? '#F1F2ED' : '#874644';
+  initAnimatedButton( '.btn-header', stroke, pressed );
+
+
 }
 
 function initReservationButtons() {
@@ -138,4 +148,4 @@ function initFooterButtons() {
 	initAnimatedButton( '.btn-footer', '#874644' );
 }
 
-export { initPrimaryButtons, initFormButtons, initHeaderButtons, initReservationButtons, initFooterButtons };
+export { initPrimaryButtons, initPrimaryButtonsReversed, initFormButtons, initHeaderButtons, initReservationButtons, initFooterButtons };
