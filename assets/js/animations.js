@@ -433,42 +433,44 @@ function initMealsReveal() {
   const buildTriggers = (cfg) => {
     grids.forEach((grid) => {
       const cards = grid.querySelectorAll('[data-meals-card]');
-      // Per-grid stagger override via data-meals-stagger; falls back to config
-      const staggerAttr = parseFloat(grid.getAttribute('data-meals-stagger'));
-      const stagger = !isNaN(staggerAttr) ? staggerAttr : cfg.stagger;
+      if (!cards.length) return;
 
-      cards.forEach((card, index) => {
+      // Collect all images and overlay containers across the cards in this grid
+      const imgs = [];
+      const overlays = [];
+      cards.forEach((card) => {
         const imgContainer = card.querySelector('.card-meal__img');
         const img = imgContainer ? imgContainer.querySelector('img') : null;
         if (!img || !imgContainer) return;
+        imgs.push(img);
+        overlays.push(imgContainer);
+      });
+      if (!imgs.length) return;
 
-        // Per-card delay override via data-meals-delay; otherwise cumulative cascade
-        const delayAttr = card.getAttribute('data-meals-delay');
-        const delay = delayAttr !== null ? parseFloat(delayAttr) : index * stagger;
+      // Single trigger on the first card — all cards animate together when it enters
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: cards[0],
+          start: cfg.start,
+          // Slide down on scroll down, slide back up on scroll up
+          toggleActions: 'play none none reverse',
+        },
+      });
 
-        const tl = gsap.timeline({
-          delay: delay,
-          scrollTrigger: {
-            trigger: card,
-            start: cfg.start,
-            // Slide down on scroll down, slide back up on scroll up
-            toggleActions: 'play none none reverse',
-          },
-        });
+      // 1. Slide all images down (optional cascade via cfg.stagger)
+      tl.to(imgs, {
+        yPercent: 0,
+        duration: 1.8,
+        ease: 'power3.out',
+        stagger: cfg.stagger,
+      });
 
-        // 1. Slide image down into the bordered container
-        tl.to(img, {
-          yPercent: 0,
-          duration: 1.8,
-          ease: 'power3.out',
-        });
-
-        // 2. After the image has settled, fade in the bottom gradient overlay
-        tl.to(imgContainer, {
-          '--overlay-opacity': 1,
-          duration: 1.4,
-          ease: 'power2.out',
-        });
+      // 2. After images settle, fade in all bottom gradient overlays
+      tl.to(overlays, {
+        '--overlay-opacity': 1,
+        duration: 1.4,
+        ease: 'power2.out',
+        stagger: cfg.stagger,
       });
     });
   };
