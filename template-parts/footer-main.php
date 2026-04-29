@@ -89,7 +89,7 @@ $copyright_positions = array(
 				<?php endif; ?>
 
 				<?php if ( ! empty( $menu_items ) ) : ?>
-					<nav class="footer-main__nav col-span-2 pt-[50px] md:pt-[60px] grid grid-cols-2 gap-y-[22px] md:col-span-6 md:flex md:flex-row md:justify-between md:gap-4 xl:hidden" aria-label="<?php esc_attr_e( 'Footer menu', 'ensemen' ); ?>">
+					<nav class="footer-main__nav col-span-2 pt-[50px] md:pt-[60px] grid grid-cols-1 gap-y-[22px] md:col-span-6 md:flex md:flex-row md:justify-between md:gap-4 xl:hidden" aria-label="<?php esc_attr_e( 'Footer menu', 'ensemen' ); ?>">
 						<?php foreach ( $menu_items as $item ) : ?>
 							<a href="<?php echo esc_url( $item->url ); ?>" class="btn-footer last:hidden"><?php echo esc_html( $item->title ); ?></a>
 						<?php endforeach; ?>
@@ -138,7 +138,7 @@ $copyright_positions = array(
 					</nav>
 				<?php endif; ?>
 
-				<div class="footer-main__newsletter col-span-2 md:col-span-6 xl:col-start-9 xl:col-span-4 pt-32 xl:pt-0 relative">
+				<div class="footer-main__newsletter col-span-2 md:col-span-6 xl:col-start-9 xl:col-span-4 pt-32 md:pt-16 xl:pt-0 relative">
 					<?php if ( ! empty( $newsletter['title'] ) ) : ?>
 						<h3 class="footer-title pb-10"><?php echo esc_html( $newsletter['title'] ); ?></h3>
 					<?php endif; ?>
