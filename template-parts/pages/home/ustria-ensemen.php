@@ -11,10 +11,10 @@ $ue_image_title       = get_field( 'ustria_ensemen_image_title' );
 $ue_image_description = get_field( 'ustria_ensemen_image_description' );
 $ue_photo             = get_field( 'ustria_ensemen_photo' );
 ?>
-<section id="section-ustria-ensemen" class="section-ustria-ensemen pt-[50px] pb-[50px] md:pt-[100px] md:pb-[100px] xl:pt-0 xl:pb-52">
+<section id="section-ustria-ensemen" class="section-ustria-ensemen pt-12 pb-12 md:pt-24 md:pb-24 xl:pt-0 xl:pb-52">
 	<div class="theme-container">
 
-		<div class="theme-grid gap-y-[30px] md:gap-y-0 items-start">
+		<div class="theme-grid gap-y-8 md:gap-y-0 items-start">
 
 			<!-- Mobile + Tablet -->
 			<div class="col-span-2 md:col-start-2 md:col-span-5 xl:hidden">
@@ -28,13 +28,13 @@ $ue_photo             = get_field( 'ustria_ensemen_photo' );
 						'full',
 						false,
 						array(
-							'class' => 'section-ustria-ensemen__bg w-full h-auto max-w-[160px] md:max-w-none',
+							'class' => 'section-ustria-ensemen__bg w-full h-auto max-w-40 md:max-w-none',
 						)
 					); ?>
 				<?php endif; ?>
 			</div>
 
-			<div class="col-span-1 md:col-start-5 md:col-span-2 md:pt-10 xl:hidden">
+			<div class="col-span-1 md:col-start-5 md:col-span-2md:pt-10 xl:hidden">
 				<h2 class="title-main italic text-off-white"><?php the_field( 'ustria_ensemen_title_2' ); ?></h2>
 			</div>
 
@@ -45,7 +45,7 @@ $ue_photo             = get_field( 'ustria_ensemen_photo' );
 						'full',
 						false,
 						array(
-							'class' => 'section-ustria-ensemen__bg w-full h-auto max-w-[203px] md:max-w-none',
+							'class' => 'section-ustria-ensemen__bg w-full h-auto max-w-52 md:max-w-none',
 						)
 					); ?>
 				<?php endif; ?>
@@ -65,7 +65,7 @@ $ue_photo             = get_field( 'ustria_ensemen_photo' );
 				<?php endif; ?>
 			</div>
 
-			<div class="col-span-2 md:col-start-1 md:col-span-3 md:pt-[30px] md:hidden">
+			<div class="col-span-2 md:col-start-1 md:col-span-3 md:pt-8 md:hidden">
 				<p class="text-off-white font-openSans text-[18px] leading-[30px] tracking-[0.5px] max-w-[572px]"><?php the_field( 'ustria_ensemen_description' ); ?></p>
 			</div>
 

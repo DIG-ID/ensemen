@@ -1,0 +1,36 @@
+// =============================================================================
+// Impressum page template
+// =============================================================================
+
+// Page title — Bodoni italic, scales 70 → 80 → 120
+.section-impressum
+  &__title
+    @apply font-bodoni italic text-off-white tracking-[1px] text-[70px] leading-[60px] md:text-[80px] md:leading-[90px] xl:text-[120px] xl:leading-[110px]
+
+// ACF content blocks (Inhaber / Contact / Credits)
+.impressum-block
+  @apply text-off-white
+
+  &__title
+    @extend .body-small-bold
+    @apply mb-2 md:mb-4
+
+    &--spaced
+      @apply mt-8 md:mt-10 xl:mt-12
+
+  &__value
+    @extend .body-small
+    @apply mb-0
+
+  &__content
+    p
+      @extend .body-small
+      @apply mb-0
+
+    p + p
+      @apply mt-6 md:mt-8
+
+    a
+      @apply underline transition-all duration-300 ease-in-out
+      &:hover
+        @apply opacity-70

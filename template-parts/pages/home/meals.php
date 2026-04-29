@@ -9,7 +9,7 @@
 
 
 ?>
-<section id="section-meals" class="section-meals bg-brown py-[100px] md:pt-[100px] md:pb-[100px] xl:pt-0 xl:pb-52">
+<section id="section-meals" class="section-meals bg-brown py-24 md:pt-24 md:pb-24 xl:pt-0 xl:pb-52">
     <div class="theme-container">
         <div class="theme-grid">
             <div class="col-span-2 md:col-span-6 xl:col-start-2 xl:col-span-7">
@@ -18,8 +18,8 @@
             <div class="col-span-2 md:col-span-6 xl:col-start-2 xl:col-span-5">
                 <h2 class="title-main italic md:italic xl:not-italic text-off-white"><?php the_field( 'meals_title_part_2' ); ?></h2>
             </div>
-            <div class="col-span-2 pt-[30px] md:col-start-4 md:col-span-3 md:pt-[30px] xl:col-start-7 xl:col-span-4 xl:pt-7">
-                <p class="text-off-white font-openSans text-[18px] leading-[30px] tracking-[0.5px]"><?php the_field( 'meals_description' ); ?></p>
+            <div class="col-span-2 pt-8 md:col-start-4 md:col-span-3 md:pt-8 xl:col-start-7 xl:col-span-4 xl:pt-7">
+                <p class="text-off-white font-openSans text-[18px] leading-8 tracking-[0.5px]"><?php the_field( 'meals_description' ); ?></p>
             </div>
         </div>
 
@@ -77,24 +77,24 @@
 
             <!-- Mobile + Desktop layout: 3 cards in the staggered staircase -->
             <div class="md:hidden xl:block">
-                <div class="theme-grid gap-y-[50px] pt-[50px] xl:pt-40 items-start" data-meals-grid>
+                <div class="theme-grid gap-y-12 pt-12 xl:pt-40 items-start" data-meals-grid>
                     <?php $render_card( 0, 'col-span-2 xl:col-start-2 xl:col-span-3' ); ?>
                     <?php $render_card( 1, 'col-span-2 xl:col-start-5 xl:col-span-4 xl:pl-[75px] xl:pr-[75px] xl:pt-[390px]' ); ?>
-                    <?php $render_card( 2, 'col-span-2 xl:col-start-9 xl:col-span-3 xl:pt-[162px]' ); ?>
+                    <?php $render_card( 2, 'col-span-2 xl:col-start-9 xl:col-span-3 xl:pt-40' ); ?>
                 </div>
             </div>
 
             <!-- Tablet-only layout: left column = cards 1 + 3, right column = card 2 -->
             <div class="hidden md:block xl:hidden">
-                <div class="theme-grid pt-[50px] items-start" data-meals-grid data-meals-stagger="0.15">
+                <div class="theme-grid pt-12 items-start" data-meals-grid data-meals-stagger="0.15">
                     <!-- Left column: cards 1 + 3 stacked -->
                     <div class="md:col-start-1 md:col-span-3">
                         <?php $render_card( 0, '' ); ?>
-                        <?php $render_card( 2, 'md:pt-[50px]', 0 ); ?>
+                        <?php $render_card( 2, 'md:pt-12', 0 ); ?>
                     </div>
                     <!-- Right column: card 2 alone -->
                     <div class="md:col-start-4 md:col-span-3">
-                        <?php $render_card( 1, 'md:pt-[300px]' ); ?>
+                        <?php $render_card( 1, 'md:pt-72' ); ?>
                     </div>
                 </div>
             </div>
