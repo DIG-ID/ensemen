@@ -16,23 +16,23 @@
 			</h1>
 
 			<div class="impressum-block col-start-1 col-span-1 md:col-start-2 md:col-span-2 xl:col-start-6 xl:col-span-2">
-				<h2 class="impressum-block__title"><?php the_field( 'impressum_inhaber_title' ); ?></h2>
-				<div class="impressum-block__content"><?php the_field( 'impressum_inhaber_content' ); ?></div>
+				<h2 class="impressum-block__title"><?php the_field( 'inhaber_title' ); ?></h2>
+				<div class="impressum-block__content"><?php the_field( 'inhaber_content' ); ?></div>
 			</div>
 
 			<div class="impressum-block col-start-2 col-span-1 md:col-start-4 md:col-span-3 xl:col-start-8 xl:col-span-5">
-				<h2 class="impressum-block__title"><?php the_field( 'impressum_phone_title' ); ?></h2>
-				<p class="impressum-block__value"><?php the_field( 'impressum_phone_value' ); ?></p>
+				<h2 class="impressum-block__title"><?php the_field( 'phone_title' ); ?></h2>
+				<p class="impressum-block__value"><?php the_field( 'phone_value' ); ?></p>
 
-				<h2 class="impressum-block__title impressum-block__title--spaced"><?php the_field( 'impressum_email_title' ); ?></h2>
+				<h2 class="impressum-block__title impressum-block__title--spaced"><?php the_field( 'email_title' ); ?></h2>
 				<p class="impressum-block__value">
-					<a href="mailto:<?php the_field( 'impressum_email_value' ); ?>"><?php the_field( 'impressum_email_value' ); ?></a>
+					<a href="mailto:<?php the_field( 'email_value' ); ?>"><?php the_field( 'email_value' ); ?></a>
 				</p>
 			</div>
 
 			<div class="impressum-block col-start-1 col-span-2 md:col-start-2 md:col-span-5 xl:col-start-6 xl:col-span-7">
-				<h2 class="impressum-block__title"><?php the_field( 'impressum_credits_title' ); ?></h2>
-				<div class="impressum-block__content"><?php the_field( 'impressum_credits_content' ); ?></div>
+				<h2 class="impressum-block__title"><?php the_field( 'credits_title' ); ?></h2>
+				<div class="impressum-block__content"><?php the_field( 'credits_content' ); ?></div>
 			</div>
 		</div>
 	</div>
