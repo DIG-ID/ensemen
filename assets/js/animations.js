@@ -405,6 +405,12 @@ function initPinnedReveal() {
  *   [data-meals-card]      — each card wrapper
  *   .card-meal__img img    — the image to slide
  */
+const MEALS_CONFIG = {
+  desktop: { start: 'top 70%', stagger: 0 },
+  tablet:  { start: 'top 85%', stagger: 0 },
+  mobile:  { start: 'top 85%', stagger: 0 },
+};
+
 function initMealsReveal() {
   // Each grid wrapper has its own cumulative delay so the mobile/desktop and
   // tablet layouts (rendered as separate DOMs and toggled via responsive
@@ -412,49 +418,65 @@ function initMealsReveal() {
   const grids = document.querySelectorAll('[data-meals-grid]');
   if (!grids.length) return;
 
+  // Initial states — applied once, regardless of breakpoint
   grids.forEach((grid) => {
     const cards = grid.querySelectorAll('[data-meals-card]');
-    // Per-grid stagger override via data-meals-stagger (defaults to 0.3s)
-    const stagger = parseFloat(grid.getAttribute('data-meals-stagger')) || 0.3;
-
-    cards.forEach((card, index) => {
+    cards.forEach((card) => {
       const imgContainer = card.querySelector('.card-meal__img');
       const img = imgContainer ? imgContainer.querySelector('img') : null;
       if (!img || !imgContainer) return;
-
-      // Initial states — image hidden above the container, gradient overlay invisible
       gsap.set(img, { yPercent: -100 });
       gsap.set(imgContainer, { '--overlay-opacity': 0 });
-
-      // Per-card delay override via data-meals-delay; otherwise cumulative cascade
-      const delayAttr = card.getAttribute('data-meals-delay');
-      const delay = delayAttr !== null ? parseFloat(delayAttr) : index * stagger;
-
-      const tl = gsap.timeline({
-        delay: delay,
-        scrollTrigger: {
-          trigger: card,
-          start: 'top 70%',
-          // Slide down on scroll down, slide back up on scroll up
-          toggleActions: 'play none none reverse',
-        },
-      });
-
-      // 1. Slide image down into the bordered container
-      tl.to(img, {
-        yPercent: 0,
-        duration: 1.8,
-        ease: 'power3.out',
-      });
-
-      // 2. After the image has settled, fade in the bottom gradient overlay
-      tl.to(imgContainer, {
-        '--overlay-opacity': 1,
-        duration: 1.4,
-        ease: 'power2.out',
-      });
     });
   });
+
+  const buildTriggers = (cfg) => {
+    grids.forEach((grid) => {
+      const cards = grid.querySelectorAll('[data-meals-card]');
+      // Per-grid stagger override via data-meals-stagger; falls back to config
+      const staggerAttr = parseFloat(grid.getAttribute('data-meals-stagger'));
+      const stagger = !isNaN(staggerAttr) ? staggerAttr : cfg.stagger;
+
+      cards.forEach((card, index) => {
+        const imgContainer = card.querySelector('.card-meal__img');
+        const img = imgContainer ? imgContainer.querySelector('img') : null;
+        if (!img || !imgContainer) return;
+
+        // Per-card delay override via data-meals-delay; otherwise cumulative cascade
+        const delayAttr = card.getAttribute('data-meals-delay');
+        const delay = delayAttr !== null ? parseFloat(delayAttr) : index * stagger;
+
+        const tl = gsap.timeline({
+          delay: delay,
+          scrollTrigger: {
+            trigger: card,
+            start: cfg.start,
+            // Slide down on scroll down, slide back up on scroll up
+            toggleActions: 'play none none reverse',
+          },
+        });
+
+        // 1. Slide image down into the bordered container
+        tl.to(img, {
+          yPercent: 0,
+          duration: 1.8,
+          ease: 'power3.out',
+        });
+
+        // 2. After the image has settled, fade in the bottom gradient overlay
+        tl.to(imgContainer, {
+          '--overlay-opacity': 1,
+          duration: 1.4,
+          ease: 'power2.out',
+        });
+      });
+    });
+  };
+
+  const mm = gsap.matchMedia();
+  mm.add('(min-width: 1280px)', () => buildTriggers(MEALS_CONFIG.desktop));
+  mm.add('(min-width: 768px) and (max-width: 1279px)', () => buildTriggers(MEALS_CONFIG.tablet));
+  mm.add('(max-width: 767px)', () => buildTriggers(MEALS_CONFIG.mobile));
 }
 
 /**
@@ -621,9 +643,9 @@ function initPresentationDraw() {
  *   [data-reveal-desc]     — description
  */
 const WEEKLY_CONFIG = {
-  desktop: { start: 'top 80%', borderDuration: 1.2 },
-  tablet:  { start: 'top 85%', borderDuration: 1.0 },
-  mobile:  { start: 'top 90%', borderDuration: 0.9 },
+  desktop: { start: 'top 80%', borderDuration: 0.9 },
+  tablet:  { start: 'top 80%', borderDuration: 0.75 },
+  mobile:  { start: 'top 60%', borderDuration: 0.7 },
 };
 
 function initWeeklyReveal() {
@@ -667,9 +689,9 @@ function initWeeklyReveal() {
         autoAlpha: 1,
         y: 0,
         filter: 'blur(0px)',
-        duration: 1.2,
+        duration: 0.9,
         ease: 'power3.out',
-      }, '-=0.6');
+      }, '-=0.45');
     }
 
     // 3. Description
@@ -678,9 +700,9 @@ function initWeeklyReveal() {
         autoAlpha: 1,
         y: 0,
         filter: 'blur(0px)',
-        duration: 1.2,
+        duration: 0.9,
         ease: 'power3.out',
-      }, '-=0.9');
+      }, '-=0.7');
     }
   };
 
