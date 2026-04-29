@@ -647,7 +647,7 @@ function initPresentationDraw() {
 const WEEKLY_CONFIG = {
   desktop: { start: 'top 80%', borderDuration: 0.9 },
   tablet:  { start: 'top 80%', borderDuration: 0.75 },
-  mobile:  { start: 'top 60%', borderDuration: 0.7 },
+  mobile:  { start: 'top 70%', borderDuration: 0.7 },
 };
 
 function initWeeklyReveal() {

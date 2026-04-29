@@ -30,8 +30,9 @@ if ( isset( $menu_locations['footer-menu'] ) && $menu_locations['footer-menu'] )
 }
 
 $copyright_positions = array(
-	0 => 'md:col-start-4 md:col-span-2 xl:col-start-9 xl:col-span-1',
-	1 => 'md:col-start-6 md:col-span-1 xl:col-start-11 xl:col-span-1',
+	0 => 'xl:col-start-7 xl:col-span-1',
+	1 => 'xl:col-start-9 xl:col-span-1',
+	2 => 'xl:col-start-11 xl:col-span-2',
 );
 ?>
 
@@ -155,19 +156,21 @@ $copyright_positions = array(
 
 	<div class="footer-main__copyright bg-wine py-5 md:py-6">
 		<div class="theme-container">
-			<div class="theme-grid items-center gap-y-3 md:gap-y-0 text-sand">
-				<p class="footer-main__copyright-text copyright col-span-2 text-center md:text-left md:col-start-1 md:col-span-3 xl:col-start-2 xl:col-span-2">
+			<div class="theme-grid items-center gap-y-3 md:gap-y-3 xl:gap-y-0 text-sand">
+				<p class="footer-main__copyright-text copyright col-span-2 text-center md:col-start-1 md:col-span-6 xl:col-start-2 xl:col-span-2 xl:text-left">
 					&copy;<?php echo esc_html( gmdate( 'Y' ) ); ?> <?php bloginfo( 'name' ); ?>. <?php esc_html_e( 'All rights reserved', 'ensemen' ); ?>
 				</p>
 
 				<?php if ( ! empty( $footer_menu_items ) ) : ?>
-					<?php foreach ( $footer_menu_items as $i => $item ) : ?>
-						<?php $position = $copyright_positions[ $i ] ?? ''; ?>
+					<div class="col-span-2 md:col-span-6 flex justify-between items-center gap-x-3 xl:contents">
+						<?php foreach ( $footer_menu_items as $i => $item ) : ?>
+							<?php $position = $copyright_positions[ $i ] ?? ''; ?>
 
-						<a href="<?php echo esc_url( $item->url ); ?>" class="copyright col-span-1 <?php echo esc_attr( $position ); ?>">
-							<?php echo esc_html( $item->title ); ?>
-						</a>
-					<?php endforeach; ?>
+							<a href="<?php echo esc_url( $item->url ); ?>" class="copyright <?php echo esc_attr( $position ); ?>">
+								<?php echo esc_html( $item->title ); ?>
+							</a>
+						<?php endforeach; ?>
+					</div>
 				<?php endif; ?>
 			</div>
 		</div>
