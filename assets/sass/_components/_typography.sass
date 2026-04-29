@@ -20,7 +20,10 @@ a
     @apply font-openSans xl:text-[2.5rem] font-normal xl:leading-[3.75rem] tracking-[0.03125rem]
 
 .body-small
-    @apply font-openSans text-[1.25rem] font-normal leading-[2rem] tracking-[0.03125rem]
+    @apply font-openSans text-[15px] md:text-[18px] xl:text-[1.25rem] font-normal leading-[25px] md:leading-[30px] xl:leading-[2rem] tracking-[0.03125rem]
+
+.body-small-bold
+    @apply font-openSans text-[15px] md:text-[18px] xl:text-[1.25rem] font-bold leading-[25px] md:leading-[30px] xl:leading-[2rem] tracking-[0.03125rem]
 
 .body-menu
     @apply font-openSans text-[0.8125rem] font-bold leading-[2rem] tracking-[0.03125rem] uppercase
@@ -29,10 +32,10 @@ a
     @apply font-openSans text-[0.9375rem] font-bold leading-[2rem] tracking-[0.03125rem] uppercase
 
 .footer-title
-    @apply font-openSans text-[1.25rem] font-bold leading-[2rem] tracking-[0.03125rem]
+    @extend .body-small-bold
 
 .footer-content
-    @apply font-openSans text-[1.25rem] font-normal leading-[2rem] tracking-[0.03125rem]
+    @extend .body-small
 
 .copyright
     @apply font-openSans text-[0.75rem] font-semibold leading-[1.5] tracking-[-0.015rem]
