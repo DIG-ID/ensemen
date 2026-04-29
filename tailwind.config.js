@@ -15,8 +15,8 @@ module.exports = {
   ],
   theme: {
     fontFamily: {
-      bodoni: ['bodoni-moda', 'serif'],
-      openSans: ['openSans', 'sans-serif'],
+      bodoni: ['bodoni-std', 'sans-serif'],
+      openSans: ['open-sans', 'sans-serif'],
     },
 
     extend: {

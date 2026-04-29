@@ -145,7 +145,11 @@ function initReservationButtons() {
 }
 
 function initFooterButtons() {
-	initAnimatedButton( '.btn-footer', '#874644' );
+    if ( window.matchMedia( '(min-width: 1280px)' ).matches ) {
+        initAnimatedButton( '.btn-footer', '#874644' );
+    } else {
+        initAnimatedButton( '.btn-footer', '#874644', '#874644', true );
+    }
 }
 
 export { initPrimaryButtons, initPrimaryButtonsReversed, initFormButtons, initHeaderButtons, initReservationButtons, initFooterButtons };
