@@ -1,0 +1,27 @@
+// =============================================================================
+// Copyright page template
+// =============================================================================
+
+// Page title — Bodoni italic, scales 70 → 80 → 120
+.section-copyright
+  &__title
+    @apply font-bodoni italic text-off-white tracking-[1px] text-[70px] leading-[60px] md:text-[80px] md:leading-[90px] xl:text-[120px] xl:leading-[110px]
+
+// ACF content blocks (Inhaber / Contact / Credits)
+.copyright-block
+  @apply text-off-white
+
+  &__title
+    @apply font-bodoni text-[2.8125rem] leading-[2.8125rem] md:text-[3.125rem] md:leading-[3.125rem] xl:text-[3.75rem] xl:leading-[4.375rem] tracking-[0.0625rem] italic mb-6 md:mb-8 xl:mb-12
+  &__content
+    @apply font-openSans text-base leading-6 xl:text-xl xl:leading-8 tracking-[0.0313rem]
+    p
+      @apply font-openSans text-base leading-6 xl:text-xl xl:leading-8 tracking-[0.0313rem] mb-4 last-of-type:mb-0
+    ul
+      @apply list-disc pl-5 mb-4
+      li
+        @apply font-openSans text-base leading-6 xl:text-xl xl:leading-8 tracking-[0.0313rem] mb-2 ml-4
+    a
+      @apply underline transition-all duration-300 ease-in-out
+      &:hover
+        @apply opacity-70
