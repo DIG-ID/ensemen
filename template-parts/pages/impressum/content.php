@@ -21,12 +21,12 @@
 			</div>
 
 			<div class="impressum-block col-start-2 col-span-1 md:col-start-4 md:col-span-3 xl:col-start-8 xl:col-span-5">
-				<h2 class="impressum-block__title"><?php the_field( 'phone_title' ); ?></h2>
-				<p class="impressum-block__value"><?php the_field( 'phone_value' ); ?></p>
+				<h2 class="impressum-block__title"><?php the_field( 'contact_phone_title' ); ?></h2>
+				<p class="impressum-block__value"><?php the_field( 'contact_phone_value' ); ?></p>
 
-				<h2 class="impressum-block__title impressum-block__title--spaced"><?php the_field( 'email_title' ); ?></h2>
+				<h2 class="impressum-block__title impressum-block__title--spaced"><?php the_field( 'contact_email_title' ); ?></h2>
 				<p class="impressum-block__value">
-					<a href="mailto:<?php the_field( 'email_value' ); ?>"><?php the_field( 'email_value' ); ?></a>
+					<a href="mailto:<?php the_field( 'contact_email_value' ); ?>"><?php the_field( 'contact_email_value' ); ?></a>
 				</p>
 			</div>
 
