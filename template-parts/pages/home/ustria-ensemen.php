@@ -34,7 +34,7 @@ $ue_photo             = get_field( 'ustria_ensemen_photo' );
 				<?php endif; ?>
 			</div>
 
-			<div class="col-span-1 md:col-start-5 md:col-span-2md:pt-10 xl:hidden">
+			<div class="col-span-1 md:col-start-5 md:col-span-2 md:pt-10 xl:hidden">
 				<h2 class="title-main italic text-off-white"><?php the_field( 'ustria_ensemen_title_2' ); ?></h2>
 			</div>
 

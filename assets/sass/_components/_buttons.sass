@@ -57,6 +57,12 @@
 .btn-footer
   @apply relative inline-block px-[26px] py-2 bg-transparent text-wine border-none rounded font-openSans text-[20px] font-bold leading-8 tracking-[0.5px] text-center normal-case no-underline whitespace-nowrap
 
+// Visual-only "fake" button — same visual as btn-footer, line drawn permanently,
+// no hover handlers (used for decorative labels like the coming-soon section).
+.btn-coming-soon
+  @apply relative block w-full px-[26px] py-6 md:py-8 xl:py-12 bg-transparent text-wine border-none rounded font-bodoni text-[25px] md:text-[35px] xl:text-[50px] italic leading-8 tracking-[0.5px] text-center
+
+
 
 .btn-primary--reversed
   // Border is rendered by the SVG path injected via JS (initPrimaryButtons).

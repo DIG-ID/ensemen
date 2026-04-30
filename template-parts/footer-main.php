@@ -31,7 +31,7 @@ if ( isset( $menu_locations['footer-menu'] ) && $menu_locations['footer-menu'] )
 
 $copyright_positions = array(
 	0 => 'xl:col-start-7 xl:col-span-1',
-	1 => 'xl:col-start-9 xl:col-span-1',
+	1 => 'xl:col-start-9 xl:col-span-1 pl-6 md:pl-9 xl:pl-0',
 	2 => 'xl:col-start-11 xl:col-span-2',
 );
 ?>
