@@ -19,15 +19,6 @@
     padding: 10px 8px
     white-space: nowrap
 
-.btn-form
-  @apply px-9 py-1 bg-transparent text-wine border-none rounded text-[13px] font-bold font-openSans
-  transition: background-color 2.5s cubic-bezier(0.16, 1, 0.3, 1), color 2.5s cubic-bezier(0.16, 1, 0.3, 1)
-  svg path
-    stroke-width: 4
-  &:active
-    @apply text-wine
-    transition: background-color 1.5s cubic-bezier(0.16, 1, 0.3, 1), color 1.5s cubic-bezier(0.16, 1, 0.3, 1)
-
 .btn-header
   @apply px-4 py-0.5 bg-transparent text-off-white border-none rounded text-[13px] font-bold whitespace-nowrap
   transition: background-color 2.5s cubic-bezier(0.16, 1, 0.3, 1), color 2.5s cubic-bezier(0.16, 1, 0.3, 1)
@@ -55,12 +46,12 @@
       line-height: 1
 
 .btn-footer
-  @apply relative inline-block px-[26px] py-2 bg-transparent text-wine border-none rounded font-openSans text-[20px] font-bold leading-8 tracking-[0.5px] text-center normal-case no-underline whitespace-nowrap
+  @apply relative inline-block px-[26px] py-12 bg-transparent text-wine border-none rounded font-bodoni text-[50px] italic leading-8 tracking-[0.5px] text-center
 
 // Visual-only "fake" button — same visual as btn-footer, line drawn permanently,
 // no hover handlers (used for decorative labels like the coming-soon section).
 .btn-coming-soon
-  @apply relative block w-full px-[26px] py-6 md:py-8 xl:py-12 bg-transparent text-wine border-none rounded font-bodoni text-[25px] md:text-[35px] xl:text-[50px] italic leading-8 tracking-[0.5px] text-center
+  @apply relative block w-full px-[26px] xl:px-0 py-6 md:py-8 xl:py-10 bg-transparent text-wine border-none rounded font-bodoni text-[30px] md:text-[35px] xl:text-[40px] italic leading-8 tracking-[0.5px] text-center
 
 
 
