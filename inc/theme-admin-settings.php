@@ -63,8 +63,8 @@ function ensemen_login_logo() {
 		background-size: contain !important;
 		background-position: center !important;
 		background-repeat: no-repeat !important;
-		width: 400px !important;
-		height: 140px !important;
+		width: 300px !important;
+		height: 105px !important;
 	}
 	</style>';
 }
