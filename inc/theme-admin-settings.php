@@ -60,6 +60,11 @@ function ensemen_login_logo() {
 	echo '<style type="text/css">
 	h1 a {
 		background-image: url(' . esc_url( get_template_directory_uri() ) . '/assets/svg/logo.svg) !important;
+		background-size: contain !important;
+		background-position: center !important;
+		background-repeat: no-repeat !important;
+		width: 400px !important;
+		height: 140px !important;
 	}
 	</style>';
 }
