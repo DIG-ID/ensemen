@@ -30,7 +30,7 @@
           ?>
       </div>
       <div class="col-start-1 col-span-2 md:col-start-4 md:col-span-3 xl:col-start-7 xl:col-span-6">
-        <h2 class="over-title text-off-white pt-8 pb-2.5 md:pt-0 md:pb-2.5"><?php the_field( 'hero_over-title' ); ?></h2>
+        <p class="over-title text-off-white pt-8 pb-2.5 md:pt-0 md:pb-2.5"><?php the_field( 'hero_over-title' ); ?></p>
         <h1 class="title-big text-off-white pb-14 md:pb-24 xl:pb-36"><?php the_field( 'hero_title' ); ?></h1>
         <div class="flex flex-col gap-y-7 xl:grid xl:grid-cols-6 xl:gap-x-5 xl:gap-y-0">
           <div class="w-full col-span-2 md:col-start-1 md:col-span-4 xl:col-start-1 xl:col-span-2">
