@@ -31,7 +31,7 @@
 						</a>
 					<?php endif; ?>
 			</div>
-			<div class="col-span-2 md:col-start-3 md:col-span-2 xl:col-start-6 ">
+			<div class="col-span-2 md:col-start-3 md:col-span-2 xl:col-start-6 text-center">
 				<?php
 					$btn_primary = get_field( 'weekly_button_2' );
 					if ( $btn_primary ) :
@@ -44,7 +44,7 @@
 						</a>
 					<?php endif; ?>
 			</div>
-			<div class="col-span-2 md:col-start-3 md:col-span-2 xl:col-start-8 ">
+			<div class="col-span-2 md:col-start-3 md:col-span-2 xl:col-start-8 text-center">
 				<?php
 					$btn_primary = get_field( 'weekly_button_3' );
 					if ( $btn_primary ) :
