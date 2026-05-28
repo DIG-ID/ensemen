@@ -12,7 +12,7 @@
 	<div class="section-weekly__border" data-reveal-border>
 		<div class="pt-16 pb-12 md:py-20 xl:py-40 text-center">
 			<?php if ( get_field( 'weekly_title' ) ) : ?>
-				<h3 class="title-secondary text-wine max-w-[295px] md:max-w-[587px] xl:max-w-none mx-auto" data-reveal-title><?php the_field( 'weekly_title' ); ?></h3>
+				<h3 class="title-secondary text-wine md:max-w-[587px] xl:max-w-none mx-auto" data-reveal-title><?php the_field( 'weekly_title' ); ?></h3>
 			<?php endif; ?>
 			<?php if ( get_field( 'weekly_description' ) ) : ?>
 				<p class="text-wine font-openSans text-[18px] leading-[30px] tracking-[0.5px] pt-[30px] max-w-[292px] md:max-w-[460px] xl:max-w-[400px] mx-auto" data-reveal-desc><?php the_field( 'weekly_description' ); ?></p>
