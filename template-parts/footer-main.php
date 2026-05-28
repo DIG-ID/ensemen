@@ -91,7 +91,7 @@ $copyright_positions = array(
 				<?php endif; ?>
 
 				<?php if ( $parkplatze ) : ?>
-					<div class="footer-main__parkplatze col-span-2 pt-[50px] text-center order-last md:order-none md:text-left md:pt-[60px] md:col-start-5 md:col-span-2 xl:hidden">
+					<div class="footer-main__parkplatze col-span-2 pt-[50px] text-center md:text-left md:pt-[60px] md:col-start-5 md:col-span-2 xl:hidden">
 						<h3 class="footer-title pb-10"><?php esc_html_e( 'Parkplätze', 'ensemen' ); ?></h3>
 						<div class="footer-content"><?php echo wp_kses_post( wpautop( $parkplatze ) ); ?></div>
 					</div>
