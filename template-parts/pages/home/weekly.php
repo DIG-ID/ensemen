@@ -26,7 +26,7 @@
 						$btn_title  = $btn_primary['title'];
 						$btn_target = $btn_primary['target'] ?: '_self';
 						?>
-						<a href="<?php echo esc_url( $btn_url ); ?>" target="<?php echo esc_attr( $btn_target ); ?>" class="btn btn-weekly px-5 md:px-0 max-w-72 md:max-w-none w-full md:w-auto">
+						<a href="<?php echo esc_url( $btn_url ); ?>" target="<?php echo esc_attr( $btn_target ); ?>" class="btn btn-weekly px-5 md:px-0 max-w-72 md:max-w-none w-full md:w-auto mx-auto md:mx-0">
 							<?php echo $btn_title; ?>
 						</a>
 					<?php endif; ?>
@@ -39,7 +39,7 @@
 						$btn_title  = $btn_primary['title'];
 						$btn_target = $btn_primary['target'] ?: '_self';
 						?>
-						<a href="<?php echo esc_url( $btn_url ); ?>" target="<?php echo esc_attr( $btn_target ); ?>" class="btn btn btn-weekly max-w-72 md:max-w-none w-full md:w-auto">
+						<a href="<?php echo esc_url( $btn_url ); ?>" target="<?php echo esc_attr( $btn_target ); ?>" class="btn btn btn-weekly max-w-72 md:max-w-none w-full md:w-auto mx-auto md:mx-0">
 							<?php echo $btn_title; ?>
 						</a>
 					<?php endif; ?>
@@ -52,7 +52,7 @@
 						$btn_title  = $btn_primary['title'];
 						$btn_target = $btn_primary['target'] ?: '_self';
 						?>
-						<a href="<?php echo esc_url( $btn_url ); ?>" target="<?php echo esc_attr( $btn_target ); ?>" class="btn btn btn-weekly max-w-72 md:max-w-none w-full md:w-auto">
+						<a href="<?php echo esc_url( $btn_url ); ?>" target="<?php echo esc_attr( $btn_target ); ?>" class="btn btn btn-weekly max-w-72 md:max-w-none w-full md:w-auto mx-auto md:mx-0">
 							<?php echo $btn_title; ?>
 						</a>
 					<?php endif; ?>
