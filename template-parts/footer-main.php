@@ -14,6 +14,7 @@ $phone         = $general['phone'] ?? '';
 $email         = $general['email'] ?? '';
 $address       = $general['address'] ?? '';
 $opening_hours = $general['opening_hours'] ?? '';
+$parkplatze    = $general['parkplatze'] ?? '';
 $newsletter    = $general['newsletter'] ?? array();
 
 $menu_locations = get_nav_menu_locations();
@@ -89,6 +90,13 @@ $copyright_positions = array(
 					</div>
 				<?php endif; ?>
 
+				<?php if ( $parkplatze ) : ?>
+					<div class="footer-main__parkplatze col-span-2 pt-[50px] text-center order-last md:order-none md:text-left md:pt-[60px] md:col-start-5 md:col-span-2 xl:hidden">
+						<h3 class="footer-title pb-10"><?php esc_html_e( 'Parkplätze', 'ensemen' ); ?></h3>
+						<div class="footer-content"><?php echo wp_kses_post( wpautop( $parkplatze ) ); ?></div>
+					</div>
+				<?php endif; ?>
+
 				<?php if ( ! empty( $menu_items ) ) : ?>
 					<nav class="footer-main__nav col-span-2 pt-[50px] md:pt-[60px] grid grid-cols-1 gap-y-[22px] md:col-span-6 md:flex md:flex-row md:justify-between md:gap-4 xl:hidden" aria-label="<?php esc_attr_e( 'Footer menu', 'ensemen' ); ?>">
 						<?php foreach ( $menu_items as $item ) : ?>
@@ -128,6 +136,13 @@ $copyright_positions = array(
 
 					<?php if ( $address ) : ?>
 						<div class="footer-content"><?php echo wp_kses_post( wpautop( $address ) ); ?></div>
+					<?php endif; ?>
+
+					<?php if ( $parkplatze ) : ?>
+						<div class="footer-main__parkplatze xl:pt-28">
+							<h3 class="footer-title pb-10"><?php esc_html_e( 'Parkplätze', 'ensemen' ); ?></h3>
+							<div class="footer-content"><?php echo wp_kses_post( wpautop( $parkplatze ) ); ?></div>
+						</div>
 					<?php endif; ?>
 				</div>
 
