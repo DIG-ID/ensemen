@@ -167,7 +167,7 @@ function initFooterButtons() {
  * leave, matching btn-footer reverse mode.
  */
 function initStaticBorders() {
-	document.querySelectorAll( '.btn-coming-soon' ).forEach( ( el ) => {
+	document.querySelectorAll( '.btn-weekly' ).forEach( ( el ) => {
 		const { path, measure } = createBorderSvg( el, '#874644' );
 
 		let length = measure();

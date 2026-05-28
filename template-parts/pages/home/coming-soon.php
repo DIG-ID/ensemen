@@ -22,7 +22,7 @@
                 <p class="text-wine font-openSans text-[18px] leading-8 tracking-[0.5px]"><?php the_field( 'coming_soon_description' ); ?></p>
             </div>
 
-            <div class="btn-coming-soon col-span-2 md:col-start-2 md:col-span-4 xl:col-start-5 xl:col-span-4">
+            <div class="btn-weekly col-span-2 md:col-start-2 md:col-span-4 xl:col-start-5 xl:col-span-4">
                 <?php the_field( 'coming_soon_button_text' ); ?>
             </div>
 
