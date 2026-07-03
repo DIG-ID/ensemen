@@ -32,3 +32,6 @@ require get_template_directory() . '/inc/helpers.php';
 
 // Performance optimizations.
 require get_template_directory() . '/inc/performance.php';
+
+// Security optimizations.
+require get_template_directory() . '/inc/security.php';
