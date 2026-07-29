@@ -7,6 +7,30 @@
  * @since 1.0.0
  */
 
+// Drop any button left empty in ACF and re-index, so the grid positions below
+// always apply from the first rendered button onwards — an unused field leaves
+// no empty row behind, it just shortens the stack.
+$celebrate_buttons = array_values(
+	array_filter(
+		array(
+			get_field( 'celebrate_button' ),
+			get_field( 'celebrate_button_catering' ),
+			get_field( 'celebrate_button_festive' ),
+		),
+		static function ( $celebrate_button ) {
+			return ! empty( $celebrate_button['url'] );
+		}
+	)
+);
+
+// Every button spans 2 grid columns. Mobile: full width, stacked. Tablet: cols 4-5,
+// stacked. Desktop: the first sits alone on cols 8-9, the other two share the next
+// row on cols 8-9 and 10-11.
+$celebrate_buttons_grid = array(
+	'md:col-start-4 xl:col-start-8',
+	'md:col-start-4 xl:col-start-8',
+	'md:col-start-4 xl:col-start-10',
+);
 ?>
 <section id="section-celebrate" class="section-celebrate bg-brown pt-12 pb-12 md:pt-24 md:pb-24 xl:pt-52 xl:pb-52">
 	<div class="theme-container">
@@ -96,37 +120,27 @@
 					</ul>
 				<?php endif; ?>
 				
+				
 				<div class="celebrate-wrapper__bottom hidden xl:block">
-					<p class="text-off-white font-openSans text-[18px] leading-[30px] tracking-[0.5px] xl:max-w-[594px] mt-1 xl:mt-10 mb-11 xl:mb-16"><?php the_field( 'celebrate_description' ); ?></p>
+					<p class="text-off-white font-openSans text-[18px] leading-[30px] tracking-[0.5px] xl:max-w-[594px] mt-1 xl:mt-10 xl:mb-16"><?php the_field( 'celebrate_description' ); ?></p>
+				</div>
 
-					<?php
-					$btn_primary = get_field( 'celebrate_button' );
-					if ( $btn_primary ) :
-						$btn_url    = $btn_primary['url'];
-						$btn_title  = $btn_primary['title'];
-						$btn_target = $btn_primary['target'] ?: '_self';
-						?>
-						<a href="<?php echo esc_url( $btn_url ); ?>" target="<?php echo esc_attr( $btn_target ); ?>" class="btn btn-primary w-full md:w-auto">
-							<?php echo $btn_title; ?>
-						</a>
-					<?php endif; ?>
-					</div>
 			</div>
 
 			<div class="col-span-2 md:col-span-6 block xl:hidden">
-				<p class="text-off-white font-openSans text-[18px] leading-[30px] tracking-[0.5px] xl:max-w-[594px] mt-1 xl:mt-10 mb-11 xl:mb-16"><?php the_field( 'celebrate_description' ); ?></p>
-				<?php
-				$btn_primary = get_field( 'celebrate_button' );
-				if ( $btn_primary ) :
-					$btn_url    = $btn_primary['url'];
-					$btn_title  = $btn_primary['title'];
-					$btn_target = $btn_primary['target'] ?: '_self';
-					?>
-					<a href="<?php echo esc_url( $btn_url ); ?>" target="<?php echo esc_attr( $btn_target ); ?>" class="btn btn-primary w-full md:w-auto">
-						<?php echo $btn_title; ?>
-					</a>
-				<?php endif; ?>
+				<p class="text-off-white font-openSans text-[18px] leading-[30px] tracking-[0.5px] mt-1 md:mb-11"><?php the_field( 'celebrate_description' ); ?></p>
 			</div>
+
+			<?php if ( $celebrate_buttons ) : ?>
+				<?php // Nested theme-grid spans the full width, so its columns match the main grid's exactly. ?>
+				<div class="celebrate-buttons theme-grid col-span-2 md:col-span-6 xl:col-span-12 gap-y-5 xl:gap-y-10">
+					<?php foreach ( $celebrate_buttons as $index => $celebrate_button ) : ?>
+						<a href="<?php echo esc_url( $celebrate_button['url'] ); ?>" target="<?php echo esc_attr( $celebrate_button['target'] ?: '_self' ); ?>" class="btn btn-primary col-span-2 <?php echo esc_attr( $celebrate_buttons_grid[ $index ] ?? '' ); ?>">
+							<?php echo esc_html( $celebrate_button['title'] ); ?>
+						</a>
+					<?php endforeach; ?>
+				</div>
+			<?php endif; ?>
 
 		</div>
 	</div>

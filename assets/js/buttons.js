@@ -33,6 +33,10 @@ function buildBorderPath( w, h, r ) {
 function createBorderSvg( el, strokeColor ) {
 	const svg = document.createElementNS( SVG_NS, 'svg' );
 	svg.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;overflow:visible;';
+	// Without this, a viewBox that no longer matches the element is scaled
+	// uniformly and centred, so a stale path floats inside the button instead of
+	// hugging its edges. Stretching is the far less broken fallback.
+	svg.setAttribute( 'preserveAspectRatio', 'none' );
 
 	const path = document.createElementNS( SVG_NS, 'path' );
 	path.setAttribute( 'fill', 'none' );
@@ -69,16 +73,32 @@ function initAnimatedButton( selector, strokeColor, pressedStrokeColor = null, r
 		const { path, measure } = createBorderSvg( btn, strokeColor );
 
 		let anim = null;
+		let hovered = false;
 
-		if ( reverse ) {
-			// Reverse mode — draw the line immediately so it's visible by default.
-			// Re-measure after layout settles (fonts, images) to keep the path accurate.
-			const apply = () => {
-				const length = measure();
-				gsap.set( path, { strokeDasharray: length, strokeDashoffset: 0 } );
-			};
-			apply();
-			window.addEventListener( 'load', apply );
+		// Resting state: reverse mode shows the line, default mode hides it until hover.
+		const apply = () => {
+			const length = measure();
+			gsap.set( path, { strokeDasharray: length, strokeDashoffset: reverse ? 0 : length } );
+		};
+
+		apply();
+		// Layout can still settle after this (web fonts swapping in, images loading).
+		window.addEventListener( 'load', apply );
+
+		// Re-measure whenever the button's box changes — a viewport resize or a
+		// label re-wrapping onto a second line both leave the path stale otherwise.
+		if ( window.ResizeObserver ) {
+			let initialised = false;
+			new ResizeObserver( () => {
+				// Skip the observer's initial callback; apply() already ran above.
+				if ( ! initialised ) {
+					initialised = true;
+					return;
+				}
+				// Never fight an in-flight hover animation.
+				if ( hovered || ( anim && anim.isActive() ) ) return;
+				apply();
+			} ).observe( btn );
 		}
 
 		if ( pressedStrokeColor ) {
@@ -88,6 +108,7 @@ function initAnimatedButton( selector, strokeColor, pressedStrokeColor = null, r
 		}
 
 		btn.addEventListener( 'mouseenter', () => {
+			hovered = true;
 			const length = measure();
 
 			if ( anim ) anim.kill();
@@ -110,6 +131,7 @@ function initAnimatedButton( selector, strokeColor, pressedStrokeColor = null, r
 		} );
 
 		btn.addEventListener( 'mouseleave', () => {
+			hovered = false;
 			if ( anim ) anim.kill();
 
 			if ( reverse ) {

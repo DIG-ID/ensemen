@@ -120,6 +120,20 @@
       font-size: 60px
       line-height: 45px
 
+// Celebrate CTAs
+//
+// These buttons take their width from the grid (2 columns), not from their
+// content, so btn-primary's 36px side padding only serves to squeeze the label:
+// a 2-column track is ~200px at tablet and ~207px at 1440px, and "Catering
+// Angebot" needs ~165px — it wraps as soon as 72px goes to padding. Labels are
+// centred in a fixed-width track, so trimming the padding costs nothing
+// visually and buys the room needed to stay on one line.
+.celebrate-buttons
+  .btn-primary
+    padding-left: 12px
+    padding-right: 12px
+    text-align: center
+
 // Celebrate feature icons: smaller at mobile, larger at tablet+
 .celebrate-items__icon
   width: 42px

@@ -17,6 +17,14 @@ $opening_hours = $general['opening_hours'] ?? '';
 $parkplatze    = $general['parkplatze'] ?? '';
 $newsletter    = $general['newsletter'] ?? array();
 
+$instagram = $general['instagram'] ?? '';
+
+if ( is_array( $instagram ) ) {
+	$instagram = $instagram['url'] ?? '';
+}
+
+$instagram_icon = get_stylesheet_directory_uri() . '/assets/svg/instagram-2.svg';
+
 $menu_locations = get_nav_menu_locations();
 $menu_items     = array();
 
@@ -73,6 +81,14 @@ $copyright_positions = array(
 							<a href="mailto:<?php echo esc_attr( $email ); ?>"><?php echo esc_html( $email ); ?></a>
 						</p>
 					<?php endif; ?>
+
+					<?php if ( $instagram ) : ?>
+						<p class="footer-main__instagram pt-3">
+							<a href="<?php echo esc_url( $instagram ); ?>" target="_blank" rel="noopener noreferrer" class="inline-flex justify-center md:justify-start" aria-label="<?php esc_attr_e( 'Instagram', 'ensemen' ); ?>">
+								<img src="<?php echo esc_url( $instagram_icon ); ?>" width="21" height="21" alt="" aria-hidden="true" />
+							</a>
+						</p>
+					<?php endif; ?>
 				</div>
 
 				<div class="footer-main__adresse col-span-2 pt-[50px] text-center md:text-left md:pt-0 md:col-start-5 md:col-span-2 xl:hidden">
@@ -120,6 +136,14 @@ $copyright_positions = array(
 					<?php if ( $email ) : ?>
 						<p class="footer-content">
 							<a href="mailto:<?php echo esc_attr( $email ); ?>"><?php echo esc_html( $email ); ?></a>
+						</p>
+					<?php endif; ?>
+
+					<?php if ( $instagram ) : ?>
+						<p class="footer-main__instagram pt-3">
+							<a href="<?php echo esc_url( $instagram ); ?>" target="_blank" rel="noopener noreferrer" class="inline-flex" aria-label="<?php esc_attr_e( 'Instagram', 'ensemen' ); ?>">
+								<img src="<?php echo esc_url( $instagram_icon ); ?>" width="21" height="21" alt="" aria-hidden="true" />
+							</a>
 						</p>
 					<?php endif; ?>
 
