@@ -95,21 +95,21 @@ $copyright_positions = array(
 					<h3 class="footer-title pb-10"><?php esc_html_e( 'Adresse', 'ensemen' ); ?></h3>
 
 					<?php if ( $address ) : ?>
-						<div class="footer-content"><?php echo wp_kses_post( wpautop( $address ) ); ?></div>
+						<div class="footer-content"><?php echo force_balance_tags( wp_kses_post( wpautop( $address ) ) ); ?></div>
 					<?php endif; ?>
 				</div>
 
 				<?php if ( $opening_hours ) : ?>
 					<div class="footer-main__hours col-span-2 pt-[50px] text-center md:text-left md:pt-[60px] md:col-start-1 md:col-span-4 xl:hidden">
 						<h3 class="footer-title pb-10"><?php esc_html_e( 'Öffnungszeiten', 'ensemen' ); ?></h3>
-						<div class="footer-content"><?php echo wp_kses_post( wpautop( $opening_hours ) ); ?></div>
+						<div class="footer-content"><?php echo force_balance_tags( wp_kses_post( wpautop( $opening_hours ) ) ); ?></div>
 					</div>
 				<?php endif; ?>
 
 				<?php if ( $parkplatze ) : ?>
 					<div class="footer-main__parkplatze col-span-2 pt-[50px] text-center md:text-left md:pt-[60px] md:col-start-5 md:col-span-2 xl:hidden">
 						<h3 class="footer-title pb-10"><?php esc_html_e( 'Parkplätze', 'ensemen' ); ?></h3>
-						<div class="footer-content"><?php echo wp_kses_post( wpautop( $parkplatze ) ); ?></div>
+						<div class="footer-content"><?php echo force_balance_tags( wp_kses_post( wpautop( $parkplatze ) ) ); ?></div>
 					</div>
 				<?php endif; ?>
 
@@ -150,7 +150,7 @@ $copyright_positions = array(
 					<?php if ( $opening_hours ) : ?>
 						<div class="footer-main__hours xl:pt-28 xl:w-[calc(150%+10px)]">
 							<h3 class="footer-title pb-10"><?php esc_html_e( 'Öffnungszeiten', 'ensemen' ); ?></h3>
-							<div class="footer-content"><?php echo wp_kses_post( wpautop( $opening_hours ) ); ?></div>
+							<div class="footer-content"><?php echo force_balance_tags( wp_kses_post( wpautop( $opening_hours ) ) ); ?></div>
 						</div>
 					<?php endif; ?>
 				</div>
@@ -159,13 +159,13 @@ $copyright_positions = array(
 					<h3 class="footer-title pb-10"><?php esc_html_e( 'Adresse', 'ensemen' ); ?></h3>
 
 					<?php if ( $address ) : ?>
-						<div class="footer-content"><?php echo wp_kses_post( wpautop( $address ) ); ?></div>
+						<div class="footer-content"><?php echo force_balance_tags( wp_kses_post( wpautop( $address ) ) ); ?></div>
 					<?php endif; ?>
 
 					<?php if ( $parkplatze ) : ?>
 						<div class="footer-main__parkplatze xl:pt-28">
 							<h3 class="footer-title pb-10"><?php esc_html_e( 'Parkplätze', 'ensemen' ); ?></h3>
-							<div class="footer-content"><?php echo wp_kses_post( wpautop( $parkplatze ) ); ?></div>
+							<div class="footer-content"><?php echo force_balance_tags( wp_kses_post( wpautop( $parkplatze ) ) ); ?></div>
 						</div>
 					<?php endif; ?>
 				</div>
